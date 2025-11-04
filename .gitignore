@@ -1,1 +1,7 @@
 .venv
+.env
+
+# Rust build artifacts
+/target
+qdrant_uploader/target/
+**/*.rs.bk

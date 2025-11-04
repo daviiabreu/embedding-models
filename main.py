@@ -1,5 +1,7 @@
 from unstructured.partition.pdf import partition_pdf
 from unstructured.staging.base import elements_to_json
+from sentence_transformers import SentenceTransformer
+
 import json
 import re
 
@@ -254,6 +256,9 @@ def preprocess_for_embedding(json_file_path):
     
     return embedding_ready_chunks
 
+def chuncks_embedding(elemtents):
+    pass
+
 def main():
     try:
         # Step 1: Extract elements (only if JSON doesn't exist)
@@ -318,3 +323,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    # convert the document to markdown
+import pymupdf4llm
+md_text = pymupdf4llm.to_markdown("input.pdf")
+
+# Write the text to some file in UTF8-encoding
+import pathlib
+pathlib.Path("output.md").write_bytes(md_text.encode())
