@@ -100,7 +100,7 @@ def create_overlapping_chunks(processed_elements, chunk_size=500, chunk_overlap=
     print(f"Creating overlapping chunks with (size={chunk_size}, overlap={chunk_overlap})...")
     
     # 1. Instancia o Text Splitter.
-    # Ele tenta dividir o texto em separadores lógicos ("\n\n", "\n", " ", "")
+    # Tenta dividir o texto em separadores lógicos ("\n\n", "\n", " ", "")
     # para manter a coesão semântica.
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
@@ -180,7 +180,7 @@ def main():
             print("PDF extraction completed")
         
         # Step 2: Preprocess for embedding
-        print("Starting preprocessing pipeline...")
+        print("Inicializando pipeline...")
         embedding_chunks = preprocess_for_embedding(json_output_path)
         
         # Step 3: Save preprocessed chunks
@@ -191,29 +191,19 @@ def main():
         print(f"✅ Created {len(embedding_chunks)} chunks ready for embedding")
         print(f"✅ Saved chunks to: {chunks_output_path}")
         
-        # Step 4: Preview chunks
-        print("\n--- CHUNK PREVIEW ---")
-        for i, chunk in enumerate(embedding_chunks[:3]):
-            print(f"\n--- Chunk {i+1} ---")
-            print(f"ID: {chunk['id']}")
-            print(f"Content: {chunk['content'][:250]}...")
-            print(f"Content Length: {len(chunk['content'])}")
-            print(f"Section Context: {chunk['metadata'].get('section_context', 'N/A')}")
-            print(f"Page: {chunk['metadata'].get('page_number', 'N/A')}")
-        
         # Step 5: Show statistics
         print(f"\n--- STATISTICS ---")
         total_chars = sum(len(chunk['content']) for chunk in embedding_chunks)
         if embedding_chunks:
             avg_chunk_size = total_chars / len(embedding_chunks)
-            print(f"Total chunks: {len(embedding_chunks)}")
-            print(f"Total characters: {total_chars}")
-            print(f"Average chunk size: {avg_chunk_size:.1f} characters")
+            print(f"Total de chunks: {len(embedding_chunks)}")
+            print(f"Total de caracteres: {total_chars}")
+            print(f"Tamanho médio de chunks: {avg_chunk_size:.1f} caracteres")
         else:
-            print("No chunks were created.")
+            print("Nenhum chunk foi criado.")
         
     except Exception as e:
-        print(f"❌ Error in preprocessing pipeline: {str(e)}")
+        print(f"❌ Erro no processamento da pipeline: {str(e)}")
         import traceback
         traceback.print_exc()
 
