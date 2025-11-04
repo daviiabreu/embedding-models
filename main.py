@@ -141,7 +141,7 @@ def preprocess_for_embedding(json_file_path):
     with open(json_file_path, 'r', encoding='utf-8') as f:
         elements = json.load(f)
     
-    print(f"Loaded {len(elements)} elements from JSON")
+    print(f"Carregados {len(elements)} elementos do JSON")
     
     # Step 1: Limpeza e enriquecimento de metadados (nosso código customizado)
     processed_elements = preprocess_elements(elements)
@@ -170,14 +170,14 @@ def main():
         try:
             with open(json_output_path, 'r', encoding='utf-8') as f:
                 pass
-            print("JSON file already exists, skipping PDF extraction")
+            print("O arquivo JSON já existe, pulando etapa de extração.")
         except FileNotFoundError:
-            print("Extracting elements from PDF...")
+            print("Extraindo elementos do PDF...")
             elements = partition_pdf(filename=f"{file_path}/{base_file_name}.pdf", 
                          strategy="fast", 
                          ocr_languages="por")
             elements_to_json(elements=elements, filename=json_output_path)
-            print("PDF extraction completed")
+            print("Extração completa do PDF")
         
         # Step 2: Preprocess for embedding
         print("Inicializando pipeline...")
@@ -188,11 +188,11 @@ def main():
         with open(chunks_output_path, 'w', encoding='utf-8') as f:
             json.dump(embedding_chunks, f, ensure_ascii=False, indent=4) # Indent 4 para melhor leitura
         
-        print(f"✅ Created {len(embedding_chunks)} chunks ready for embedding")
-        print(f"✅ Saved chunks to: {chunks_output_path}")
+        print(f"✅ {len(embedding_chunks)} chunks estão prontos para o embedding")
+        print(f"✅ Chunks salvos em: {chunks_output_path}")
         
         # Step 5: Show statistics
-        print(f"\n--- STATISTICS ---")
+        print(f"\n--- ESTATÍSTICAS ---")
         total_chars = sum(len(chunk['content']) for chunk in embedding_chunks)
         if embedding_chunks:
             avg_chunk_size = total_chars / len(embedding_chunks)
