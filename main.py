@@ -2,7 +2,9 @@ from unstructured.partition.pdf import partition_pdf
 from unstructured.staging.base import elements_to_json
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
+from sentence_transformers import SentenceTransformer
 
+import numpy as np
 import json
 import re
 
@@ -260,6 +262,90 @@ def process_document_with_params(pdf_path, chunk_size=500, chunk_overlap=100, sk
         })
 
     return embedding_ready_chunks
+
+def generate_embeddings(chunks, model_name='sentence-transformers/all-MiniLM-L6-v2', normalize=True):
+    """
+    Gera embeddings para os chunks usando SentenceTransformers
+
+    Args:
+        chunks: Lista de chunks com formato {'id': str, 'content': str, 'metadata': dict}
+        model_name: Nome do modelo de embedding a ser usado
+        normalize: Se deve normalizar os embeddings
+
+    Returns:
+        Lista de chunks enriquecidos com embeddings
+    """
+    if not chunks:
+        print('❌ Nenhum chunk disponível para embedding.')
+        return []
+
+    print(f'🤖 Carregando modelo de embedding: {model_name}')
+    try:
+        model = SentenceTransformer(model_name)
+    except Exception as e:
+        print(f'❌ Erro ao carregar o modelo: {e}')
+        return chunks  # Retorna chunks sem embeddings se houver erro
+
+    # Extrair textos dos chunks
+    texts = [chunk['content'] for chunk in chunks]
+
+    print(f'🔄 Gerando embeddings para {len(texts)} chunks...')
+    try:
+        embeddings = model.encode(
+            texts,
+            batch_size=32,
+            show_progress_bar=True,
+            normalize_embeddings=normalize,
+            convert_to_tensor=False  # Retorna numpy arrays
+        )
+    except Exception as e:
+        print(f'❌ Erro ao gerar embeddings: {e}')
+        return chunks  # Retorna chunks sem embeddings se houver erro
+
+    # Enriquecer chunks com embeddings
+    chunks_with_embeddings = []
+    for chunk, vector in zip(chunks, embeddings):
+        enriched = dict(chunk)  # Copia o chunk original
+        enriched['embedding'] = vector.tolist()  # Converte numpy array para lista
+        enriched['embedding_model'] = model_name  # Adiciona info do modelo usado
+        enriched['embedding_dimension'] = len(vector)  # Adiciona dimensão do vetor
+        chunks_with_embeddings.append(enriched)
+
+    print(f'✅ Embeddings gerados para {len(chunks_with_embeddings)} chunks')
+    print(f'📏 Dimensão dos embeddings: {len(embeddings[0])}')
+
+    return chunks_with_embeddings
+
+def process_document_with_embeddings(pdf_path, chunk_size=500, chunk_overlap=100,
+                                   skip_summary=True, generate_embeddings_flag=True,
+                                   model_name='sentence-transformers/all-MiniLM-L6-v2'):
+    """
+    Pipeline completo: extração, chunking e embedding
+
+    Args:
+        pdf_path: Caminho para o arquivo PDF
+        chunk_size: Tamanho máximo do chunk
+        chunk_overlap: Sobreposição entre chunks
+        skip_summary: Se deve pular páginas de sumário
+        generate_embeddings_flag: Se deve gerar embeddings
+        model_name: Nome do modelo de embedding
+
+    Returns:
+        Lista de chunks com embeddings (se solicitado)
+    """
+    # Usar a função existente para processar o documento
+    chunks = process_document_with_params(
+        pdf_path=pdf_path,
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+        skip_summary=skip_summary
+    )
+
+    # Gerar embeddings se solicitado
+    if generate_embeddings_flag and chunks:
+        chunks = generate_embeddings(chunks, model_name=model_name)
+
+    return chunks
 
 def main():
     """

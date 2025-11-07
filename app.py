@@ -3,13 +3,13 @@ import os
 import json
 from datetime import datetime
 import traceback
-import matplotlib.pyplot as plt
 import numpy as np
 
-# Importar apenas as funções que existem no main.py
+# Importar as funções do main.py
 from main import (
     preprocess_elements,
-    create_overlapping_chunks
+    create_overlapping_chunks,
+    process_document_with_embeddings  # Nova função
 )
 from unstructured.partition.pdf import partition_pdf
 
@@ -36,23 +36,24 @@ def save_uploaded_file(uploaded_file, upload_dir="uploaded_documents"):
 
     return file_path, filename
 
-def process_pdf_pipeline(pdf_path, chunk_size=500, chunk_overlap=100, skip_summary=True):
-    """Pipeline completo de processamento do PDF"""
+def process_pdf_pipeline(pdf_path, chunk_size=500, chunk_overlap=100, skip_summary=True,
+                        generate_embeddings_flag=True, model_name='sentence-transformers/all-MiniLM-L6-v2'):
+    """Pipeline completo de processamento do PDF com embeddings"""
     progress_bar = st.progress(0)
     status_text = st.empty()
 
     try:
         status_text.text("🔍 Processando documento...")
-        progress_bar.progress(50)
+        progress_bar.progress(30)
 
-        # USAR A FUNÇÃO DO MAIN.PY que já está corrigida
-        from main import process_document_with_params
-
-        embedding_chunks = process_document_with_params(
-            pdf_path,
+        # Usar a nova função que inclui embeddings
+        chunks = process_document_with_embeddings(
+            pdf_path=pdf_path,
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
-            skip_summary=skip_summary  # ADICIONAR ESTE PARÂMETRO
+            skip_summary=skip_summary,
+            generate_embeddings_flag=generate_embeddings_flag,
+            model_name=model_name
         )
 
         progress_bar.progress(80)
@@ -62,25 +63,53 @@ def process_pdf_pipeline(pdf_path, chunk_size=500, chunk_overlap=100, skip_summa
             os.makedirs("processed_documents")
 
         base_name = os.path.splitext(os.path.basename(pdf_path))[0]
-        chunks_path = f"processed_documents/{base_name}_chunks.json"
+        suffix = "_with_embeddings" if generate_embeddings_flag else "_chunks"
+        chunks_path = f"processed_documents/{base_name}{suffix}.json"
 
         with open(chunks_path, 'w', encoding='utf-8') as f:
-            json.dump(embedding_chunks, f, ensure_ascii=False, indent=2)
+            json.dump(chunks, f, ensure_ascii=False, indent=2)
 
         progress_bar.progress(100)
         status_text.text("✅ Processamento concluído!")
 
-        return embedding_chunks, chunks_path
+        return chunks, chunks_path
 
     except Exception as e:
         st.error(f"❌ Erro no processamento: {str(e)}")
         st.error(traceback.format_exc())
         return None, None
 
+def display_embedding_stats(chunks):
+    """Exibe estatísticas dos embeddings"""
+    if not chunks or 'embedding' not in chunks[0]:
+        return
+
+    st.subheader("🧠 Estatísticas dos Embeddings")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.metric("Chunks com Embeddings", len(chunks))
+
+    with col2:
+        embedding_dim = chunks[0].get('embedding_dimension', len(chunks[0]['embedding']))
+        st.metric("Dimensão dos Vetores", embedding_dim)
+
+    with col3:
+        model_used = chunks[0].get('embedding_model', 'N/A')
+        st.metric("Modelo Usado", model_used.split('/')[-1])
+
+    with col4:
+        # Calcular similaridade média entre chunks
+        embeddings = np.array([chunk['embedding'] for chunk in chunks[:10]])  # Apenas primeiros 10 para performance
+        if len(embeddings) > 1:
+            similarities = np.dot(embeddings, embeddings.T)
+            avg_similarity = np.mean(similarities[np.triu_indices_from(similarities, k=1)])
+            st.metric("Similaridade Média", f"{avg_similarity:.3f}")
 
 def main():
-    st.title("📄 Document Chunking Pipeline")
-    st.markdown("Faça upload de documentos PDF e processe-os em chunks para embeddings")
+    st.title("📄 Document Chunking & Embedding Pipeline")
+    st.markdown("Faça upload de documentos PDF e processe-os em chunks com embeddings")
 
     # Sidebar com configurações
     st.sidebar.header("⚙️ Configurações")
@@ -103,12 +132,47 @@ def main():
         help="Número de caracteres de sobreposição entre chunks"
     )
 
-    # NOVA OPÇÃO: Pular sumário
     skip_summary = st.sidebar.checkbox(
         "Pular páginas de sumário",
         value=True,
         help="Remove automaticamente páginas de sumário do processamento"
     )
+
+    # NOVA SEÇÃO: Configurações de Embedding
+    st.sidebar.header("🧠 Configurações de Embedding")
+
+    generate_embeddings_flag = st.sidebar.checkbox(
+        "Gerar Embeddings",
+        value=True,
+        help="Gera vetores de embedding para cada chunk"
+    )
+
+    if generate_embeddings_flag:
+        model_options = {
+            "MiniLM-L6 (rápido, 384d)": "sentence-transformers/all-MiniLM-L6-v2",
+            "MiniLM-L12 (melhor, 384d)": "sentence-transformers/all-MiniLM-L12-v2",
+            "MPNet (excelente, 768d)": "sentence-transformers/all-mpnet-base-v2",
+            "Multilingual (português, 768d)": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+        }
+
+        selected_model = st.sidebar.selectbox(
+            "Modelo de Embedding",
+            options=list(model_options.keys()),
+            index=0,
+            help="Escolha o modelo para gerar embeddings"
+        )
+
+        model_name = model_options[selected_model]
+
+        st.sidebar.info(f"""
+        **Modelo selecionado:**
+        {selected_model}
+
+        **Características:**
+        - Velocidade varia por modelo
+        - Dimensões maiores = melhor qualidade
+        - Multilingual para textos em português
+        """)
 
     # Área principal
     col1, col2 = st.columns([2, 1])
@@ -140,11 +204,13 @@ def main():
                         file_path,
                         chunk_size=chunk_size,
                         chunk_overlap=chunk_overlap,
-                        skip_summary=skip_summary  # ADICIONAR ESTE PARÂMETRO
+                        skip_summary=skip_summary,
+                        generate_embeddings_flag=generate_embeddings_flag,
+                        model_name=model_name if generate_embeddings_flag else None
                     )
 
                     if chunks:
-                        # Mostrar estatísticas
+                        # Mostrar estatísticas básicas
                         st.success("✅ Processamento concluído!")
 
                         col_stats1, col_stats2, col_stats3 = st.columns(3)
@@ -160,11 +226,30 @@ def main():
                             avg_size = total_chars / len(chunks) if chunks else 0
                             st.metric("Tamanho Médio", f"{avg_size:.0f}")
 
+                        # Mostrar estatísticas de embedding se gerados
+                        if generate_embeddings_flag and 'embedding' in chunks[0]:
+                            display_embedding_stats(chunks)
+
                         # Preview dos chunks
                         with st.expander("👀 Preview dos Chunks"):
-                            for i, chunk in enumerate(chunks[:3]):  # Mostrar apenas os primeiros 3
+                            for i, chunk in enumerate(chunks[:3]):
                                 st.write(f"**Chunk {i+1}:**")
-                                st.write(chunk['content'][:200] + "..." if len(chunk['content']) > 200 else chunk['content'])
+
+                                # Metadados
+                                col_meta1, col_meta2, col_meta3 = st.columns(3)
+                                with col_meta1:
+                                    st.write(f"*Página:* {chunk['metadata'].get('page_number', 'N/A')}")
+                                with col_meta2:
+                                    st.write(f"*Tipo:* {chunk['metadata'].get('element_type', 'N/A')}")
+                                with col_meta3:
+                                    if 'embedding' in chunk:
+                                        st.write(f"*Embedding:* ✅ ({chunk.get('embedding_dimension', 'N/A')}d)")
+                                    else:
+                                        st.write("*Embedding:* ❌")
+
+                                # Conteúdo
+                                content = chunk['content'][:200] + "..." if len(chunk['content']) > 200 else chunk['content']
+                                st.write(content)
                                 st.write("---")
 
                             if len(chunks) > 3:
@@ -175,10 +260,12 @@ def main():
                             with open(chunks_path, 'r', encoding='utf-8') as f:
                                 chunks_json = f.read()
 
+                            suffix = "_with_embeddings" if generate_embeddings_flag else "_chunks"
+
                             st.download_button(
-                                label="💾 Baixar Chunks (JSON)",
+                                label=f"💾 Baixar {'Chunks + Embeddings' if generate_embeddings_flag else 'Chunks'} (JSON)",
                                 data=chunks_json,
-                                file_name=f"{os.path.splitext(uploaded_file.name)[0]}_chunks.json",
+                                file_name=f"{os.path.splitext(uploaded_file.name)[0]}{suffix}.json",
                                 mime="application/json"
                             )
 
@@ -188,24 +275,26 @@ def main():
         st.info("""
         **Como usar:**
         1. Configure os parâmetros na barra lateral
-        2. Faça upload dos arquivos PDF
-        3. Clique em "Iniciar Processamento"
-        4. Baixe os chunks processados
+        2. Escolha se quer gerar embeddings
+        3. Faça upload dos arquivos PDF
+        4. Clique em "Iniciar Processamento"
+        5. Baixe os chunks processados
         """)
 
         st.warning("""
         **Parâmetros:**
-        - **Chunk Size**: Tamanho ideal entre 300-600 caracteres
-        - **Overlap**: 10-20% do chunk size é recomendado
+        - **Chunk Size**: 300-600 caracteres ideal
+        - **Overlap**: 10-20% do chunk size
+        - **Embeddings**: Aumenta tempo de processamento
         """)
 
-        # Histórico de arquivos processados
-        if os.path.exists("processed_documents"):
-            files = [f for f in os.listdir("processed_documents") if f.endswith("_chunks.json")]
-            if files:
-                st.subheader("📁 Arquivos Processados")
-                for file in files[-5:]:  # Últimos 5 arquivos
-                    st.text(file)
+        if generate_embeddings_flag:
+            st.success("""
+            **Embeddings habilitados!**
+            - Chunks terão vetores numéricos
+            - Ideais para busca semântica
+            - Compatíveis com bancos vetoriais
+            """)
 
 if __name__ == "__main__":
     main()
