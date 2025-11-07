@@ -7,6 +7,7 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 import json
 import re
+import sys
 
 def clean_text(text):
     text = re.sub(r'\s+', ' ', text)
@@ -352,7 +353,6 @@ def main():
     Função de demonstração - mostra como usar as funções programaticamente
     Para interface completa, use: streamlit run app.py
     """
-    import sys
 
     print("📄 Embedding Pipeline - Modo Demonstração")
     print("💡 Para interface completa, execute: streamlit run app.py")
