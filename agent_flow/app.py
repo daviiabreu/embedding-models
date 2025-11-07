@@ -8,14 +8,10 @@ import os
 import sys
 from pathlib import Path
 
-# Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent))
-
 from google.adk.runners import InMemoryRunner
-from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
-from robot_dog_adk.agents.coordinator_agent import create_enhanced_coordinator
+from agent_flow.agents.coordinator_agent import create_enhanced_coordinator
 
 
 class InteliRobotDogApp:
@@ -29,40 +25,32 @@ class InteliRobotDogApp:
             model: LLM model to use (default: gemini-2.0-flash-exp)
         """
         self.model = model
-        self.app_name = "inteli_robot_dog_tour"
-
-        # Create session service
-        self.session_service = InMemorySessionService()
 
         # Create the main coordinator agent
         print("🐕 Initializing Inteli Robot Dog Tour Guide...")
         self.agent = create_enhanced_coordinator(model)
         print("✅ Agent created successfully!")
 
-        # Create runner
+        # Create runner with explicit app_name to avoid mismatch
+        # This fixes: "app name mismatch" error
         self.runner = InMemoryRunner(
             agent=self.agent,
-            app_name=self.app_name,
-            session_service=self.session_service
+            app_name="inteli_robot_dog"  # Explicit app name
         )
         print("✅ Runner initialized!")
 
-    async def start_tour(self, visitor_name: str = "visitante") -> None:
+    async def start_tour(self, visitor_name: str = "visitante") -> tuple:
         """
         Start a new tour session.
 
         Args:
             visitor_name: Name of the visitor (for personalization)
+        
+        Returns:
+            Tuple of (user_id, session_id)
         """
-        user_id = f"visitor_{visitor_name}"
-        session_id = f"session_{visitor_name}"
-
-        # Create session
-        await self.session_service.create_session(
-            app_name=self.app_name,
-            user_id=user_id,
-            session_id=session_id
-        )
+        user_id = visitor_name
+        session_id = f"tour_{visitor_name}"
 
         print(f"\n{'='*60}")
         print(f"🐕 INTELI ROBOT DOG TOUR GUIDE")
