@@ -174,11 +174,39 @@ class InteliRobotDogApp:
 
                 # Extrair resposta final dos eventos
                 response_text = ""
+                has_safety_response = False
+                
                 for event in events:
                     if hasattr(event, 'content') and event.content:
-                        for part in event.content.parts:
-                            if hasattr(part, 'text') and part.text:
-                                response_text += part.text
+                        # Verificar se content.parts é iterável
+                        parts = getattr(event.content, 'parts', None)
+                        if parts:
+                            try:
+                                for part in parts:
+                                    if hasattr(part, 'text') and part.text:
+                                        text_content = part.text.strip()
+                                        response_text += text_content
+                                        # Detectar respostas de safety
+                                        if text_content in ["SAFE", "UNSAFE"]:
+                                            has_safety_response = True
+                            except TypeError:
+                                # Se parts não for iterável, ignorar
+                                pass
+
+                # Se não houver texto, buscar no último evento
+                if not response_text and events:
+                    last_event = events[-1] if isinstance(events, list) else events
+                    if hasattr(last_event, 'text'):
+                        response_text = last_event.text
+
+                # Verificar se a resposta é apenas de safety
+                if response_text in ["SAFE", "UNSAFE"]:
+                    if response_text == "UNSAFE":
+                        response_text = "*balança o rabo* [latido] Opa! Que tal falarmos sobre algo mais legal? Posso te contar sobre os projetos incríveis do Inteli! 🐕"
+                    else:
+                        response_text = "*balança o rabo* [latido] Como posso te ajudar com o tour do Inteli? 😊"
+                elif not response_text:
+                    response_text = "*balança o rabo* [latido] Hmm, não entendi bem. Pode reformular? 🐕"
 
                 print(response_text + "\n")
 
@@ -282,9 +310,31 @@ class InteliRobotDogApp:
                     response_text = ""
                     for event in events:
                         if hasattr(event, 'content') and event.content:
-                            for part in event.content.parts:
-                                if hasattr(part, 'text') and part.text:
-                                    response_text += part.text
+                            # Verificar se content.parts é iterável
+                            parts = getattr(event.content, 'parts', None)
+                            if parts:
+                                try:
+                                    for part in parts:
+                                        if hasattr(part, 'text') and part.text:
+                                            response_text += part.text.strip()
+                                except TypeError:
+                                    # Se parts não for iterável, ignorar
+                                    pass
+                    
+                    # Se não houver texto, buscar no último evento
+                    if not response_text and events:
+                        last_event = events[-1] if isinstance(events, list) else events
+                        if hasattr(last_event, 'text'):
+                            response_text = last_event.text
+                    
+                    # Verificar se a resposta é apenas de safety
+                    if response_text in ["SAFE", "UNSAFE"]:
+                        if response_text == "UNSAFE":
+                            response_text = "*balança o rabo* [latido] Opa! Que tal falarmos sobre algo mais legal? 🐕"
+                        else:
+                            response_text = "*balança o rabo* [latido] Como posso te ajudar? 😊"
+                    elif not response_text:
+                        response_text = "*balança o rabo* [latido]\n"
                     
                     print(response_text + "\n")
                     
@@ -387,14 +437,14 @@ Modes:
     parser.add_argument(
         "--mode",
         choices=["full", "simple", "demo"],
-        default="demo",
-        help="Execution mode (default: demo)"
+        default="full",
+        help="Execution mode (default: full)"
     )
     
     parser.add_argument(
         "--model",
-        default=os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp"),
-        help="LLM model to use (default: gemini-2.0-flash-exp)"
+        default=os.getenv("DEFAULT_MODEL", "gemini-2.5-flash-lite"),
+        help="LLM model to use (default: gemini-2.5-flash-lite)"
     )
     
     parser.add_argument(
