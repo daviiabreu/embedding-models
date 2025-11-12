@@ -1,29 +1,32 @@
 """Knowledge Agent - RAG-powered information retrieval for Inteli questions."""
 
+import json
+import os
+from typing import Dict, List
+
 from google.adk.agents import Agent
 from google.adk.tools.tool_context import ToolContext
-import os
-import json
-from typing import List, Dict
 
 
 def load_document_chunks() -> List[Dict]:
     """Load preprocessed document chunks for RAG."""
     chunks_path = os.path.join(
         os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-        'documents',
-        'Edital-Processo-Seletivo-Inteli_-Graduacao-2026_AJUSTADO-chunks.json'
+        "documents",
+        "Edital-Processo-Seletivo-Inteli_-Graduacao-2026_AJUSTADO-chunks.json",
     )
 
     try:
-        with open(chunks_path, 'r', encoding='utf-8') as f:
+        with open(chunks_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
         print(f"Warning: Chunks file not found at {chunks_path}")
         return []
 
 
-def search_inteli_knowledge(query: str, tool_context: ToolContext, top_k: int = 3) -> dict:
+def search_inteli_knowledge(
+    query: str, tool_context: ToolContext, top_k: int = 3
+) -> dict:
     """
     Search Inteli knowledge base (Edital + general info) for relevant information.
 
@@ -47,34 +50,41 @@ def search_inteli_knowledge(query: str, tool_context: ToolContext, top_k: int = 
             "keywords": ["inteli", "instituto", "faculdade", "universidade"],
             "content": """O Inteli (Instituto de Tecnologia e Liderança) foi fundado em 2019
             por Roberto Sallouti e André Esteves com a missão de formar os futuros líderes
-            que vão transformar o Brasil através da tecnologia. É conhecido como o 'MIT Brasileiro'."""
+            que vão transformar o Brasil através da tecnologia. É conhecido como o 'MIT Brasileiro'.""",
         },
         "cursos": {
-            "keywords": ["curso", "graduação", "engenharia", "computação", "software", "admtech"],
+            "keywords": [
+                "curso",
+                "graduação",
+                "engenharia",
+                "computação",
+                "software",
+                "admtech",
+            ],
             "content": """O Inteli oferece 5 graduações: Engenharia da Computação, Ciência da Computação,
             Engenharia de Software, Sistemas de Informação e Administração Tech (ADMTech).
-            Todos os cursos seguem metodologia PBL (Project-Based Learning)."""
+            Todos os cursos seguem metodologia PBL (Project-Based Learning).""",
         },
         "bolsas": {
             "keywords": ["bolsa", "auxílio", "financeiro", "mensalidade"],
             "content": """O Inteli tem o maior programa de bolsas do ensino superior do Brasil,
             oferecendo: auxílio-moradia, auxílio-alimentação, auxílio-transporte, curso de inglês,
-            notebook, além de modalidades de bolsa parcial e integral."""
+            notebook, além de modalidades de bolsa parcial e integral.""",
         },
         "pbl": {
             "keywords": ["pbl", "projeto", "metodologia", "ensino", "aula"],
             "content": """O Inteli usa PBL (Project-Based Learning - Ensino Baseado em Projetos).
             Os alunos não cursam disciplinas tradicionais, mas aprendem através de projetos reais
             com empresas parceiras. A rotina tem 3 momentos: autoestudo, encontro (sala invertida)
-            e desenvolvimento (DEV)."""
+            e desenvolvimento (DEV).""",
         },
         "clubes": {
             "keywords": ["clube", "extracurricular", "atlética", "tantera", "junior"],
             "content": """O Inteli tem mais de 20 clubes estudantis: Tantera (atlética),
             Inteli Júnior (empresa júnior), LEI (Liga de Empreendedorismo), AgroTech,
             Game Lab, Inteli Blockchain, Inteli Academy (IA), coletivos de diversidade
-            (Grace Hopper, Benedito Caravelas, Turing), e Wave (mentoria para candidatos)."""
-        }
+            (Grace Hopper, Benedito Caravelas, Turing), e Wave (mentoria para candidatos).""",
+        },
     }
 
     query_lower = query.lower()
@@ -83,16 +93,18 @@ def search_inteli_knowledge(query: str, tool_context: ToolContext, top_k: int = 
     # Search general knowledge
     for topic, info in general_knowledge.items():
         if any(keyword in query_lower for keyword in info["keywords"]):
-            results.append({
-                "source": f"knowledge_base_{topic}",
-                "content": info["content"],
-                "relevance": 0.95,
-                "type": "general_knowledge"
-            })
+            results.append(
+                {
+                    "source": f"knowledge_base_{topic}",
+                    "content": info["content"],
+                    "relevance": 0.95,
+                    "type": "general_knowledge",
+                }
+            )
 
     # Search document chunks (simple keyword matching - in production use embeddings)
     for chunk in chunks[:50]:  # Limit search for performance
-        chunk_text = chunk.get('content', '').lower()
+        chunk_text = chunk.get("content", "").lower()
 
         # Simple relevance scoring based on keyword matches
         query_words = set(query_lower.split())
@@ -100,33 +112,37 @@ def search_inteli_knowledge(query: str, tool_context: ToolContext, top_k: int = 
         common_words = query_words.intersection(chunk_words)
 
         # Filter out very common Portuguese words
-        stop_words = {'o', 'a', 'de', 'da', 'do', 'e', 'para', 'com', 'em', 'os', 'as'}
+        stop_words = {"o", "a", "de", "da", "do", "e", "para", "com", "em", "os", "as"}
         meaningful_matches = common_words - stop_words
 
         if len(meaningful_matches) >= 2:  # At least 2 meaningful word matches
             relevance = len(meaningful_matches) / len(query_words) if query_words else 0
-            results.append({
-                "source": f"edital_{chunk.get('id', 'unknown')}",
-                "content": chunk.get('content', ''),
-                "relevance": min(relevance, 0.9),  # Cap at 0.9 to prioritize general knowledge
-                "type": "document_chunk",
-                "metadata": chunk.get('metadata', {})
-            })
+            results.append(
+                {
+                    "source": f"edital_{chunk.get('id', 'unknown')}",
+                    "content": chunk.get("content", ""),
+                    "relevance": min(
+                        relevance, 0.9
+                    ),  # Cap at 0.9 to prioritize general knowledge
+                    "type": "document_chunk",
+                    "metadata": chunk.get("metadata", {}),
+                }
+            )
 
     # Sort by relevance and get top_k
-    results.sort(key=lambda x: x['relevance'], reverse=True)
+    results.sort(key=lambda x: x["relevance"], reverse=True)
     top_results = results[:top_k]
 
     # Store in context for coordinator
-    tool_context.state['retrieved_knowledge'] = top_results
-    tool_context.state['last_query'] = query
+    tool_context.state["retrieved_knowledge"] = top_results
+    tool_context.state["last_query"] = query
 
     return {
         "success": True,
         "query": query,
         "documents_found": len(top_results),
         "documents": top_results,
-        "search_summary": f"Found {len(top_results)} relevant documents about: {query}"
+        "search_summary": f"Found {len(top_results)} relevant documents about: {query}",
     }
 
 
@@ -156,7 +172,7 @@ def get_specific_info(topic: str, tool_context: ToolContext) -> dict:
    habilidades de comunicação, colaboração e pensamento crítico.
 
 O Inteli busca potencial real, não apenas notas!""",
-            "related_topics": ["bolsas", "cursos"]
+            "related_topics": ["bolsas", "cursos"],
         },
         "bolsas": {
             "title": "Programa de Bolsas",
@@ -171,7 +187,7 @@ O Inteli busca potencial real, não apenas notas!""",
 
 Doadores-parceiros investem pelo menos R$ 500 mil nos alunos.
 Os nomes dos doadores estão em um painel de honra no campus.""",
-            "related_topics": ["processo_seletivo", "inteli_historia"]
+            "related_topics": ["processo_seletivo", "inteli_historia"],
         },
         "cursos": {
             "title": "Cursos Oferecidos",
@@ -189,7 +205,7 @@ Os nomes dos doadores estão em um painel de honra no campus.""",
    Banco de dados, gestão empresarial.
 
 5. **ADMTech**: Une gestão e tecnologia. Empreendedores que transformam ideias em startups.""",
-            "related_topics": ["pbl", "clubes"]
+            "related_topics": ["pbl", "clubes"],
         },
         "inteli_historia": {
             "title": "História do Inteli",
@@ -203,7 +219,7 @@ engenheiros suficientes. Sallouti e Esteves decidiram: "Nós vamos formar esses 
 **Apelido**: "MIT Brasileiro" (dado pelos fundadores)
 
 **Legado**: De brasileiros para brasileiros.""",
-            "related_topics": ["bolsas", "conquistas"]
+            "related_topics": ["bolsas", "conquistas"],
         },
         "conquistas": {
             "title": "Conquistas da Comunidade",
@@ -215,8 +231,8 @@ engenheiros suficientes. Sallouti e Esteves decidiram: "Nós vamos formar esses 
 - 🚇 App para CPTM focado em acessibilidade
 - 🔬 Patrícia Honorato (1ª turma) selecionada para o CERN (Suíça)
 - 👩‍💻 27% de mulheres nas graduações (quase dobro da média nacional)""",
-            "related_topics": ["clubes", "cursos"]
-        }
+            "related_topics": ["clubes", "cursos"],
+        },
     }
 
     topic_lower = topic.lower()
@@ -230,17 +246,13 @@ engenheiros suficientes. Sallouti e Esteves decidiram: "Nós vamos formar esses 
                 break
 
     if info:
-        tool_context.state['last_topic_info'] = info
-        return {
-            "success": True,
-            "topic": topic,
-            "info": info
-        }
+        tool_context.state["last_topic_info"] = info
+        return {"success": True, "topic": topic, "info": info}
     else:
         return {
             "success": False,
             "error": f"No information found for topic: {topic}",
-            "available_topics": list(topic_info.keys())
+            "available_topics": list(topic_info.keys()),
         }
 
 
@@ -258,36 +270,38 @@ def answer_question(question: str, tool_context: ToolContext) -> dict:
     # First, search knowledge base
     search_results = search_inteli_knowledge(question, tool_context, top_k=3)
 
-    if not search_results.get('documents'):
+    if not search_results.get("documents"):
         return {
             "success": False,
             "question": question,
-            "answer": "Desculpe, não encontrei informações específicas sobre isso. " +
-                     "Você pode perguntar sobre: processo seletivo, bolsas, cursos, " +
-                     "clubes, metodologia PBL, ou história do Inteli.",
-            "sources": []
+            "answer": "Desculpe, não encontrei informações específicas sobre isso. "
+            + "Você pode perguntar sobre: processo seletivo, bolsas, cursos, "
+            + "clubes, metodologia PBL, ou história do Inteli.",
+            "sources": [],
         }
 
     # Compile answer from top results
-    docs = search_results['documents']
+    docs = search_results["documents"]
     answer_parts = []
     sources = []
 
     for i, doc in enumerate(docs[:2], 1):  # Use top 2 results
-        answer_parts.append(doc['content'])
-        sources.append({
-            "source": doc['source'],
-            "relevance": doc['relevance'],
-            "type": doc['type']
-        })
+        answer_parts.append(doc["content"])
+        sources.append(
+            {
+                "source": doc["source"],
+                "relevance": doc["relevance"],
+                "type": doc["type"],
+            }
+        )
 
     compiled_answer = "\n\n".join(answer_parts)
 
     # Store in context
-    tool_context.state['last_answer'] = {
+    tool_context.state["last_answer"] = {
         "question": question,
         "answer": compiled_answer,
-        "sources": sources
+        "sources": sources,
     }
 
     return {
@@ -295,7 +309,7 @@ def answer_question(question: str, tool_context: ToolContext) -> dict:
         "question": question,
         "answer": compiled_answer,
         "sources": sources,
-        "confidence": max(doc['relevance'] for doc in docs) if docs else 0
+        "confidence": max(doc["relevance"] for doc in docs) if docs else 0,
     }
 
 
@@ -379,11 +393,7 @@ You: Use answer_question() → Compile info about achievements, methodology, car
         model=model,
         description="RAG-powered knowledge retrieval specialist for Inteli information",
         instruction=instruction,
-        tools=[
-            search_inteli_knowledge,
-            get_specific_info,
-            answer_question
-        ]
+        tools=[search_inteli_knowledge, get_specific_info, answer_question],
     )
 
     return agent

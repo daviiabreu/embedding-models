@@ -1,20 +1,20 @@
 """Tour Agent - Manages campus tour progression and script delivery."""
 
+import os
+
 from google.adk.agents import Agent
 from google.adk.tools.tool_context import ToolContext
-import os
-import json
 
 
 def load_tour_script() -> str:
     """Load the tour script from markdown file."""
     script_path = os.path.join(
         os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-        'documents',
-        'script.md'
+        "documents",
+        "script.md",
     )
 
-    with open(script_path, 'r', encoding='utf-8') as f:
+    with open(script_path, "r", encoding="utf-8") as f:
         return f.read()
 
 
@@ -38,22 +38,19 @@ def get_tour_section(section_name: str, tool_context: ToolContext) -> dict:
         "pbl": "PBL & Rotina Inteli",
         "sala_invertida": "Sala de aula invertida e infraestrutura",
         "processo_seletivo": "Processo Seletivo & Conquistas da Comunidade",
-        "conclusao": "CONCLUSÃO"
+        "conclusao": "CONCLUSÃO",
     }
 
     section_marker = sections.get(section_name.lower())
     if not section_marker:
-        return {
-            "success": False,
-            "error": f"Section '{section_name}' not found"
-        }
+        return {"success": False, "error": f"Section '{section_name}' not found"}
 
     # Extract section content
     start_idx = script.find(f"[{section_marker}]")
     if start_idx == -1:
         return {
             "success": False,
-            "error": f"Section marker '{section_marker}' not found in script"
+            "error": f"Section marker '{section_marker}' not found in script",
         }
 
     # Find next section or end
@@ -64,14 +61,14 @@ def get_tour_section(section_name: str, tool_context: ToolContext) -> dict:
         section_content = script[start_idx:next_section_idx]
 
     # Store current section in state
-    tool_context.state['current_tour_section'] = section_name
-    tool_context.state['section_content'] = section_content
+    tool_context.state["current_tour_section"] = section_name
+    tool_context.state["section_content"] = section_content
 
     return {
         "success": True,
         "section": section_name,
         "content": section_content,
-        "marker": section_marker
+        "marker": section_marker,
     }
 
 
@@ -92,69 +89,66 @@ def track_tour_progress(action: str, tool_context: ToolContext) -> dict:
         "pbl",
         "sala_invertida",
         "processo_seletivo",
-        "conclusao"
+        "conclusao",
     ]
 
     # Initialize tour state
-    if 'tour_state' not in tool_context.state:
-        tool_context.state['tour_state'] = {
-            'current_index': 0,
-            'completed_sections': [],
-            'questions_asked': []
+    if "tour_state" not in tool_context.state:
+        tool_context.state["tour_state"] = {
+            "current_index": 0,
+            "completed_sections": [],
+            "questions_asked": [],
         }
 
-    tour_state = tool_context.state['tour_state']
+    tour_state = tool_context.state["tour_state"]
 
     if action == "start":
-        tour_state['current_index'] = 0
-        tour_state['completed_sections'] = []
+        tour_state["current_index"] = 0
+        tour_state["completed_sections"] = []
         return {
             "success": True,
             "action": "started",
             "current_section": tour_sections[0],
-            "message": "Tour started! Beginning with História e Programa de Bolsas"
+            "message": "Tour started! Beginning with História e Programa de Bolsas",
         }
 
     elif action == "next":
-        if tour_state['current_index'] < len(tour_sections) - 1:
-            tour_state['completed_sections'].append(
-                tour_sections[tour_state['current_index']]
+        if tour_state["current_index"] < len(tour_sections) - 1:
+            tour_state["completed_sections"].append(
+                tour_sections[tour_state["current_index"]]
             )
-            tour_state['current_index'] += 1
+            tour_state["current_index"] += 1
             return {
                 "success": True,
                 "action": "advanced",
-                "current_section": tour_sections[tour_state['current_index']],
-                "progress": f"{tour_state['current_index'] + 1}/{len(tour_sections)}"
+                "current_section": tour_sections[tour_state["current_index"]],
+                "progress": f"{tour_state['current_index'] + 1}/{len(tour_sections)}",
             }
         else:
             return {
                 "success": False,
                 "action": "completed",
-                "message": "Tour already completed!"
+                "message": "Tour already completed!",
             }
 
     elif action == "previous":
-        if tour_state['current_index'] > 0:
-            tour_state['current_index'] -= 1
+        if tour_state["current_index"] > 0:
+            tour_state["current_index"] -= 1
             return {
                 "success": True,
                 "action": "went_back",
-                "current_section": tour_sections[tour_state['current_index']]
+                "current_section": tour_sections[tour_state["current_index"]],
             }
         else:
-            return {
-                "success": False,
-                "message": "Already at the beginning of the tour"
-            }
+            return {"success": False, "message": "Already at the beginning of the tour"}
 
     elif action == "status":
         return {
             "success": True,
-            "current_section": tour_sections[tour_state['current_index']],
+            "current_section": tour_sections[tour_state["current_index"]],
             "progress": f"{tour_state['current_index'] + 1}/{len(tour_sections)}",
-            "completed": tour_state['completed_sections'],
-            "questions_count": len(tour_state.get('questions_asked', []))
+            "completed": tour_state["completed_sections"],
+            "questions_count": len(tour_state.get("questions_asked", [])),
         }
 
     return {"success": False, "error": "Invalid action"}
@@ -171,39 +165,45 @@ def get_tour_suggestions(context: str, tool_context: ToolContext) -> dict:
     Returns:
         Suggestions for tour guide actions
     """
-    tour_state = tool_context.state.get('tour_state', {})
-    current_index = tour_state.get('current_index', 0)
+    tour_state = tool_context.state.get("tour_state", {})
+    current_index = tour_state.get("current_index", 0)
 
     suggestions = []
 
     # Suggest moving to next section if appropriate
     if "próxim" in context.lower() or "continua" in context.lower():
-        suggestions.append({
-            "type": "action",
-            "suggestion": "advance_to_next_section",
-            "message": "Visitor wants to move to next section"
-        })
+        suggestions.append(
+            {
+                "type": "action",
+                "suggestion": "advance_to_next_section",
+                "message": "Visitor wants to move to next section",
+            }
+        )
 
     # Suggest answering questions
     if "?" in context or "como" in context.lower() or "por que" in context.lower():
-        suggestions.append({
-            "type": "action",
-            "suggestion": "answer_question",
-            "message": "Visitor asked a question - use Knowledge Agent"
-        })
+        suggestions.append(
+            {
+                "type": "action",
+                "suggestion": "answer_question",
+                "message": "Visitor asked a question - use Knowledge Agent",
+            }
+        )
 
     # Suggest engagement if visitor seems disengaged
     if len(context.strip()) < 10:
-        suggestions.append({
-            "type": "engagement",
-            "suggestion": "ask_question",
-            "message": "Engage visitor with a question about their interests"
-        })
+        suggestions.append(
+            {
+                "type": "engagement",
+                "suggestion": "ask_question",
+                "message": "Engage visitor with a question about their interests",
+            }
+        )
 
     return {
         "success": True,
         "suggestions": suggestions,
-        "context_analysis": "Analyzed visitor input for tour guidance"
+        "context_analysis": "Analyzed visitor input for tour guidance",
     }
 
 
@@ -268,11 +268,7 @@ You: Use track_tour_progress("next") → Advance to Courses section
         model=model,
         description="Manages campus tour script and progression",
         instruction=instruction,
-        tools=[
-            get_tour_section,
-            track_tour_progress,
-            get_tour_suggestions
-        ]
+        tools=[get_tour_section, track_tour_progress, get_tour_suggestions],
     )
 
     return agent

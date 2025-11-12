@@ -1,8 +1,9 @@
 """Safety Agent for content validation."""
 
-from google.adk.agents import Agent
-import sys
 import os
+import sys
+
+from google.adk.agents import Agent
 
 # Add parent directory to path to import tools
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -46,7 +47,7 @@ Be cautious but not overly restrictive. Normal friendly conversation is fine.
         model=model,
         description="Validates user inputs for safety",
         instruction=instruction,
-        tools=[check_content_safety]
+        tools=[check_content_safety],
     )
 
     return agent

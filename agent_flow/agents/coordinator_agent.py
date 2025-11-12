@@ -1,19 +1,21 @@
 """Enhanced Coordinator Agent - Main robot dog tour guide personality."""
 
+import os
+import sys
+
 from google.adk.agents import Agent
+
+from .knowledge_agent import create_knowledge_agent
 from .safety_agent import create_safety_agent
 from .tour_agent import create_tour_agent
-from .knowledge_agent import create_knowledge_agent
-import sys
-import os
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tools.personality_tools import (
     add_dog_personality,
     detect_visitor_emotion,
+    generate_engagement_prompt,
     get_conversation_suggestions,
-    generate_engagement_prompt
 )
 
 
@@ -185,17 +187,13 @@ Now, let's give an amazing tour!
         model=model,
         description="Enthusiastic robot dog tour guide for Inteli campus",
         instruction=instruction,
-        sub_agents=[
-            safety_agent,
-            tour_agent,
-            knowledge_agent
-        ],
+        sub_agents=[safety_agent, tour_agent, knowledge_agent],
         tools=[
             add_dog_personality,
             detect_visitor_emotion,
             get_conversation_suggestions,
-            generate_engagement_prompt
-        ]
+            generate_engagement_prompt,
+        ],
     )
 
     return coordinator

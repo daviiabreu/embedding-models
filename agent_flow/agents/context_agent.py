@@ -1,12 +1,13 @@
 """Context Agent for knowledge retrieval."""
 
-from google.adk.agents import Agent
-import sys
 import os
+import sys
+
+from google.adk.agents import Agent
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from tools.document_tools import search_knowledge_base, get_user_preferences
+from tools.document_tools import get_user_preferences, search_knowledge_base
 
 
 def create_context_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
@@ -49,7 +50,7 @@ If no relevant information is found:
         model=model,
         description="Retrieves knowledge and context",
         instruction=instruction,
-        tools=[search_knowledge_base, get_user_preferences]
+        tools=[search_knowledge_base, get_user_preferences],
     )
 
     return agent

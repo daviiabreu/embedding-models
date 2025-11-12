@@ -31,21 +31,17 @@ def search_knowledge_base(query: str, tool_context: ToolContext) -> dict:
 
     for topic, content in knowledge_base.items():
         if topic in query_lower or any(word in query_lower for word in topic.split()):
-            relevant_docs.append({
-                "topic": topic,
-                "content": content,
-                "relevance": 0.9
-            })
+            relevant_docs.append({"topic": topic, "content": content, "relevance": 0.9})
 
     # Store in context
     if relevant_docs:
-        tool_context.state['retrieved_knowledge'] = relevant_docs
+        tool_context.state["retrieved_knowledge"] = relevant_docs
 
     return {
         "success": True,
         "query": query,
         "documents_found": len(relevant_docs),
-        "documents": relevant_docs
+        "documents": relevant_docs,
     }
 
 
@@ -61,7 +57,7 @@ def get_user_preferences(user_id: str, tool_context: ToolContext) -> dict:
         User preferences
     """
     # Get from state or return defaults
-    user_prefs = tool_context.state.get('user_preferences', {})
+    user_prefs = tool_context.state.get("user_preferences", {})
 
     if not user_prefs:
         # Default preferences
@@ -69,12 +65,8 @@ def get_user_preferences(user_id: str, tool_context: ToolContext) -> dict:
             "name": "Friend",
             "favorite_activities": ["playing", "chatting"],
             "interaction_style": "friendly",
-            "language": "en"
+            "language": "en",
         }
-        tool_context.state['user_preferences'] = user_prefs
+        tool_context.state["user_preferences"] = user_prefs
 
-    return {
-        "success": True,
-        "user_id": user_id,
-        "preferences": user_prefs
-    }
+    return {"success": True, "user_id": user_id, "preferences": user_prefs}
