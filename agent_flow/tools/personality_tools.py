@@ -203,12 +203,12 @@ def _get_response_tone(visitor_emotion: str) -> str:
     return tone_mapping.get(visitor_emotion, "friendly")
 
 
-def get_conversation_suggestions(context: Dict, tool_context: ToolContext) -> dict:
+def get_conversation_suggestions(context_summary: str, tool_context: ToolContext) -> dict:
     """
     Get smart suggestions for how to respond based on conversation context.
 
     Args:
-        context: Current conversation context (last messages, tour section, etc.)
+        context_summary: Brief summary of current conversation context (e.g., "visitor asking about courses")
         tool_context: ADK tool context
 
     Returns:

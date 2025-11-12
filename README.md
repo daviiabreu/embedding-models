@@ -1,6 +1,34 @@
 # 🐕 Inteli Robot Dog Tour Guide
 
-> Sistema de agentes AI usando Google ADK para guiar visitantes pelo campus do Inteli com personalidade de cachorro-robô
+> Sistema de agentes AI```
+embedding-models/
+├── test_agent_flow.py      # 🧪 Testes de validação
+│
+├── agent_flow/             # 📦 Package principal
+│   ├── app.py              # 🎯 Entry point UNIFICADO (3 modos)
+│   ├── agents/             # 🤖 Coordinator, Safety, Tour, Knowledge
+│   ├── tools/              # 🛠️ Personality, Safety, Document tools
+│   ├── prompts/            # 📝 Guidelines (2.7k+ palavras)
+│   └── docs/               # 📚 Documentação técnica
+│
+├── docs/                   # 📖 Documentação completa (MDX)
+│   ├── 01-arquitetura-multi-agentes.mdx
+│   ├── 02-guia-execucao-uso.mdx
+│   ├── 03-guia-seguranca-safety-team.mdx
+│   └── 04-sistema-rag-conhecimento.mdx
+│
+└── documents/              # 📄 Script + chunks RAG
+```
+
+### Modos de Execução:
+
+O `agent_flow/app.py` oferece **3 modos unificados** via flags:
+
+| Modo | Comando | Descrição |
+|------|---------|-----------|
+| `full` | `python3 -m agent_flow.app` | Sistema multi-agente completo (padrão) |
+| `simple` | `python3 -m agent_flow.app --mode simple` | Versão simplificada para debugging |
+| `demo` | `python3 -m agent_flow.app --mode demo` | Conversa automatizada de demonstração | para guiar visitantes pelo campus do Inteli com personalidade de cachorro-robô
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![Google ADK](https://img.shields.io/badge/Google%20ADK-1.16%2B-green.svg)](https://github.com/google/adk-toolkit)
@@ -15,13 +43,19 @@
 source venv/bin/activate
 
 # 2. Testar instalação
-python test_agent_flow.py
+python3 test_agent_flow.py
 
-# 3. Executar modo demo
-python run_app.py --mode demo
+# 3. Ver opções disponíveis
+python3 -m agent_flow.app --help
 
-# 4. Executar modo interativo
-python run_app.py --mode interactive
+# 4. Executar modo demo (recomendado para primeiro uso)
+python3 -m agent_flow.app --mode demo
+
+# 5. Executar modo interativo completo
+python3 -m agent_flow.app --mode full
+
+# 6. Executar modo simplificado (debugging)
+python3 -m agent_flow.app --mode simple
 ```
 
 ---
@@ -50,7 +84,7 @@ Coordinator Agent (Robot Dog)
 
 ```
 embedding-models/
-├── run_app.py              # 🎯 Entry point
+├── run_app.py              # 🎯 Entry point UNIFICADO (3 modos)
 ├── test_agent_flow.py      # 🧪 Testes
 ├── ROADMAP_SPRINT.md       # 📋 Roadmap 10 dias
 │
@@ -58,10 +92,32 @@ embedding-models/
 │   ├── agents/             # 🤖 Coordinator, Safety, Tour, Knowledge
 │   ├── tools/              # 🛠️ Personality, Safety, Document tools
 │   ├── prompts/            # 📝 Guidelines (2.7k+ palavras)
-│   └── docs/               # 📚 Documentação
+│   └── docs/               # 📚 Documentação técnica
+│
+├── docs/                   # � Documentação completa (MDX)
+│   ├── 01-arquitetura-multi-agentes.mdx
+│   ├── 02-guia-execucao-uso.mdx
+│   ├── 03-guia-seguranca-safety-team.mdx
+│   └── 04-sistema-rag-conhecimento.mdx
 │
 └── documents/              # 📄 Script + chunks RAG
 ```
+
+### Modos de Execução:
+
+O `run_app.py` oferece **3 modos unificados** via flags:
+
+| Modo | Comando | Descrição |
+|------|---------|-----------|
+| `full` | `python3 run_app.py` | Sistema multi-agente completo (padrão) |
+| `simple` | `python3 run_app.py --mode simple` | Versão simplificada para debugging |
+| `demo` | `python3 run_app.py --mode demo` | Conversa automatizada de demonstração |
+
+**Flags adicionais:**
+- `--model <modelo>` - Escolher modelo LLM (gemini-2.0-flash-exp, gemini-1.5-pro, etc.)
+- `--debug` - Ativar logs de debug detalhados
+- `--help` - Ver todas as opções disponíveis
+- `--version` - Mostrar versão do sistema
 
 ---
 
@@ -195,5 +251,5 @@ git commit -m "feat: adiciona X"
 ---
 
 **Status:** Em desenvolvimento ativo 🚀  
-**Última atualização:** 7 de novembro de 2025  
-**Branch:** feat/adk-agent
+**Última atualização:** 12 de novembro de 2025  
+**Branch:** feat/multi-agent-infrastructure
