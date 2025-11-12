@@ -1,4 +1,4 @@
-"""Context Agent for knowledge retrieval."""
+"""Context Agent for managing knowledge retrieval and conversation memory."""
 
 import os
 import sys
@@ -7,15 +7,22 @@ from google.adk.agents import Agent
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from tools.document_tools import get_user_preferences, search_knowledge_base
+from tools.context_tools import (
+    build_context_profile,
+    detect_context_gaps,
+    manage_context,
+    manage_conversation_memory,
+    retrieve_relevant_context,
+    track_topics_discussed,
+)
 
 
 def create_context_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
     """
     Create the Context Agent.
 
-    This agent retrieves relevant information from the knowledge base
-    to help answer user queries.
+    This agent manages knowledge retrieval, conversation memory,
+    and context preparation for the robot dog tour guide.
 
     Args:
         model: The LLM model to use
@@ -23,34 +30,24 @@ def create_context_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
     Returns:
         Configured Context Agent
     """
+    # TODO: Add detailed instruction prompt
     instruction = """
-You manage the robot dog's knowledge and context.
-
-Your job is to:
-1. Search the knowledge base when the user asks questions
-2. Retrieve user preferences to personalize responses
-3. Provide relevant context to help answer queries
-
-Use these tools:
-- search_knowledge_base: Search for information about robot dog features, care, commands, etc.
-- get_user_preferences: Get user's preferences and interaction history
-
-When you find relevant information:
-- Summarize it clearly
-- Include specific details
-- Cite the source (e.g., "From the knowledge base...")
-
-If no relevant information is found:
-- Say "I don't have specific information about that"
-- Suggest related topics that might help
+Context agent instruction placeholder.
 """
 
     agent = Agent(
         name="context_agent",
         model=model,
-        description="Retrieves knowledge and context",
+        description="Manages knowledge retrieval, conversation memory, and context preparation",
         instruction=instruction,
-        tools=[search_knowledge_base, get_user_preferences],
+        tools=[
+            retrieve_relevant_context,
+            manage_conversation_memory,
+            track_topics_discussed,
+            detect_context_gaps,
+            build_context_profile,
+            manage_context,
+        ],
     )
 
     return agent
