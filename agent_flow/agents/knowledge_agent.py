@@ -1,5 +1,3 @@
-"""Knowledge Agent - RAG-powered information retrieval for Inteli questions."""
-
 import os
 import sys
 

@@ -1,5 +1,3 @@
-"""Safety Agent for content validation."""
-
 import os
 import sys
 

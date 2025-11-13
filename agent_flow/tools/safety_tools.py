@@ -1,5 +1,3 @@
-"""Safety tools for content validation and PII protection."""
-
 import re
 from typing import List, Optional
 
@@ -138,9 +136,9 @@ def check_moderation(
         "hate": ["hate", "racist", "discrimin"],
         "harassment": ["bully", "harass", "threaten"],
         "violence": ["kill", "attack", "weapon", "bomb"],
-        "sexual": ["explicit_term_1", "explicit_term_2"],  # Add actual terms
+        "sexual": ["explicit_term_1", "explicit_term_2"],
         "self_harm": ["suicide", "self harm", "cut myself"],
-        "profanity": ["profanity_1", "profanity_2"],  # Add actual terms
+        "profanity": ["profanity_1", "profanity_2"],
     }
 
     text_lower = text.lower()
@@ -154,7 +152,7 @@ def check_moderation(
                         {
                             "category": category,
                             "keyword": keyword,
-                            "severity": "high",  # Can be calculated
+                            "severity": "high",
                         }
                     )
 

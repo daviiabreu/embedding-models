@@ -1,5 +1,3 @@
-"""Context Agent for managing knowledge retrieval and conversation memory."""
-
 import os
 import sys
 

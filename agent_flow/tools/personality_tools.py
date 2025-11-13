@@ -1,5 +1,3 @@
-"""Personality detection and response adaptation tools."""
-
 from typing import Dict, List, Optional
 
 from google.adk.tools.tool_context import ToolContext

@@ -1,5 +1,3 @@
-"""Personality Agent for user adaptation and response personalization."""
-
 import os
 import sys
 

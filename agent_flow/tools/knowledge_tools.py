@@ -1,5 +1,3 @@
-"""Knowledge retrieval tools for RAG-based information access."""
-
 import json
 import os
 from typing import Dict, List

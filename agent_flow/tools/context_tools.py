@@ -1,5 +1,3 @@
-"""Context management and retrieval tools for RAG-based agents."""
-
 from typing import Dict, List, Optional
 
 from google.adk.tools.tool_context import ToolContext

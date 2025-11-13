@@ -1,5 +1,3 @@
-"""Orchestrator Agent - Orchestrates all other agents."""
-
 import os
 import sys
 
