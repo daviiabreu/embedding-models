@@ -6,7 +6,7 @@ import traceback
 import numpy as np
 
 # Importar as funções do main.py
-from main import (
+from streamlit.main import (
     preprocess_elements,
     create_overlapping_chunks,
     process_document_with_embeddings  # Nova função
