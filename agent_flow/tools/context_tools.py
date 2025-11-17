@@ -1,6 +1,11 @@
+import json
+import os
 from typing import Dict, List, Optional
 
+import google.generativeai as genai
 from google.adk.tools.tool_context import ToolContext
+
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # ============================================================================
 # 1. RETRIEVE RELEVANT CONTEXT - Get relevant information from knowledge base
@@ -35,10 +40,8 @@ def retrieve_relevant_context(
     # TODO: Integrate with vector database (ChromaDB, Pinecone, etc.)
     # TODO: Integrate with embedding model for semantic search
 
-    # Placeholder retrieved chunks
     retrieved_chunks = []
 
-    # Store retrieval stats
     if "context_retrievals" not in tool_context.state:
         tool_context.state["context_retrievals"] = []
 
@@ -146,7 +149,6 @@ def filter_context_by_relevance(
     # Placeholder filtering
     filtered_chunks = chunks[:max_chunks]
 
-    # Store filtering stats
     if "context_filtering" not in tool_context.state:
         tool_context.state["context_filtering"] = []
 
@@ -210,16 +212,14 @@ def manage_conversation_memory(
 
     history = tool_context.state["conversation_history"]
 
-    # Add current message
     history.append(
         {
             "message": current_message,
-            "timestamp": None,  # Add timestamp
-            "importance": 0.5,  # To be calculated
+            "timestamp": None,
+            "importance": 0.5,
         }
     )
 
-    # Apply memory management strategy
     if memory_type == "sliding_window" and len(history) > max_messages:
         history = history[-max_messages:]
 
@@ -230,7 +230,7 @@ def manage_conversation_memory(
         "memory_type": memory_type,
         "current_size": len(history),
         "max_size": max_messages,
-        "recent_messages": history[-5:],  # Last 5 messages
+        "recent_messages": history[-5:],
         "message": f"Managing {len(history)} messages in memory",
     }
 
@@ -245,46 +245,95 @@ def track_topics_discussed(
     tool_context: ToolContext,
     extract_subtopics: bool = True,
 ) -> dict:
-    """
-    Tracks topics discussed in conversation.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Tracking includes:
-    - Main topics
-    - Subtopics
-    - Topic transitions
-    - Coverage level per topic
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        conversation_history: List of messages
-        tool_context: ADK tool context
-        extract_subtopics: Whether to extract subtopics
+        history_context = "\n".join(
+            [
+                f"Message {i + 1}: {msg}"
+                for i, msg in enumerate(conversation_history[-10:])
+            ]
+        )
 
-    Returns:
-        Dict with topic tracking information
-    """
-    # TODO: Integrate with LLM for topic extraction
-    # TODO: Build topic hierarchy
+        subtopic_instruction = (
+            "Also extract subtopics for each main topic." if extract_subtopics else ""
+        )
 
-    # Placeholder topics
-    topics_discussed = {
-        "main_topics": [],
-        "subtopics": [],
-        "topic_transitions": [],
-        "coverage": {},
-    }
+        prompt = f"""Analyze the conversation history and extract all topics discussed.
 
-    # Store topic tracking
-    if "topics_tracking" not in tool_context.state:
-        tool_context.state["topics_tracking"] = []
+Conversation History (last 10 messages):
+{history_context}
 
-    tool_context.state["topics_tracking"].append(topics_discussed)
+Identify:
+1. Main topics discussed
+2. Subtopics (if requested)
+3. Topic transitions (when the conversation shifted from one topic to another)
+4. Coverage level for each topic (how deeply was it covered: superficial, moderate, deep)
 
-    return {
-        "success": True,
-        "topics_discussed": topics_discussed,
-        "total_topics": len(topics_discussed["main_topics"]),
-        "message": "Topic tracking pending LLM integration",
-    }
+{subtopic_instruction}
+
+Respond in JSON format:
+{{
+    "main_topics": ["topic1", "topic2", "topic3"],
+    "subtopics": {{"main_topic": ["subtopic1", "subtopic2"]}},
+    "topic_transitions": [
+        {{"from": "topic1", "to": "topic2", "message_index": 3}}
+    ],
+    "coverage": {{"topic1": "deep", "topic2": "moderate", "topic3": "superficial"}},
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation of topic analysis"
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        topics_discussed = {
+            "main_topics": result.get("main_topics", []),
+            "subtopics": result.get("subtopics", {}),
+            "topic_transitions": result.get("topic_transitions", []),
+            "coverage": result.get("coverage", {}),
+        }
+
+        if "topics_tracking" not in tool_context.state:
+            tool_context.state["topics_tracking"] = []
+
+        tool_context.state["topics_tracking"].append(
+            {
+                "topics": topics_discussed,
+                "message_count": len(conversation_history),
+                "confidence": result.get("confidence", 0.5),
+            }
+        )
+
+        return {
+            "success": True,
+            "topics_discussed": topics_discussed,
+            "total_topics": len(topics_discussed["main_topics"]),
+            "confidence": result.get("confidence", 0.5),
+            "reasoning": result.get("reasoning", ""),
+            "message": f"Tracked {len(topics_discussed['main_topics'])} main topics",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM topic extraction error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -295,49 +344,98 @@ def track_topics_discussed(
 def detect_context_gaps(
     query: str, available_context: List[Dict], tool_context: ToolContext
 ) -> dict:
-    """
-    Detects gaps in available context for answering query.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Gap detection:
-    - Missing key information
-    - Incomplete answers
-    - Ambiguous context
-    - Outdated information
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        query: User query
-        available_context: Currently available context
-        tool_context: ADK tool context
+        context_summary = "\n\n".join(
+            [
+                f"Context {i + 1}: {ctx.get('text', str(ctx))[:200]}..."
+                for i, ctx in enumerate(available_context[:5])
+            ]
+        )
 
-    Returns:
-        Dict with identified gaps
-    """
-    # TODO: Integrate with LLM for gap analysis
-    # TODO: Compare query requirements with available context
+        prompt = f"""Analyze if the available context is sufficient to answer the user's query.
 
-    gaps_detected = {
-        "missing_information": [],
-        "incomplete_topics": [],
-        "ambiguous_points": [],
-        "confidence_score": 0.0,  # 0-1 confidence in available context
-    }
+User Query: "{query}"
 
-    # Store gap detection
-    if "context_gaps" not in tool_context.state:
-        tool_context.state["context_gaps"] = []
+Available Context:
+{context_summary}
 
-    tool_context.state["context_gaps"].append(gaps_detected)
+Identify:
+1. What information is MISSING that would be needed to fully answer the query
+2. What topics are INCOMPLETE (partially covered but need more detail)
+3. What points are AMBIGUOUS or unclear
+4. Your confidence level in the available context (0.0 = no confidence, 1.0 = fully confident)
 
-    return {
-        "success": True,
-        "gaps": gaps_detected,
-        "has_gaps": len(gaps_detected["missing_information"]) > 0,
-        "confidence": gaps_detected["confidence_score"],
-        "recommendation": "retrieve_more"
-        if gaps_detected["confidence_score"] < 0.7
-        else "proceed",
-        "message": "Gap detection pending LLM integration",
-    }
+Respond in JSON format:
+{{
+    "missing_information": ["missing info 1", "missing info 2"],
+    "incomplete_topics": ["incomplete topic 1", "incomplete topic 2"],
+    "ambiguous_points": ["ambiguous point 1"],
+    "confidence_score": 0.0-1.0,
+    "can_answer": true/false,
+    "reasoning": "brief explanation of the gaps analysis"
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        gaps_detected = {
+            "missing_information": result.get("missing_information", []),
+            "incomplete_topics": result.get("incomplete_topics", []),
+            "ambiguous_points": result.get("ambiguous_points", []),
+            "confidence_score": result.get("confidence_score", 0.0),
+        }
+
+        if "context_gaps" not in tool_context.state:
+            tool_context.state["context_gaps"] = []
+
+        tool_context.state["context_gaps"].append(
+            {
+                "query": query,
+                "gaps": gaps_detected,
+                "context_count": len(available_context),
+            }
+        )
+
+        has_gaps = (
+            len(gaps_detected["missing_information"]) > 0
+            or len(gaps_detected["incomplete_topics"]) > 0
+        )
+
+        return {
+            "success": True,
+            "gaps": gaps_detected,
+            "has_gaps": has_gaps,
+            "confidence": gaps_detected["confidence_score"],
+            "can_answer": result.get("can_answer", not has_gaps),
+            "recommendation": "retrieve_more"
+            if gaps_detected["confidence_score"] < 0.7
+            else "proceed",
+            "reasoning": result.get("reasoning", ""),
+            "message": f"Gap analysis complete. Confidence: {gaps_detected['confidence_score']:.0%}",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM gap detection error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -353,51 +451,97 @@ def summarize_context(
     context_chunks: List[Dict],
     tool_context: ToolContext,
     max_length: int = 500,
-    summary_type: str = "extractive",
+    summary_type: str = "abstractive",
 ) -> dict:
-    """
-    Summarizes context chunks to reduce token usage.
-
-    Summary types:
-    - extractive: Extract key sentences
-    - abstractive: Generate new summary (LLM)
-    - hybrid: Combination of both
-
-    Args:
-        context_chunks: Chunks to summarize
-        tool_context: ADK tool context
-        max_length: Maximum summary length (words)
-        summary_type: Type of summarization
-
-    Returns:
-        Dict with summarized context
-    """
-    # TODO: Integrate with LLM for abstractive summarization
-    # TODO: Implement extractive summarization algorithms
-
-    # Placeholder summary
-    summary = "Summary pending implementation"
-
-    # Store summarization
-    if "context_summaries" not in tool_context.state:
-        tool_context.state["context_summaries"] = []
-
-    tool_context.state["context_summaries"].append(
-        {
-            "chunks_summarized": len(context_chunks),
-            "summary_type": summary_type,
-            "summary_length": len(summary.split()),
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
         }
-    )
 
-    return {
-        "success": True,
-        "summary": summary,
-        "original_chunks": len(context_chunks),
-        "summary_type": summary_type,
-        "compression_ratio": 0.0,  # Calculate actual ratio
-        "message": "Summarization pending LLM integration",
-    }
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
+
+        combined_text = "\n".join(
+            [
+                f"Chunk {i + 1}: {chunk.get('text', str(chunk))}"
+                for i, chunk in enumerate(context_chunks[:10])
+            ]
+        )
+
+        if summary_type == "extractive":
+            approach_instruction = "Extract the most important sentences directly from the text without paraphrasing."
+        elif summary_type == "abstractive":
+            approach_instruction = (
+                "Generate a new, concise summary that captures the key information."
+            )
+        else:  # hybrid
+            approach_instruction = "Combine extracted key sentences with generated explanations to create a comprehensive summary."
+
+        prompt = f"""Summarize the following context chunks into a concise summary.
+
+Context to Summarize:
+{combined_text[:3000]}
+
+Summary Requirements:
+- Maximum length: {max_length} words
+- Type: {summary_type}
+- {approach_instruction}
+- Preserve key facts and important details
+- Maintain logical flow
+
+Respond in JSON format:
+{{
+    "summary": "the generated summary text",
+    "key_points": ["key point 1", "key point 2", "key point 3"],
+    "word_count": number,
+    "compression_ratio": 0.0-1.0 (how much was compressed),
+    "confidence": 0.0-1.0
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        summary = result.get("summary", "")
+
+        if "context_summaries" not in tool_context.state:
+            tool_context.state["context_summaries"] = []
+
+        tool_context.state["context_summaries"].append(
+            {
+                "chunks_summarized": len(context_chunks),
+                "summary_type": summary_type,
+                "summary_length": len(summary.split()),
+                "compression_ratio": result.get("compression_ratio", 0.0),
+            }
+        )
+
+        return {
+            "success": True,
+            "summary": summary,
+            "key_points": result.get("key_points", []),
+            "original_chunks": len(context_chunks),
+            "summary_type": summary_type,
+            "word_count": result.get("word_count", len(summary.split())),
+            "compression_ratio": result.get("compression_ratio", 0.0),
+            "confidence": result.get("confidence", 0.5),
+            "message": f"Summarized {len(context_chunks)} chunks into {result.get('word_count', 0)} words",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM summarization error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -411,57 +555,91 @@ def extract_key_information(
     tool_context: ToolContext,
     info_types: Optional[List[str]] = None,
 ) -> dict:
-    """
-    Extracts key information from context relevant to query.
-
-    Information types:
-    - facts: Factual statements
-    - dates: Temporal information
-    - numbers: Quantitative data
-    - entities: People, places, organizations
-    - definitions: Term definitions
-
-    Args:
-        context: Context text
-        query: User query
-        tool_context: ADK tool context
-        info_types: Types of information to extract
-
-    Returns:
-        Dict with extracted information
-    """
-    # TODO: Integrate with NER (Named Entity Recognition)
-    # TODO: Integrate with LLM for fact extraction
-
-    if info_types is None:
-        info_types = ["facts", "dates", "numbers", "entities"]
-
-    extracted_info = {
-        "facts": [],
-        "dates": [],
-        "numbers": [],
-        "entities": [],
-        "definitions": [],
-    }
-
-    # Store extraction
-    if "info_extractions" not in tool_context.state:
-        tool_context.state["info_extractions"] = []
-
-    tool_context.state["info_extractions"].append(
-        {
-            "info_types": info_types,
-            "total_extracted": sum(len(v) for v in extracted_info.values()),
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
         }
-    )
 
-    return {
-        "success": True,
-        "extracted_info": extracted_info,
-        "info_types_requested": info_types,
-        "total_items": sum(len(v) for v in extracted_info.values()),
-        "message": "Information extraction pending NER integration",
-    }
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
+
+        if info_types is None:
+            info_types = ["facts", "dates", "numbers", "entities", "definitions"]
+
+        info_types_str = ", ".join(info_types)
+
+        prompt = f"""Extract key information from the context that is relevant to answering the query.
+
+User Query: "{query}"
+
+Context:
+{context[:2000]}
+
+Extract the following types of information:
+{info_types_str}
+
+- Facts: Factual statements or claims
+- Dates: Temporal information (dates, times, periods)
+- Numbers: Quantitative data (statistics, measurements, counts)
+- Entities: People, places, organizations, products
+- Definitions: Definitions of important terms
+
+Respond in JSON format:
+{{
+    "facts": ["fact 1", "fact 2"],
+    "dates": ["date 1", "date 2"],
+    "numbers": ["number 1 (with context)", "number 2 (with context)"],
+    "entities": ["entity 1", "entity 2"],
+    "definitions": [{{"term": "term name", "definition": "definition text"}}],
+    "confidence": 0.0-1.0
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        extracted_info = {
+            "facts": result.get("facts", []),
+            "dates": result.get("dates", []),
+            "numbers": result.get("numbers", []),
+            "entities": result.get("entities", []),
+            "definitions": result.get("definitions", []),
+        }
+
+        if "info_extractions" not in tool_context.state:
+            tool_context.state["info_extractions"] = []
+
+        tool_context.state["info_extractions"].append(
+            {
+                "info_types": info_types,
+                "total_extracted": sum(len(v) for v in extracted_info.values()),
+                "confidence": result.get("confidence", 0.5),
+            }
+        )
+
+        return {
+            "success": True,
+            "extracted_info": extracted_info,
+            "info_types_requested": info_types,
+            "total_items": sum(len(v) for v in extracted_info.values()),
+            "confidence": result.get("confidence", 0.5),
+            "message": f"Extracted {sum(len(v) for v in extracted_info.values())} items",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM information extraction error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -494,7 +672,6 @@ def deduplicate_context(
     # Placeholder - return all chunks
     deduplicated_chunks = chunks
 
-    # Store deduplication stats
     if "context_deduplication" not in tool_context.state:
         tool_context.state["context_deduplication"] = []
 
@@ -644,45 +821,97 @@ def build_context_profile(
     topics_discussed: List[str],
     tool_context: ToolContext,
 ) -> dict:
-    """
-    Builds profile of user's knowledge and context.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Profile includes:
-    - Topics covered
-    - Knowledge level per topic
-    - Questions asked
-    - Information already provided
-    - Gaps in understanding
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        conversation_history: All messages
-        topics_discussed: Topics covered
-        tool_context: ADK tool context
+        history_context = "\n".join(
+            [
+                f"Message {i + 1}: {msg}"
+                for i, msg in enumerate(conversation_history[-10:])
+            ]
+        )
 
-    Returns:
-        Dict with context profile
-    """
-    # TODO: Integrate with LLM for knowledge assessment
-    # TODO: Track cumulative knowledge
+        topics_str = (
+            ", ".join(topics_discussed)
+            if topics_discussed
+            else "No specific topics yet"
+        )
 
-    context_profile = {
-        "topics_covered": topics_discussed,
-        "knowledge_level": {},
-        "questions_asked": [],
-        "information_provided": [],
-        "knowledge_gaps": [],
-        "last_updated": None,
-    }
+        prompt = f"""Build a comprehensive profile of the user's knowledge and context based on the conversation history.
 
-    tool_context.state["context_profile"] = context_profile
+Conversation History (last 10 messages):
+{history_context}
 
-    return {
-        "success": True,
-        "profile": context_profile,
-        "topics_covered": len(topics_discussed),
-        "knowledge_completeness": 0.0,
-        "message": "Context profile built",
-    }
+Topics Discussed: {topics_str}
+
+Analyze and create a profile including:
+1. Topics covered and their knowledge level (beginner/intermediate/advanced per topic)
+2. Questions the user has asked (what they're curious about)
+3. Information already provided to the user (so we don't repeat)
+4. Gaps in understanding (what they still need to learn)
+5. Overall knowledge completeness (how complete is their understanding: 0.0-1.0)
+
+Respond in JSON format:
+{{
+    "topics_covered": ["topic1", "topic2"],
+    "knowledge_level": {{"topic1": "intermediate", "topic2": "beginner"}},
+    "questions_asked": ["question 1", "question 2"],
+    "information_provided": ["info 1", "info 2"],
+    "knowledge_gaps": ["gap 1", "gap 2"],
+    "knowledge_completeness": 0.0-1.0,
+    "learning_progress": "slow/moderate/fast",
+    "recommended_next_topics": ["topic to cover next"],
+    "confidence": 0.0-1.0,
+    "summary": "brief summary of user's knowledge state"
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        context_profile = {
+            "topics_covered": result.get("topics_covered", topics_discussed),
+            "knowledge_level": result.get("knowledge_level", {}),
+            "questions_asked": result.get("questions_asked", []),
+            "information_provided": result.get("information_provided", []),
+            "knowledge_gaps": result.get("knowledge_gaps", []),
+            "knowledge_completeness": result.get("knowledge_completeness", 0.0),
+            "learning_progress": result.get("learning_progress", "moderate"),
+            "recommended_next_topics": result.get("recommended_next_topics", []),
+            "last_updated": None,
+        }
+
+        tool_context.state["context_profile"] = context_profile
+
+        return {
+            "success": True,
+            "profile": context_profile,
+            "topics_covered": len(context_profile["topics_covered"]),
+            "knowledge_completeness": context_profile["knowledge_completeness"],
+            "confidence": result.get("confidence", 0.5),
+            "summary": result.get("summary", ""),
+            "message": f"Profile built: {context_profile['knowledge_completeness']:.0%} complete",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM profile building error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -717,7 +946,7 @@ def check_context_freshness(
         "fresh_chunks": [],
         "stale_chunks": [],
         "unknown_age": [],
-        "overall_freshness": 0.0,  # 0-1 score
+        "overall_freshness": 0.0,
     }
 
     if "context_freshness_checks" not in tool_context.state:
@@ -752,28 +981,6 @@ def manage_context(
     operations: Optional[List[str]] = None,
     max_tokens: int = 8000,
 ) -> dict:
-    """
-    Comprehensive context management orchestration.
-
-    Orchestrates:
-    1. Retrieval
-    2. Ranking
-    3. Filtering
-    4. Deduplication
-    5. Memory management
-    6. Window optimization
-    7. Formatting
-
-    Args:
-        query: User query
-        conversation_history: Conversation messages
-        tool_context: ADK tool context
-        operations: List of operations to perform (None = all)
-        max_tokens: Maximum context window
-
-    Returns:
-        Dict with complete managed context
-    """
     if operations is None:
         operations = ["retrieve", "rank", "filter", "deduplicate", "optimize", "format"]
 
