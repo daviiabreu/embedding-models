@@ -3,6 +3,9 @@
 # Document tools
 from .document_tools import search_knowledge_base, get_user_preferences
 
+# Graph RAG tool
+from .rag_tool import run_graph_rag_tool
+
 # Personality tools
 from .personality_tools import (
     add_dog_personality,
@@ -18,6 +21,8 @@ __all__ = [
     # Document tools
     "search_knowledge_base",
     "get_user_preferences",
+    # RAG
+    "run_graph_rag_tool",
     # Personality tools
     "add_dog_personality",
     "detect_visitor_emotion",
