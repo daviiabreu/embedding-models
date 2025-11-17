@@ -3,7 +3,6 @@ import sys
 
 from google.adk.agents import Agent
 
-# Add parent directory to path to import tools
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tools.personality_tools import (
@@ -18,17 +17,6 @@ from tools.personality_tools import (
 
 
 def create_personality_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
-    """
-    Create the Personality Agent.
-
-    This agent detects user personality and adapts responses accordingly.
-
-    Args:
-        model: The LLM model to use
-
-    Returns:
-        Configured Personality Agent
-    """
     instruction = """
 You are the Personality Agent, a specialized component responsible for understanding user personality traits, communication styles, emotional states, and engagement levels to enable personalized, adaptive interactions. Your insights help the robot dog tour guide system deliver experiences tailored to each individual user.
 

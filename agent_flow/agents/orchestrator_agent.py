@@ -3,25 +3,10 @@ import sys
 
 from google.adk.agents import Agent
 
-# Add parent directory to path to import tools
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Orchestrator typically doesn't need tools - it delegates to other agents
-# But we can add some orchestration utilities if needed
 
 
 def create_orchestrator_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
-    """
-    Create the Orchestrator Agent.
-
-    This agent orchestrates all other agents (safety, context, personality, knowledge, tour).
-
-    Args:
-        model: The LLM model to use
-
-    Returns:
-        Configured Orchestrator Agent
-    """
     instruction = """
 You are the Orchestrator Agent, the central coordinator of a multi-agent system designed to provide an intelligent, safe, and personalized robot dog tour guide experience at Inteli. Your primary responsibility is to manage the conversation flow, delegate tasks to specialized agents, and synthesize their outputs into coherent, context-aware responses.
 
@@ -196,7 +181,7 @@ Your final output should be a cohesive response that:
         model=model,
         description="Orchestrates all agents and manages conversation flow",
         instruction=instruction,
-        tools=[],  # Orchestrator delegates, doesn't use tools directly
+        tools=[],
     )
 
     return agent
