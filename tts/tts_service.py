@@ -22,7 +22,7 @@ class TTSService:
     def setup_output_directory(self):
         """Cria o diretório de saída padrão"""
         current_dir = Path(__file__).parent
-        output_dir = current_dir.parent / "pipeline" / "output_audio"
+        output_dir = current_dir.parent / "output_audio"
         output_dir.mkdir(parents=True, exist_ok=True)
         logging.info(f"📁 Diretório de saída: {output_dir}")
         return output_dir
