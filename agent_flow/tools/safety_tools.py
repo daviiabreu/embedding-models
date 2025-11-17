@@ -4,15 +4,10 @@ from typing import List, Optional
 
 import google.generativeai as genai
 from google.adk.tools.tool_context import ToolContext
-
-try:
-    from perspective import Attributes, Client
-
-    PERSPECTIVE_AVAILABLE = True
-except ImportError:
-    PERSPECTIVE_AVAILABLE = False
+from perspective import Attributes, Client
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
 
 # ============================================================================
 # 1. MASK PII
@@ -89,13 +84,6 @@ def check_moderation(
 ) -> dict:
     violations = []
     scores = {}
-
-    if not PERSPECTIVE_AVAILABLE:
-        return {
-            "success": False,
-            "error": "Perspective API library not installed. Install with: pip install perspective.py",
-            "text": text,
-        }
 
     if not os.getenv("PERSPECTIVE_API_KEY"):
         return {
@@ -589,11 +577,15 @@ def check_content_safety(
         results["checks_run"].append("jailbreak")
         results["jailbreak_check"] = jailbreak_result
         if jailbreak_result["is_jailbreak"]:
+            details = jailbreak_result.get(
+                "techniques_detected",
+                jailbreak_result.get("patterns_detected", []),
+            )
             results["violations"].append(
                 {
                     "type": "jailbreak",
                     "severity": "high",
-                    "details": jailbreak_result["patterns_detected"],
+                    "details": details,
                 }
             )
             results["overall_safe"] = False
@@ -737,6 +729,8 @@ def check_output_pii(
 # 9. HALLUCINATION DETECTION - Validates AI output against source documents
 # ============================================================================
 
+# TODO : Implement vector-based semantic search validation
+
 
 def detect_hallucination(
     text: str,
@@ -744,82 +738,119 @@ def detect_hallucination(
     tool_context: ToolContext,
     confidence_threshold: float = 0.7,
 ) -> dict:
-    """
-    Blocks outputs with hallucinations in AI-generated text.
-
-    Validates claims against actual documents and flags potentially fabricated information.
-
-    Args:
-        text: AI-generated output text to validate
-        source_documents: List of source document texts to validate against
-        tool_context: ADK tool context
-        confidence_threshold: Confidence threshold for hallucination detection (0-1)
-
-    Returns:
-        Dict with hallucination detection results
-    """
-    # TODO: Integrate with OpenAI Responses API with file search or similar service
-    # For now, basic keyword matching approach
-
-    # Extract key claims from the output (simplified)
-    # In production, this should use an LLM to identify factual claims
-
-    sentences = [s.strip() for s in re.split(r"[.!?]+", text) if len(s.strip()) > 10]
-
-    unsupported_claims = []
-    supported_claims = []
-
-    for sentence in sentences:
-        has_support = False
-        sentence_lower = sentence.lower()
-
-        for doc in source_documents:
-            doc_lower = doc.lower()
-            words = set(sentence_lower.split())
-            doc_words = set(doc_lower.split())
-            overlap = len(words.intersection(doc_words)) / max(len(words), 1)
-
-            if overlap > 0.3:
-                has_support = True
-                break
-
-        if has_support:
-            supported_claims.append(sentence)
-        else:
-            unsupported_claims.append(sentence)
-
-    total_claims = len(sentences)
-    hallucination_score = (
-        len(unsupported_claims) / max(total_claims, 1) if total_claims > 0 else 0
-    )
-    is_hallucinating = hallucination_score > (1 - confidence_threshold)
-
-    if "hallucination_checks" not in tool_context.state:
-        tool_context.state["hallucination_checks"] = []
-
-    tool_context.state["hallucination_checks"].append(
-        {
-            "total_claims": total_claims,
-            "unsupported_claims": len(unsupported_claims),
-            "hallucination_score": hallucination_score,
+    if not source_documents:
+        return {
+            "success": False,
+            "error": "No source documents provided for validation",
+            "text": text,
         }
+
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY environment variable not set. Required for LLM-based hallucination detection.",
+            "text": text,
+        }
+
+    return _detect_hallucination_llm(
+        text, source_documents, tool_context, confidence_threshold
     )
 
-    return {
-        "success": True,
-        "text": text,
-        "is_hallucinating": is_hallucinating,
-        "safe": not is_hallucinating,
-        "hallucination_score": hallucination_score,
-        "total_claims": total_claims,
-        "supported_claims": len(supported_claims),
-        "unsupported_claims": len(unsupported_claims),
-        "unsupported_examples": unsupported_claims[:3],
-        "action": "block" if is_hallucinating else "allow",
-        "message": f"Hallucination score: {hallucination_score:.2%}"
-        if is_hallucinating
-        else "Output validated against sources",
-    }
+
+def _detect_hallucination_llm(
+    text: str,
+    source_documents: List[str],
+    tool_context: ToolContext,
+    confidence_threshold: float,
+) -> dict:
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
+
+        sources_text = "\n\n".join(
+            [
+                f"[Source {i + 1}]: {doc[:1000]}"
+                for i, doc in enumerate(source_documents[:5])
+            ]
+        )
+
+        prompt = f"""You are a fact-checking expert. Analyze the following text and determine if it contains claims that are NOT supported by the provided source documents.
+
+Text to analyze:
+"{text}"
+
+Source documents:
+{sources_text}
+
+For each factual claim in the text, determine:
+1. Is it a factual claim (not opinion, not a question)?
+2. Is it supported by the source documents?
+3. What is your confidence level (0.0-1.0)?
+
+Respond in JSON format:
+{{
+    "is_hallucinating": true/false,
+    "hallucination_score": 0.0-1.0,
+    "total_claims": number,
+    "supported_claims": ["claim1", "claim2"],
+    "unsupported_claims": ["claim1", "claim2"],
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation"
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        import json
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        hallucination_score = result.get("hallucination_score", 0.0)
+        is_hallucinating = hallucination_score > (1 - confidence_threshold)
+
+        if "hallucination_checks" not in tool_context.state:
+            tool_context.state["hallucination_checks"] = []
+
+        tool_context.state["hallucination_checks"].append(
+            {
+                "total_claims": result.get("total_claims", 0),
+                "unsupported_claims": len(result.get("unsupported_claims", [])),
+                "hallucination_score": hallucination_score,
+                "method": "llm",
+            }
+        )
+
+        return {
+            "success": True,
+            "text": text,
+            "is_hallucinating": is_hallucinating,
+            "safe": not is_hallucinating,
+            "hallucination_score": hallucination_score,
+            "total_claims": result.get("total_claims", 0),
+            "supported_claims": result.get("supported_claims", []),
+            "unsupported_claims": result.get("unsupported_claims", []),
+            "unsupported_examples": result.get("unsupported_claims", [])[:3],
+            "confidence": result.get("confidence", 0.0),
+            "reasoning": result.get("reasoning", ""),
+            "action": "block" if is_hallucinating else "allow",
+            "message": f"Hallucination score: {hallucination_score:.2%}"
+            if is_hallucinating
+            else "Output validated against sources",
+            "method": "llm",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM hallucination detection error: {str(e)}",
+            "text": text,
+        }
 
 
 # ============================================================================
@@ -1282,11 +1313,14 @@ def check_output_safety(
         results["checks_run"].append("nsfw")
         results["nsfw_check"] = nsfw_result
         if nsfw_result["is_nsfw"]:
+            detected_categories = nsfw_result.get("detected_categories", {})
             results["violations"].append(
                 {
                     "type": "nsfw_content",
                     "severity": "high",
-                    "details": list(nsfw_result["detected_categories"].keys()),
+                    "details": list(detected_categories.keys())
+                    if detected_categories
+                    else [],
                 }
             )
             results["output_safe"] = False

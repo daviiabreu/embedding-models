@@ -6,7 +6,6 @@ from google.adk.tools.tool_context import ToolContext
 
 
 def load_document_chunks() -> List[Dict]:
-    """Load preprocessed document chunks for RAG."""
     chunks_path = os.path.join(
         os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
         "documents",
