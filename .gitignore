@@ -4,3 +4,4 @@ voice/.env
 __pycache__/
 *.json
 venv/
+secret

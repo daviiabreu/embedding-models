@@ -1,320 +1,183 @@
-from unstructured.partition.pdf import partition_pdf
-from unstructured.staging.base import elements_to_json
-import json
-import re
+import os
+import sys
+import logging
+from datetime import datetime
+from pathlib import Path
 
-file_path = "documents"
-base_file_name = "Edital-Processo-Seletivo-Inteli_-Graduacao-2026_AJUSTADO"
+# Adicionar diretórios ao path para importações - CAMINHOS CORRIGIDOS
+project_root = Path(__file__).parent  # main.py está na raiz agora
+sys.path.append(str(project_root / "pipeline"))  # Para llm_service
+sys.path.append(str(project_root / "stt"))       # Para stt_service
+sys.path.append(str(project_root / "tts"))       # Para tts_service
 
-def clean_text(text):
-    """Clean and normalize text content"""
-    # Remove excessive whitespace
-    text = re.sub(r'\s+', ' ', text)
-    
-    # Fix common OCR/parsing issues
-    text = text.replace('\ufb01', 'fi')  # Fix ligatures
-    text = text.replace('\ue009', 'tt')  # Fix special characters
-    
-    # Remove page numbers and footers if they appear in content
-    text = re.sub(r'^\d+$', '', text)  # Remove standalone page numbers
-    
-    # Normalize bullet points
-    text = re.sub(r'[•◦▪▫]', '•', text)
-    
-    return text.strip()
+from stt_service import transcribe_audio
+from llm_service import get_llm_response
+from tts_service import text_to_speech
 
-def determine_hierarchy_level(element):
-    """Determine document hierarchy level based on element type and content"""
-    element_type = element.get('type')
-    text = element.get('text', '')
-    
-    if element_type == 'Title':
-        # Detect numbered sections (1., 1.1, 1.1.1, etc.)
-        if re.match(r'^\d+\.', text):
-            level = len(text.split('.')[0]) 
-            return f"level_{level}"
-        return "title_main"
-    elif element_type == 'ListItem':
-        return "list_item"
-    else:
-        return "body"
+# Configuração de logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('pipeline.log'),
+        logging.StreamHandler()
+    ]
+)
 
-def extract_section_info(element):
-    """Extract section information from element"""
-    text = element.get('text', '')
-    element_type = element.get('type')
-    
-    # If it's a numbered section title
-    if element_type == 'Title' and re.match(r'^\d+\.', text):
-        return text.split('.')[0] + "." + text.split('.')[1].strip() if '.' in text else text
-    
-    # If it's a ListItem that looks like a section
-    if element_type == 'ListItem' and re.match(r'^\d+\.', text):
-        return text
-    
-    return "general"
+class AudioPipeline:
+    """Pipeline completa: Áudio → Transcrição → LLM → TTS → Áudio"""
 
-def get_chunk_metadata(chunk_elements):
-    """Get metadata for a chunk based on its elements"""
-    if not chunk_elements:
-        return {}
-    
-    # For now, return basic metadata
-    # In a more complex implementation, you could analyze all elements in the chunk
-    return {
-        'chunk_size': len(' '.join(chunk_elements)),
-        'element_count': len(chunk_elements),
-        'chunk_type': 'mixed'
-    }
+    def __init__(self):
+        self.setup_directories()
 
-def extract_enhanced_metadata(element):
-    """Extract and enrich metadata from each element"""
-    metadata = element.get('metadata', {})
-    
-    enhanced_metadata = {
-        'element_id': element.get('element_id'),
-        'element_type': element.get('type'),
-        'page_number': metadata.get('page_number'),
-        'parent_id': metadata.get('parent_id'),
-        'text_length': len(element.get('text', '')),
-        'is_header': element.get('type') in ['Title'],
-        'is_list_item': element.get('type') == 'ListItem',
-        'is_table_content': element.get('type') in ['Table', 'TableRow'],
-        'hierarchy_level': determine_hierarchy_level(element),
-        'section': extract_section_info(element)
-    }
-    
-    return enhanced_metadata
+    def setup_directories(self):
+        """Cria diretórios necessários"""
+        # Diretórios agora na raiz do projeto
+        self.input_dir = Path(__file__).parent / "input_audio"
+        self.output_dir = Path(__file__).parent / "output_audio"
 
-def preprocess_elements(elements):
-    """Main preprocessing function"""
-    processed_elements = []
-    
-    for element in elements:
-        text = element.get('text', '').strip()
-        if not text or len(text) < 10:  # Skip very short elements
-            continue
-            
-        # Skip footers and page numbers
-        if element.get('type') == 'Footer':
-            continue
-            
-        cleaned_text = clean_text(text)
-        if not cleaned_text:
-            continue
-            
-        processed_element = {
-            'text': cleaned_text,
-            'metadata': extract_enhanced_metadata(element),
-            'original_element': element
-        }
-        
-        processed_elements.append(processed_element)
-    
-    return processed_elements
+        self.input_dir.mkdir(exist_ok=True)
+        self.output_dir.mkdir(exist_ok=True)
 
-def create_contextual_chunks(processed_elements, max_tokens=400):
-    """Create chunks with section context"""
-    chunks = []
-    current_section = "Introduction"
-    current_subsection = ""
-    
-    for element in processed_elements:
-        text = element['text']
-        element_type = element['metadata']['element_type']
-        
-        # Update section tracking
-        if element_type == 'Title' and any(char.isdigit() for char in text[:5]):
-            current_section = text
-            current_subsection = ""
-        elif element_type == 'Title':
-            current_subsection = text
-        
-        # Create chunk with context
-        chunk_metadata = {
-            **element['metadata'],
-            'section': current_section,
-            'subsection': current_subsection,
-            'document_type': 'admission_notice',
-            'language': 'portuguese'
-        }
-        
-        chunks.append({
-            'text': text,
-            'metadata': chunk_metadata
-        })
-    
-    return chunks
+        logging.info(f"📁 Diretório de entrada: {self.input_dir}")
+        logging.info(f"📁 Diretório de saída: {self.output_dir}")
 
-def optimize_chunks(chunks, target_size=300):
-    """Optimize chunk sizes while preserving semantic meaning"""
-    optimized = []
-    i = 0
-    
-    while i < len(chunks):
-        current_chunk = chunks[i]
-        current_text = current_chunk['text']
-        current_metadata = current_chunk['metadata']
-        
-        # Try to combine with next chunks if they're in the same section
-        # and the combined size doesn't exceed limits
-        j = i + 1
-        while (j < len(chunks) and 
-               len(current_text) < target_size and
-               chunks[j]['metadata']['section'] == current_metadata['section']):
-            
-            combined_text = current_text + " " + chunks[j]['text']
-            if len(combined_text) <= target_size * 1.5:  # Allow some flexibility
-                current_text = combined_text
-                j += 1
-            else:
-                break
-        
-        optimized.append({
-            'text': current_text,
-            'metadata': current_metadata
-        })
-        
-        i = j
-    
-    return optimized
+    def process_audio(self, audio_filename: str, conversation_context: str = None):
+        """
+        Processa um arquivo de áudio através da pipeline completa
 
-def create_semantic_chunks(elements, max_chunk_size=512):
-    """Create chunks that respect document structure - Alternative chunking method"""
-    chunks = []
-    current_chunk = []
-    current_size = 0
-    
-    for element in elements:
-        element_text = element.get('text', '').strip()
-        if not element_text:
-            continue
-            
-        element_type = element.get('type')
-        
-        # Start new chunk for major sections
-        if element_type in ['Title'] and current_chunk:
-            if current_chunk:
-                chunks.append({
-                    'text': ' '.join(current_chunk),
-                    'metadata': get_chunk_metadata(current_chunk)
-                })
-            current_chunk = [element_text]
-            current_size = len(element_text)
-        else:
-            # Check if adding this element would exceed size limit
-            if current_size + len(element_text) > max_chunk_size and current_chunk:
-                chunks.append({
-                    'text': ' '.join(current_chunk),
-                    'metadata': get_chunk_metadata(current_chunk)
-                })
-                current_chunk = [element_text]
-                current_size = len(element_text)
-            else:
-                current_chunk.append(element_text)
-                current_size += len(element_text)
-    
-    # Add final chunk
-    if current_chunk:
-        chunks.append({
-            'text': ' '.join(current_chunk),
-            'metadata': get_chunk_metadata(current_chunk)
-        })
-    
-    return chunks
+        Args:
+            audio_filename: Nome do arquivo na pasta input_audio
+            conversation_context: Contexto adicional para a LLM
 
-def preprocess_for_embedding(json_file_path):
-    """Complete preprocessing pipeline"""
-    # Load the JSON data
-    with open(json_file_path, 'r', encoding='utf-8') as f:
-        elements = json.load(f)
-    
-    print(f"Loaded {len(elements)} elements from JSON")
-    
-    # Step 1: Basic preprocessing
-    processed_elements = preprocess_elements(elements)
-    print(f"Preprocessed {len(processed_elements)} elements")
-    
-    # Step 2: Create contextual chunks
-    chunks = create_contextual_chunks(processed_elements)
-    print(f"Created {len(chunks)} initial chunks")
-    
-    # Step 3: Combine related chunks if needed
-    optimized_chunks = optimize_chunks(chunks)
-    print(f"Optimized to {len(optimized_chunks)} chunks")
-    
-    # Step 4: Prepare for embedding
-    embedding_ready_chunks = []
-    for i, chunk in enumerate(optimized_chunks):
-        embedding_ready_chunks.append({
-            'id': f"chunk_{i}",
-            'content': chunk['text'],
-            'metadata': chunk['metadata']
-        })
-    
-    return embedding_ready_chunks
+        Returns:
+            tuple: (sucesso, caminho_audio_resposta, transcrição, resposta_llm)
+        """
+        audio_path = self.input_dir / audio_filename
+
+        if not audio_path.exists():
+            logging.error(f"❌ Arquivo não encontrado: {audio_path}")
+            return False, None, None, None
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        base_name = Path(audio_filename).stem
+
+        try:
+            # ETAPA 1: Transcrever áudio
+            logging.info(f"🎤 Iniciando transcrição de: {audio_filename}")
+            transcription = transcribe_audio(str(audio_path))
+
+            if not transcription:
+                logging.error("❌ Falha na transcrição")
+                return False, None, None, None
+
+            logging.info(f"✅ Transcrição concluída: {transcription[:100]}...")
+
+            # ETAPA 2: Enviar para LLM
+            logging.info("🤖 Enviando para LLM...")
+            llm_response = get_llm_response(transcription, conversation_context)
+
+            if not llm_response:
+                logging.error("❌ Falha na resposta da LLM")
+                return False, None, transcription, None
+
+            logging.info(f"✅ Resposta da LLM: {llm_response[:100]}...")
+
+            # ETAPA 3: Converter resposta para áudio
+            logging.info("🔊 Convertendo resposta para áudio...")
+
+            # Ajustar extensão baseada no TTS usado
+            # Se usar gTTS: .mp3 | Se usar Bark/XTTS: .wav
+            output_filename = f"{base_name}_response_{timestamp}.wav"  # Mudado para .wav
+            output_path = self.output_dir / output_filename
+
+            audio_success = text_to_speech(llm_response, str(output_path))
+
+            if not audio_success:
+                logging.error("❌ Falha na conversão para áudio")
+                return False, None, transcription, llm_response
+
+            logging.info(f"✅ Áudio gerado: {output_path}")
+
+            return True, str(output_path), transcription, llm_response
+
+        except Exception as e:
+            logging.error(f"❌ Erro na pipeline: {e}")
+            import traceback
+            logging.error(traceback.format_exc())
+            return False, None, None, None
+
+    def process_all_audio_files(self):
+        """Processa todos os arquivos de áudio na pasta de entrada"""
+        audio_extensions = {'.mp3', '.wav', '.m4a', '.flac', '.ogg', '.aac'}
+
+        audio_files = [
+            f for f in self.input_dir.iterdir()
+            if f.is_file() and f.suffix.lower() in audio_extensions
+        ]
+
+        if not audio_files:
+            logging.warning(f"⚠️ Nenhum arquivo de áudio encontrado em {self.input_dir}")
+            return
+
+        logging.info(f"🎯 Encontrados {len(audio_files)} arquivos para processar")
+
+        results = []
+        for audio_file in audio_files:
+            logging.info(f"\n{'='*50}")
+            logging.info(f"🔄 Processando: {audio_file.name}")
+
+            success, output_path, transcription, llm_response = self.process_audio(
+                audio_file.name
+            )
+
+            results.append({
+                'input_file': audio_file.name,
+                'success': success,
+                'output_file': output_path,
+                'transcription': transcription,
+                'llm_response': llm_response
+            })
+
+        # Relatório final
+        logging.info(f"\n{'='*50}")
+        logging.info("📊 RELATÓRIO FINAL")
+
+        successful = sum(1 for r in results if r['success'])
+        logging.info(f"✅ Sucessos: {successful}/{len(results)}")
+
+        for result in results:
+            status = "✅" if result['success'] else "❌"
+            logging.info(f"{status} {result['input_file']}")
 
 def main():
-    try:
-        # Step 1: Extract elements (only if JSON doesn't exist)
-        json_output_path = f"{file_path}/{base_file_name}-output.json"
-        
-        # Check if JSON already exists
-        try:
-            with open(json_output_path, 'r') as f:
-                pass
-            print("JSON file already exists, skipping PDF extraction")
-        except FileNotFoundError:
-            print("Extracting elements from PDF...")
-            elements = partition_pdf(filename=f"{file_path}/{base_file_name}.pdf")
-            elements_to_json(elements=elements, filename=json_output_path)
-            print("PDF extraction completed")
-        
-        # Step 2: Preprocess for embedding
-        print("Starting preprocessing pipeline...")
-        embedding_chunks = preprocess_for_embedding(json_output_path)
-        
-        # Step 3: Save preprocessed chunks
-        chunks_output_path = f"{file_path}/{base_file_name}-chunks.json"
-        with open(chunks_output_path, 'w', encoding='utf-8') as f:
-            json.dump(embedding_chunks, f, ensure_ascii=False, indent=2)
-        
-        print(f"✅ Created {len(embedding_chunks)} chunks ready for embedding")
-        print(f"✅ Saved chunks to: {chunks_output_path}")
-        
-        # Step 4: Preview chunks
-        print("\n--- CHUNK PREVIEW ---")
-        for i, chunk in enumerate(embedding_chunks[:3]):
-            print(f"\n--- Chunk {i+1} ---")
-            print(f"ID: {chunk['id']}")
-            print(f"Content: {chunk['content'][:200]}...")
-            print(f"Content Length: {len(chunk['content'])}")
-            print(f"Section: {chunk['metadata'].get('section', 'N/A')}")
-            print(f"Element Type: {chunk['metadata'].get('element_type', 'N/A')}")
-            print(f"Page: {chunk['metadata'].get('page_number', 'N/A')}")
-        
-        # Step 5: Show statistics
-        print(f"\n--- STATISTICS ---")
-        total_chars = sum(len(chunk['content']) for chunk in embedding_chunks)
-        avg_chunk_size = total_chars / len(embedding_chunks)
-        print(f"Total chunks: {len(embedding_chunks)}")
-        print(f"Total characters: {total_chars}")
-        print(f"Average chunk size: {avg_chunk_size:.1f} characters")
-        
-        # Show section distribution
-        sections = {}
-        for chunk in embedding_chunks:
-            section = chunk['metadata'].get('section', 'Unknown')
-            sections[section] = sections.get(section, 0) + 1
-        
-        print(f"Section distribution:")
-        for section, count in sorted(sections.items()):
-            print(f"  {section}: {count} chunks")
-            
-    except Exception as e:
-        print(f"❌ Error in preprocessing pipeline: {str(e)}")
-        import traceback
-        traceback.print_exc()
+    """Função principal da pipeline"""
+    logging.info("🚀 Iniciando Pipeline de Áudio")
+
+    pipeline = AudioPipeline()
+
+    # Verificar argumentos da linha de comando
+    if len(sys.argv) > 1:
+        # Processar arquivo específico
+        audio_filename = sys.argv[1]
+        context = sys.argv[2] if len(sys.argv) > 2 else None
+
+        logging.info(f"📁 Processando arquivo específico: {audio_filename}")
+        success, output_path, transcription, llm_response = pipeline.process_audio(
+            audio_filename, context
+        )
+
+        if success:
+            logging.info(f"🎉 Pipeline concluída com sucesso!")
+            logging.info(f"📄 Transcrição: {transcription}")
+            logging.info(f"🤖 Resposta LLM: {llm_response}")
+            logging.info(f"🔊 Áudio gerado: {output_path}")
+        else:
+            logging.error("❌ Pipeline falhou")
+    else:
+        # Processar todos os arquivos
+        logging.info("📁 Processando todos os arquivos na pasta de entrada")
+        pipeline.process_all_audio_files()
 
 if __name__ == "__main__":
     main()
