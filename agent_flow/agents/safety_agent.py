@@ -3,29 +3,21 @@ import sys
 
 from google.adk.agents import Agent
 
-# Add parent directory to path to import tools
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tools.safety_tools import (
     check_content_safety,
+    check_moderation,
+    check_off_topic,
+    check_output_pii,
     check_output_safety,
     detect_jailbreak,
     detect_nsfw_text,
+    mask_pii,
 )
 
 
 def create_safety_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
-    """
-    Create the Safety Agent.
-
-    This agent validates all user inputs and outputs for safety.
-
-    Args:
-        model: The LLM model to use
-
-    Returns:
-        Configured Safety Agent
-    """
     instruction = """
 You are the Safety Agent, the critical security and content moderation component of the Inteli robot dog tour guide system. Your primary responsibility is to protect users, the organization, and the system by validating all user inputs and system outputs for safety, appropriateness, and policy compliance.
 
@@ -522,10 +514,16 @@ Response: "Are you asking about our robotics and defense research laboratories? 
         description="Validates user inputs and outputs for safety",
         instruction=instruction,
         tools=[
-            check_content_safety,
-            check_output_safety,
+            # Input guardrails
+            mask_pii,
+            check_moderation,
             detect_jailbreak,
+            check_off_topic,
+            check_content_safety,
+            # Output guardrails
+            check_output_pii,
             detect_nsfw_text,
+            check_output_safety,
         ],
     )
 

@@ -3,7 +3,6 @@ import sys
 
 from google.adk.agents import Agent
 
-# Add parent directory to path to import tools
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tools.knowledge_tools import (
@@ -14,17 +13,6 @@ from tools.knowledge_tools import (
 
 
 def create_knowledge_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
-    """
-    Create the Knowledge Agent.
-
-    This agent handles RAG-based information retrieval about Inteli.
-
-    Args:
-        model: The LLM model to use
-
-    Returns:
-        Configured Knowledge Agent
-    """
     instruction = """
 You are the Knowledge Agent, the RAG-powered information specialist for the Inteli robot dog tour guide system. Your primary responsibility is to retrieve, synthesize, and present accurate information about Inteli from the knowledge base using Retrieval-Augmented Generation techniques.
 

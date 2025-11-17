@@ -3,10 +3,6 @@ from typing import Dict, List, Optional
 from google.adk.tools.tool_context import ToolContext
 
 # ============================================================================
-# CONTEXT RETRIEVAL & RANKING
-# ============================================================================
-
-# ============================================================================
 # 1. RETRIEVE RELEVANT CONTEXT - Get relevant information from knowledge base
 # ============================================================================
 
@@ -561,11 +557,10 @@ def manage_context_window(
     # Placeholder optimization
     optimized_context = {
         "context_chunks": context_chunks,
-        "conversation_history": conversation_history[-5:],  # Keep last 5
-        "estimated_tokens": 0,  # Calculate actual tokens
+        "conversation_history": conversation_history[-5:],
+        "estimated_tokens": 0,
     }
 
-    # Store window management
     if "context_window_management" not in tool_context.state:
         tool_context.state["context_window_management"] = []
 
@@ -582,7 +577,7 @@ def manage_context_window(
         "optimized_context": optimized_context,
         "estimated_tokens": optimized_context["estimated_tokens"],
         "max_tokens": max_tokens,
-        "utilization": 0.0,  # % of context window used
+        "utilization": 0.0,
         "priority_used": priority,
         "message": f"Context optimized for {max_tokens} token limit",
     }
@@ -620,10 +615,8 @@ def prepare_context_for_llm(
     # TODO: Implement different formatting strategies
     # TODO: Add source citations
 
-    # Placeholder formatted context
     formatted_context = "Formatted context pending implementation"
 
-    # Store formatting
     if "context_formatting" not in tool_context.state:
         tool_context.state["context_formatting"] = []
 
@@ -636,7 +629,7 @@ def prepare_context_for_llm(
         "formatted_context": formatted_context,
         "format_style": format_style,
         "chunks_included": len(context_chunks),
-        "includes_citations": False,  # Add when implemented
+        "includes_citations": False,
         "message": "Context formatted for LLM",
     }
 
@@ -674,21 +667,20 @@ def build_context_profile(
 
     context_profile = {
         "topics_covered": topics_discussed,
-        "knowledge_level": {},  # Topic -> level mapping
+        "knowledge_level": {},
         "questions_asked": [],
         "information_provided": [],
         "knowledge_gaps": [],
         "last_updated": None,
     }
 
-    # Store profile
     tool_context.state["context_profile"] = context_profile
 
     return {
         "success": True,
         "profile": context_profile,
         "topics_covered": len(topics_discussed),
-        "knowledge_completeness": 0.0,  # 0-1 score
+        "knowledge_completeness": 0.0,
         "message": "Context profile built",
     }
 
@@ -728,7 +720,6 @@ def check_context_freshness(
         "overall_freshness": 0.0,  # 0-1 score
     }
 
-    # Store freshness check
     if "context_freshness_checks" not in tool_context.state:
         tool_context.state["context_freshness_checks"] = []
 
@@ -794,37 +785,31 @@ def manage_context(
         "metadata": {},
     }
 
-    # Retrieve relevant context
     if "retrieve" in operations:
         retrieval_result = retrieve_relevant_context(query, tool_context)
         managed_context["context_chunks"] = retrieval_result["chunks"]
 
-    # Rank chunks
     if "rank" in operations and managed_context["context_chunks"]:
         ranking_result = rank_context_chunks(
             query, managed_context["context_chunks"], tool_context
         )
         managed_context["context_chunks"] = ranking_result["ranked_chunks"]
 
-    # Filter by relevance
     if "filter" in operations and managed_context["context_chunks"]:
         filter_result = filter_context_by_relevance(
             managed_context["context_chunks"], query, tool_context
         )
         managed_context["context_chunks"] = filter_result["filtered_chunks"]
 
-    # Deduplicate
     if "deduplicate" in operations and managed_context["context_chunks"]:
         dedup_result = deduplicate_context(
             managed_context["context_chunks"], tool_context
         )
         managed_context["context_chunks"] = dedup_result["deduplicated_chunks"]
 
-    # Manage conversation memory
     memory_result = manage_conversation_memory(query, tool_context)
     managed_context["conversation_memory"] = memory_result["recent_messages"]
 
-    # Optimize for context window
     if "optimize" in operations:
         window_result = manage_context_window(
             managed_context["context_chunks"],
@@ -839,7 +824,6 @@ def manage_context(
             "conversation_history"
         ]
 
-    # Format for LLM
     if "format" in operations:
         format_result = prepare_context_for_llm(
             managed_context["context_chunks"], query, tool_context

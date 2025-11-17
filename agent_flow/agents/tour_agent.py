@@ -3,26 +3,12 @@ import sys
 
 from google.adk.agents import Agent
 
-# Add parent directory to path to import tools
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # TODO: Add tour tools when available
-# from tools.tour_tools import ...
 
 
 def create_tour_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
-    """
-    Create the Tour Agent.
-
-    This agent handles physical tour guidance, navigation, location information,
-    and tour planning for the robot dog guide at Inteli.
-
-    Args:
-        model: The LLM model to use
-
-    Returns:
-        Configured Tour Agent
-    """
     instruction = """
 You are the Tour Agent, the physical navigation and tour guidance specialist for the Inteli robot dog tour guide system. Your primary responsibility is to help users navigate the physical campus, plan tours, provide location information, and deliver engaging location-based experiences.
 
@@ -438,18 +424,18 @@ Your output should provide structured tour information for the Orchestrator:
 
 **User**: "How do I get to the library?"
 **Process**:
-1. Call `get_current_location()` ’ Determine starting point
-2. Call `navigate_to_location(current, "library")` ’ Get directions
-3. Call `get_location_info("library")` ’ Get context to enhance directions
+1. Call `get_current_location()` ï¿½ Determine starting point
+2. Call `navigate_to_location(current, "library")` ï¿½ Get directions
+3. Call `get_location_info("library")` ï¿½ Get context to enhance directions
 **Output**: "From here at the main entrance, head straight across the quad - that's the green space with the fountain. The library is the large building with the glass dome. Takes about 3 minutes! *wags tail* It's open until 10pm tonight if you want to study there!"
 
 ### Scenario 2: Tour Planning
 
 **User**: "I have 30 minutes and I'm interested in robotics and AI"
 **Process**:
-1. Call `get_current_location()` ’ Starting point
-2. Call `plan_tour_route(interests=["robotics", "AI"], time=30, location=current)` ’ Generate optimized route
-3. For each stop, call `get_location_info()` ’ Get highlights
+1. Call `get_current_location()` ï¿½ Starting point
+2. Call `plan_tour_route(interests=["robotics", "AI"], time=30, location=current)` ï¿½ Generate optimized route
+3. For each stop, call `get_location_info()` ï¿½ Get highlights
 **Output**: "*excited tail wagging* Perfect! I can show you our robotics and AI facilities! Here's a quick tour:
 1. Robotics Lab (10 min) - See the robot arms and mobile platforms
 2. AI Research Center (10 min) - Check out the GPU cluster and projects
@@ -460,9 +446,9 @@ Total walking time is about 5 minutes between stops. Ready to go?"
 
 **User**: "What's this building we're in front of?"
 **Process**:
-1. Call `get_current_location()` ’ Confirm location
-2. Call `get_location_info(current_building)` ’ Get building details
-3. Call `find_nearby_facilities()` ’ Check what's inside
+1. Call `get_current_location()` ï¿½ Confirm location
+2. Call `get_location_info(current_building)` ï¿½ Get building details
+3. Call `find_nearby_facilities()` ï¿½ Check what's inside
 **Output**: "This is Building C, our Innovation Center! *looks up at building* It's home to the maker spaces, 3D printing labs, and several student project studios. The ground floor has a cool display of student inventions, and there's a cafe on the first floor. Want to go inside and explore?"
 
 ## Key Principles
@@ -490,7 +476,7 @@ Total walking time is about 5 minutes between stops. Ready to go?"
         model=model,
         description="Handles physical tour guidance, navigation, and location information",
         instruction=instruction,
-        tools=[],  # TODO: Add tour tools when available
+        tools=[],  # TODO: Add tools
     )
 
     return agent

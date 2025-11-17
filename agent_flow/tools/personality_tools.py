@@ -1,10 +1,11 @@
+import json
+import os
 from typing import Dict, List, Optional
 
+import google.generativeai as genai
 from google.adk.tools.tool_context import ToolContext
 
-# ============================================================================
-# PERSONALITY DETECTION TOOLS
-# ============================================================================
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # ============================================================================
 # 1. DETECT PERSONALITY TYPE - Identify personality dimensions
@@ -17,54 +18,126 @@ def detect_personality_type(
     tool_context: ToolContext,
     framework: str = "big_five",
 ) -> dict:
-    """
-    Detects personality type based on communication patterns.
-
-    Frameworks supported:
-    - big_five: Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism
-    - mbti: Myers-Briggs Type Indicator (16 personalities)
-    - custom: Custom personality dimensions
-
-    Args:
-        text: Current user message
-        conversation_history: Previous messages for context
-        tool_context: ADK tool context
-        framework: Personality framework to use
-
-    Returns:
-        Dict with personality type analysis
-    """
-    # TODO: Integrate with LLM for personality analysis
-
-    # Placeholder personality dimensions
-    personality_scores = {
-        "openness": 0.0,  # 0-1: Traditional vs Curious
-        "conscientiousness": 0.0,  # 0-1: Spontaneous vs Organized
-        "extraversion": 0.0,  # 0-1: Introverted vs Extraverted
-        "agreeableness": 0.0,  # 0-1: Challenging vs Agreeable
-        "neuroticism": 0.0,  # 0-1: Calm vs Anxious
-    }
-
-    # Store personality detection
-    if "personality_detections" not in tool_context.state:
-        tool_context.state["personality_detections"] = []
-
-    tool_context.state["personality_detections"].append(
-        {
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
             "framework": framework,
-            "scores": personality_scores,
-            "message_count": len(conversation_history),
         }
-    )
 
-    return {
-        "success": True,
-        "framework": framework,
-        "personality_scores": personality_scores,
-        "dominant_traits": [],  # To be determined by LLM
-        "confidence": 0.0,  # 0-1 confidence in detection
-        "message": "Personality detection pending LLM implementation",
-    }
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
+
+        history_context = "\n".join(
+            [
+                f"Message {i + 1}: {msg}"
+                for i, msg in enumerate(conversation_history[-5:])
+            ]
+        )
+
+        if framework == "big_five":
+            prompt = f"""Analyze the user's personality based on the Big Five personality traits using their conversation messages.
+
+Conversation History:
+{history_context}
+
+Current Message: "{text}"
+
+Analyze and score each trait from 0.0 to 1.0:
+- Openness: 0 (traditional, prefers routine) to 1 (curious, creative, open to new experiences)
+- Conscientiousness: 0 (spontaneous, flexible) to 1 (organized, disciplined, detail-oriented)
+- Extraversion: 0 (introverted, reserved) to 1 (extraverted, social, energetic)
+- Agreeableness: 0 (challenging, analytical) to 1 (cooperative, empathetic, trusting)
+- Neuroticism: 0 (calm, emotionally stable) to 1 (anxious, sensitive, prone to stress)
+
+Respond in JSON format:
+{{
+    "openness": 0.0-1.0,
+    "conscientiousness": 0.0-1.0,
+    "extraversion": 0.0-1.0,
+    "agreeableness": 0.0-1.0,
+    "neuroticism": 0.0-1.0,
+    "dominant_traits": ["trait1", "trait2"],
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation of the analysis"
+}}"""
+        else:
+            prompt = f"""Analyze the user's personality type using the MBTI framework based on their conversation messages.
+
+Conversation History:
+{history_context}
+
+Current Message: "{text}"
+
+Determine their MBTI type across four dimensions:
+- E (Extraversion) vs I (Introversion)
+- S (Sensing) vs N (Intuition)
+- T (Thinking) vs F (Feeling)
+- J (Judging) vs P (Perceiving)
+
+Respond in JSON format:
+{{
+    "mbti_type": "XXXX",
+    "dimension_scores": {{"E/I": 0.0-1.0, "S/N": 0.0-1.0, "T/F": 0.0-1.0, "J/P": 0.0-1.0}},
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation"
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        if framework == "big_five":
+            personality_scores = {
+                "openness": result.get("openness", 0.5),
+                "conscientiousness": result.get("conscientiousness", 0.5),
+                "extraversion": result.get("extraversion", 0.5),
+                "agreeableness": result.get("agreeableness", 0.5),
+                "neuroticism": result.get("neuroticism", 0.5),
+            }
+            dominant_traits = result.get("dominant_traits", [])
+        else:
+            personality_scores = result.get("dimension_scores", {})
+            dominant_traits = [result.get("mbti_type", "XXXX")]
+
+        confidence = result.get("confidence", 0.5)
+
+        if "personality_detections" not in tool_context.state:
+            tool_context.state["personality_detections"] = []
+
+        tool_context.state["personality_detections"].append(
+            {
+                "framework": framework,
+                "scores": personality_scores,
+                "message_count": len(conversation_history),
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
+            "framework": framework,
+            "personality_scores": personality_scores,
+            "dominant_traits": dominant_traits,
+            "confidence": confidence,
+            "reasoning": result.get("reasoning", ""),
+            "message": f"Personality detected: {', '.join(dominant_traits[:2])}",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM personality detection error: {str(e)}",
+            "framework": framework,
+        }
 
 
 # ============================================================================
@@ -75,57 +148,90 @@ def detect_personality_type(
 def detect_communication_style(
     text: str, conversation_history: List[str], tool_context: ToolContext
 ) -> dict:
-    """
-    Detects user's preferred communication style.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Styles detected:
-    - formality: Formal, professional, casual, very casual
-    - technicality: Technical expert, intermediate, beginner
-    - verbosity: Concise, balanced, detailed, very detailed
-    - directness: Direct, moderate, indirect
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        text: Current user message
-        conversation_history: Previous messages for context
-        tool_context: ADK tool context
+        history_context = "\n".join(
+            [
+                f"Message {i + 1}: {msg}"
+                for i, msg in enumerate(conversation_history[-5:])
+            ]
+        )
 
-    Returns:
-        Dict with communication style analysis
-    """
-    # TODO: Integrate with LLM for style analysis
+        prompt = f"""Analyze the user's communication style based on their messages.
 
-    # Placeholder style dimensions
-    style_profile = {
-        "formality": "casual",  # formal, professional, casual, very_casual
-        "technicality": "intermediate",  # expert, intermediate, beginner
-        "verbosity": "balanced",  # concise, balanced, detailed, very_detailed
-        "directness": "moderate",  # direct, moderate, indirect
-    }
+Conversation History:
+{history_context}
 
-    # Basic heuristics (to be replaced with LLM)
-    text_lower = text.lower()
-    word_count = len(text.split())
+Current Message: "{text}"
 
-    # Simple verbosity detection
-    if word_count < 5:
-        style_profile["verbosity"] = "concise"
-    elif word_count > 30:
-        style_profile["verbosity"] = "detailed"
+Analyze the following style dimensions:
+1. Formality: formal (professional language, respectful), professional (business-like), casual (friendly, relaxed), very_casual (slang, informal)
+2. Technicality: expert (uses specialized terminology), intermediate (some technical terms), beginner (simple, non-technical language)
+3. Verbosity: concise (brief, to the point), balanced (moderate detail), detailed (thorough explanations), very_detailed (comprehensive, lengthy)
+4. Directness: direct (straightforward, explicit), moderate (balanced), indirect (hints, implicit)
 
-    # Store style detection
-    if "communication_styles" not in tool_context.state:
-        tool_context.state["communication_styles"] = []
+Respond in JSON format:
+{{
+    "formality": "formal/professional/casual/very_casual",
+    "technicality": "expert/intermediate/beginner",
+    "verbosity": "concise/balanced/detailed/very_detailed",
+    "directness": "direct/moderate/indirect",
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation of the communication style analysis"
+}}"""
 
-    tool_context.state["communication_styles"].append(
-        {"style_profile": style_profile, "word_count": word_count}
-    )
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
 
-    return {
-        "success": True,
-        "style_profile": style_profile,
-        "confidence": 0.0,
-        "message": "Style detection pending LLM implementation",
-    }
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        style_profile = {
+            "formality": result.get("formality", "casual"),
+            "technicality": result.get("technicality", "intermediate"),
+            "verbosity": result.get("verbosity", "balanced"),
+            "directness": result.get("directness", "moderate"),
+        }
+
+        confidence = result.get("confidence", 0.5)
+
+        if "communication_styles" not in tool_context.state:
+            tool_context.state["communication_styles"] = []
+
+        tool_context.state["communication_styles"].append(
+            {
+                "style_profile": style_profile,
+                "word_count": len(text.split()),
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
+            "style_profile": style_profile,
+            "confidence": confidence,
+            "reasoning": result.get("reasoning", ""),
+            "message": f"Communication style: {style_profile['formality']}, {style_profile['verbosity']}",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM style detection error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -136,62 +242,88 @@ def detect_communication_style(
 def detect_emotional_state(
     text: str, tool_context: ToolContext, detect_intensity: bool = True
 ) -> dict:
-    """
-    Detects user's current emotional state.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Emotions detected:
-    - Primary: Happy, sad, angry, fearful, surprised, disgusted
-    - Secondary: Excited, bored, confused, frustrated, curious, confident
-    - Mood: Positive, neutral, negative
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        text: Current user message
-        tool_context: ADK tool context
-        detect_intensity: Whether to detect emotion intensity
+        intensity_instruction = (
+            "Also rate the intensity (0.0-1.0) of each detected emotion."
+            if detect_intensity
+            else ""
+        )
 
-    Returns:
-        Dict with emotional state analysis
-    """
-    # TODO: Integrate with LLM or emotion detection API
+        prompt = f"""Analyze the emotional state expressed in this user message.
 
-    # Placeholder emotion detection
-    emotions = {
-        "primary_emotion": "neutral",
-        "secondary_emotions": [],
-        "mood": "neutral",  # positive, neutral, negative
-        "intensity": 0.5,  # 0-1
-        "valence": 0.0,  # -1 (negative) to 1 (positive)
-        "arousal": 0.5,  # 0 (calm) to 1 (excited)
-    }
+User Message: "{text}"
 
-    # Basic keyword-based detection (to be replaced)
-    text_lower = text.lower()
+Identify:
+1. Primary emotion (main emotion): happy, sad, angry, fearful, surprised, disgusted, neutral
+2. Secondary emotions (if any): excited, bored, confused, frustrated, curious, confident, anxious, content
+3. Overall mood: positive, neutral, negative
+4. Valence: -1.0 (very negative) to 1.0 (very positive)
+5. Arousal: 0.0 (very calm) to 1.0 (very excited/agitated)
+{intensity_instruction}
 
-    positive_keywords = ["great", "amazing", "love", "happy", "excited", "wonderful"]
-    negative_keywords = ["bad", "hate", "angry", "sad", "terrible", "awful"]
+Respond in JSON format:
+{{
+    "primary_emotion": "emotion name",
+    "secondary_emotions": ["emotion1", "emotion2"],
+    "mood": "positive/neutral/negative",
+    "intensity": 0.0-1.0,
+    "valence": -1.0 to 1.0,
+    "arousal": 0.0-1.0,
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation of the emotional analysis"
+}}"""
 
-    positive_count = sum(1 for word in positive_keywords if word in text_lower)
-    negative_count = sum(1 for word in negative_keywords if word in text_lower)
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
 
-    if positive_count > negative_count:
-        emotions["mood"] = "positive"
-        emotions["valence"] = 0.5
-    elif negative_count > positive_count:
-        emotions["mood"] = "negative"
-        emotions["valence"] = -0.5
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
 
-    # Store emotional state
-    if "emotional_states" not in tool_context.state:
-        tool_context.state["emotional_states"] = []
+        result = json.loads(result_text)
 
-    tool_context.state["emotional_states"].append(emotions)
+        emotions = {
+            "primary_emotion": result.get("primary_emotion", "neutral"),
+            "secondary_emotions": result.get("secondary_emotions", []),
+            "mood": result.get("mood", "neutral"),
+            "intensity": result.get("intensity", 0.5),
+            "valence": result.get("valence", 0.0),
+            "arousal": result.get("arousal", 0.5),
+        }
 
-    return {
-        "success": True,
-        "emotions": emotions,
-        "confidence": 0.0,
-        "message": "Emotion detection pending LLM implementation",
-    }
+        confidence = result.get("confidence", 0.5)
+
+        if "emotional_states" not in tool_context.state:
+            tool_context.state["emotional_states"] = []
+
+        tool_context.state["emotional_states"].append(
+            {"emotions": emotions, "confidence": confidence}
+        )
+
+        return {
+            "success": True,
+            "emotions": emotions,
+            "confidence": confidence,
+            "reasoning": result.get("reasoning", ""),
+            "message": f"Emotional state: {emotions['primary_emotion']} ({emotions['mood']})",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM emotion detection error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -205,80 +337,96 @@ def detect_engagement_level(
     response_times: Optional[List[float]],
     tool_context: ToolContext,
 ) -> dict:
-    """
-    Detects user's engagement level in the conversation.
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Indicators:
-    - Message length and quality
-    - Response time
-    - Question asking frequency
-    - Topic changes
-    - Enthusiasm markers
+        history_context = "\n".join(
+            [
+                f"Message {i + 1}: {msg}"
+                for i, msg in enumerate(conversation_history[-5:])
+            ]
+        )
 
-    Args:
-        text: Current user message
-        conversation_history: Previous messages
-        response_times: Time between messages (in seconds)
-        tool_context: ADK tool context
+        response_time_info = ""
+        if response_times and len(response_times) > 0:
+            avg_time = sum(response_times[-3:]) / len(response_times[-3:])
+            response_time_info = f"\nAverage response time: {avg_time:.1f} seconds"
 
-    Returns:
-        Dict with engagement analysis
-    """
-    # TODO: Integrate with LLM for engagement analysis
+        prompt = f"""Analyze the user's engagement level in this conversation based on their messages.
 
-    # Calculate basic metrics
-    message_length = len(text.split())
-    has_question = "?" in text
-    has_enthusiasm = any(
-        marker in text for marker in ["!", "awesome", "cool", "interesting"]
-    )
+Conversation History:
+{history_context}
 
-    # Engagement score (0-1)
-    engagement_score = 0.5  # Default neutral
+Current Message: "{text}"
+{response_time_info}
 
-    if message_length > 10:
-        engagement_score += 0.2
-    if has_question:
-        engagement_score += 0.2
-    if has_enthusiasm:
-        engagement_score += 0.1
+Evaluate engagement based on:
+1. Message length and quality (thoughtful vs minimal)
+2. Question asking frequency (showing curiosity)
+3. Enthusiasm markers (exclamation points, positive words)
+4. Topic investment (staying on topic vs topic hopping)
+5. Response depth (detailed vs superficial)
 
-    engagement_score = min(1.0, engagement_score)
+Respond in JSON format:
+{{
+    "engagement_level": "high/moderate/low",
+    "engagement_score": 0.0-1.0,
+    "indicators": {{
+        "message_quality": "high/medium/low",
+        "enthusiasm": true/false,
+        "asking_questions": true/false,
+        "topic_investment": "high/medium/low"
+    }},
+    "recommendation": "maintain/increase_engagement/check_comprehension",
+    "reasoning": "brief explanation of the engagement assessment",
+    "confidence": 0.0-1.0
+}}"""
 
-    # Determine engagement level
-    if engagement_score >= 0.7:
-        engagement_level = "high"
-    elif engagement_score >= 0.4:
-        engagement_level = "moderate"
-    else:
-        engagement_level = "low"
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
 
-    # Store engagement tracking
-    if "engagement_tracking" not in tool_context.state:
-        tool_context.state["engagement_tracking"] = []
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
 
-    tool_context.state["engagement_tracking"].append(
-        {
+        result = json.loads(result_text)
+
+        engagement_level = result.get("engagement_level", "moderate")
+        engagement_score = result.get("engagement_score", 0.5)
+        indicators = result.get("indicators", {})
+        confidence = result.get("confidence", 0.5)
+
+        if "engagement_tracking" not in tool_context.state:
+            tool_context.state["engagement_tracking"] = []
+
+        tool_context.state["engagement_tracking"].append(
+            {
+                "engagement_level": engagement_level,
+                "engagement_score": engagement_score,
+                "message_length": len(text.split()),
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
             "engagement_level": engagement_level,
             "engagement_score": engagement_score,
-            "message_length": message_length,
+            "indicators": indicators,
+            "recommendation": result.get("recommendation", "maintain"),
+            "reasoning": result.get("reasoning", ""),
+            "confidence": confidence,
+            "message": f"User engagement: {engagement_level}",
         }
-    )
 
-    return {
-        "success": True,
-        "engagement_level": engagement_level,
-        "engagement_score": engagement_score,
-        "indicators": {
-            "message_quality": "medium",  # low, medium, high
-            "enthusiasm": has_enthusiasm,
-            "asking_questions": has_question,
-        },
-        "recommendation": "maintain"
-        if engagement_level == "high"
-        else "increase_engagement",
-        "message": f"User engagement: {engagement_level}",
-    }
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM engagement detection error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -296,47 +444,87 @@ def adapt_tone(
     target_tone: str,
     tool_context: ToolContext,
 ) -> dict:
-    """
-    Adapts response tone to match user's personality and preferences.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Tone options:
-    - formal: Professional, respectful
-    - friendly: Warm, approachable
-    - enthusiastic: Energetic, excited
-    - calm: Measured, soothing
-    - playful: Fun, lighthearted
-    - professional: Business-like, efficient
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        response_text: Original response to adapt
-        personality_profile: User's personality profile
-        target_tone: Desired tone
-        tool_context: ADK tool context
+        personality_context = (
+            f"User personality traits: {personality_profile}"
+            if personality_profile
+            else "No personality profile available"
+        )
 
-    Returns:
-        Dict with adapted response
-    """
-    # TODO: Integrate with LLM for tone adaptation
+        prompt = f"""Adapt the following response to match the specified tone while preserving the core message and information.
 
-    # Placeholder - return original text
-    adapted_text = response_text
+Original Response: "{response_text}"
 
-    # Store adaptation
-    if "tone_adaptations" not in tool_context.state:
-        tool_context.state["tone_adaptations"] = []
+Target Tone: {target_tone}
+- formal: Professional, respectful, proper grammar
+- friendly: Warm, approachable, conversational
+- enthusiastic: Energetic, excited, positive
+- calm: Measured, soothing, reassuring
+- playful: Fun, lighthearted, maybe use humor
+- professional: Business-like, efficient, direct
 
-    tool_context.state["tone_adaptations"].append(
-        {"original_length": len(response_text), "target_tone": target_tone}
-    )
+{personality_context}
 
-    return {
-        "success": True,
-        "original_text": response_text,
-        "adapted_text": adapted_text,
-        "tone_applied": target_tone,
-        "confidence": 0.0,
-        "message": "Tone adaptation pending LLM implementation",
-    }
+Rewrite the response to match the target tone. Keep the same information and meaning, just adjust the style and wording.
+
+Respond in JSON format:
+{{
+    "adapted_text": "the rewritten response with the new tone",
+    "tone_changes": ["change1", "change2"],
+    "confidence": 0.0-1.0
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        adapted_text = result.get("adapted_text", response_text)
+        confidence = result.get("confidence", 0.5)
+
+        if "tone_adaptations" not in tool_context.state:
+            tool_context.state["tone_adaptations"] = []
+
+        tool_context.state["tone_adaptations"].append(
+            {
+                "original_length": len(response_text),
+                "adapted_length": len(adapted_text),
+                "target_tone": target_tone,
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
+            "original_text": response_text,
+            "adapted_text": adapted_text,
+            "tone_applied": target_tone,
+            "tone_changes": result.get("tone_changes", []),
+            "confidence": confidence,
+            "message": f"Response adapted to {target_tone} tone",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM tone adaptation error: {str(e)}",
+            "original_text": response_text,
+        }
 
 
 # ============================================================================
@@ -350,44 +538,83 @@ def adapt_complexity(
     tool_context: ToolContext,
     simplify: bool = True,
 ) -> dict:
-    """
-    Adapts content complexity to match user's comprehension level.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Levels:
-    - beginner: Simple language, basic concepts
-    - intermediate: Moderate complexity
-    - advanced: Technical language, complex concepts
-    - expert: Specialized terminology, deep details
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        response_text: Original response
-        user_level: User's comprehension level
-        tool_context: ADK tool context
-        simplify: Whether to simplify (True) or elaborate (False)
+        action = "simplify" if simplify else "elaborate"
 
-    Returns:
-        Dict with adapted response
-    """
-    # TODO: Integrate with LLM for complexity adaptation
+        prompt = f"""Adapt the following response to match the user's comprehension level while preserving the core information.
 
-    adapted_text = response_text
+Original Response: "{response_text}"
 
-    # Store adaptation
-    if "complexity_adaptations" not in tool_context.state:
-        tool_context.state["complexity_adaptations"] = []
+User Level: {user_level}
+- beginner: Use simple language, avoid jargon, explain basic concepts
+- intermediate: Moderate complexity, some technical terms with explanations
+- advanced: Technical language, assume good background knowledge
+- expert: Specialized terminology, deep technical details
 
-    tool_context.state["complexity_adaptations"].append(
-        {"user_level": user_level, "simplify": simplify}
-    )
+Action: {action}
+{"Simplify the language and break down complex concepts into easier terms." if simplify else "Add more technical depth and detailed explanations."}
 
-    return {
-        "success": True,
-        "original_text": response_text,
-        "adapted_text": adapted_text,
-        "user_level": user_level,
-        "changes_made": [],  # List of simplifications/elaborations
-        "message": "Complexity adaptation pending LLM implementation",
-    }
+Rewrite the response to match the user's level. Keep the same core message but adjust complexity.
+
+Respond in JSON format:
+{{
+    "adapted_text": "the rewritten response at the appropriate complexity level",
+    "changes_made": ["change1: simplified X", "change2: added explanation for Y"],
+    "confidence": 0.0-1.0
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        adapted_text = result.get("adapted_text", response_text)
+        confidence = result.get("confidence", 0.5)
+
+        if "complexity_adaptations" not in tool_context.state:
+            tool_context.state["complexity_adaptations"] = []
+
+        tool_context.state["complexity_adaptations"].append(
+            {
+                "user_level": user_level,
+                "simplify": simplify,
+                "original_length": len(response_text),
+                "adapted_length": len(adapted_text),
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
+            "original_text": response_text,
+            "adapted_text": adapted_text,
+            "user_level": user_level,
+            "changes_made": result.get("changes_made", []),
+            "confidence": confidence,
+            "message": f"Response adapted for {user_level} level",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM complexity adaptation error: {str(e)}",
+            "original_text": response_text,
+        }
 
 
 # ============================================================================
@@ -398,47 +625,80 @@ def adapt_complexity(
 def adapt_response_length(
     response_text: str, preferred_length: str, tool_context: ToolContext
 ) -> dict:
-    """
-    Adapts response length to match user's verbosity preference.
-
-    Length options:
-    - very_concise: 1-2 sentences
-    - concise: 2-4 sentences
-    - balanced: 4-6 sentences
-    - detailed: 6-10 sentences
-    - comprehensive: 10+ sentences
-
-    Args:
-        response_text: Original response
-        preferred_length: User's preferred response length
-        tool_context: ADK tool context
-
-    Returns:
-        Dict with adapted response
-    """
-    # TODO: Integrate with LLM for length adaptation
-
-    adapted_text = response_text
-
-    # Store adaptation
-    if "length_adaptations" not in tool_context.state:
-        tool_context.state["length_adaptations"] = []
-
-    tool_context.state["length_adaptations"].append(
-        {
-            "preferred_length": preferred_length,
-            "original_sentences": len(response_text.split(".")),
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
         }
-    )
 
-    return {
-        "success": True,
-        "original_text": response_text,
-        "adapted_text": adapted_text,
-        "original_length": len(response_text.split()),
-        "adapted_length": len(adapted_text.split()),
-        "message": "Length adaptation pending LLM implementation",
-    }
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
+
+        prompt = f"""Adapt the following response to match the preferred length while preserving all essential information.
+
+Original Response: "{response_text}"
+
+Preferred Length: {preferred_length}
+- very_concise: 1-2 sentences (only the most critical information)
+- concise: 2-4 sentences (key points without elaboration)
+- balanced: 4-6 sentences (moderate detail, balanced)
+- detailed: 6-10 sentences (thorough explanation with examples)
+- comprehensive: 10+ sentences (complete coverage with depth)
+
+Rewrite the response to match the preferred length. Maintain accuracy and completeness while adjusting verbosity.
+
+Respond in JSON format:
+{{
+    "adapted_text": "the rewritten response at the preferred length",
+    "sentence_count": number,
+    "confidence": 0.0-1.0
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        adapted_text = result.get("adapted_text", response_text)
+        confidence = result.get("confidence", 0.5)
+
+        if "length_adaptations" not in tool_context.state:
+            tool_context.state["length_adaptations"] = []
+
+        tool_context.state["length_adaptations"].append(
+            {
+                "preferred_length": preferred_length,
+                "original_sentences": len(response_text.split(".")),
+                "adapted_sentences": len(adapted_text.split(".")),
+                "original_words": len(response_text.split()),
+                "adapted_words": len(adapted_text.split()),
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
+            "original_text": response_text,
+            "adapted_text": adapted_text,
+            "original_length": len(response_text.split()),
+            "adapted_length": len(adapted_text.split()),
+            "confidence": confidence,
+            "message": f"Response adapted to {preferred_length} length",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM length adaptation error: {str(e)}",
+            "original_text": response_text,
+        }
 
 
 # ============================================================================
@@ -452,43 +712,93 @@ def adapt_examples(
     user_background: Dict,
     tool_context: ToolContext,
 ) -> dict:
-    """
-    Generates personalized examples based on user's interests and background.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Considers:
-    - User's stated interests
-    - Professional background
-    - Hobbies mentioned
-    - Previous example preferences
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        concept: Concept to explain with examples
-        user_interests: List of user's interests
-        user_background: User's background information
-        tool_context: ADK tool context
+        interests_str = (
+            ", ".join(user_interests) if user_interests else "general topics"
+        )
+        background_str = (
+            ", ".join([f"{k}: {v}" for k, v in user_background.items()])
+            if user_background
+            else "No specific background provided"
+        )
 
-    Returns:
-        Dict with personalized examples
-    """
-    # TODO: Integrate with LLM for example generation
+        prompt = f"""Generate personalized examples to explain a concept, tailored to the user's interests and background.
 
-    examples = []  # To be generated by LLM
+Concept to Explain: "{concept}"
 
-    # Store example generation
-    if "example_adaptations" not in tool_context.state:
-        tool_context.state["example_adaptations"] = []
+User's Interests: {interests_str}
+User's Background: {background_str}
 
-    tool_context.state["example_adaptations"].append(
-        {"concept": concept, "interests_used": user_interests}
-    )
+Generate 3-4 examples that:
+1. Relate to the user's interests or background
+2. Make the concept easier to understand through familiar contexts
+3. Are practical and relatable
+4. Progress from simple to more complex
 
-    return {
-        "success": True,
-        "concept": concept,
-        "examples": examples,
-        "personalization_level": "medium",
-        "message": "Example generation pending LLM implementation",
-    }
+Respond in JSON format:
+{{
+    "examples": [
+        {{
+            "example": "detailed example description",
+            "relevance": "how this relates to user's interests",
+            "complexity": "simple/medium/complex"
+        }}
+    ],
+    "personalization_level": "high/medium/low",
+    "confidence": 0.0-1.0
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        examples = result.get("examples", [])
+        personalization_level = result.get("personalization_level", "medium")
+        confidence = result.get("confidence", 0.5)
+
+        if "example_adaptations" not in tool_context.state:
+            tool_context.state["example_adaptations"] = []
+
+        tool_context.state["example_adaptations"].append(
+            {
+                "concept": concept,
+                "interests_used": user_interests,
+                "examples_count": len(examples),
+                "personalization_level": personalization_level,
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
+            "concept": concept,
+            "examples": examples,
+            "personalization_level": personalization_level,
+            "confidence": confidence,
+            "message": f"Generated {len(examples)} personalized examples",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM example generation error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -502,52 +812,106 @@ def adapt_pacing(
     comprehension_indicators: Dict,
     tool_context: ToolContext,
 ) -> dict:
-    """
-    Adapts pacing of information delivery based on user's comprehension.
+    if not os.getenv("GOOGLE_API_KEY"):
+        if engagement_level == "low" or comprehension_indicators.get("confused", False):
+            recommended_pacing = "slow"
+            strategy = "Break into smaller chunks, add more examples"
+        elif engagement_level == "high":
+            recommended_pacing = "moderate_to_fast"
+            strategy = "Maintain current pace, can increase density"
+        else:
+            recommended_pacing = "moderate"
+            strategy = "Balanced delivery"
 
-    Pacing strategies:
-    - slow: Break down into smaller chunks, more pauses
-    - moderate: Balanced information flow
-    - fast: Dense information, fewer breaks
+        return {
+            "success": True,
+            "recommended_pacing": recommended_pacing,
+            "strategy": strategy,
+            "should_pause": recommended_pacing == "slow",
+            "should_check_understanding": recommended_pacing == "slow",
+            "message": f"Recommended pacing: {recommended_pacing} (basic analysis)",
+        }
 
-    Args:
-        content: Content to pace
-        engagement_level: User's current engagement
-        comprehension_indicators: Signs of understanding/confusion
-        tool_context: ADK tool context
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Returns:
-        Dict with pacing recommendations
-    """
-    # TODO: Integrate with LLM for pacing analysis
+        comprehension_str = ", ".join(
+            [f"{k}: {v}" for k, v in comprehension_indicators.items()]
+        )
 
-    # Determine pacing based on engagement and comprehension
-    if engagement_level == "low" or comprehension_indicators.get("confused", False):
-        recommended_pacing = "slow"
-        strategy = "Break into smaller chunks, add more examples"
-    elif engagement_level == "high":
-        recommended_pacing = "moderate_to_fast"
-        strategy = "Maintain current pace, can increase density"
-    else:
-        recommended_pacing = "moderate"
-        strategy = "Balanced delivery"
+        prompt = f"""Analyze the optimal pacing for delivering information based on user's engagement and comprehension.
 
-    # Store pacing adaptation
-    if "pacing_adaptations" not in tool_context.state:
-        tool_context.state["pacing_adaptations"] = []
+Content to Deliver: "{content[:500]}..."  # First 500 chars for context
 
-    tool_context.state["pacing_adaptations"].append(
-        {"engagement_level": engagement_level, "recommended_pacing": recommended_pacing}
-    )
+User Engagement Level: {engagement_level}
+Comprehension Indicators: {comprehension_str}
 
-    return {
-        "success": True,
-        "recommended_pacing": recommended_pacing,
-        "strategy": strategy,
-        "should_pause": recommended_pacing == "slow",
-        "should_check_understanding": True if recommended_pacing == "slow" else False,
-        "message": f"Recommended pacing: {recommended_pacing}",
-    }
+Recommend the best pacing strategy:
+- slow: User shows confusion or low engagement. Break content into smaller chunks, add pauses, check understanding frequently
+- moderate: User is following along. Balanced information flow with occasional checks
+- moderate_to_fast: User is highly engaged and comprehending well. Can deliver dense information
+- fast: Expert user, excellent comprehension. Rapid information delivery
+
+Respond in JSON format:
+{{
+    "recommended_pacing": "slow/moderate/moderate_to_fast/fast",
+    "strategy": "detailed strategy description",
+    "should_pause": true/false,
+    "should_check_understanding": true/false,
+    "chunk_size_recommendation": "small/medium/large",
+    "additional_recommendations": ["recommendation1", "recommendation2"],
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation"
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        recommended_pacing = result.get("recommended_pacing", "moderate")
+        confidence = result.get("confidence", 0.5)
+
+        if "pacing_adaptations" not in tool_context.state:
+            tool_context.state["pacing_adaptations"] = []
+
+        tool_context.state["pacing_adaptations"].append(
+            {
+                "engagement_level": engagement_level,
+                "recommended_pacing": recommended_pacing,
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
+            "recommended_pacing": recommended_pacing,
+            "strategy": result.get("strategy", ""),
+            "should_pause": result.get("should_pause", False),
+            "should_check_understanding": result.get(
+                "should_check_understanding", False
+            ),
+            "chunk_size_recommendation": result.get(
+                "chunk_size_recommendation", "medium"
+            ),
+            "additional_recommendations": result.get("additional_recommendations", []),
+            "confidence": confidence,
+            "reasoning": result.get("reasoning", ""),
+            "message": f"Recommended pacing: {recommended_pacing}",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM pacing analysis error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -564,56 +928,135 @@ def build_personality_profile(
     tool_context: ToolContext,
     update_existing: bool = True,
 ) -> dict:
-    """
-    Builds comprehensive personality profile from conversation history.
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Profile includes:
-    - Personality type and traits
-    - Communication style preferences
-    - Emotional patterns
-    - Engagement patterns
-    - Learning style
-    - Topic interests
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Args:
-        conversation_history: All messages in conversation
-        tool_context: ADK tool context
-        update_existing: Whether to update existing profile
+        personality_data = tool_context.state.get("personality_detections", [])
+        style_data = tool_context.state.get("communication_styles", [])
+        emotion_data = tool_context.state.get("emotional_states", [])
+        engagement_data = tool_context.state.get("engagement_tracking", [])
 
-    Returns:
-        Dict with complete personality profile
-    """
-    # TODO: Integrate with LLM for profile building
+        history_context = "\n".join(
+            [
+                f"Message {i + 1}: {msg}"
+                for i, msg in enumerate(conversation_history[-10:])
+            ]
+        )
 
-    # Gather all tracked data
-    personality_data = tool_context.state.get("personality_detections", [])
-    style_data = tool_context.state.get("communication_styles", [])
-    emotion_data = tool_context.state.get("emotional_states", [])
-    engagement_data = tool_context.state.get("engagement_tracking", [])
+        tracked_summary = f"""
+Previous Detections:
+- Personality detections: {len(personality_data)} times
+- Communication styles: {len(style_data)} times
+- Emotional states: {len(emotion_data)} times
+- Engagement tracking: {len(engagement_data)} times
+"""
 
-    # Build comprehensive profile
-    profile = {
-        "personality_traits": {},
-        "communication_preferences": {},
-        "emotional_baseline": {},
-        "engagement_patterns": {},
-        "learning_preferences": {},
-        "interests": [],
-        "confidence_score": 0.0,  # 0-1 confidence in profile
-        "messages_analyzed": len(conversation_history),
-        "last_updated": None,  # Timestamp
-    }
+        prompt = f"""Build a comprehensive personality profile for this user based on their conversation history and tracked data.
 
-    # Store profile
-    tool_context.state["personality_profile"] = profile
+Conversation History (last 10 messages):
+{history_context}
 
-    return {
-        "success": True,
-        "profile": profile,
-        "confidence": 0.0,
-        "completeness": 0.0,  # 0-1 how complete the profile is
-        "message": "Profile building pending LLM implementation",
-    }
+{tracked_summary}
+
+Analyze and create a detailed profile including:
+1. Personality traits (Big Five or dominant characteristics)
+2. Communication preferences (formality, verbosity, directness)
+3. Emotional baseline (typical mood, emotional patterns)
+4. Engagement patterns (typical engagement level, what increases it)
+5. Learning preferences (preferred complexity level, learning style)
+6. Detected interests (topics they engage with most)
+
+Respond in JSON format:
+{{
+    "personality_traits": {{
+        "openness": 0.0-1.0,
+        "conscientiousness": 0.0-1.0,
+        "extraversion": 0.0-1.0,
+        "agreeableness": 0.0-1.0,
+        "neuroticism": 0.0-1.0,
+        "dominant_traits": ["trait1", "trait2"]
+    }},
+    "communication_preferences": {{
+        "formality": "formal/professional/casual/very_casual",
+        "verbosity": "concise/balanced/detailed",
+        "directness": "direct/moderate/indirect",
+        "preferred_tone": "friendly/professional/enthusiastic"
+    }},
+    "emotional_baseline": {{
+        "typical_mood": "positive/neutral/negative",
+        "emotional_stability": 0.0-1.0,
+        "common_emotions": ["emotion1", "emotion2"]
+    }},
+    "engagement_patterns": {{
+        "typical_level": "high/moderate/low",
+        "engagement_triggers": ["trigger1", "trigger2"],
+        "disengagement_signs": ["sign1", "sign2"]
+    }},
+    "learning_preferences": {{
+        "complexity_level": "beginner/intermediate/advanced/expert",
+        "learning_style": "visual/auditory/kinesthetic/reading",
+        "prefers_examples": true/false
+    }},
+    "interests": ["interest1", "interest2", "interest3"],
+    "confidence_score": 0.0-1.0,
+    "completeness": 0.0-1.0,
+    "summary": "brief overall profile summary"
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        profile = {
+            "personality_traits": result.get("personality_traits", {}),
+            "communication_preferences": result.get("communication_preferences", {}),
+            "emotional_baseline": result.get("emotional_baseline", {}),
+            "engagement_patterns": result.get("engagement_patterns", {}),
+            "learning_preferences": result.get("learning_preferences", {}),
+            "interests": result.get("interests", []),
+            "confidence_score": result.get("confidence_score", 0.5),
+            "messages_analyzed": len(conversation_history),
+            "last_updated": None,
+            "summary": result.get("summary", ""),
+        }
+
+        if update_existing and "personality_profile" in tool_context.state:
+            existing_profile = tool_context.state["personality_profile"]
+            if profile["confidence_score"] > existing_profile.get(
+                "confidence_score", 0
+            ):
+                tool_context.state["personality_profile"] = profile
+        else:
+            tool_context.state["personality_profile"] = profile
+
+        return {
+            "success": True,
+            "profile": profile,
+            "confidence": profile["confidence_score"],
+            "completeness": result.get("completeness", 0.5),
+            "summary": result.get("summary", ""),
+            "message": f"Profile built with {profile['confidence_score']:.0%} confidence",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM profile building error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -624,64 +1067,110 @@ def build_personality_profile(
 def track_adaptation_effectiveness(
     adaptation_type: str, user_response: str, tool_context: ToolContext
 ) -> dict:
-    """
-    Tracks effectiveness of personality adaptations.
+    if not os.getenv("GOOGLE_API_KEY"):
+        response_length = len(user_response.split())
+        has_positive_indicators = any(
+            word in user_response.lower()
+            for word in ["thanks", "helpful", "understand", "got it", "clear"]
+        )
 
-    Measures:
-    - Engagement after adaptation
-    - Positive/negative sentiment
-    - Comprehension indicators
-    - User satisfaction signals
+        effectiveness_score = 0.5
+        if has_positive_indicators:
+            effectiveness_score += 0.3
+        if response_length > 5:
+            effectiveness_score += 0.2
 
-    Args:
-        adaptation_type: Type of adaptation applied
-        user_response: User's response after adaptation
-        tool_context: ADK tool context
+        effectiveness_score = min(1.0, effectiveness_score)
 
-    Returns:
-        Dict with effectiveness metrics
-    """
-    # TODO: Integrate with LLM for effectiveness analysis
-
-    # Analyze user response
-    response_length = len(user_response.split())
-    has_positive_indicators = any(
-        word in user_response.lower()
-        for word in ["thanks", "helpful", "understand", "got it", "clear"]
-    )
-
-    effectiveness_score = 0.5  # Default
-    if has_positive_indicators:
-        effectiveness_score += 0.3
-    if response_length > 5:
-        effectiveness_score += 0.2
-
-    effectiveness_score = min(1.0, effectiveness_score)
-
-    # Store effectiveness tracking
-    if "adaptation_effectiveness" not in tool_context.state:
-        tool_context.state["adaptation_effectiveness"] = {}
-
-    if adaptation_type not in tool_context.state["adaptation_effectiveness"]:
-        tool_context.state["adaptation_effectiveness"][adaptation_type] = []
-
-    tool_context.state["adaptation_effectiveness"][adaptation_type].append(
-        {
+        return {
+            "success": True,
+            "adaptation_type": adaptation_type,
             "effectiveness_score": effectiveness_score,
-            "timestamp": None,  # Add timestamp
+            "is_effective": effectiveness_score >= 0.6,
+            "recommendation": "continue"
+            if effectiveness_score >= 0.6
+            else "adjust_approach",
+            "message": f"Adaptation effectiveness: {effectiveness_score:.0%} (basic analysis)",
         }
-    )
 
-    return {
-        "success": True,
-        "adaptation_type": adaptation_type,
-        "effectiveness_score": effectiveness_score,
-        "is_effective": effectiveness_score >= 0.6,
-        "recommendation": "continue"
-        if effectiveness_score >= 0.6
-        else "adjust_approach",
-        "message": f"Adaptation effectiveness: {effectiveness_score:.0%}",
-    }
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
+
+        prompt = f"""Analyze the effectiveness of a personality adaptation based on the user's response.
+
+Adaptation Type: {adaptation_type}
+User's Response After Adaptation: "{user_response}"
+
+Evaluate the effectiveness by analyzing:
+1. Engagement level (is the user more engaged than before?)
+2. Sentiment (positive, neutral, negative feedback)
+3. Comprehension indicators (do they understand better?)
+4. Satisfaction signals (explicit thanks, appreciation, or frustration)
+5. Continuation behavior (asking follow-ups, providing more detail)
+
+Respond in JSON format:
+{{
+    "effectiveness_score": 0.0-1.0,
+    "is_effective": true/false,
+    "indicators": {{
+        "engagement_improved": true/false,
+        "positive_sentiment": true/false,
+        "comprehension_improved": true/false,
+        "user_satisfied": true/false
+    }},
+    "recommendation": "continue/adjust_approach/try_different_adaptation",
+    "specific_adjustments": ["adjustment1", "adjustment2"],
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation of the assessment"
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        effectiveness_score = result.get("effectiveness_score", 0.5)
+        confidence = result.get("confidence", 0.5)
+
+        if "adaptation_effectiveness" not in tool_context.state:
+            tool_context.state["adaptation_effectiveness"] = {}
+
+        if adaptation_type not in tool_context.state["adaptation_effectiveness"]:
+            tool_context.state["adaptation_effectiveness"][adaptation_type] = []
+
+        tool_context.state["adaptation_effectiveness"][adaptation_type].append(
+            {
+                "effectiveness_score": effectiveness_score,
+                "confidence": confidence,
+                "timestamp": None,
+            }
+        )
+
+        return {
+            "success": True,
+            "adaptation_type": adaptation_type,
+            "effectiveness_score": effectiveness_score,
+            "is_effective": result.get("is_effective", effectiveness_score >= 0.6),
+            "indicators": result.get("indicators", {}),
+            "recommendation": result.get("recommendation", "continue"),
+            "specific_adjustments": result.get("specific_adjustments", []),
+            "confidence": confidence,
+            "reasoning": result.get("reasoning", ""),
+            "message": f"Adaptation effectiveness: {effectiveness_score:.0%}",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM effectiveness analysis error: {str(e)}",
+        }
 
 
 # ============================================================================
@@ -696,49 +1185,31 @@ def apply_personality_adaptations(
     tool_context: ToolContext,
     adaptations: Optional[List[str]] = None,
 ) -> dict:
-    """
-    Applies all personality-based adaptations to a response.
-
-    Args:
-        response_text: Original response to adapt
-        user_message: User's current message
-        conversation_history: Previous messages
-        tool_context: ADK tool context
-        adaptations: List of adaptations to apply (None = all)
-
-    Returns:
-        Dict with fully adapted response
-    """
     if adaptations is None:
         adaptations = ["tone", "complexity", "length", "examples"]
 
     adapted_response = response_text
     adaptations_applied = []
 
-    # Get or build personality profile
     if "personality_profile" not in tool_context.state:
         profile_result = build_personality_profile(conversation_history, tool_context)
         profile = profile_result["profile"]
     else:
         profile = tool_context.state["personality_profile"]
 
-    # Detect current state
     engagement = detect_engagement_level(
         user_message, conversation_history, None, tool_context
     )
 
     emotional_state = detect_emotional_state(user_message, tool_context)
 
-    # Apply adaptations based on profile and current state
     if "tone" in adaptations:
-        # Determine appropriate tone
-        target_tone = "friendly"  # Default
+        target_tone = "friendly"
         tone_result = adapt_tone(adapted_response, profile, target_tone, tool_context)
         adapted_response = tone_result["adapted_text"]
         adaptations_applied.append("tone")
 
     if "complexity" in adaptations:
-        # Adjust complexity
         user_level = profile.get("learning_preferences", {}).get(
             "technical_depth", "medium"
         )
@@ -747,7 +1218,6 @@ def apply_personality_adaptations(
         adaptations_applied.append("complexity")
 
     if "length" in adaptations:
-        # Adjust length
         preferred_length = profile.get("communication_preferences", {}).get(
             "verbosity", "balanced"
         )
