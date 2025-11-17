@@ -8,9 +8,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tools.safety_tools import (
     check_content_safety,
+    check_moderation,
+    check_off_topic,
+    check_output_pii,
     check_output_safety,
     detect_jailbreak,
     detect_nsfw_text,
+    mask_pii,
 )
 
 
@@ -522,10 +526,16 @@ Response: "Are you asking about our robotics and defense research laboratories? 
         description="Validates user inputs and outputs for safety",
         instruction=instruction,
         tools=[
-            check_content_safety,
-            check_output_safety,
+            # Input guardrails
+            mask_pii,
+            check_moderation,
             detect_jailbreak,
+            check_off_topic,
+            check_content_safety,  # Wrapper for multiple input checks
+            # Output guardrails
+            check_output_pii,
             detect_nsfw_text,
+            check_output_safety,  # Wrapper for multiple output checks
         ],
     )
 
