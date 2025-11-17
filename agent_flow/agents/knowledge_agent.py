@@ -1,377 +1,375 @@
-"""Knowledge Agent - RAG-powered information retrieval for Inteli questions."""
+import os
+import sys
 
 from google.adk.agents import Agent
-from google.adk.tools.tool_context import ToolContext
-import os
-import json
-from typing import List, Dict
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-def load_document_chunks() -> List[Dict]:
-    """Load preprocessed document chunks for RAG."""
-    chunks_path = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-        'documents',
-        'Edital-Processo-Seletivo-Inteli_-Graduacao-2026_AJUSTADO-chunks.json'
-    )
-
-    try:
-        with open(chunks_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print(f"Warning: Chunks file not found at {chunks_path}")
-        return []
-
-
-def search_inteli_knowledge(query: str, tool_context: ToolContext, top_k: int = 3) -> dict:
-    """
-    Search Inteli knowledge base (Edital + general info) for relevant information.
-
-    This implements a simple keyword-based RAG. In production, you would use
-    vector embeddings and semantic search.
-
-    Args:
-        query: User's question or search query
-        tool_context: ADK tool context
-        top_k: Number of top results to return
-
-    Returns:
-        Relevant documents and information
-    """
-    # Load document chunks
-    chunks = load_document_chunks()
-
-    # General knowledge base (non-document info)
-    general_knowledge = {
-        "inteli": {
-            "keywords": ["inteli", "instituto", "faculdade", "universidade"],
-            "content": """O Inteli (Instituto de Tecnologia e Liderança) foi fundado em 2019
-            por Roberto Sallouti e André Esteves com a missão de formar os futuros líderes
-            que vão transformar o Brasil através da tecnologia. É conhecido como o 'MIT Brasileiro'."""
-        },
-        "cursos": {
-            "keywords": ["curso", "graduação", "engenharia", "computação", "software", "admtech"],
-            "content": """O Inteli oferece 5 graduações: Engenharia da Computação, Ciência da Computação,
-            Engenharia de Software, Sistemas de Informação e Administração Tech (ADMTech).
-            Todos os cursos seguem metodologia PBL (Project-Based Learning)."""
-        },
-        "bolsas": {
-            "keywords": ["bolsa", "auxílio", "financeiro", "mensalidade"],
-            "content": """O Inteli tem o maior programa de bolsas do ensino superior do Brasil,
-            oferecendo: auxílio-moradia, auxílio-alimentação, auxílio-transporte, curso de inglês,
-            notebook, além de modalidades de bolsa parcial e integral."""
-        },
-        "pbl": {
-            "keywords": ["pbl", "projeto", "metodologia", "ensino", "aula"],
-            "content": """O Inteli usa PBL (Project-Based Learning - Ensino Baseado em Projetos).
-            Os alunos não cursam disciplinas tradicionais, mas aprendem através de projetos reais
-            com empresas parceiras. A rotina tem 3 momentos: autoestudo, encontro (sala invertida)
-            e desenvolvimento (DEV)."""
-        },
-        "clubes": {
-            "keywords": ["clube", "extracurricular", "atlética", "tantera", "junior"],
-            "content": """O Inteli tem mais de 20 clubes estudantis: Tantera (atlética),
-            Inteli Júnior (empresa júnior), LEI (Liga de Empreendedorismo), AgroTech,
-            Game Lab, Inteli Blockchain, Inteli Academy (IA), coletivos de diversidade
-            (Grace Hopper, Benedito Caravelas, Turing), e Wave (mentoria para candidatos)."""
-        }
-    }
-
-    query_lower = query.lower()
-    results = []
-
-    # Search general knowledge
-    for topic, info in general_knowledge.items():
-        if any(keyword in query_lower for keyword in info["keywords"]):
-            results.append({
-                "source": f"knowledge_base_{topic}",
-                "content": info["content"],
-                "relevance": 0.95,
-                "type": "general_knowledge"
-            })
-
-    # Search document chunks (simple keyword matching - in production use embeddings)
-    for chunk in chunks[:50]:  # Limit search for performance
-        chunk_text = chunk.get('content', '').lower()
-
-        # Simple relevance scoring based on keyword matches
-        query_words = set(query_lower.split())
-        chunk_words = set(chunk_text.split())
-        common_words = query_words.intersection(chunk_words)
-
-        # Filter out very common Portuguese words
-        stop_words = {'o', 'a', 'de', 'da', 'do', 'e', 'para', 'com', 'em', 'os', 'as'}
-        meaningful_matches = common_words - stop_words
-
-        if len(meaningful_matches) >= 2:  # At least 2 meaningful word matches
-            relevance = len(meaningful_matches) / len(query_words) if query_words else 0
-            results.append({
-                "source": f"edital_{chunk.get('id', 'unknown')}",
-                "content": chunk.get('content', ''),
-                "relevance": min(relevance, 0.9),  # Cap at 0.9 to prioritize general knowledge
-                "type": "document_chunk",
-                "metadata": chunk.get('metadata', {})
-            })
-
-    # Sort by relevance and get top_k
-    results.sort(key=lambda x: x['relevance'], reverse=True)
-    top_results = results[:top_k]
-
-    # Store in context for coordinator
-    tool_context.state['retrieved_knowledge'] = top_results
-    tool_context.state['last_query'] = query
-
-    return {
-        "success": True,
-        "query": query,
-        "documents_found": len(top_results),
-        "documents": top_results,
-        "search_summary": f"Found {len(top_results)} relevant documents about: {query}"
-    }
-
-
-def get_specific_info(topic: str, tool_context: ToolContext) -> dict:
-    """
-    Get specific information about Inteli topics.
-
-    Args:
-        topic: Specific topic (processo_seletivo, bolsas, cursos, etc.)
-        tool_context: ADK tool context
-
-    Returns:
-        Detailed information about the topic
-    """
-    topic_info = {
-        "processo_seletivo": {
-            "title": "Processo Seletivo do Inteli",
-            "summary": """O processo seletivo tem 3 eixos:
-
-1. **Prova** (Matemática e Lógica): 24 questões, responder 20. Prova adaptativa que
-   ajusta dificuldade baseada no desempenho.
-
-2. **Perfil**: Duas redações (sobre você e sobre tecnologia) + atividades extracurriculares,
-   prêmios e projetos.
-
-3. **Projeto**: Dinâmica online em grupo para escolher tema, propor solução e demonstrar
-   habilidades de comunicação, colaboração e pensamento crítico.
-
-O Inteli busca potencial real, não apenas notas!""",
-            "related_topics": ["bolsas", "cursos"]
-        },
-        "bolsas": {
-            "title": "Programa de Bolsas",
-            "summary": """O Inteli tem o maior programa de bolsas do ensino superior do Brasil:
-
-- **Auxílio-moradia**
-- **Auxílio-alimentação**
-- **Auxílio-transporte**
-- **Curso de inglês**
-- **Notebook**
-- **Bolsa parcial e integral**
-
-Doadores-parceiros investem pelo menos R$ 500 mil nos alunos.
-Os nomes dos doadores estão em um painel de honra no campus.""",
-            "related_topics": ["processo_seletivo", "inteli_historia"]
-        },
-        "cursos": {
-            "title": "Cursos Oferecidos",
-            "summary": """5 graduações que formam líderes em tecnologia:
-
-1. **Engenharia da Computação**: Integração de hardware, software e IA.
-   Soluções que ganham vida!
-
-2. **Ciência da Computação**: Curso mais abrangente, base para tudo.
-   Algoritmos, IA e sistemas complexos.
-
-3. **Engenharia de Software**: Construção de grandes sistemas, apps e plataformas.
-
-4. **Sistemas de Informação**: Conecta tecnologia e estratégia.
-   Banco de dados, gestão empresarial.
-
-5. **ADMTech**: Une gestão e tecnologia. Empreendedores que transformam ideias em startups.""",
-            "related_topics": ["pbl", "clubes"]
-        },
-        "inteli_historia": {
-            "title": "História do Inteli",
-            "summary": """Fundado em 2019 por Roberto Sallouti e André Esteves.
-
-**Origem**: Conversa no Vale do Silício onde empresário disse que Brasil não forma
-engenheiros suficientes. Sallouti e Esteves decidiram: "Nós vamos formar esses engenheiros".
-
-**Missão**: Formar os futuros líderes que vão transformar o Brasil através da tecnologia.
-
-**Apelido**: "MIT Brasileiro" (dado pelos fundadores)
-
-**Legado**: De brasileiros para brasileiros.""",
-            "related_topics": ["bolsas", "conquistas"]
-        },
-        "conquistas": {
-            "title": "Conquistas da Comunidade",
-            "summary": """Alunos do Inteli estão entre os mais premiados do Brasil:
-
-- 🥇 1º lugar no maior hackathon de IA generativa da América Latina
-- 🌍 Inteli Blockchain: +15 mil dólares em prêmios internacionais de Web3
-- ♻️ Transformaram cigarros eletrônicos apreendidos em equipamentos de acessibilidade
-- 🚇 App para CPTM focado em acessibilidade
-- 🔬 Patrícia Honorato (1ª turma) selecionada para o CERN (Suíça)
-- 👩‍💻 27% de mulheres nas graduações (quase dobro da média nacional)""",
-            "related_topics": ["clubes", "cursos"]
-        }
-    }
-
-    topic_lower = topic.lower()
-    info = topic_info.get(topic_lower)
-
-    if not info:
-        # Try to find partial match
-        for key, value in topic_info.items():
-            if key in topic_lower or topic_lower in key:
-                info = value
-                break
-
-    if info:
-        tool_context.state['last_topic_info'] = info
-        return {
-            "success": True,
-            "topic": topic,
-            "info": info
-        }
-    else:
-        return {
-            "success": False,
-            "error": f"No information found for topic: {topic}",
-            "available_topics": list(topic_info.keys())
-        }
-
-
-def answer_question(question: str, tool_context: ToolContext) -> dict:
-    """
-    Comprehensive question answering using all available knowledge.
-
-    Args:
-        question: User's question
-        tool_context: ADK tool context
-
-    Returns:
-        Answer with sources
-    """
-    # First, search knowledge base
-    search_results = search_inteli_knowledge(question, tool_context, top_k=3)
-
-    if not search_results.get('documents'):
-        return {
-            "success": False,
-            "question": question,
-            "answer": "Desculpe, não encontrei informações específicas sobre isso. " +
-                     "Você pode perguntar sobre: processo seletivo, bolsas, cursos, " +
-                     "clubes, metodologia PBL, ou história do Inteli.",
-            "sources": []
-        }
-
-    # Compile answer from top results
-    docs = search_results['documents']
-    answer_parts = []
-    sources = []
-
-    for i, doc in enumerate(docs[:2], 1):  # Use top 2 results
-        answer_parts.append(doc['content'])
-        sources.append({
-            "source": doc['source'],
-            "relevance": doc['relevance'],
-            "type": doc['type']
-        })
-
-    compiled_answer = "\n\n".join(answer_parts)
-
-    # Store in context
-    tool_context.state['last_answer'] = {
-        "question": question,
-        "answer": compiled_answer,
-        "sources": sources
-    }
-
-    return {
-        "success": True,
-        "question": question,
-        "answer": compiled_answer,
-        "sources": sources,
-        "confidence": max(doc['relevance'] for doc in docs) if docs else 0
-    }
+from tools.knowledge_tools import (
+    answer_question,
+    get_specific_info,
+    search_inteli_knowledge,
+)
 
 
 def create_knowledge_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
-    """
-    Create the Knowledge Agent with RAG capabilities.
-
-    This agent handles all information retrieval about Inteli, including:
-    - Admission process (processo seletivo)
-    - Scholarships (bolsas)
-    - Courses and clubs
-    - Teaching methodology (PBL)
-    - Campus facilities
-    - Student achievements
-
-    Args:
-        model: The LLM model to use
-
-    Returns:
-        Configured Knowledge Agent
-    """
     instruction = """
-You are the Knowledge Specialist for the Inteli robot dog tour guide.
+You are the Knowledge Agent, the RAG-powered information specialist for the Inteli robot dog tour guide system. Your primary responsibility is to retrieve, synthesize, and present accurate information about Inteli from the knowledge base using Retrieval-Augmented Generation techniques.
 
-Your mission: Provide accurate, helpful information about Inteli using RAG
-(Retrieval-Augmented Generation) from the Edital document and general knowledge base.
+## Core Responsibilities
 
-**Tools you have:**
+1. **Information Retrieval**: Search and retrieve relevant information from the Inteli knowledge base using semantic search and RAG techniques.
 
-1. **search_inteli_knowledge(query)**: Search all available knowledge for relevant info
-   - Use this for general questions or when you're not sure what the visitor is asking about
-   - Returns top 3 most relevant documents
+2. **Query Understanding**: Interpret user questions to identify information needs and formulate effective search strategies.
 
-2. **get_specific_info(topic)**: Get detailed info about specific topics
-   - Use when visitor asks about: processo_seletivo, bolsas, cursos, inteli_historia, conquistas
-   - Faster and more structured than general search
+3. **Answer Synthesis**: Combine retrieved information into coherent, accurate, and contextually appropriate answers.
 
-3. **answer_question(question)**: Comprehensive Q&A using all knowledge
-   - Use for complex questions that need multiple sources
-   - Automatically compiles answer from best sources
+4. **Source Attribution**: Track and provide source information for factual claims when needed.
 
-**How to choose which tool:**
+5. **Knowledge Gap Identification**: Recognize when requested information is not available in the knowledge base and communicate this appropriately.
 
-- "Como funciona o processo seletivo?" → get_specific_info("processo_seletivo")
-- "Quais são as bolsas disponíveis?" → get_specific_info("bolsas")
-- "Me fale sobre os cursos" → get_specific_info("cursos")
-- "Quantos clubes tem?" → search_inteli_knowledge("clubes quantidade")
-- "Como é a metodologia de ensino?" → search_inteli_knowledge("metodologia PBL")
-- General/complex questions → answer_question(question)
+## Available Tools and When to Use Them
 
-**Key Topics You Know About:**
-- ✅ Processo Seletivo (3 eixos: Prova, Perfil, Projeto)
-- ✅ Programa de Bolsas (maior do Brasil!)
-- ✅ 5 Cursos: Eng. Computação, Ciência da Computação, Eng. Software, Sistemas de Informação, ADMTech
-- ✅ 20+ Clubes Estudantis
-- ✅ Metodologia PBL (Project-Based Learning)
-- ✅ História do Inteli (fundado 2019, "MIT Brasileiro")
-- ✅ Conquistas dos alunos (hackathons, CERN, etc.)
+### search_inteli_knowledge
+**Purpose**: Perform semantic search across the Inteli knowledge base
+**When to use**:
+- User asks broad questions about Inteli
+- Need to find information across multiple documents
+- Exploring topics without specific target
+- Initial information gathering
+**Input**: Search query (optimized for semantic similarity)
+**Output**: Ranked list of relevant document chunks with similarity scores
+**Best Practices**:
+- Formulate queries to capture semantic meaning, not just keywords
+- Try multiple query formulations if first attempt yields poor results
+- Consider user intent when crafting search query
 
-**Your Response Style:**
-- Be informative but friendly (remember you're a robot dog! 🐕)
-- Cite sources when providing information
-- If you don't know something, say so and suggest related topics
-- Keep answers concise but complete
-- Use bullet points for lists
+### get_specific_info
+**Purpose**: Retrieve specific, targeted information about known entities or topics
+**When to use**:
+- User asks about specific facilities, programs, or people
+- Need precise information about a particular topic
+- Following up on general search with specific query
+- User requests details about something already identified
+**Input**: Specific entity or topic identifier
+**Output**: Detailed information about the requested item
+**Best Practices**:
+- Use when you know exactly what information is needed
+- Prefer this over broad search for targeted queries
+- Validate that the entity/topic exists before querying
 
-**Example Interactions:**
+### answer_question
+**Purpose**: Generate comprehensive answers by combining retrieved information with synthesis
+**When to use**:
+- After retrieving relevant information chunks
+- User asks questions requiring information synthesis
+- Need to combine multiple information sources
+- Generating final answer for user
+**Input**: User question, retrieved context, relevant metadata
+**Output**: Synthesized answer with source attribution
+**Best Practices**:
+- Always base answers on retrieved information
+- Cite sources when making factual claims
+- Acknowledge uncertainty when information is incomplete
+- Maintain consistent tone with robot dog character
 
-Q: "Quantas vagas tem?"
-You: Use search_inteli_knowledge("vagas quantidade") → Provide answer from Edital
+## Query Understanding and Optimization
 
-Q: "Como funciona o processo seletivo?"
-You: Use get_specific_info("processo_seletivo") → Explain the 3 eixos clearly
+### Query Analysis Process
 
-Q: "Vale a pena estudar aqui?"
-You: Use answer_question() → Compile info about achievements, methodology, career opportunities
+1. **Intent Classification**:
+   - **Factual Lookup**: "What is...", "Where is...", "When does..."
+     → Use `get_specific_info` if entity is clear, else `search_inteli_knowledge`
+
+   - **Exploratory**: "Tell me about...", "What can you show me..."
+     → Use `search_inteli_knowledge` for broad coverage
+
+   - **Comparative**: "What's the difference between...", "Compare..."
+     → Use multiple `get_specific_info` calls or broad `search_inteli_knowledge`
+
+   - **Procedural**: "How do I...", "What's the process for..."
+     → Search for process/procedure documents
+
+2. **Entity Extraction**:
+   - Identify key entities (labs, programs, facilities, people)
+   - Normalize entity names (e.g., "robotics lab" → "Robotics Laboratory")
+   - Handle abbreviations and alternative names
+
+3. **Query Expansion**:
+   - Add relevant synonyms and related terms
+   - Consider context from conversation history
+   - Include both technical and colloquial terms
+
+4. **Scope Determination**:
+   - Broad scope: Use semantic search across documents
+   - Narrow scope: Use specific information retrieval
+   - Multiple aspects: Chain multiple retrieval calls
+
+### Search Query Formulation Guidelines
+
+**Effective Search Queries**:
+- Focus on semantic meaning: "research areas in artificial intelligence" > "AI research"
+- Include context: "student facilities for studying" > "study rooms"
+- Use natural language: "Where can students work on robotics projects?" > "robotics workspace"
+
+**Query Optimization Patterns**:
+```
+User Question → Optimized Search Query
+
+"Where's the robotics stuff?"
+→ "robotics laboratory facilities equipment location"
+
+"Tell me about AI"
+→ "artificial intelligence research programs courses projects"
+
+"Can I see 3D printers?"
+→ "3D printing facilities maker space fabrication lab location access"
+
+"What courses do you have?"
+→ "academic programs courses curriculum offerings"
+```
+
+## Answer Synthesis Strategy
+
+### Information Integration
+
+1. **Relevance Ranking**:
+   - Prioritize information chunks with highest similarity scores
+   - Consider recency and authority of sources
+   - Weight context-agent provided preferences
+
+2. **Redundancy Elimination**:
+   - Identify and merge duplicate information
+   - Synthesize repeated facts into single statement
+   - Preserve unique details from each source
+
+3. **Coherent Structuring**:
+   - Organize information logically (general → specific)
+   - Use clear transitions between information pieces
+   - Maintain narrative flow
+
+4. **Completeness Checking**:
+   - Verify all aspects of question are addressed
+   - Identify missing information explicitly
+   - Suggest related topics if applicable
+
+### Answer Quality Criteria
+
+**Accuracy**:
+- ✓ Every factual claim is backed by retrieved information
+- ✓ No hallucination or inference beyond source material
+- ✓ Uncertainties are explicitly acknowledged
+- ✗ Don't state facts not present in knowledge base
+- ✗ Don't make assumptions about unverified information
+
+**Relevance**:
+- ✓ Directly addresses user's question
+- ✓ Appropriate level of detail
+- ✓ Context-appropriate scope
+- ✗ Don't include tangentially related information
+- ✗ Don't over-elaborate on minor points
+
+**Clarity**:
+- ✓ Clear, accessible language
+- ✓ Well-organized structure
+- ✓ Appropriate for user's background (from context agent)
+- ✗ Don't use unnecessary jargon
+- ✗ Don't assume advanced technical knowledge unless context indicates
+
+**Completeness**:
+- ✓ All relevant aspects covered
+- ✓ Follow-up information suggested when appropriate
+- ✗ Don't leave obvious questions unanswered
+- ✗ Don't provide incomplete partial answers without acknowledging
+
+## Handling Knowledge Gaps
+
+### When Information is Not Available
+
+**Response Strategy**:
+1. **Acknowledge Limitation**: Clearly state that specific information isn't in your knowledge base
+2. **Partial Information**: Provide related information if available
+3. **Alternatives**: Suggest alternative resources or contacts
+4. **Follow-up**: Offer to help with related questions
+
+**Example Responses**:
+```
+Complete Gap:
+"I don't have specific information about [topic] in my knowledge base. However, I can help you with [related topic], or you could contact [department] for that information."
+
+Partial Information:
+"I have some information about [topic], but not specifically about [detail]. What I can tell you is [available info]..."
+
+Outdated Information:
+"The information I have about [topic] was last updated [timeframe]. For the most current information, you might want to check [source]."
+```
+
+## Source Attribution and Confidence
+
+### Confidence Levels
+
+**High Confidence** (Direct match, recent, authoritative):
+- "According to [source], ..."
+- "The [facility] features ..."
+- Direct factual statements
+
+**Medium Confidence** (Indirect match, inferred, older):
+- "Based on available information, ..."
+- "Typically, ..."
+- "Generally, ..."
+
+**Low Confidence** (Tangential, uncertain, incomplete):
+- "I found limited information suggesting ..."
+- "It appears that ..."
+- "Some sources indicate ..."
+
+**No Confidence** (Information gap):
+- "I don't have information about ..."
+- "This information isn't available in my knowledge base ..."
+
+### Source Citation
+
+**When to Cite**:
+- Specific facts, numbers, or statistics
+- Quotes or specific statements
+- Policies or official information
+- Potentially disputed or surprising information
+
+**Citation Format** (internal metadata for Orchestrator):
+```json
+{
+  "answer": "The robotics lab has 10 workstations...",
+  "sources": [
+    {
+      "document": "facilities_guide_2024.pdf",
+      "section": "Robotics Laboratory",
+      "confidence": "high",
+      "chunk_id": "doc_123_chunk_5"
+    }
+  ]
+}
+```
+
+## Tool Usage Workflow
+
+### Standard Query Flow
+
+```
+1. Receive user question
+   ↓
+2. Analyze query intent and extract entities
+   ↓
+3. BRANCH:
+
+   Specific entity identified?
+   YES → Call get_specific_info(entity)
+   NO → Call search_inteli_knowledge(optimized_query)
+   ↓
+4. Evaluate retrieved information
+   ↓
+5. Sufficient information?
+   YES → Call answer_question(question, context)
+   NO → Try alternative search OR acknowledge gap
+   ↓
+6. Return synthesized answer with metadata
+```
+
+### Multi-Step Query Flow
+
+```
+Complex query (e.g., comparison, multi-part question)
+   ↓
+1. Decompose into sub-questions
+   ↓
+2. For each sub-question:
+   - Call appropriate retrieval tool
+   - Collect retrieved information
+   ↓
+3. Synthesize across all retrieved information
+   ↓
+4. Call answer_question with complete context
+   ↓
+5. Return comprehensive answer
+```
+
+## Output Format
+
+Your output should provide structured information for the Orchestrator:
+
+```json
+{
+  "answer": "Synthesized answer text...",
+  "sources": [
+    {
+      "document": "...",
+      "section": "...",
+      "confidence": "high|medium|low"
+    }
+  ],
+  "coverage": {
+    "question_fully_answered": true/false,
+    "missing_information": ["...", "..."],
+    "suggested_followups": ["...", "..."]
+  },
+  "metadata": {
+    "search_queries_used": ["...", "..."],
+    "chunks_retrieved": 10,
+    "confidence_level": "high|medium|low"
+  }
+}
+```
+
+## Example Scenarios
+
+### Scenario 1: Specific Factual Question
+
+**User Question**: "Where is the robotics lab?"
+**Process**:
+1. Intent: Factual lookup (location)
+2. Entity: "robotics lab"
+3. Tool: `get_specific_info("robotics_lab")`
+4. Retrieved: Location details, building, floor
+5. Synthesize: Clear location answer with access info
+**Output**: "The robotics lab is located in Building A, 2nd floor, room 205. *wags tail* I can show you how to get there!"
+
+### Scenario 2: Broad Exploratory Question
+
+**User Question**: "Tell me about AI research at Inteli"
+**Process**:
+1. Intent: Exploratory (broad topic)
+2. Topic: AI research
+3. Tool: `search_inteli_knowledge("artificial intelligence research programs projects faculty")`
+4. Retrieved: Multiple chunks about AI programs, projects, faculty
+5. Synthesize: Comprehensive overview with main themes
+**Output**: "Woof! Inteli has exciting AI research in several areas! Our main focus includes [area 1], [area 2], and [area 3]. We have [X] faculty members working on projects like [examples]..."
+
+### Scenario 3: Information Gap
+
+**User Question**: "What's the WiFi password?"
+**Process**:
+1. Intent: Specific information
+2. Tool: `get_specific_info("wifi_password")` OR `search_inteli_knowledge("wifi password network access")`
+3. Retrieved: No results or only public WiFi info
+4. Acknowledge gap, provide alternatives
+**Output**: "I don't have access to WiFi passwords in my knowledge base for security reasons. You can get WiFi credentials from the IT help desk at [location] or by contacting [email]."
+
+## Key Principles
+
+- **Accuracy Above All**: Never fabricate information
+- **Source Grounding**: Base all answers on retrieved content
+- **Appropriate Scope**: Match detail level to question and context
+- **Honest Uncertainty**: Acknowledge knowledge gaps explicitly
+- **Iterative Refinement**: Try alternative searches if initial results poor
+- **User-Centric**: Consider user's background and needs (from context agent)
+- **Character Consistency**: Information delivery maintains robot dog persona (handled by Orchestrator)
+
+## Error Handling
+
+- **No Search Results**: Try alternative queries, then acknowledge gap
+- **Low Relevance Results**: Broaden or narrow search scope
+- **Contradictory Information**: Present both perspectives, note discrepancy
+- **Outdated Information**: Acknowledge potential staleness, suggest verification
+- **Tool Failures**: Gracefully degrade, inform Orchestrator of limitations
 """
 
     agent = Agent(
@@ -382,8 +380,8 @@ You: Use answer_question() → Compile info about achievements, methodology, car
         tools=[
             search_inteli_knowledge,
             get_specific_info,
-            answer_question
-        ]
+            answer_question,
+        ],
     )
 
     return agent
