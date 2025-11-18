@@ -19,44 +19,87 @@ def retrieve_relevant_context(
     similarity_threshold: float = 0.7,
     sources: Optional[List[str]] = None,
 ) -> dict:
-    """
-    Retrieves relevant context from vector database/knowledge base.
+    try:
+        from .knowledge_tools import retrieve_inteli_knowledge
+    except ImportError:
+        retrieved_chunks = []
+        if "context_retrievals" not in tool_context.state:
+            tool_context.state["context_retrievals"] = []
 
-    Retrieval methods:
-    - Semantic search using embeddings
-    - Keyword matching
-    - Hybrid retrieval (semantic + keyword)
+        tool_context.state["context_retrievals"].append(
+            {"query": query, "top_k": top_k, "chunks_retrieved": 0}
+        )
 
-    Args:
-        query: User query or question
-        tool_context: ADK tool context
-        top_k: Number of top results to retrieve
-        similarity_threshold: Minimum similarity score (0-1)
-        sources: Specific sources to search (None = all)
+        return {
+            "success": False,
+            "query": query,
+            "chunks": [],
+            "total_retrieved": 0,
+            "sources_searched": sources or ["all"],
+            "message": "Knowledge tools not available",
+            "error": "Could not import retrieve_inteli_knowledge",
+        }
 
-    Returns:
-        Dict with retrieved context chunks
-    """
-    # TODO: Integrate with vector database (ChromaDB, Pinecone, etc.)
-    # TODO: Integrate with embedding model for semantic search
+    try:
+        rag_result = retrieve_inteli_knowledge(query, tool_context)
 
-    retrieved_chunks = []
+        retrieved_chunks = rag_result.get("chunks", [])
 
-    if "context_retrievals" not in tool_context.state:
-        tool_context.state["context_retrievals"] = []
+        if similarity_threshold > 0:
+            filtered_chunks = [
+                chunk
+                for chunk in retrieved_chunks
+                if chunk.get("score", 0) >= similarity_threshold
+            ]
+            retrieved_chunks = filtered_chunks
 
-    tool_context.state["context_retrievals"].append(
-        {"query": query, "top_k": top_k, "chunks_retrieved": len(retrieved_chunks)}
-    )
+        retrieved_chunks = retrieved_chunks[:top_k]
 
-    return {
-        "success": True,
-        "query": query,
-        "chunks": retrieved_chunks,
-        "total_retrieved": len(retrieved_chunks),
-        "sources_searched": sources or ["all"],
-        "message": "Context retrieval pending vector DB integration",
-    }
+        if "context_retrievals" not in tool_context.state:
+            tool_context.state["context_retrievals"] = []
+
+        tool_context.state["context_retrievals"].append(
+            {
+                "query": query,
+                "top_k": top_k,
+                "chunks_retrieved": len(retrieved_chunks),
+                "similarity_threshold": similarity_threshold,
+            }
+        )
+
+        return {
+            "success": True,
+            "query": query,
+            "chunks": retrieved_chunks,
+            "total_retrieved": len(retrieved_chunks),
+            "sources_searched": sources or ["all"],
+            "context": rag_result.get("context", ""),
+            "query_embedding": rag_result.get("query_embedding"),
+            "message": f"Retrieved {len(retrieved_chunks)} relevant context chunks from RAG system",
+        }
+
+    except Exception as e:
+        if "context_retrievals" not in tool_context.state:
+            tool_context.state["context_retrievals"] = []
+
+        tool_context.state["context_retrievals"].append(
+            {
+                "query": query,
+                "top_k": top_k,
+                "chunks_retrieved": 0,
+                "error": str(e),
+            }
+        )
+
+        return {
+            "success": False,
+            "query": query,
+            "chunks": [],
+            "total_retrieved": 0,
+            "sources_searched": sources or ["all"],
+            "message": f"Context retrieval failed: {str(e)}",
+            "error": str(e),
+        }
 
 
 # ============================================================================
@@ -70,45 +113,146 @@ def rank_context_chunks(
     tool_context: ToolContext,
     ranking_method: str = "semantic",
 ) -> dict:
-    """
-    Ranks context chunks by relevance to query.
+    ranked_chunks = []
 
-    Ranking methods:
-    - semantic: Embedding similarity
-    - keyword: Keyword overlap
-    - hybrid: Combination of semantic and keyword
-    - recency: Prioritize recent information
-    - popularity: Prioritize frequently accessed
+    try:
+        if ranking_method == "semantic":
+            import os
 
-    Args:
-        query: User query
-        chunks: List of context chunks to rank
-        tool_context: ADK tool context
-        ranking_method: Method to use for ranking
+            from sentence_transformers import SentenceTransformer, util
 
-    Returns:
-        Dict with ranked chunks
-    """
-    # TODO: Integrate with embedding model for semantic ranking
-    # TODO: Implement reranking algorithms
+            model_name = os.getenv(
+                "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+            )
+            model = SentenceTransformer(model_name)
 
-    # Placeholder - return chunks as-is
-    ranked_chunks = chunks
+            query_embedding = model.encode(query, convert_to_tensor=True)
 
-    # Store ranking stats
+            scored_chunks = []
+            for chunk in chunks:
+                content = chunk.get("content", "")
+                if not content:
+                    continue
+
+                if "embedding" in chunk and chunk["embedding"]:
+                    chunk_embedding = chunk["embedding"]
+                else:
+                    chunk_embedding = model.encode(content, convert_to_tensor=True)
+
+                similarity = util.cos_sim(query_embedding, chunk_embedding).item()
+
+                chunk_copy = chunk.copy()
+                chunk_copy["ranking_score"] = similarity
+                scored_chunks.append(chunk_copy)
+
+            ranked_chunks = sorted(
+                scored_chunks, key=lambda x: x.get("ranking_score", 0), reverse=True
+            )
+
+        elif ranking_method == "keyword":
+            query_keywords = set(query.lower().split())
+
+            scored_chunks = []
+            for chunk in chunks:
+                content = chunk.get("content", "").lower()
+                content_keywords = set(content.split())
+
+                overlap = len(query_keywords.intersection(content_keywords))
+                total = len(query_keywords.union(content_keywords))
+                score = overlap / total if total > 0 else 0
+
+                chunk_copy = chunk.copy()
+                chunk_copy["ranking_score"] = score
+                scored_chunks.append(chunk_copy)
+
+            ranked_chunks = sorted(
+                scored_chunks, key=lambda x: x.get("ranking_score", 0), reverse=True
+            )
+
+        elif ranking_method == "hybrid":
+            import os
+
+            from sentence_transformers import SentenceTransformer, util
+
+            model_name = os.getenv(
+                "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+            )
+            model = SentenceTransformer(model_name)
+            query_embedding = model.encode(query, convert_to_tensor=True)
+            query_keywords = set(query.lower().split())
+
+            scored_chunks = []
+            for chunk in chunks:
+                content = chunk.get("content", "")
+                if not content:
+                    continue
+
+                if "embedding" in chunk and chunk["embedding"]:
+                    chunk_embedding = chunk["embedding"]
+                else:
+                    chunk_embedding = model.encode(content, convert_to_tensor=True)
+                semantic_score = util.cos_sim(query_embedding, chunk_embedding).item()
+
+                content_keywords = set(content.lower().split())
+                overlap = len(query_keywords.intersection(content_keywords))
+                total = len(query_keywords.union(content_keywords))
+                keyword_score = overlap / total if total > 0 else 0
+
+                combined_score = 0.7 * semantic_score + 0.3 * keyword_score
+
+                chunk_copy = chunk.copy()
+                chunk_copy["ranking_score"] = combined_score
+                chunk_copy["semantic_score"] = semantic_score
+                chunk_copy["keyword_score"] = keyword_score
+                scored_chunks.append(chunk_copy)
+
+            ranked_chunks = sorted(
+                scored_chunks, key=lambda x: x.get("ranking_score", 0), reverse=True
+            )
+
+        elif ranking_method == "recency":
+            ranked_chunks = sorted(
+                chunks,
+                key=lambda x: x.get("metadata", {}).get("timestamp", 0),
+                reverse=True,
+            )
+
+        elif ranking_method == "popularity":
+            ranked_chunks = sorted(
+                chunks,
+                key=lambda x: x.get("metadata", {}).get("access_count", 0),
+                reverse=True,
+            )
+
+        else:
+            ranked_chunks = sorted(
+                chunks, key=lambda x: x.get("score", 0), reverse=True
+            )
+
+    except Exception as e:
+        ranked_chunks = chunks
+        error_message = f"Ranking failed ({str(e)}), returning original order"
+    else:
+        error_message = None
+
     if "context_rankings" not in tool_context.state:
         tool_context.state["context_rankings"] = []
 
     tool_context.state["context_rankings"].append(
-        {"ranking_method": ranking_method, "chunks_ranked": len(chunks)}
+        {
+            "ranking_method": ranking_method,
+            "chunks_ranked": len(chunks),
+            "error": error_message,
+        }
     )
 
     return {
-        "success": True,
+        "success": error_message is None,
         "ranked_chunks": ranked_chunks,
         "ranking_method": ranking_method,
         "total_ranked": len(ranked_chunks),
-        "message": "Ranking pending embedding integration",
+        "message": error_message
+        or f"Ranked {len(ranked_chunks)} chunks using {ranking_method} method",
     }
 
 
@@ -124,30 +268,109 @@ def filter_context_by_relevance(
     min_score: float = 0.5,
     max_chunks: int = 10,
 ) -> dict:
-    """
-    Filters context chunks to keep only relevant ones.
+    try:
+        from datetime import datetime
 
-    Filtering criteria:
-    - Relevance score threshold
-    - Maximum number of chunks
-    - Diversity (avoid redundant chunks)
-    - Freshness (prefer recent info)
+        from sentence_transformers import SentenceTransformer, util
 
-    Args:
-        chunks: Context chunks with scores
-        query: User query
-        tool_context: ADK tool context
-        min_score: Minimum relevance score
-        max_chunks: Maximum chunks to keep
+        if not chunks:
+            return {
+                "success": True,
+                "filtered_chunks": [],
+                "original_count": 0,
+                "filtered_count": 0,
+                "removed_count": 0,
+                "message": "No chunks to filter",
+            }
 
-    Returns:
-        Dict with filtered chunks
-    """
-    # TODO: Implement diversity filtering (MMR - Maximal Marginal Relevance)
-    # TODO: Implement freshness scoring
+        score_filtered = [
+            chunk for chunk in chunks if chunk.get("score", 0) >= min_score
+        ]
 
-    # Placeholder filtering
-    filtered_chunks = chunks[:max_chunks]
+        current_time = datetime.now()
+        for chunk in score_filtered:
+            metadata = chunk.get("metadata", {})
+            freshness_score = 1.0
+            timestamp = None
+            for field in ["timestamp", "created_at", "updated_at", "last_modified"]:
+                timestamp = metadata.get(field)
+                if timestamp:
+                    break
+            if timestamp:
+                try:
+                    if isinstance(timestamp, (int, float)):
+                        chunk_date = datetime.fromtimestamp(timestamp)
+                    elif isinstance(timestamp, str):
+                        chunk_date = datetime.fromisoformat(
+                            timestamp.replace("Z", "+00:00")
+                        )
+                    else:
+                        chunk_date = None
+                    if chunk_date:
+                        age_days = (current_time - chunk_date).days
+                        freshness_score = max(0.1, 1.0 / (1.0 + age_days / 180.0))
+                except (ValueError, TypeError, AttributeError):
+                    pass
+            chunk["freshness_score"] = freshness_score
+
+        for chunk in score_filtered:
+            relevance = chunk.get("score", 0)
+            freshness = chunk.get("freshness_score", 1.0)
+            chunk["combined_score"] = 0.7 * relevance + 0.3 * freshness
+
+        score_filtered.sort(key=lambda x: x.get("combined_score", 0), reverse=True)
+
+        if len(score_filtered) <= max_chunks:
+            filtered_chunks = score_filtered
+        else:
+            model_name = os.getenv(
+                "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+            )
+            model = SentenceTransformer(model_name)
+            query_embedding = model.encode(query, convert_to_tensor=True)
+            chunk_embeddings = []
+            for chunk in score_filtered:
+                if "embedding" in chunk and chunk["embedding"]:
+                    chunk_embeddings.append(chunk["embedding"])
+                else:
+                    embedding = model.encode(
+                        chunk.get("content", ""), convert_to_tensor=True
+                    )
+                    chunk_embeddings.append(embedding)
+            selected_indices = [0]
+            remaining_indices = list(range(1, len(score_filtered)))
+            lambda_param = 0.7
+            while len(selected_indices) < max_chunks and remaining_indices:
+                best_score = -float("inf")
+                best_idx = None
+                for idx in remaining_indices:
+                    relevance = util.cos_sim(
+                        query_embedding, chunk_embeddings[idx]
+                    ).item()
+                    max_similarity = max(
+                        util.cos_sim(chunk_embeddings[idx], chunk_embeddings[s]).item()
+                        for s in selected_indices
+                    )
+                    mmr_score = (
+                        lambda_param * relevance - (1 - lambda_param) * max_similarity
+                    )
+                    if mmr_score > best_score:
+                        best_score = mmr_score
+                        best_idx = idx
+                if best_idx is not None:
+                    selected_indices.append(best_idx)
+                    remaining_indices.remove(best_idx)
+                else:
+                    break
+            filtered_chunks = [score_filtered[idx] for idx in selected_indices]
+        success = True
+        error_message = None
+    except Exception as e:
+        filtered_chunks = [
+            chunk for chunk in chunks if chunk.get("score", 0) >= min_score
+        ][:max_chunks]
+        success = False
+        error_message = f"Advanced filtering failed ({str(e)}), used simple filtering"
 
     if "context_filtering" not in tool_context.state:
         tool_context.state["context_filtering"] = []
@@ -157,16 +380,18 @@ def filter_context_by_relevance(
             "original_count": len(chunks),
             "filtered_count": len(filtered_chunks),
             "min_score": min_score,
+            "error": error_message,
         }
     )
 
     return {
-        "success": True,
+        "success": success,
         "filtered_chunks": filtered_chunks,
         "original_count": len(chunks),
         "filtered_count": len(filtered_chunks),
         "removed_count": len(chunks) - len(filtered_chunks),
-        "message": f"Filtered from {len(chunks)} to {len(filtered_chunks)} chunks",
+        "message": error_message
+        or f"Filtered from {len(chunks)} to {len(filtered_chunks)} chunks (MMR + freshness)",
     }
 
 
@@ -185,43 +410,88 @@ def manage_conversation_memory(
     memory_type: str = "sliding_window",
     max_messages: int = 10,
 ) -> dict:
-    """
-    Manages conversation memory and history.
-
-    Memory types:
-    - sliding_window: Keep last N messages
-    - summary: Summarize older messages
-    - hierarchical: Different levels of detail
-    - selective: Keep important messages
-
-    Args:
-        current_message: Current user message
-        tool_context: ADK tool context
-        memory_type: Type of memory management
-        max_messages: Maximum messages to keep in memory
-
-    Returns:
-        Dict with managed conversation memory
-    """
-    # TODO: Integrate with LLM for summarization
-    # TODO: Implement importance scoring for selective memory
-
-    # Get or initialize conversation history
     if "conversation_history" not in tool_context.state:
         tool_context.state["conversation_history"] = []
 
     history = tool_context.state["conversation_history"]
 
+    if memory_type in ["selective", "summary"]:
+        try:
+            if os.getenv("GOOGLE_API_KEY"):
+                model = genai.GenerativeModel(
+                    os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+                )
+
+                importance_prompt = f"""Rate the importance of this message on a scale of 0.0 to 1.0 for conversation memory.
+
+Message: "{current_message}"
+
+Consider:
+- Does it contain factual information?
+- Does it represent a key decision or conclusion?
+- Is it a greeting or filler?
+- Does it introduce new topics?
+
+Respond with ONLY a number between 0.0 and 1.0."""
+
+                response = model.generate_content(importance_prompt)
+                try:
+                    importance = float(response.text.strip())
+                    importance = max(0.0, min(1.0, importance))
+                except ValueError:
+                    importance = 0.5
+            else:
+                importance = 0.5
+        except Exception:
+            importance = 0.5
+    else:
+        importance = 0.5
+
     history.append(
-        {
-            "message": current_message,
-            "timestamp": None,
-            "importance": 0.5,
-        }
+        {"message": current_message, "timestamp": None, "importance": importance}
     )
 
     if memory_type == "sliding_window" and len(history) > max_messages:
         history = history[-max_messages:]
+
+    elif memory_type == "summary" and len(history) > max_messages:
+        try:
+            if os.getenv("GOOGLE_API_KEY"):
+                model = genai.GenerativeModel(
+                    os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+                )
+
+                older_messages = history[:-max_messages]
+                recent_messages = history[-max_messages:]
+
+                messages_text = "\n".join([msg["message"] for msg in older_messages])
+                summary_prompt = f"""Summarize the following conversation messages concisely (max 200 words):
+
+{messages_text}
+
+Focus on key facts, decisions, and important points."""
+
+                response = model.generate_content(summary_prompt)
+                summary = response.text.strip()
+
+                history = [
+                    {
+                        "message": f"[Summary of previous messages: {summary}]",
+                        "timestamp": None,
+                        "importance": 1.0,
+                    }
+                ] + recent_messages
+            else:
+                history = history[-max_messages:]
+        except Exception:
+            history = history[-max_messages:]
+
+    elif memory_type == "selective" and len(history) > max_messages:
+        sorted_history = sorted(
+            history, key=lambda x: x.get("importance", 0), reverse=True
+        )
+        important_messages = sorted_history[:max_messages]
+        history = sorted(important_messages, key=lambda x: history.index(x))
 
     tool_context.state["conversation_history"] = history
 
@@ -231,7 +501,7 @@ def manage_conversation_memory(
         "current_size": len(history),
         "max_size": max_messages,
         "recent_messages": history[-5:],
-        "message": f"Managing {len(history)} messages in memory",
+        "message": f"Managing {len(history)} messages in memory ({memory_type})",
     }
 
 
@@ -650,27 +920,86 @@ Respond in JSON format:
 def deduplicate_context(
     chunks: List[Dict], tool_context: ToolContext, similarity_threshold: float = 0.9
 ) -> dict:
-    """
-    Removes duplicate or highly similar context chunks.
+    try:
+        import os
 
-    Deduplication methods:
-    - Exact match removal
-    - Semantic similarity (embedding-based)
-    - Fuzzy matching
+        from sentence_transformers import SentenceTransformer, util
 
-    Args:
-        chunks: Context chunks
-        tool_context: ADK tool context
-        similarity_threshold: Threshold for considering chunks similar
+        if not chunks:
+            return {
+                "success": True,
+                "deduplicated_chunks": [],
+                "original_count": 0,
+                "unique_count": 0,
+                "duplicates_removed": 0,
+                "message": "No chunks to deduplicate",
+            }
 
-    Returns:
-        Dict with deduplicated chunks
-    """
-    # TODO: Integrate with embedding model for semantic deduplication
-    # TODO: Implement fuzzy matching
+        model_name = os.getenv(
+            "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+        )
+        model = SentenceTransformer(model_name)
 
-    # Placeholder - return all chunks
-    deduplicated_chunks = chunks
+        seen_content = set()
+        unique_chunks = []
+        for chunk in chunks:
+            content = chunk.get("content", "")
+            if content and content not in seen_content:
+                seen_content.add(content)
+                unique_chunks.append(chunk)
+
+        exact_duplicates_removed = len(chunks) - len(unique_chunks)
+
+        if len(unique_chunks) > 1:
+            embeddings = []
+            for chunk in unique_chunks:
+                if "embedding" in chunk and chunk["embedding"]:
+                    embeddings.append(chunk["embedding"])
+                else:
+                    content = chunk.get("content", "")
+                    embedding = model.encode(content, convert_to_tensor=True)
+                    embeddings.append(embedding)
+
+            deduplicated_chunks = []
+            skip_indices = set()
+
+            for i, chunk_i in enumerate(unique_chunks):
+                if i in skip_indices:
+                    continue
+
+                for j in range(i + 1, len(unique_chunks)):
+                    if j in skip_indices:
+                        continue
+
+                    similarity = util.cos_sim(embeddings[i], embeddings[j]).item()
+
+                    if similarity >= similarity_threshold:
+                        skip_indices.add(j)
+
+                deduplicated_chunks.append(chunk_i)
+
+            semantic_duplicates_removed = len(unique_chunks) - len(deduplicated_chunks)
+        else:
+            deduplicated_chunks = unique_chunks
+            semantic_duplicates_removed = 0
+
+        total_removed = exact_duplicates_removed + semantic_duplicates_removed
+
+    except Exception as e:
+        seen_content = set()
+        deduplicated_chunks = []
+        for chunk in chunks:
+            content = chunk.get("content", "")
+            if content and content not in seen_content:
+                seen_content.add(content)
+                deduplicated_chunks.append(chunk)
+
+        total_removed = len(chunks) - len(deduplicated_chunks)
+        error_message = (
+            f"Semantic deduplication failed ({str(e)}), used exact matching only"
+        )
+    else:
+        error_message = None
 
     if "context_deduplication" not in tool_context.state:
         tool_context.state["context_deduplication"] = []
@@ -679,17 +1008,20 @@ def deduplicate_context(
         {
             "original_count": len(chunks),
             "deduplicated_count": len(deduplicated_chunks),
-            "removed_count": len(chunks) - len(deduplicated_chunks),
+            "removed_count": total_removed,
+            "similarity_threshold": similarity_threshold,
+            "error": error_message,
         }
     )
 
     return {
-        "success": True,
+        "success": error_message is None,
         "deduplicated_chunks": deduplicated_chunks,
         "original_count": len(chunks),
         "unique_count": len(deduplicated_chunks),
-        "duplicates_removed": len(chunks) - len(deduplicated_chunks),
-        "message": f"Removed {len(chunks) - len(deduplicated_chunks)} duplicates",
+        "duplicates_removed": total_removed,
+        "message": error_message
+        or f"Removed {total_removed} duplicates (exact: {exact_duplicates_removed}, semantic: {semantic_duplicates_removed})",
     }
 
 
@@ -709,34 +1041,164 @@ def manage_context_window(
     max_tokens: int = 8000,
     priority: str = "recent",
 ) -> dict:
-    """
-    Manages context to fit within token limits.
+    def estimate_tokens(text: str) -> int:
+        if not text:
+            return 0
+        word_count = len(text.split())
+        char_count = len(text)
+        return int((word_count * 1.3 + char_count / 4) / 2)
 
-    Priority strategies:
-    - recent: Prioritize recent messages
-    - relevant: Prioritize most relevant chunks
-    - balanced: Balance recency and relevance
-    - important: Prioritize marked important items
+    try:
+        context_tokens = sum(
+            estimate_tokens(chunk.get("content", "")) for chunk in context_chunks
+        )
+        history_tokens = sum(estimate_tokens(msg) for msg in conversation_history)
+        total_tokens = context_tokens + history_tokens
 
-    Args:
-        context_chunks: Retrieved context
-        conversation_history: Conversation messages
-        tool_context: ADK tool context
-        max_tokens: Maximum context window size
-        priority: Prioritization strategy
+        if total_tokens <= max_tokens:
+            optimized_context = {
+                "context_chunks": context_chunks,
+                "conversation_history": conversation_history,
+                "estimated_tokens": total_tokens,
+            }
+        else:
+            if priority == "recent":
+                kept_history = []
+                history_budget = max_tokens // 3
+                current_tokens = 0
+                for msg in reversed(conversation_history):
+                    msg_tokens = estimate_tokens(msg)
+                    if current_tokens + msg_tokens <= history_budget:
+                        kept_history.insert(0, msg)
+                        current_tokens += msg_tokens
+                    else:
+                        break
 
-    Returns:
-        Dict with optimized context
-    """
-    # TODO: Implement token counting
-    # TODO: Implement smart truncation strategies
+                kept_chunks = []
+                chunk_budget = max_tokens - current_tokens
+                current_tokens = 0
+                for chunk in reversed(context_chunks):
+                    chunk_tokens = estimate_tokens(chunk.get("content", ""))
+                    if current_tokens + chunk_tokens <= chunk_budget:
+                        kept_chunks.insert(0, chunk)
+                        current_tokens += chunk_tokens
+                    else:
+                        break
 
-    # Placeholder optimization
-    optimized_context = {
-        "context_chunks": context_chunks,
-        "conversation_history": conversation_history[-5:],
-        "estimated_tokens": 0,
-    }
+                optimized_context = {
+                    "context_chunks": kept_chunks,
+                    "conversation_history": kept_history,
+                    "estimated_tokens": estimate_tokens(" ".join(kept_history))
+                    + sum(estimate_tokens(c.get("content", "")) for c in kept_chunks),
+                }
+
+            elif priority == "relevant":
+                sorted_chunks = sorted(
+                    context_chunks, key=lambda x: x.get("score", 0), reverse=True
+                )
+                kept_chunks = []
+                kept_history = conversation_history[-3:]
+                history_tokens = sum(estimate_tokens(msg) for msg in kept_history)
+                chunk_budget = max_tokens - history_tokens
+                current_tokens = 0
+
+                for chunk in sorted_chunks:
+                    chunk_tokens = estimate_tokens(chunk.get("content", ""))
+                    if current_tokens + chunk_tokens <= chunk_budget:
+                        kept_chunks.append(chunk)
+                        current_tokens += chunk_tokens
+                    else:
+                        break
+
+                optimized_context = {
+                    "context_chunks": kept_chunks,
+                    "conversation_history": kept_history,
+                    "estimated_tokens": history_tokens + current_tokens,
+                }
+
+            elif priority == "balanced":
+                mid_point = len(context_chunks) // 2
+                recent_chunks = context_chunks[mid_point:]
+                relevant_chunks = sorted(
+                    context_chunks[:mid_point],
+                    key=lambda x: x.get("score", 0),
+                    reverse=True,
+                )
+                mixed_chunks = recent_chunks + relevant_chunks
+
+                kept_chunks = []
+                kept_history = conversation_history[-5:]
+                history_tokens = sum(estimate_tokens(msg) for msg in kept_history)
+                chunk_budget = max_tokens - history_tokens
+                current_tokens = 0
+
+                for chunk in mixed_chunks:
+                    chunk_tokens = estimate_tokens(chunk.get("content", ""))
+                    if current_tokens + chunk_tokens <= chunk_budget:
+                        kept_chunks.append(chunk)
+                        current_tokens += chunk_tokens
+                    else:
+                        break
+
+                optimized_context = {
+                    "context_chunks": kept_chunks,
+                    "conversation_history": kept_history,
+                    "estimated_tokens": history_tokens + current_tokens,
+                }
+
+            else:
+                important_chunks = [
+                    c for c in context_chunks if c.get("metadata", {}).get("important")
+                ]
+                other_chunks = [
+                    c
+                    for c in context_chunks
+                    if not c.get("metadata", {}).get("important")
+                ]
+
+                kept_chunks = []
+                kept_history = conversation_history[-5:]
+                history_tokens = sum(estimate_tokens(msg) for msg in kept_history)
+                chunk_budget = max_tokens - history_tokens
+                current_tokens = 0
+
+                for chunk in important_chunks:
+                    chunk_tokens = estimate_tokens(chunk.get("content", ""))
+                    if current_tokens + chunk_tokens <= chunk_budget:
+                        kept_chunks.append(chunk)
+                        current_tokens += chunk_tokens
+
+                for chunk in sorted(
+                    other_chunks, key=lambda x: x.get("score", 0), reverse=True
+                ):
+                    chunk_tokens = estimate_tokens(chunk.get("content", ""))
+                    if current_tokens + chunk_tokens <= chunk_budget:
+                        kept_chunks.append(chunk)
+                        current_tokens += chunk_tokens
+                    else:
+                        break
+
+                optimized_context = {
+                    "context_chunks": kept_chunks,
+                    "conversation_history": kept_history,
+                    "estimated_tokens": history_tokens + current_tokens,
+                }
+
+        utilization = (
+            optimized_context["estimated_tokens"] / max_tokens if max_tokens > 0 else 0
+        )
+        success = True
+        error_message = None
+
+    except Exception as e:
+        optimized_context = {
+            "context_chunks": context_chunks[:5],
+            "conversation_history": conversation_history[-5:],
+            "estimated_tokens": 0,
+        }
+        utilization = 0.0
+        success = False
+        error_message = f"Token optimization failed ({str(e)}), used simple truncation"
 
     if "context_window_management" not in tool_context.state:
         tool_context.state["context_window_management"] = []
@@ -746,17 +1208,21 @@ def manage_context_window(
             "max_tokens": max_tokens,
             "priority": priority,
             "chunks_included": len(optimized_context["context_chunks"]),
+            "estimated_tokens": optimized_context["estimated_tokens"],
+            "utilization": utilization,
+            "error": error_message,
         }
     )
 
     return {
-        "success": True,
+        "success": success,
         "optimized_context": optimized_context,
         "estimated_tokens": optimized_context["estimated_tokens"],
         "max_tokens": max_tokens,
-        "utilization": 0.0,
+        "utilization": utilization,
         "priority_used": priority,
-        "message": f"Context optimized for {max_tokens} token limit",
+        "message": error_message
+        or f"Context optimized to {optimized_context['estimated_tokens']}/{max_tokens} tokens ({utilization:.1%} utilization)",
     }
 
 
@@ -771,43 +1237,119 @@ def prepare_context_for_llm(
     tool_context: ToolContext,
     format_style: str = "structured",
 ) -> dict:
-    """
-    Prepares and formats context for LLM consumption.
-
-    Format styles:
-    - structured: Organized sections with headers
-    - conversational: Natural language format
-    - bullet_points: Key points as bullets
-    - qa_format: Question-answer pairs
-
-    Args:
-        context_chunks: Context to format
-        query: User query
-        tool_context: ADK tool context
-        format_style: How to format the context
-
-    Returns:
-        Dict with formatted context
-    """
-    # TODO: Implement different formatting strategies
-    # TODO: Add source citations
-
-    formatted_context = "Formatted context pending implementation"
+    try:
+        if not context_chunks:
+            formatted_context = "No context available."
+        elif format_style == "structured":
+            sections = [f"# Relevant Context for: {query}\n"]
+            for i, chunk in enumerate(context_chunks, 1):
+                content = chunk.get("content", "")
+                metadata = chunk.get("metadata", {})
+                citations = []
+                if metadata.get("section"):
+                    citations.append(f"Section: {metadata['section']}")
+                if metadata.get("page_number"):
+                    citations.append(f"Page: {metadata['page_number']}")
+                if metadata.get("document"):
+                    citations.append(f"Document: {metadata['document']}")
+                citation_str = " | ".join(citations) if citations else f"Source {i}"
+                sections.append(f"\n## Context {i}: {citation_str}\n\n{content}")
+            formatted_context = "\n".join(sections)
+        elif format_style == "conversational":
+            if len(context_chunks) == 1:
+                formatted_context = f"Based on the available information, {context_chunks[0].get('content', '')}"
+            else:
+                parts = ["Here's what I found:\n"]
+                for chunk in context_chunks:
+                    parts.append(f"\n{chunk.get('content', '')}")
+                formatted_context = "".join(parts)
+        elif format_style == "bullet_points":
+            formatted_context = f"Key information about '{query}':\n\n"
+            for i, chunk in enumerate(context_chunks, 1):
+                content = chunk.get("content", "")
+                metadata = chunk.get("metadata", {})
+                source = (
+                    metadata.get("section") or metadata.get("document") or f"Source {i}"
+                )
+                sentences = [s.strip() for s in content.split(".") if s.strip()]
+                for sentence in sentences[:3]:
+                    formatted_context += f"• {sentence}. [{source}]\n"
+        elif format_style == "qa_format":
+            formatted_context = f"Q: {query}\n\nA: "
+            answers = []
+            for chunk in context_chunks:
+                content = chunk.get("content", "")
+                metadata = chunk.get("metadata", {})
+                source = metadata.get("section") or metadata.get("document") or "Source"
+                answers.append(f"{content} (Source: {source})")
+            formatted_context += " ".join(answers)
+        elif format_style == "json":
+            formatted_data = {
+                "query": query,
+                "context_chunks": [
+                    {
+                        "content": chunk.get("content", ""),
+                        "metadata": chunk.get("metadata", {}),
+                        "score": chunk.get("score"),
+                        "id": chunk.get("id"),
+                    }
+                    for chunk in context_chunks
+                ],
+            }
+            formatted_context = json.dumps(formatted_data, indent=2, ensure_ascii=False)
+        elif format_style == "markdown":
+            formatted_context = f"# Query: {query}\n\n---\n\n"
+            for i, chunk in enumerate(context_chunks, 1):
+                content = chunk.get("content", "")
+                metadata = chunk.get("metadata", {})
+                formatted_context += f"### Source {i}\n\n{content}\n\n"
+                if metadata:
+                    formatted_context += "_Metadata: "
+                    meta_parts = []
+                    for key, value in metadata.items():
+                        if value and key not in ["chunk_id", "embedding"]:
+                            meta_parts.append(f"{key}: {value}")
+                    formatted_context += ", ".join(meta_parts) + "_\n\n"
+                formatted_context += "---\n\n"
+        else:
+            formatted_context = "\n\n".join(
+                [chunk.get("content", "") for chunk in context_chunks]
+            )
+        includes_citations = format_style in [
+            "structured",
+            "bullet_points",
+            "qa_format",
+            "markdown",
+        ]
+        success = True
+        error_message = None
+    except Exception as e:
+        formatted_context = "\n\n".join(
+            [chunk.get("content", "") for chunk in context_chunks]
+        )
+        includes_citations = False
+        success = False
+        error_message = f"Formatting failed ({str(e)}), used simple concatenation"
 
     if "context_formatting" not in tool_context.state:
         tool_context.state["context_formatting"] = []
 
     tool_context.state["context_formatting"].append(
-        {"format_style": format_style, "chunks_formatted": len(context_chunks)}
+        {
+            "format_style": format_style,
+            "chunks_formatted": len(context_chunks),
+            "error": error_message,
+        }
     )
 
     return {
-        "success": True,
+        "success": success,
         "formatted_context": formatted_context,
         "format_style": format_style,
         "chunks_included": len(context_chunks),
-        "includes_citations": False,
-        "message": "Context formatted for LLM",
+        "includes_citations": includes_citations,
+        "message": error_message
+        or f"Context formatted using {format_style} style with {len(context_chunks)} chunks",
     }
 
 
@@ -922,50 +1464,160 @@ Respond in JSON format:
 def check_context_freshness(
     context_chunks: List[Dict], tool_context: ToolContext, max_age_days: int = 90
 ) -> dict:
-    """
-    Checks if context is fresh and up-to-date.
+    from datetime import datetime, timedelta
 
-    Freshness checks:
-    - Document age
-    - Last update timestamp
-    - Version information
-    - Outdated markers
+    try:
+        freshness_assessment = {
+            "fresh_chunks": [],
+            "stale_chunks": [],
+            "unknown_age": [],
+            "overall_freshness": 0.0,
+        }
 
-    Args:
-        context_chunks: Chunks to check
-        tool_context: ADK tool context
-        max_age_days: Maximum acceptable age in days
+        if not context_chunks:
+            return {
+                "success": True,
+                "freshness": freshness_assessment,
+                "fresh_count": 0,
+                "stale_count": 0,
+                "overall_score": 0.0,
+                "recommendation": "no_context",
+                "message": "No chunks to check",
+            }
 
-    Returns:
-        Dict with freshness assessment
-    """
-    # TODO: Check document timestamps
-    # TODO: Identify outdated information
+        current_time = datetime.now()
+        max_age_delta = timedelta(days=max_age_days)
 
-    freshness_assessment = {
-        "fresh_chunks": [],
-        "stale_chunks": [],
-        "unknown_age": [],
-        "overall_freshness": 0.0,
-    }
+        for chunk in context_chunks:
+            metadata = chunk.get("metadata", {})
+            chunk_age_days = None
+            is_fresh = None
+
+            timestamp = None
+            for field in [
+                "timestamp",
+                "created_at",
+                "updated_at",
+                "last_modified",
+                "date",
+            ]:
+                timestamp = metadata.get(field)
+                if timestamp:
+                    break
+
+            if timestamp:
+                try:
+                    if isinstance(timestamp, (int, float)):
+                        chunk_date = datetime.fromtimestamp(timestamp)
+                    elif isinstance(timestamp, str):
+                        for fmt in [
+                            "%Y-%m-%d",
+                            "%Y-%m-%dT%H:%M:%S",
+                            "%Y-%m-%d %H:%M:%S",
+                            "%d/%m/%Y",
+                            "%m/%d/%Y",
+                        ]:
+                            try:
+                                chunk_date = datetime.strptime(timestamp, fmt)
+                                break
+                            except ValueError:
+                                continue
+                        else:
+                            chunk_date = datetime.fromisoformat(
+                                timestamp.replace("Z", "+00:00")
+                            )
+                    else:
+                        chunk_date = None
+
+                    if chunk_date:
+                        age_delta = current_time - chunk_date
+                        chunk_age_days = age_delta.days
+
+                        is_fresh = age_delta <= max_age_delta
+
+                        chunk_with_age = chunk.copy()
+                        chunk_with_age["age_days"] = chunk_age_days
+                        chunk_with_age["age_category"] = (
+                            "fresh" if is_fresh else "stale"
+                        )
+
+                        if is_fresh:
+                            freshness_assessment["fresh_chunks"].append(chunk_with_age)
+                        else:
+                            freshness_assessment["stale_chunks"].append(chunk_with_age)
+                    else:
+                        freshness_assessment["unknown_age"].append(chunk)
+
+                except (ValueError, TypeError, AttributeError):
+                    freshness_assessment["unknown_age"].append(chunk)
+            else:
+                freshness_assessment["unknown_age"].append(chunk)
+
+        total_chunks = len(context_chunks)
+        fresh_count = len(freshness_assessment["fresh_chunks"])
+        stale_count = len(freshness_assessment["stale_chunks"])
+        unknown_count = len(freshness_assessment["unknown_age"])
+
+        overall_freshness = (
+            (fresh_count * 1.0 + unknown_count * 0.5) / total_chunks
+            if total_chunks > 0
+            else 0.0
+        )
+        freshness_assessment["overall_freshness"] = overall_freshness
+
+        # Determine recommendation
+        if overall_freshness >= 0.8:
+            recommendation = "context_fresh"
+        elif overall_freshness >= 0.5:
+            recommendation = "mostly_fresh"
+        elif overall_freshness >= 0.3:
+            recommendation = "partially_stale"
+        else:
+            recommendation = "update_required"
+
+        success = True
+        error_message = None
+
+    except Exception as e:
+        freshness_assessment = {
+            "fresh_chunks": [],
+            "stale_chunks": [],
+            "unknown_age": context_chunks,
+            "overall_freshness": 0.5,
+        }
+        fresh_count = 0
+        stale_count = 0
+        unknown_count = len(context_chunks)
+        overall_freshness = 0.5
+        recommendation = "unknown"
+        success = False
+        error_message = f"Freshness check failed ({str(e)}), marked all as unknown"
 
     if "context_freshness_checks" not in tool_context.state:
         tool_context.state["context_freshness_checks"] = []
 
     tool_context.state["context_freshness_checks"].append(
-        {"chunks_checked": len(context_chunks), "max_age_days": max_age_days}
+        {
+            "chunks_checked": len(context_chunks),
+            "max_age_days": max_age_days,
+            "fresh_count": fresh_count,
+            "stale_count": stale_count,
+            "unknown_count": unknown_count,
+            "overall_freshness": overall_freshness,
+            "error": error_message,
+        }
     )
 
     return {
-        "success": True,
+        "success": success,
         "freshness": freshness_assessment,
-        "fresh_count": len(freshness_assessment["fresh_chunks"]),
-        "stale_count": len(freshness_assessment["stale_chunks"]),
-        "overall_score": freshness_assessment["overall_freshness"],
-        "recommendation": "update_required"
-        if freshness_assessment["overall_freshness"] < 0.5
-        else "context_fresh",
-        "message": "Freshness check pending timestamp integration",
+        "fresh_count": fresh_count,
+        "stale_count": stale_count,
+        "unknown_count": unknown_count,
+        "overall_score": overall_freshness,
+        "recommendation": recommendation,
+        "message": error_message
+        or f"Freshness check: {fresh_count} fresh, {stale_count} stale, {unknown_count} unknown (score: {overall_freshness:.1%})",
     }
 
 

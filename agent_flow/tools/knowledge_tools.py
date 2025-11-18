@@ -7,13 +7,11 @@ from collections.abc import Sequence as SequenceABC
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
+from dotenv import load_dotenv
 from google.adk.tools.tool_context import ToolContext
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
 from zenml import pipeline, step
-
-from dotenv import load_dotenv
-
 
 AGENT_FLOW_DIR = Path(__file__).resolve().parents[1]
 load_dotenv(AGENT_FLOW_DIR / ".env", override=False)
@@ -36,26 +34,23 @@ INCLUDE_EMBEDDINGS = os.getenv("RAG_INCLUDE_EMBEDDINGS", "false").strip().lower(
 
 
 def _parse_score_threshold() -> Optional[float]:
-    """Convert SCORE_THRESHOLD to float when provided."""
     if not SCORE_THRESHOLD:
         return None
     try:
         return float(SCORE_THRESHOLD)
-    except ValueError as exc:  # pragma: no cover - defensive
+    except ValueError as exc:
         raise ValueError(
             "RAG_SCORE_THRESHOLD must be a float-compatible value."
         ) from exc
-    
+
 
 def _stringify_point_id(point_id: Any) -> str:
-    """Normalize any Qdrant point identifier into a string key."""
     if isinstance(point_id, bytes):
         return point_id.decode("utf-8", errors="ignore")
     return str(point_id)
 
 
 def _convert_to_qdrant_id(value: Any) -> Any:
-    """Convert raw adjacency values to the type accepted by Qdrant."""
     if isinstance(value, (int,)):
         return value
     if isinstance(value, str):
@@ -65,14 +60,13 @@ def _convert_to_qdrant_id(value: Any) -> Any:
         if stripped.isdigit():
             try:
                 return int(stripped)
-            except ValueError:  # pragma: no cover - defensive
+            except ValueError:
                 return stripped
         return stripped
     return value
 
 
 def _prepare_vector(vector: Any) -> Any:
-    """Convert vectors returned by Qdrant into plain Python types."""
     if vector is None:
         return None
     if isinstance(vector, list):
@@ -95,7 +89,6 @@ def _prepare_vector(vector: Any) -> Any:
 def _extract_adjacency_candidates(
     payload: Dict[str, Any], metadata: Dict[str, Any]
 ) -> Any:
-    """Return the adjacency field from payload or metadata when available."""
     for key in (ADJACENCY_FIELD, "adjacent_ids", "neighbors", "edges"):
         value = payload.get(key)
         if value is None:
@@ -108,7 +101,6 @@ def _extract_adjacency_candidates(
 def _normalize_adjacency_ids(
     adjacency_raw: Any, limit: int
 ) -> Tuple[List[str], List[Any]]:
-    """Normalize adjacency values into ordered ids and Qdrant-compatible ids."""
     if adjacency_raw is None or limit <= 0:
         return [], []
 
@@ -137,7 +129,6 @@ def _normalize_adjacency_ids(
 def _retrieve_adjacency_payloads(
     client: QdrantClient, adjacency_ids: Sequence[Any]
 ) -> Dict[str, Dict[str, Any]]:
-    """Fetch adjacency payloads from Qdrant once and expose them as dicts."""
     if not adjacency_ids:
         return {}
 
@@ -181,7 +172,6 @@ def _retrieve_adjacency_payloads(
 
 
 def _extract_query_points(results: Any) -> List[Any]:
-    """Normalize Qdrant query results into a list of scored points."""
     if hasattr(results, "points"):
         payload = getattr(results, "points")
         return list(payload or [])
@@ -196,19 +186,18 @@ def _extract_query_points(results: Any) -> List[Any]:
 
 
 def _resolve_scored_point(point: Any) -> Any:
-    """Ensure a tuple-wrapped point is unwrapped so it exposes payload/score."""
     if isinstance(point, tuple) and point:
         candidate = point[0]
         if hasattr(candidate, "payload") or isinstance(candidate, dict):
             return candidate
     return point
 
+
 @step(enable_cache=False)
 def query_embedding(query: str) -> List[float]:
-    """Encode the user query into an embedding vector."""
     if not query:
         raise ValueError("query_embedding_step recebeu uma query vazia.")
-    
+
     model = SentenceTransformer(EMBEDDING_MODEL_NAME)
     return model.encode(query).tolist()
 
@@ -219,7 +208,6 @@ def retrieval_from_qdrant(
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
 ) -> List[Dict[str, Any]]:
-    """Retrieve the top-k chunks and their first-degree neighbors from Qdrant."""
     if not query_embedding:
         raise ValueError("retrieval_from_qdrant_step recebeu embedding vazio.")
 
@@ -301,7 +289,6 @@ def retrieval_from_qdrant(
 
 
 def _format_context_block(node: Dict[str, Any], index: int) -> str:
-    """Helper to format a human-readable block for each node."""
     metadata = node.get("metadata") or {}
     header_parts = [f"Trecho {index}"]
     section = metadata.get("section") or metadata.get("section_context")
@@ -335,7 +322,6 @@ def build_graph_rag_payload(
     query_embedding: List[float],
     retrieved_nodes: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
-    """Create the structured payload returned by the multi-agent tool."""
     context_blocks = [
         _format_context_block(node, idx)
         for idx, node in enumerate(retrieved_nodes, start=1)
@@ -357,7 +343,6 @@ def rag_inference_pipeline(
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
 ) -> Dict[str, Any]:
-    """Pipeline que encadeia embed + retrieval e retorna um grafo estruturado."""
     query_vector = query_embedding(query=query)
     retrieval = retrieval_from_qdrant(
         query_embedding=query_vector,
@@ -372,16 +357,13 @@ def rag_inference_pipeline(
     return payload
 
 
-
 def retrieve_inteli_knowledge(
     query: str,
     tool_context: ToolContext,
 ) -> Dict[str, Any]:
-    """RAG tool that embeds a prompt and returns graph-based neighbors."""
     normalized_query = (query or "").strip()
     if not normalized_query:
         raise ValueError("retrieve_inteli_knowledge recebeu uma consulta vazia.")
-
 
     retrieval_payload = rag_inference_pipeline(
         query=normalized_query,
