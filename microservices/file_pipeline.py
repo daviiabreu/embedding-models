@@ -3,16 +3,13 @@ from json import JSONDecodeError
 import os
 import re
 import sys
-import types
+from pathlib import Path
 from typing import Any, Dict, List, Set
 
 from dotenv import load_dotenv
+
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from qdrant_client import QdrantClient
-from qdrant_client.http import models as qdrant_models
-from sentence_transformers import SentenceTransformer
-from zenml import pipeline, step
 
 # pdfminer >=202211 remove the psexceptions module that unstructured still imports.
 # Provide a lightweight shim so downstream imports keep working regardless of version.
@@ -20,6 +17,8 @@ try:  # pragma: no cover - compatibility shim
     from pdfminer.psexceptions import PSSyntaxError as _  # type: ignore
 except ImportError:
     from pdfminer.pdfparser import PDFSyntaxError
+    import types
+    import sys as _sys
 
     shim = types.ModuleType("pdfminer.psexceptions")
 
@@ -27,11 +26,21 @@ except ImportError:
         """Backwards-compatible alias expected by unstructured."""
 
     shim.PSSyntaxError = PSSyntaxError
-    sys.modules["pdfminer.psexceptions"] = shim
+    _sys.modules["pdfminer.psexceptions"] = shim
 
 from unstructured.partition.pdf import partition_pdf
+from sentence_transformers import SentenceTransformer
+from zenml import pipeline, step
+
+from qdrant_client import QdrantClient
+from qdrant_client.http import models as qdrant_models
 
 load_dotenv()
+load_dotenv('agent_flow/.env', override=False)
+
+EMBEDDING_MODEL = os.getenv("EMBEDDINGS_MODEL")
+QDRANT_URL = os.getenv("QDRANT_URL")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 
 
 def clean_text(text: str) -> str:
@@ -88,7 +97,7 @@ def extract_enhanced_metadata(element: Dict[str, Any]) -> Dict[str, Any]:
 
 def detect_summary_elements(
     elements: List[Dict[str, Any]],
-    detection_method: str = "keywords",
+    detection_method: str,
     max_pages: int = 5,
 ) -> Set[int]:
     """
@@ -149,12 +158,72 @@ def detect_summary_elements(
 
     return summary_elements
 
+def _extract_txt_elements(file_path: Path) -> List[Dict[str, Any]]:
+    """Transforma um arquivo .txt em lista de elementos compatíveis com o pipeline."""
+    content = file_path.read_text(encoding="utf-8")
+    segments = [segment.strip() for segment in content.split("\n\n") if segment.strip()]
+    if not segments:
+        segments = [content.strip()] if content.strip() else []
 
+    elements_data: List[Dict[str, Any]] = []
+    for idx, segment in enumerate(segments, start=1):
+        if not segment:
+            continue
+        elements_data.append(
+            {
+                "text": segment,
+                "type": "TextSegment",
+                "metadata": {
+                    "source_file": file_path.name,
+                    "segment_index": idx,
+                },
+                "element_id": f"txt_{file_path.stem}_{idx}",
+            }
+        )
+
+    return elements_data
+
+def _extract_pdf_elements(pdf_path: str) -> List[Dict[str, Any]]:
+
+    elements = partition_pdf(filename=pdf_path, strategy="fast", ocr_languages="por")
+    elements_data: List[Dict[str, Any]] = []
+
+    for element in elements:
+        element_dict: Dict[str, Any] = {
+            "text": str(element),
+            "type": element.__class__.__name__,
+            "metadata": {},
+        }
+
+        if hasattr(element, "metadata") and element.metadata:
+            element_dict["metadata"] = element.metadata.to_dict()
+
+        if hasattr(element, "id"):
+            element_dict["element_id"] = element.id
+
+        elements_data.append(element_dict)
+
+    return elements_data
+
+@step
+def extract_file_elements(pdf_path: str) -> List[Dict[str, Any]]:
+    file_path = Path(pdf_path)
+    if file_path.suffix.lower() == ".txt":
+        return _extract_txt_elements(file_path)
+    elif file_path.suffix.lower() == ".pdf":
+        return _extract_pdf_elements(file_path)
+    else:
+        raise ValueError(f"Formato de arquivo não suportado: {file_path.suffix}")
+
+
+
+@step
 def preprocess_elements(
     elements: List[Dict[str, Any]],
     skip_summary: bool = True,
     summary_detection: str = "keywords",
 ) -> List[Dict[str, Any]]:
+    
     processed_elements: List[Dict[str, Any]] = []
     current_section = "Introduction"
     current_subsection = ""
@@ -163,7 +232,7 @@ def preprocess_elements(
     if skip_summary:
         summary_elements = detect_summary_elements(elements, summary_detection)
         if summary_elements:
-            print(f"🚫 Detectados {len(summary_elements)} elementos de sumário para pular")
+            print(f"Detectados {len(summary_elements)} elementos de sumário para pular")
 
     for i, element in enumerate(elements):
         if i in summary_elements:
@@ -200,11 +269,12 @@ def preprocess_elements(
     return processed_elements
 
 
-def create_overlapping_chunks(
+@step
+def create_chunks(
     processed_elements: List[Dict[str, Any]],
     chunk_size: int = 500,
     chunk_overlap: int = 100,
-) -> List[Document]:
+) -> List[Dict[str, Any]]:
     print(f"Overlapping de chunks de tamanho: (size={chunk_size}, overlap={chunk_overlap})...")
 
     text_splitter = RecursiveCharacterTextSplitter(
@@ -233,91 +303,43 @@ def create_overlapping_chunks(
 
     chunked_documents = text_splitter.split_documents(documents)
 
-    print(f"Foram criados {len(chunked_documents)} chunks.")
-    return chunked_documents
-
-
-def documents_to_chunks(chunked_docs: List[Document]) -> List[Dict[str, Any]]:
-    embedding_ready_chunks: List[Dict[str, Any]] = []
-    for i, doc in enumerate(chunked_docs):
-        embedding_ready_chunks.append(
-            {"id": f"chunk_{i}", "content": doc.page_content, "metadata": doc.metadata}
+    chunk_dicts: List[Dict[str, Any]] = []
+    for idx, doc in enumerate(chunked_documents):
+        chunk_dicts.append(
+            {
+                "id": f"chunk_{idx}",
+                "content": doc.page_content,
+                "metadata": doc.metadata,
+            }
         )
-    return embedding_ready_chunks
+
+    print(f"Foram criados {len(chunk_dicts)} chunks.")
+    return chunk_dicts
 
 
-def extract_pdf_elements(pdf_path: str) -> List[Dict[str, Any]]:
-    elements = partition_pdf(filename=pdf_path, strategy="fast", ocr_languages="por")
-    elements_data: List[Dict[str, Any]] = []
-
-    for element in elements:
-        element_dict: Dict[str, Any] = {
-            "text": str(element),
-            "type": element.__class__.__name__,
-            "metadata": {},
-        }
-
-        if hasattr(element, "metadata") and element.metadata:
-            element_dict["metadata"] = element.metadata.to_dict()
-
-        if hasattr(element, "id"):
-            element_dict["element_id"] = element.id
-
-        elements_data.append(element_dict)
-
-    return elements_data
-
-
-def preprocess_for_embedding(json_file_path: str) -> List[Dict[str, Any]]:
-    with open(json_file_path, "r", encoding="utf-8") as f:
-        elements = json.load(f)
-
-    print(f"Carregados {len(elements)} elementos do JSON")
-
-    processed_elements = preprocess_elements(elements)
-    print(f"Foram processados {len(processed_elements)} elementos")
-
-    chunked_docs = create_overlapping_chunks(processed_elements)
-    return documents_to_chunks(chunked_docs)
-
-
-def process_document_with_params(
-    pdf_path: str,
-    chunk_size: int = 500,
-    chunk_overlap: int = 100,
-    skip_summary: bool = True,
-) -> List[Dict[str, Any]]:
-    """Função wrapper para processar documento com parâmetros customizados."""
-    elements_data = extract_pdf_elements(pdf_path)
-    processed_elements = preprocess_elements(elements_data, skip_summary=skip_summary)
-    chunked_docs = create_overlapping_chunks(
-        processed_elements, chunk_size=chunk_size, chunk_overlap=chunk_overlap
-    )
-    return documents_to_chunks(chunked_docs)
-
-
+@step
 def generate_embeddings(
     chunks: List[Dict[str, Any]],
-    model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+    model_name: str = EMBEDDING_MODEL,
     normalize: bool = True,
 ) -> List[Dict[str, Any]]:
     """
     Gera embeddings para os chunks usando SentenceTransformers.
     """
+    print("\nOi")
     if not chunks:
-        print("❌ Nenhum chunk disponível para embedding.")
+        print(" Nenhum chunk disponível para embedding.")
         return []
 
-    print(f"🤖 Carregando modelo de embedding: {model_name}")
     try:
         model = SentenceTransformer(model_name)
     except Exception as exc:  # pragma: no cover - simples log
-        print(f"❌ Erro ao carregar o modelo: {exc}")
+        print(f"Erro ao carregar o modelo: {exc}")
         return chunks
 
     texts = [chunk["content"] for chunk in chunks]
 
-    print(f"🔄 Gerando embeddings para {len(texts)} chunks...")
+    print(f"Gerando embeddings para {len(texts)} chunks...")
     try:
         embeddings = model.encode(
             texts,
@@ -327,7 +349,7 @@ def generate_embeddings(
             convert_to_tensor=False,
         )
     except Exception as exc:  # pragma: no cover
-        print(f"❌ Erro ao gerar embeddings: {exc}")
+        print(f"Erro ao gerar embeddings: {exc}")
         return chunks
 
     chunks_with_embeddings: List[Dict[str, Any]] = []
@@ -338,28 +360,30 @@ def generate_embeddings(
         enriched["embedding_dimension"] = len(vector)
         chunks_with_embeddings.append(enriched)
 
-    print(f"✅ Embeddings gerados para {len(chunks_with_embeddings)} chunks")
-    print(f"📏 Dimensão dos embeddings: {len(embeddings[0])}")
+    print(f" Embeddings gerados para {len(chunks_with_embeddings)} chunks")
 
     return chunks_with_embeddings
 
-
-def upsert_embeddings_to_qdrant(
+@step
+def ingest_embeddings(
     embeddings: List[Dict[str, Any]],
-    collection_name: str,
-    url: str,
-    api_key: str,
+    collection_name: str ,
     distance_metric: str = "cosine",
     recreate_collection: bool = False,
+    batch_size: int = 64,
 ) -> None:
     """
     Envia embeddings já gerados para o Qdrant.
     """
     if not embeddings:
-        print("ℹ️ Nenhum embedding para enviar ao Qdrant.")
+        print(" Nenhum embedding para enviar ao Qdrant.")
         return
+    if not QDRANT_API_KEY:
+        raise ValueError(
+            "Qdrant API key não definida no .env (QDRANT_API_KEY)."
+        )
 
-    client = QdrantClient(url=url, api_key=api_key)
+    client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, timeout=60.0)
     distance = getattr(
         qdrant_models.Distance,
         distance_metric.upper(),
@@ -370,7 +394,7 @@ def upsert_embeddings_to_qdrant(
     vectors_config = qdrant_models.VectorParams(size=vector_dimension, distance=distance)
 
     if recreate_collection:
-        print(f"🔁 Recriando coleção `{collection_name}`...")
+        print(f" Recriando coleção `{collection_name}`...")
         client.recreate_collection(collection_name=collection_name, vectors_config=vectors_config)
     else:
         collection_exists = False
@@ -378,16 +402,19 @@ def upsert_embeddings_to_qdrant(
             collection_exists = client.collection_exists(collection_name=collection_name)
         except JSONDecodeError:
             print(
-                "⚠️ Resposta inesperada do endpoint `collection_exists`. "
-                "Prosseguindo assumindo que a coleção já exista."
+                "Resposta inesperada do endpoint `collection_exists`. "
             )
             collection_exists = True
 
         if not collection_exists:
-            print(f"📚 Criando coleção `{collection_name}` (dimensão={vector_dimension})...")
+            print(f" Criando coleção `{collection_name}` (dimensão={vector_dimension})...")
             client.create_collection(collection_name=collection_name, vectors_config=vectors_config)
 
-    points = []
+    def _batched(seq: List[qdrant_models.PointStruct], size: int) -> List[qdrant_models.PointStruct]:
+        for start in range(0, len(seq), size):
+            yield seq[start : start + size]
+
+    points: List[qdrant_models.PointStruct] = []
     for idx, chunk in enumerate(embeddings):
         payload = {
             "chunk_id": chunk.get("id", f"chunk_{idx}"),
@@ -407,111 +434,16 @@ def upsert_embeddings_to_qdrant(
             )
         )
 
-    print(f"🚀 Enviando {len(points)} embeddings para o Qdrant...")
-    try:
-        client.upsert(collection_name=collection_name, points=points, wait=True)
-    except JSONDecodeError:
-        print(
-            "⚠️ Resposta inesperada do endpoint `upsert`. "
-            "Assumindo sucesso com base no código HTTP 200."
-        )
-    print(f"✅ Ingestão concluída na coleção `{collection_name}`.")
+    print(f"Enviando {len(points)} embeddings para o Qdrant em lotes de {batch_size}...")
+    total_sent = 0
+    for batch in _batched(points, batch_size):
+        try:
+            client.upsert(collection_name=collection_name, points=batch, wait=True)
+            total_sent += len(batch)
+        except JSONDecodeError:
+            print("Resposta inesperada do endpoint `upsert`. Prosseguindo.")
 
-
-def process_document_with_embeddings(
-    pdf_path: str,
-    chunk_size: int = 500,
-    chunk_overlap: int = 100,
-    skip_summary: bool = True,
-    generate_embeddings_flag: bool = True,
-    model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
-) -> List[Dict[str, Any]]:
-    """
-    Pipeline completo: extração, chunking e embedding.
-    """
-    chunks = process_document_with_params(
-        pdf_path=pdf_path,
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        skip_summary=skip_summary,
-    )
-
-    if generate_embeddings_flag and chunks:
-        return generate_embeddings(chunks, model_name=model_name)
-    return chunks
-
-
-@step
-def extract_pdf_elements_step(pdf_path: str) -> List[Dict[str, Any]]:
-    return extract_pdf_elements(pdf_path)
-
-
-@step
-def preprocess_elements_step(
-    elements: List[Dict[str, Any]],
-    skip_summary: bool = True,
-    summary_detection: str = "keywords",
-) -> List[Dict[str, Any]]:
-    return preprocess_elements(
-        elements, skip_summary=skip_summary, summary_detection=summary_detection
-    )
-
-
-@step
-def create_chunks_step(
-    processed_elements: List[Dict[str, Any]],
-    chunk_size: int = 500,
-    chunk_overlap: int = 100,
-) -> List[Dict[str, Any]]:
-    chunked_docs = create_overlapping_chunks(
-        processed_elements, chunk_size=chunk_size, chunk_overlap=chunk_overlap
-    )
-    return documents_to_chunks(chunked_docs)
-
-
-@step
-def generate_embeddings_step(
-    chunks: List[Dict[str, Any]],
-    model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
-    normalize: bool = True,
-    enabled: bool = True,
-) -> List[Dict[str, Any]]:
-    if not enabled:
-        print("ℹ️ Geração de embeddings desabilitada; retornando chunks originais.")
-        return chunks
-    return generate_embeddings(chunks, model_name=model_name, normalize=normalize)
-
-
-@step
-def ingest_embeddings_step(
-    embeddings: List[Dict[str, Any]],
-    collection_name: str = "inteli_admission_chunks",
-    qdrant_url: str | None = None,
-    qdrant_api_key: str | None = None,
-    distance_metric: str = "cosine",
-    recreate_collection: bool = False,
-    enabled: bool = False,
-) -> None:
-    if not enabled:
-        print("ℹ️ Ingestão no Qdrant desabilitada; nenhuma ação realizada.")
-        return
-
-    resolved_url = qdrant_url or os.getenv("QDRANT_URL", "http://localhost:6333")
-    resolved_api_key = qdrant_api_key or os.getenv("QDRANT_API_KEY")
-    if not resolved_api_key:
-        raise ValueError(
-            "Qdrant API key não definida. Configure `qdrant_api_key` ou a variável QDRANT_API_KEY."
-        )
-
-    target_collection = os.getenv("QDRANT_COLLECTION", collection_name)
-    upsert_embeddings_to_qdrant(
-        embeddings,
-        collection_name=target_collection,
-        url=resolved_url,
-        api_key=resolved_api_key,
-        distance_metric=distance_metric,
-        recreate_collection=recreate_collection,
-    )
+    print(f" Ingestão concluída na coleção `{collection_name}` ({total_sent} embeddings enviados).")
 
 
 @pipeline
@@ -520,45 +452,32 @@ def embedding_pipeline(
     chunk_size: int = 500,
     chunk_overlap: int = 100,
     skip_summary: bool = True,
-    summary_detection: str = "keywords",
-    generate_embeddings_flag: bool = True,
-    model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
     normalize_embeddings: bool = True,
-    ingest_to_qdrant: bool = False,
-    qdrant_collection_name: str = "inteli_admission_chunks",
-    qdrant_url: str | None = None,
-    qdrant_api_key: str | None = None,
-    qdrant_distance_metric: str = "cosine",
+    qdrant_collection_name: str = "inteli_documents_chunks",
     recreate_qdrant_collection: bool = False,
 ) -> None:
     """
     Pipeline ZenML que encadeia extração, pré-processamento, chunking e embeddings.
     """
-    elements = extract_pdf_elements_step(pdf_path=pdf_path)
-    processed = preprocess_elements_step(
+    elements = extract_file_elements(pdf_path=pdf_path)
+    processed = preprocess_elements(
         elements=elements,
         skip_summary=skip_summary,
-        summary_detection=summary_detection,
     )
-    chunks = create_chunks_step(
+    chunks = create_chunks(
         processed_elements=processed,
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
     )
-    embeddings = generate_embeddings_step(
+    print(" Gerando embeddings para os chunks...")
+    embeddings = generate_embeddings(
         chunks=chunks,
-        model_name=model_name,
         normalize=normalize_embeddings,
-        enabled=generate_embeddings_flag,
     )
-    ingest_embeddings_step(
+    ingest_embeddings(
         embeddings=embeddings,
         collection_name=qdrant_collection_name,
-        qdrant_url=qdrant_url,
-        qdrant_api_key=qdrant_api_key,
-        distance_metric=qdrant_distance_metric,
         recreate_collection=recreate_qdrant_collection,
-        enabled=ingest_to_qdrant,
     )
 
 
@@ -566,46 +485,13 @@ def main() -> None:
     """
     Interface CLI alinhada ao padrão ZenML: definimos o pipeline e o executamos no bloco main.
     """
-
     import argparse
 
     parser = argparse.ArgumentParser(
         description="Pipeline ZenML para extração, chunking, embeddings e ingestão no Qdrant."
     )
 
-    def str_to_bool(value: str) -> bool:
-        if isinstance(value, bool):
-            return value
-        normalized = value.strip().lower()
-        if normalized in {"true", "1", "yes", "y"}:
-            return True
-        if normalized in {"false", "0", "no", "n"}:
-            return False
-        raise argparse.ArgumentTypeError(f"Valor booleano inválido: '{value}'")
     parser.add_argument("pdf_path", help="Caminho para o PDF a ser processado.")
-    parser.add_argument("--chunk-size", type=int, default=500)
-    parser.add_argument("--chunk-overlap", type=int, default=100)
-    parser.add_argument("--summary-detection", default="keywords")
-    parser.add_argument("--model-name", default="sentence-transformers/all-MiniLM-L6-v2")
-    parser.add_argument(
-        "--skip-summary",
-        dest="skip_summary",
-        action="store_true",
-        help="Ignora elementos do sumário durante o pré-processamento.",
-    )
-    parser.add_argument(
-        "--include-summary",
-        dest="skip_summary",
-        action="store_false",
-        help="Mantém elementos de sumário (override do padrão).",
-    )
-    parser.set_defaults(skip_summary=True)
-    parser.add_argument(
-        "--normalize-embeddings",
-        dest="normalize_embeddings",
-        action="store_true",
-        help="Normaliza os embeddings (padrão).",
-    )
     parser.add_argument(
         "--no-normalize-embeddings",
         dest="normalize_embeddings",
@@ -613,18 +499,7 @@ def main() -> None:
         help="Desabilita a normalização dos embeddings.",
     )
     parser.set_defaults(normalize_embeddings=True)
-    default_ingest = str_to_bool(os.getenv("INGEST_TO_QDRANT", "false"))
-    parser.add_argument(
-        "--ingest-qdrant",
-        type=str_to_bool,
-        default=default_ingest,
-        metavar="{true,false}",
-        help="Ativa/desativa a ingestão direta no Qdrant (também aceita o env INGEST_TO_QDRANT).",
-    )
-    parser.add_argument("--qdrant-collection", default="inteli_admission_chunks")
-    parser.add_argument("--qdrant-url", default=None)
-    parser.add_argument("--qdrant-api-key", default=None)
-    parser.add_argument("--qdrant-distance", default="cosine")
+    parser.add_argument("--qdrant-collection", default="inteli_documents_chunks")
     parser.add_argument(
         "--recreate-qdrant-collection",
         action="store_true",
@@ -635,29 +510,21 @@ def main() -> None:
     args = parser.parse_args()
 
     if not os.path.exists(args.pdf_path):
-        print(f"❌ Arquivo não encontrado: {args.pdf_path}")
+        print(f" Arquivo não encontrado: {args.pdf_path}")
         sys.exit(1)
 
-    print("🚀 Iniciando execução do pipeline ZenML `embedding_pipeline`...")
+    print(" Iniciando execução do pipeline `embedding_pipeline`...")
     run = embedding_pipeline(
         pdf_path=args.pdf_path,
-        chunk_size=args.chunk_size,
-        chunk_overlap=args.chunk_overlap,
-        skip_summary=args.skip_summary,
-        summary_detection=args.summary_detection,
-        generate_embeddings_flag=True,
-        model_name=args.model_name,
+        chunk_size=600,
+        chunk_overlap=120,
+        skip_summary=True,
         normalize_embeddings=args.normalize_embeddings,
-        ingest_to_qdrant=args.ingest_qdrant,
         qdrant_collection_name=args.qdrant_collection,
-        qdrant_url=args.qdrant_url,
-        qdrant_api_key=args.qdrant_api_key,
-        qdrant_distance_metric=args.qdrant_distance,
         recreate_qdrant_collection=args.recreate_qdrant_collection,
     )
-    print("✅ Pipeline finalizado. Utilize `zenml login --local` para visualizar o run.")
+    print(" Pipeline finalizado. Utilize `zenml login --local` para visualizar o run.")
     return run
-
 
 if __name__ == "__main__":
     main()
