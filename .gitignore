@@ -1,8 +1,14 @@
+venv
 .venv
 .env
-__pycache__
+/venv
+__pycache__/
+*.py[cod]
+
+__init__.py
+
 
 # Rust build artifacts
 /target
-qdrant_uploader/target/
+microservices/qdrant_uploader/target
 **/*.rs.bk
