@@ -612,7 +612,9 @@ Respond in JSON format:
 
 
 def detect_context_gaps(
-    query: str, available_context: List[Dict], tool_context: ToolContext
+    query: str,
+    tool_context: ToolContext,
+    available_context: str = "",
 ) -> dict:
     if not os.getenv("GOOGLE_API_KEY"):
         return {
@@ -625,12 +627,18 @@ def detect_context_gaps(
             os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
         )
 
-        context_summary = "\n\n".join(
-            [
-                f"Context {i + 1}: {ctx.get('text', str(ctx))[:200]}..."
-                for i, ctx in enumerate(available_context[:5])
-            ]
-        )
+        # Handle both string and list inputs
+        if isinstance(available_context, str):
+            context_summary = available_context
+        elif isinstance(available_context, list):
+            context_summary = "\n\n".join(
+                [
+                    f"Context {i + 1}: {ctx.get('text', str(ctx))[:200]}..."
+                    for i, ctx in enumerate(available_context[:5])
+                ]
+            )
+        else:
+            context_summary = str(available_context)
 
         prompt = f"""Analyze if the available context is sufficient to answer the user's query.
 
@@ -679,7 +687,9 @@ Respond in JSON format:
             {
                 "query": query,
                 "gaps": gaps_detected,
-                "context_count": len(available_context),
+                "context_count": len(available_context)
+                if isinstance(available_context, list)
+                else 1,
             }
         )
 

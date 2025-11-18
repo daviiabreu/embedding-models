@@ -1,25 +1,23 @@
-import streamlit as st
-import os
 import json
-from datetime import datetime
+import os
 import traceback
+from datetime import datetime
+
 import numpy as np
 
+import streamlit as st
+
 # Importar as funções do main.py
-from streamlit.main import (
-    preprocess_elements,
-    create_overlapping_chunks,
-    process_document_with_embeddings  # Nova função
-)
-from unstructured.partition.pdf import partition_pdf
+from streamlit.main import process_document_with_embeddings  # Nova função
 
 # Configuração da página
 st.set_page_config(
     page_title="Document Chunking Pipeline",
     page_icon="📄",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
+
 
 def save_uploaded_file(uploaded_file, upload_dir="uploaded_documents"):
     """Salva arquivo enviado pelo usuário"""
@@ -27,7 +25,9 @@ def save_uploaded_file(uploaded_file, upload_dir="uploaded_documents"):
         os.makedirs(upload_dir)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    safe_filename = "".join(c for c in uploaded_file.name if c.isalnum() or c in (' ', '-', '_', '.')).rstrip()
+    safe_filename = "".join(
+        c for c in uploaded_file.name if c.isalnum() or c in (" ", "-", "_", ".")
+    ).rstrip()
     filename = f"{timestamp}_{safe_filename}"
     file_path = os.path.join(upload_dir, filename)
 
@@ -36,8 +36,15 @@ def save_uploaded_file(uploaded_file, upload_dir="uploaded_documents"):
 
     return file_path, filename
 
-def process_pdf_pipeline(pdf_path, chunk_size=500, chunk_overlap=100, skip_summary=True,
-                        generate_embeddings_flag=True, model_name='sentence-transformers/all-MiniLM-L6-v2'):
+
+def process_pdf_pipeline(
+    pdf_path,
+    chunk_size=500,
+    chunk_overlap=100,
+    skip_summary=True,
+    generate_embeddings_flag=True,
+    model_name="sentence-transformers/all-MiniLM-L6-v2",
+):
     """Pipeline completo de processamento do PDF com embeddings"""
     progress_bar = st.progress(0)
     status_text = st.empty()
@@ -53,7 +60,7 @@ def process_pdf_pipeline(pdf_path, chunk_size=500, chunk_overlap=100, skip_summa
             chunk_overlap=chunk_overlap,
             skip_summary=skip_summary,
             generate_embeddings_flag=generate_embeddings_flag,
-            model_name=model_name
+            model_name=model_name,
         )
 
         progress_bar.progress(80)
@@ -66,7 +73,7 @@ def process_pdf_pipeline(pdf_path, chunk_size=500, chunk_overlap=100, skip_summa
         suffix = "_with_embeddings" if generate_embeddings_flag else "_chunks"
         chunks_path = f"processed_documents/{base_name}{suffix}.json"
 
-        with open(chunks_path, 'w', encoding='utf-8') as f:
+        with open(chunks_path, "w", encoding="utf-8") as f:
             json.dump(chunks, f, ensure_ascii=False, indent=2)
 
         progress_bar.progress(100)
@@ -79,9 +86,10 @@ def process_pdf_pipeline(pdf_path, chunk_size=500, chunk_overlap=100, skip_summa
         st.error(traceback.format_exc())
         return None, None
 
+
 def display_embedding_stats(chunks):
     """Exibe estatísticas dos embeddings"""
-    if not chunks or 'embedding' not in chunks[0]:
+    if not chunks or "embedding" not in chunks[0]:
         return
 
     st.subheader("🧠 Estatísticas dos Embeddings")
@@ -92,20 +100,27 @@ def display_embedding_stats(chunks):
         st.metric("Chunks com Embeddings", len(chunks))
 
     with col2:
-        embedding_dim = chunks[0].get('embedding_dimension', len(chunks[0]['embedding']))
+        embedding_dim = chunks[0].get(
+            "embedding_dimension", len(chunks[0]["embedding"])
+        )
         st.metric("Dimensão dos Vetores", embedding_dim)
 
     with col3:
-        model_used = chunks[0].get('embedding_model', 'N/A')
-        st.metric("Modelo Usado", model_used.split('/')[-1])
+        model_used = chunks[0].get("embedding_model", "N/A")
+        st.metric("Modelo Usado", model_used.split("/")[-1])
 
     with col4:
         # Calcular similaridade média entre chunks
-        embeddings = np.array([chunk['embedding'] for chunk in chunks[:10]])  # Apenas primeiros 10 para performance
+        embeddings = np.array(
+            [chunk["embedding"] for chunk in chunks[:10]]
+        )  # Apenas primeiros 10 para performance
         if len(embeddings) > 1:
             similarities = np.dot(embeddings, embeddings.T)
-            avg_similarity = np.mean(similarities[np.triu_indices_from(similarities, k=1)])
+            avg_similarity = np.mean(
+                similarities[np.triu_indices_from(similarities, k=1)]
+            )
             st.metric("Similaridade Média", f"{avg_similarity:.3f}")
+
 
 def main():
     st.title("📄 Document Chunking & Embedding Pipeline")
@@ -120,7 +135,7 @@ def main():
         max_value=1000,
         value=500,
         step=50,
-        help="Tamanho máximo de cada chunk em caracteres"
+        help="Tamanho máximo de cada chunk em caracteres",
     )
 
     chunk_overlap = st.sidebar.slider(
@@ -129,22 +144,20 @@ def main():
         max_value=200,
         value=100,
         step=25,
-        help="Número de caracteres de sobreposição entre chunks"
+        help="Número de caracteres de sobreposição entre chunks",
     )
 
     skip_summary = st.sidebar.checkbox(
         "Pular páginas de sumário",
         value=True,
-        help="Remove automaticamente páginas de sumário do processamento"
+        help="Remove automaticamente páginas de sumário do processamento",
     )
 
     # NOVA SEÇÃO: Configurações de Embedding
     st.sidebar.header("🧠 Configurações de Embedding")
 
     generate_embeddings_flag = st.sidebar.checkbox(
-        "Gerar Embeddings",
-        value=True,
-        help="Gera vetores de embedding para cada chunk"
+        "Gerar Embeddings", value=True, help="Gera vetores de embedding para cada chunk"
     )
 
     if generate_embeddings_flag:
@@ -152,14 +165,14 @@ def main():
             "MiniLM-L6 (rápido, 384d)": "sentence-transformers/all-MiniLM-L6-v2",
             "MiniLM-L12 (melhor, 384d)": "sentence-transformers/all-MiniLM-L12-v2",
             "MPNet (excelente, 768d)": "sentence-transformers/all-mpnet-base-v2",
-            "Multilingual (português, 768d)": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+            "Multilingual (português, 768d)": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
         }
 
         selected_model = st.sidebar.selectbox(
             "Modelo de Embedding",
             options=list(model_options.keys()),
             index=0,
-            help="Escolha o modelo para gerar embeddings"
+            help="Escolha o modelo para gerar embeddings",
         )
 
         model_name = model_options[selected_model]
@@ -182,9 +195,9 @@ def main():
 
         uploaded_files = st.file_uploader(
             "Arraste e solte arquivos PDF aqui ou clique para selecionar",
-            type=['pdf'],
+            type=["pdf"],
             accept_multiple_files=True,
-            help="Suporta múltiplos arquivos PDF"
+            help="Suporta múltiplos arquivos PDF",
         )
 
         if uploaded_files:
@@ -206,7 +219,7 @@ def main():
                         chunk_overlap=chunk_overlap,
                         skip_summary=skip_summary,
                         generate_embeddings_flag=generate_embeddings_flag,
-                        model_name=model_name if generate_embeddings_flag else None
+                        model_name=model_name if generate_embeddings_flag else None,
                     )
 
                     if chunks:
@@ -219,7 +232,7 @@ def main():
                             st.metric("Total de Chunks", len(chunks))
 
                         with col_stats2:
-                            total_chars = sum(len(chunk['content']) for chunk in chunks)
+                            total_chars = sum(len(chunk["content"]) for chunk in chunks)
                             st.metric("Total de Caracteres", f"{total_chars:,}")
 
                         with col_stats3:
@@ -227,28 +240,38 @@ def main():
                             st.metric("Tamanho Médio", f"{avg_size:.0f}")
 
                         # Mostrar estatísticas de embedding se gerados
-                        if generate_embeddings_flag and 'embedding' in chunks[0]:
+                        if generate_embeddings_flag and "embedding" in chunks[0]:
                             display_embedding_stats(chunks)
 
                         # Preview dos chunks
                         with st.expander("👀 Preview dos Chunks"):
                             for i, chunk in enumerate(chunks[:3]):
-                                st.write(f"**Chunk {i+1}:**")
+                                st.write(f"**Chunk {i + 1}:**")
 
                                 # Metadados
                                 col_meta1, col_meta2, col_meta3 = st.columns(3)
                                 with col_meta1:
-                                    st.write(f"*Página:* {chunk['metadata'].get('page_number', 'N/A')}")
+                                    st.write(
+                                        f"*Página:* {chunk['metadata'].get('page_number', 'N/A')}"
+                                    )
                                 with col_meta2:
-                                    st.write(f"*Tipo:* {chunk['metadata'].get('element_type', 'N/A')}")
+                                    st.write(
+                                        f"*Tipo:* {chunk['metadata'].get('element_type', 'N/A')}"
+                                    )
                                 with col_meta3:
-                                    if 'embedding' in chunk:
-                                        st.write(f"*Embedding:* ✅ ({chunk.get('embedding_dimension', 'N/A')}d)")
+                                    if "embedding" in chunk:
+                                        st.write(
+                                            f"*Embedding:* ✅ ({chunk.get('embedding_dimension', 'N/A')}d)"
+                                        )
                                     else:
                                         st.write("*Embedding:* ❌")
 
                                 # Conteúdo
-                                content = chunk['content'][:200] + "..." if len(chunk['content']) > 200 else chunk['content']
+                                content = (
+                                    chunk["content"][:200] + "..."
+                                    if len(chunk["content"]) > 200
+                                    else chunk["content"]
+                                )
                                 st.write(content)
                                 st.write("---")
 
@@ -257,16 +280,20 @@ def main():
 
                         # Botão de download
                         if chunks_path and os.path.exists(chunks_path):
-                            with open(chunks_path, 'r', encoding='utf-8') as f:
+                            with open(chunks_path, "r", encoding="utf-8") as f:
                                 chunks_json = f.read()
 
-                            suffix = "_with_embeddings" if generate_embeddings_flag else "_chunks"
+                            suffix = (
+                                "_with_embeddings"
+                                if generate_embeddings_flag
+                                else "_chunks"
+                            )
 
                             st.download_button(
                                 label=f"💾 Baixar {'Chunks + Embeddings' if generate_embeddings_flag else 'Chunks'} (JSON)",
                                 data=chunks_json,
                                 file_name=f"{os.path.splitext(uploaded_file.name)[0]}{suffix}.json",
-                                mime="application/json"
+                                mime="application/json",
                             )
 
     with col2:
@@ -295,6 +322,7 @@ def main():
             - Ideais para busca semântica
             - Compatíveis com bancos vetoriais
             """)
+
 
 if __name__ == "__main__":
     main()

@@ -19,9 +19,7 @@ load_dotenv(BASE_DIR / ".env")
 load_dotenv(BASE_DIR / "agent_flow" / ".env")
 
 
-DEFAULT_ADK_MODEL = os.getenv(
-    "DEFAULT_MODEL", os.getenv("ADK_MODEL")
-)
+DEFAULT_ADK_MODEL = os.getenv("DEFAULT_MODEL", os.getenv("ADK_MODEL"))
 DEFAULT_ADK_APP = os.getenv("RAG_TEST_APP", "agents")
 
 
@@ -39,7 +37,6 @@ except ImportError:  # pragma: no cover - fallback when python-dotenv not instal
 AGENT_FLOW_DIR = Path(__file__).resolve().parents[1]
 if load_dotenv is not None:
     load_dotenv(AGENT_FLOW_DIR / ".env", override=False)
-
 
 
 QDRANT_URL = os.getenv("QDRANT_URL")
@@ -68,7 +65,7 @@ def _parse_score_threshold() -> Optional[float]:
         raise ValueError(
             "RAG_SCORE_THRESHOLD must be a float-compatible value."
         ) from exc
-    
+
 
 def _stringify_point_id(point_id: Any) -> str:
     """Normalize any Qdrant point identifier into a string key."""
@@ -226,11 +223,12 @@ def _resolve_scored_point(point: Any) -> Any:
             return candidate
     return point
 
+
 def query_embedding(query: str) -> List[float]:
     """Encode the user query into an embedding vector."""
     if not query:
         raise ValueError("query_embedding_step recebeu uma query vazia.")
-    
+
     model = SentenceTransformer(EMBEDDING_MODEL_NAME)
     return model.encode(query).tolist()
 
@@ -391,7 +389,6 @@ def rag_inference_pipeline(
     return payload
 
 
-
 def retrieve_inteli_knowledge(
     query: str,
 ) -> Dict[str, Any]:
@@ -399,7 +396,6 @@ def retrieve_inteli_knowledge(
     normalized_query = (query or "").strip()
     if not normalized_query:
         raise ValueError("retrieve_inteli_knowledge recebeu uma consulta vazia.")
-
 
     retrieval_payload = rag_inference_pipeline(
         query=normalized_query,
@@ -426,8 +422,6 @@ def retrieve_inteli_knowledge(
             f"{DEFAULT_ADJACENT_LIMIT} vizinhos por nó"
         ),
     }
-
-
 
 
 def _format_node(node: Dict[str, Any], index: int) -> str:

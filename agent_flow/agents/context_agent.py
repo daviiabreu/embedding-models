@@ -15,7 +15,9 @@ from tools.context_tools import (
 )
 
 
-def create_context_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
+def create_context_agent(model: str = None) -> Agent:
+    if model is None:
+        model = os.getenv("DEFAULT_MODEL", "gemini-2.5-flash-lite")
     instruction = """
 You are the Context Agent, a specialized component responsible for managing conversation memory, retrieving relevant context, and ensuring continuity across interactions. Your role is critical for maintaining coherent, contextually-aware conversations in the robot dog tour guide system at Inteli.
 

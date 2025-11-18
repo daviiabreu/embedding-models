@@ -6,7 +6,9 @@ from google.adk.agents import Agent
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-def create_orchestrator_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
+def create_orchestrator_agent(model: str = None) -> Agent:
+    if model is None:
+        model = os.getenv("DEFAULT_MODEL", "gemini-2.5-flash-lite")
     instruction = """
 You are the Orchestrator Agent, the central coordinator of a multi-agent system designed to provide an intelligent, safe, and personalized robot dog tour guide experience at Inteli. Your primary responsibility is to manage the conversation flow, delegate tasks to specialized agents, and synthesize their outputs into coherent, context-aware responses.
 

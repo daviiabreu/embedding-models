@@ -1,13 +1,11 @@
-import json
-from json import JSONDecodeError
 import os
 import re
 import sys
+from json import JSONDecodeError
 from pathlib import Path
 from typing import Any, Dict, List, Set
 
 from dotenv import load_dotenv
-
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -16,9 +14,10 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 try:  # pragma: no cover - compatibility shim
     from pdfminer.psexceptions import PSSyntaxError as _  # type: ignore
 except ImportError:
-    from pdfminer.pdfparser import PDFSyntaxError
-    import types
     import sys as _sys
+    import types
+
+    from pdfminer.pdfparser import PDFSyntaxError
 
     shim = types.ModuleType("pdfminer.psexceptions")
 
@@ -28,15 +27,14 @@ except ImportError:
     shim.PSSyntaxError = PSSyntaxError
     _sys.modules["pdfminer.psexceptions"] = shim
 
-from unstructured.partition.pdf import partition_pdf
-from sentence_transformers import SentenceTransformer
-from zenml import pipeline, step
-
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as qdrant_models
+from sentence_transformers import SentenceTransformer
+from unstructured.partition.pdf import partition_pdf
+from zenml import pipeline, step
 
 load_dotenv()
-load_dotenv('agent_flow/.env', override=False)
+load_dotenv("agent_flow/.env", override=False)
 
 EMBEDDING_MODEL = os.getenv("EMBEDDINGS_MODEL")
 QDRANT_URL = os.getenv("QDRANT_URL")
@@ -158,6 +156,7 @@ def detect_summary_elements(
 
     return summary_elements
 
+
 def _extract_txt_elements(file_path: Path) -> List[Dict[str, Any]]:
     """Transforma um arquivo .txt em lista de elementos compatíveis com o pipeline."""
     content = file_path.read_text(encoding="utf-8")
@@ -183,8 +182,8 @@ def _extract_txt_elements(file_path: Path) -> List[Dict[str, Any]]:
 
     return elements_data
 
-def _extract_pdf_elements(pdf_path: str) -> List[Dict[str, Any]]:
 
+def _extract_pdf_elements(pdf_path: str) -> List[Dict[str, Any]]:
     elements = partition_pdf(filename=pdf_path, strategy="fast", ocr_languages="por")
     elements_data: List[Dict[str, Any]] = []
 
@@ -205,6 +204,7 @@ def _extract_pdf_elements(pdf_path: str) -> List[Dict[str, Any]]:
 
     return elements_data
 
+
 @step
 def extract_file_elements(pdf_path: str) -> List[Dict[str, Any]]:
     file_path = Path(pdf_path)
@@ -216,14 +216,12 @@ def extract_file_elements(pdf_path: str) -> List[Dict[str, Any]]:
         raise ValueError(f"Formato de arquivo não suportado: {file_path.suffix}")
 
 
-
 @step
 def preprocess_elements(
     elements: List[Dict[str, Any]],
     skip_summary: bool = True,
     summary_detection: str = "keywords",
 ) -> List[Dict[str, Any]]:
-    
     processed_elements: List[Dict[str, Any]] = []
     current_section = "Introduction"
     current_subsection = ""
@@ -275,7 +273,9 @@ def create_chunks(
     chunk_size: int = 500,
     chunk_overlap: int = 100,
 ) -> List[Dict[str, Any]]:
-    print(f"Overlapping de chunks de tamanho: (size={chunk_size}, overlap={chunk_overlap})...")
+    print(
+        f"Overlapping de chunks de tamanho: (size={chunk_size}, overlap={chunk_overlap})..."
+    )
 
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
@@ -364,10 +364,11 @@ def generate_embeddings(
 
     return chunks_with_embeddings
 
+
 @step
 def ingest_embeddings(
     embeddings: List[Dict[str, Any]],
-    collection_name: str ,
+    collection_name: str,
     distance_metric: str = "cosine",
     recreate_collection: bool = False,
     batch_size: int = 64,
@@ -379,9 +380,7 @@ def ingest_embeddings(
         print(" Nenhum embedding para enviar ao Qdrant.")
         return
     if not QDRANT_API_KEY:
-        raise ValueError(
-            "Qdrant API key não definida no .env (QDRANT_API_KEY)."
-        )
+        raise ValueError("Qdrant API key não definida no .env (QDRANT_API_KEY).")
 
     client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, timeout=60.0)
     distance = getattr(
@@ -391,26 +390,36 @@ def ingest_embeddings(
     )
 
     vector_dimension = len(embeddings[0]["embedding"])
-    vectors_config = qdrant_models.VectorParams(size=vector_dimension, distance=distance)
+    vectors_config = qdrant_models.VectorParams(
+        size=vector_dimension, distance=distance
+    )
 
     if recreate_collection:
         print(f" Recriando coleção `{collection_name}`...")
-        client.recreate_collection(collection_name=collection_name, vectors_config=vectors_config)
+        client.recreate_collection(
+            collection_name=collection_name, vectors_config=vectors_config
+        )
     else:
         collection_exists = False
         try:
-            collection_exists = client.collection_exists(collection_name=collection_name)
-        except JSONDecodeError:
-            print(
-                "Resposta inesperada do endpoint `collection_exists`. "
+            collection_exists = client.collection_exists(
+                collection_name=collection_name
             )
+        except JSONDecodeError:
+            print("Resposta inesperada do endpoint `collection_exists`. ")
             collection_exists = True
 
         if not collection_exists:
-            print(f" Criando coleção `{collection_name}` (dimensão={vector_dimension})...")
-            client.create_collection(collection_name=collection_name, vectors_config=vectors_config)
+            print(
+                f" Criando coleção `{collection_name}` (dimensão={vector_dimension})..."
+            )
+            client.create_collection(
+                collection_name=collection_name, vectors_config=vectors_config
+            )
 
-    def _batched(seq: List[qdrant_models.PointStruct], size: int) -> List[qdrant_models.PointStruct]:
+    def _batched(
+        seq: List[qdrant_models.PointStruct], size: int
+    ) -> List[qdrant_models.PointStruct]:
         for start in range(0, len(seq), size):
             yield seq[start : start + size]
 
@@ -434,7 +443,9 @@ def ingest_embeddings(
             )
         )
 
-    print(f"Enviando {len(points)} embeddings para o Qdrant em lotes de {batch_size}...")
+    print(
+        f"Enviando {len(points)} embeddings para o Qdrant em lotes de {batch_size}..."
+    )
     total_sent = 0
     for batch in _batched(points, batch_size):
         try:
@@ -443,7 +454,9 @@ def ingest_embeddings(
         except JSONDecodeError:
             print("Resposta inesperada do endpoint `upsert`. Prosseguindo.")
 
-    print(f" Ingestão concluída na coleção `{collection_name}` ({total_sent} embeddings enviados).")
+    print(
+        f" Ingestão concluída na coleção `{collection_name}` ({total_sent} embeddings enviados)."
+    )
 
 
 @pipeline
@@ -525,6 +538,7 @@ def main() -> None:
     )
     print(" Pipeline finalizado. Utilize `zenml login --local` para visualizar o run.")
     return run
+
 
 if __name__ == "__main__":
     main()

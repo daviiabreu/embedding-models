@@ -1,5 +1,3 @@
-"""Ferramentas de RAG usadas pelos agentes de conhecimento do Inteli."""
-
 from __future__ import annotations
 
 import os
@@ -11,7 +9,26 @@ from dotenv import load_dotenv
 from google.adk.tools.tool_context import ToolContext
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
-from zenml import pipeline, step
+
+try:
+    from zenml import pipeline, step
+
+    ZENML_AVAILABLE = True
+except ImportError:
+    ZENML_AVAILABLE = False
+
+    def step(*args, **kwargs):
+        def decorator(func):
+            return func
+
+        return decorator if args and callable(args[0]) else decorator
+
+    def pipeline(*args, **kwargs):
+        def decorator(func):
+            return func
+
+        return decorator if args and callable(args[0]) else decorator
+
 
 AGENT_FLOW_DIR = Path(__file__).resolve().parents[1]
 load_dotenv(AGENT_FLOW_DIR / ".env", override=False)

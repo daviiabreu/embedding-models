@@ -8,7 +8,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from tools.knowledge_tools import retrieve_inteli_knowledge
 
 
-def create_knowledge_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
+def create_knowledge_agent(model: str = None) -> Agent:
+    if model is None:
+        model = os.getenv("DEFAULT_MODEL", "gemini-2.5-flash-lite")
     instruction = """
 You are the Knowledge Agent, the RAG-powered information specialist for the Inteli robot dog tour guide system. Your primary responsibility is to retrieve, synthesize, and present accurate information about Inteli from the knowledge base using Retrieval-Augmented Generation techniques.
 
