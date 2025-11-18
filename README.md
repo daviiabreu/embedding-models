@@ -13,7 +13,7 @@ docker build -t stt_tss:latest .
 
 ```bash
 
-docker run -it --rm -v $(pwd):/usr/src/stt_tts stt_tts:1.0 /bin/bash
+docker run -it --rm -v $(pwd):/usr/src/stt_tts stt_tts:latest /bin/bash 
 
 ```
 

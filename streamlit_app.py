@@ -113,7 +113,7 @@ def display_chat_message(message, is_user=True):
     <div class="chat-message {message_class}">
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <span style="font-size: 30px; margin-right: 10px;">{avatar}</span>
-            <strong>{"Você" if is_user else "Laika"}</strong>
+            <strong>{"Você" if is_user else "LIA"}</strong>
         </div>
         <div class="message">
             {message}
@@ -192,7 +192,6 @@ def process_audio_pipeline(audio_file, audio_filename):
         update_pipeline_status("upload", "completed", f"Áudio salvo: {audio_filename}")
         time.sleep(0.5)  # Pausa para visualização
 
-        # ETAPA 2: Transcrição
         update_pipeline_status("transcription", "processing", "Convertendo áudio para texto...")
 
         transcription = transcribe_audio(str(audio_path))
@@ -216,7 +215,6 @@ def process_audio_pipeline(audio_file, audio_filename):
         update_pipeline_status("llm", "completed", f"Resposta: {llm_response[:100]}...")
         time.sleep(0.5)
 
-        # ETAPA 4: TTS
         update_pipeline_status("tts", "processing", "Convertendo resposta para áudio...")
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -232,7 +230,6 @@ def process_audio_pipeline(audio_file, audio_filename):
         update_pipeline_status("tts", "completed", f"Áudio gerado: {output_filename}")
         time.sleep(0.5)
 
-        # ETAPA 5: Concluído
         update_pipeline_status("complete", "completed", "Pipeline executada com sucesso!")
 
         return transcription, llm_response, str(output_path)
@@ -248,8 +245,8 @@ def main():
     initialize_session_state()
 
     # Header
-    st.title("Demo Laika")
-    st.markdown("### Converse com a Laika usando áudio!")
+    st.title("Demo LIA")
+    st.markdown("### Converse com a LIA usando áudio!")
 
     # Layout em colunas
     col1, col2 = st.columns([2, 1])
@@ -330,7 +327,7 @@ def main():
                 audio_path = last_message.get("audio_path")
 
                 if audio_path and Path(audio_path).exists():
-                    st.markdown("### 🎧 Resposta da Laika")
+                    st.markdown("### 🎧 Resposta da LIA")
 
                     # Player de áudio
                     with open(audio_path, 'rb') as audio_file:
