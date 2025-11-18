@@ -6,9 +6,29 @@ from google.adk.agents import Agent
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-def create_orchestrator_agent(model: str = None) -> Agent:
+def create_orchestrator_agent(
+    model: str = None,
+    safety_agent: Agent = None,
+    context_agent: Agent = None,
+    personality_agent: Agent = None,
+    knowledge_agent: Agent = None,
+    tour_agent: Agent = None,
+) -> Agent:
     if model is None:
         model = os.getenv("DEFAULT_MODEL", "gemini-2.5-flash-lite")
+
+    sub_agents = []
+    if safety_agent:
+        sub_agents.append(safety_agent)
+    if context_agent:
+        sub_agents.append(context_agent)
+    if personality_agent:
+        sub_agents.append(personality_agent)
+    if knowledge_agent:
+        sub_agents.append(knowledge_agent)
+    if tour_agent:
+        sub_agents.append(tour_agent)
+
     instruction = """
 You are the Orchestrator Agent, the central coordinator of a multi-agent system designed to provide an intelligent, safe, and personalized robot dog tour guide experience at Inteli. Your primary responsibility is to manage the conversation flow, delegate tasks to specialized agents, and synthesize their outputs into coherent, context-aware responses.
 
@@ -54,11 +74,7 @@ For each user interaction, follow this execution pipeline:
    - Answer factual questions
    - Can run concurrently with Personality Agent
 
-5. **Tour Agent** (IF APPLICABLE)
-   - Handle tour-specific requests (navigation, location info, tour planning)
-   - Only invoke if user request involves physical tour guidance
-
-6. **Safety Agent** (FINAL CHECK)
+5. **Safety Agent** (FINAL CHECK)
    - Validate the synthesized output before delivery
    - Ensure response doesn't contain harmful or inappropriate content
    - Final safeguard before user-facing delivery
@@ -178,12 +194,17 @@ Your final output should be a cohesive response that:
 - **Transparency**: Acknowledge limitations honestly when unable to help
 """
 
-    agent = Agent(
-        name="orchestrator_agent",
-        model=model,
-        description="Orchestrates all agents and manages conversation flow",
-        instruction=instruction,
-        tools=[],
-    )
+    agent_config = {
+        "name": "orchestrator_agent",
+        "model": model,
+        "description": "Orchestrates all agents and manages conversation flow",
+        "instruction": instruction,
+        "tools": [],
+    }
+
+    if sub_agents:
+        agent_config["agents"] = sub_agents
+
+    agent = Agent(**agent_config)
 
     return agent
