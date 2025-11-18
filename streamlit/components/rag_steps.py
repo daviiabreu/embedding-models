@@ -6,9 +6,8 @@ import os
 from typing import List, Optional
 
 from qdrant_client import QdrantClient
-from zenml import pipeline, step
 from sentence_transformers import SentenceTransformer
-
+from zenml import pipeline, step
 
 EMBEDDING_MODEL_NAME = os.getenv(
     "RAG_EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
