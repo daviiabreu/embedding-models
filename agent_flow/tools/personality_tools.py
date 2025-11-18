@@ -509,86 +509,179 @@ Respond in JSON format:
             }
         )
 
-    return {
-        "success": True,
-        "emotion": emotion_name,
-        "confidence": confidence,
-        "all_scores": emotion_scores,
-        "suggested_response_tone": _get_response_tone(emotion_name)
-    }
+        return {
+            "success": True,
+            "original_text": response_text,
+            "adapted_text": adapted_text,
+            "tone_applied": target_tone,
+            "tone_changes": result.get("tone_changes", []),
+            "confidence": confidence,
+            "message": f"Response adapted to {target_tone} tone",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM tone adaptation error: {str(e)}",
+            "original_text": response_text,
+        }
 
 
-def _get_response_tone(visitor_emotion: str) -> str:
-    """Map visitor emotion to appropriate robot dog response tone."""
-    tone_mapping = {
-        "excited": "excited",  # Match their energy!
-        "happy": "happy",
-        "curious": "helpful",  # Be informative and encouraging
-        "confused": "patient",  # Be clear and reassuring
-        "anxious": "empathetic",  # Be calming and supportive
-        "bored": "playful",  # Try to re-engage
-        "neutral": "friendly"  # Standard friendly
-    }
-    return tone_mapping.get(visitor_emotion, "friendly")
+# ============================================================================
+# 6. ADAPT COMPLEXITY - Adjust content complexity based on user level
+# ============================================================================
 
 
-def get_conversation_suggestions(context: Dict, tool_context: ToolContext) -> dict:
-    """
-    Get smart suggestions for how to respond based on conversation context.
+def adapt_complexity(
+    response_text: str,
+    user_level: str,
+    tool_context: ToolContext,
+    simplify: bool = True,
+) -> dict:
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
 
-    Args:
-        context: Current conversation context (last messages, tour section, etc.)
-        tool_context: ADK tool context
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
 
-    Returns:
-        Suggestions for response style, topics, and actions
-    """
-    suggestions = {
-        "response_style": "friendly",
-        "suggested_topics": [],
-        "actions": [],
-        "warnings": []
-    }
+        action = "simplify" if simplify else "elaborate"
 
-    # Check conversation length
-    tour_state = tool_context.state.get('tour_state', {})
-    messages_count = tool_context.state.get('message_count', 0)
+        prompt = f"""Adapt the following response to match the user's comprehension level while preserving the core information.
 
-    # If tour hasn't started, suggest starting
-    if tour_state.get('current_index', -1) == -1:
-        suggestions["actions"].append({
-            "action": "start_tour",
-            "reason": "Tour hasn't started yet",
-            "priority": "high"
-        })
+Original Response: "{response_text}"
 
-    # Check for disengagement (very short responses)
-    recent_emotions = tool_context.state.get('visitor_emotions', [])[-3:]
-    if recent_emotions and all(e.get('emotion') in ['neutral', 'bored'] for e in recent_emotions):
-        suggestions["warnings"].append({
-            "type": "disengagement",
-            "message": "Visitor may be losing interest",
-            "suggestion": "Try asking an engaging question or suggest moving to next section"
-        })
-        suggestions["suggested_topics"] = [
-            "Perguntar sobre áreas de interesse do visitante",
-            "Contar uma conquista impressionante de alunos",
-            "Sugerir visita a um clube ou laboratório"
-        ]
+User Level: {user_level}
+- beginner: Use simple language, avoid jargon, explain basic concepts
+- intermediate: Moderate complexity, some technical terms with explanations
+- advanced: Technical language, assume good background knowledge
+- expert: Specialized terminology, deep technical details
 
-    # Check for question overload
-    questions_asked = tour_state.get('questions_asked', [])
-    if len(questions_asked) > 5:
-        suggestions["warnings"].append({
-            "type": "question_overload",
-            "message": "Many questions asked - visitor might be overwhelmed",
-            "suggestion": "Offer to continue tour and answer questions later"
-        })
+Action: {action}
+{"Simplify the language and break down complex concepts into easier terms." if simplify else "Add more technical depth and detailed explanations."}
 
-    # Suggest emotional response based on recent visitor emotions
-    if recent_emotions:
-        latest_emotion = recent_emotions[-1].get('emotion')
-        suggestions["response_style"] = _get_response_tone(latest_emotion)
+Rewrite the response to match the user's level. Keep the same core message but adjust complexity.
+
+Respond in JSON format:
+{{
+    "adapted_text": "the rewritten response at the appropriate complexity level",
+    "changes_made": ["change1: simplified X", "change2: added explanation for Y"],
+    "confidence": 0.0-1.0
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        adapted_text = result.get("adapted_text", response_text)
+        confidence = result.get("confidence", 0.5)
+
+        if "complexity_adaptations" not in tool_context.state:
+            tool_context.state["complexity_adaptations"] = []
+
+        tool_context.state["complexity_adaptations"].append(
+            {
+                "user_level": user_level,
+                "simplify": simplify,
+                "original_length": len(response_text),
+                "adapted_length": len(adapted_text),
+                "confidence": confidence,
+            }
+        )
+
+        return {
+            "success": True,
+            "original_text": response_text,
+            "adapted_text": adapted_text,
+            "user_level": user_level,
+            "changes_made": result.get("changes_made", []),
+            "confidence": confidence,
+            "message": f"Response adapted for {user_level} level",
+        }
+
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"LLM complexity adaptation error: {str(e)}",
+            "original_text": response_text,
+        }
+
+
+# ============================================================================
+# 7. ADAPT RESPONSE LENGTH - Adjust verbosity based on user preference
+# ============================================================================
+
+
+def adapt_response_length(
+    response_text: str, preferred_length: str, tool_context: ToolContext
+) -> dict:
+    if not os.getenv("GOOGLE_API_KEY"):
+        return {
+            "success": False,
+            "error": "GOOGLE_API_KEY not set",
+        }
+
+    try:
+        model = genai.GenerativeModel(
+            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        )
+
+        prompt = f"""Adapt the following response to match the preferred length while preserving all essential information.
+
+Original Response: "{response_text}"
+
+Preferred Length: {preferred_length}
+- very_concise: 1-2 sentences (only the most critical information)
+- concise: 2-4 sentences (key points without elaboration)
+- balanced: 4-6 sentences (moderate detail, balanced)
+- detailed: 6-10 sentences (thorough explanation with examples)
+- comprehensive: 10+ sentences (complete coverage with depth)
+
+Rewrite the response to match the preferred length. Maintain accuracy and completeness while adjusting verbosity.
+
+Respond in JSON format:
+{{
+    "adapted_text": "the rewritten response at the preferred length",
+    "sentence_count": number,
+    "confidence": 0.0-1.0
+}}"""
+
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+
+        if result_text.startswith("```json"):
+            result_text = result_text[7:-3].strip()
+        elif result_text.startswith("```"):
+            result_text = result_text[3:-3].strip()
+
+        result = json.loads(result_text)
+
+        adapted_text = result.get("adapted_text", response_text)
+        confidence = result.get("confidence", 0.5)
+
+        if "length_adaptations" not in tool_context.state:
+            tool_context.state["length_adaptations"] = []
+
+        tool_context.state["length_adaptations"].append(
+            {
+                "preferred_length": preferred_length,
+                "original_sentences": len(response_text.split(".")),
+                "adapted_sentences": len(adapted_text.split(".")),
+                "original_words": len(response_text.split()),
+                "adapted_words": len(adapted_text.split()),
+                "confidence": confidence,
+            }
+        )
 
         return {
             "success": True,
