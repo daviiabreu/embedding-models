@@ -65,6 +65,7 @@ class TTSService:
             # Normalizar caminho (sempre MP3)
             output_path = self.normalize_output_path(output_path)
 
+
             response = client.synthesize_speech(
                 input=texttospeech.SynthesisInput(text=text),
                 voice=voice,

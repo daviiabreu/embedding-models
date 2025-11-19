@@ -12,7 +12,7 @@ sys.path.append(str(project_root / "tts"))       # Para tts_service
 
 from stt_service import transcribe_audio
 from llm_service import get_llm_response
-from tts_service import text_to_speech
+from breaker_service import optimal_tts_synthesizer
 
 # Configuração de logging
 logging.basicConfig(
@@ -88,10 +88,10 @@ class AudioPipeline:
 
             # Ajustar extensão baseada no TTS usado
             # Se usar gTTS: .mp3 | Se usar Bark/XTTS: .wav
-            output_filename = f"{base_name}_response_{timestamp}.wav"  # Mudado para .wav
+            output_filename = f"{timestamp}_response_{base_name}"  # Mudado para .wav
             output_path = self.output_dir / output_filename
 
-            audio_success = text_to_speech(llm_response, str(output_path))
+            audio_success = optimal_tts_synthesizer(llm_response, str(output_path))
 
             if not audio_success:
                 logging.error("❌ Falha na conversão para áudio")
