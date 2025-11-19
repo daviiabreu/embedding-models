@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Configuração da página
 st.set_page_config(
-    page_title="🤖 AI Audio Chat",
+    page_title="AI Audio Chat",
     page_icon="🎙️",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -134,14 +134,14 @@ def display_pipeline_status():
     if not st.session_state.pipeline_status:
         return
 
-    st.markdown("### 🔄 Status da Pipeline")
+    st.markdown("### Status da Pipeline")
 
     steps = [
-        ("upload", "📁 Upload do Áudio"),
-        ("transcription", "🎤 Transcrição (STT)"),
-        ("llm", "🤖 Processamento LLM"),
-        ("tts", "🔊 Síntese de Voz (TTS)"),
-        ("complete", "✅ Concluído")
+        ("upload", "Upload do Áudio"),
+        ("transcription", "Transcrição (STT)"),
+        ("llm", "Processamento LLM"),
+        ("tts", "Síntese de Voz (TTS)"),
+        ("complete", "Concluído")
     ]
 
     for step_key, step_name in steps:
@@ -253,7 +253,7 @@ def main():
 
     with col1:
         # Chat History
-        st.markdown("### 💬 Conversa")
+        st.markdown("### Conversa")
 
         # Container para mensagens
         chat_container = st.container()
@@ -264,7 +264,7 @@ def main():
 
         # Upload de áudio
         st.markdown("---")
-        st.markdown("### 📁 Enviar Áudio")
+        st.markdown("### Enviar Áudio")
 
         uploaded_file = st.file_uploader(
             "Escolha um arquivo de áudio",
@@ -280,7 +280,7 @@ def main():
             col_btn1, col_btn2 = st.columns(2)
 
             with col_btn1:
-                if st.button("🚀 Processar Áudio", type="primary", use_container_width=True):
+                if st.button("Processar Áudio", type="primary", use_container_width=True):
                     # Limpar status anterior
                     st.session_state.pipeline_status = {}
 
@@ -311,7 +311,7 @@ def main():
                         st.rerun()
 
             with col_btn2:
-                if st.button("🗑️ Limpar Chat", use_container_width=True):
+                if st.button("Limpar Chat", use_container_width=True):
                     st.session_state.messages = []
                     st.session_state.pipeline_status = {}
                     st.rerun()
@@ -327,8 +327,7 @@ def main():
                 audio_path = last_message.get("audio_path")
 
                 if audio_path and Path(audio_path).exists():
-                    st.markdown("### 🎧 Resposta da LIA")
-
+                    st.markdown("### Resposta da LIA")
                     # Player de áudio
                     with open(audio_path, 'rb') as audio_file:
                         audio_bytes = audio_file.read()
@@ -336,14 +335,14 @@ def main():
 
                     # Download
                     st.download_button(
-                        label="⬇️ Baixar Áudio",
+                        label="Baixar Áudio",
                         data=audio_bytes,
                         file_name=Path(audio_path).name,
                         mime="audio/mp3",
                         use_container_width=True
                     )
                 else:
-                    st.warning("🔊 Áudio não disponível")
+                    st.warning("Áudio não disponível")
 
 if __name__ == "__main__":
     main()
