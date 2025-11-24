@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Configuração da página
 st.set_page_config(
-    page_title="🤖 AI Audio Chat",
+    page_title="AI Audio Chat",
     page_icon="🎙️",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -113,7 +113,7 @@ def display_chat_message(message, is_user=True):
     <div class="chat-message {message_class}">
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <span style="font-size: 30px; margin-right: 10px;">{avatar}</span>
-            <strong>{"Você" if is_user else "Laika"}</strong>
+            <strong>{"Você" if is_user else "LIA"}</strong>
         </div>
         <div class="message">
             {message}
@@ -134,14 +134,14 @@ def display_pipeline_status():
     if not st.session_state.pipeline_status:
         return
 
-    st.markdown("### 🔄 Status da Pipeline")
+    st.markdown("### Status da Pipeline")
 
     steps = [
-        ("upload", "📁 Upload do Áudio"),
-        ("transcription", "🎤 Transcrição (STT)"),
-        ("llm", "🤖 Processamento LLM"),
-        ("tts", "🔊 Síntese de Voz (TTS)"),
-        ("complete", "✅ Concluído")
+        ("upload", "Upload do Áudio"),
+        ("transcription", "Transcrição (STT)"),
+        ("llm", "Processamento LLM"),
+        ("tts", "Síntese de Voz (TTS)"),
+        ("complete", "Concluído")
     ]
 
     for step_key, step_name in steps:
@@ -192,7 +192,6 @@ def process_audio_pipeline(audio_file, audio_filename):
         update_pipeline_status("upload", "completed", f"Áudio salvo: {audio_filename}")
         time.sleep(0.5)  # Pausa para visualização
 
-        # ETAPA 2: Transcrição
         update_pipeline_status("transcription", "processing", "Convertendo áudio para texto...")
 
         transcription = transcribe_audio(str(audio_path))
@@ -216,7 +215,6 @@ def process_audio_pipeline(audio_file, audio_filename):
         update_pipeline_status("llm", "completed", f"Resposta: {llm_response[:100]}...")
         time.sleep(0.5)
 
-        # ETAPA 4: TTS
         update_pipeline_status("tts", "processing", "Convertendo resposta para áudio...")
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -232,7 +230,6 @@ def process_audio_pipeline(audio_file, audio_filename):
         update_pipeline_status("tts", "completed", f"Áudio gerado: {output_filename}")
         time.sleep(0.5)
 
-        # ETAPA 5: Concluído
         update_pipeline_status("complete", "completed", "Pipeline executada com sucesso!")
 
         return transcription, llm_response, str(output_path)
@@ -248,15 +245,15 @@ def main():
     initialize_session_state()
 
     # Header
-    st.title("Demo Laika")
-    st.markdown("### Converse com a Laika usando áudio!")
+    st.title("Demo LIA")
+    st.markdown("### Converse com a LIA usando áudio!")
 
     # Layout em colunas
     col1, col2 = st.columns([2, 1])
 
     with col1:
         # Chat History
-        st.markdown("### 💬 Conversa")
+        st.markdown("### Conversa")
 
         # Container para mensagens
         chat_container = st.container()
@@ -267,7 +264,7 @@ def main():
 
         # Upload de áudio
         st.markdown("---")
-        st.markdown("### 📁 Enviar Áudio")
+        st.markdown("### Enviar Áudio")
 
         uploaded_file = st.file_uploader(
             "Escolha um arquivo de áudio",
@@ -283,7 +280,7 @@ def main():
             col_btn1, col_btn2 = st.columns(2)
 
             with col_btn1:
-                if st.button("🚀 Processar Áudio", type="primary", use_container_width=True):
+                if st.button("Processar Áudio", type="primary", use_container_width=True):
                     # Limpar status anterior
                     st.session_state.pipeline_status = {}
 
@@ -314,7 +311,7 @@ def main():
                         st.rerun()
 
             with col_btn2:
-                if st.button("🗑️ Limpar Chat", use_container_width=True):
+                if st.button("Limpar Chat", use_container_width=True):
                     st.session_state.messages = []
                     st.session_state.pipeline_status = {}
                     st.rerun()
@@ -330,8 +327,7 @@ def main():
                 audio_path = last_message.get("audio_path")
 
                 if audio_path and Path(audio_path).exists():
-                    st.markdown("### 🎧 Resposta da Laika")
-
+                    st.markdown("### Resposta da LIA")
                     # Player de áudio
                     with open(audio_path, 'rb') as audio_file:
                         audio_bytes = audio_file.read()
@@ -339,14 +335,14 @@ def main():
 
                     # Download
                     st.download_button(
-                        label="⬇️ Baixar Áudio",
+                        label="Baixar Áudio",
                         data=audio_bytes,
                         file_name=Path(audio_path).name,
                         mime="audio/mp3",
                         use_container_width=True
                     )
                 else:
-                    st.warning("🔊 Áudio não disponível")
+                    st.warning("Áudio não disponível")
 
 if __name__ == "__main__":
     main()

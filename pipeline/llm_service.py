@@ -102,7 +102,11 @@ class LLMService:
 
 Pergunta: {user_transcription}
 
-Por favor, responda de forma amigável e conversacional em português brasileiro."""
+Por favor, responda de forma amigável e direta, sem muito texto, em português brasileiro. A resposta deve ser sem links e considerando Instituto de Tecnologia e Liderança (Inteli) para se pesquisar sobre
+Retorne apenas uma LISTA do que for solicitado na pergunta, sem explicações adicionais.
+
+"""
+
         else:
             prompt = f"""Pergunta: {user_transcription}
 

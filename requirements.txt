@@ -4,6 +4,7 @@ altair==5.5.0
 annotated-types==0.7.0
 antlr4-python3-runtime==4.9.3
 anyio==4.11.0
+argcomplete==3.6.3
 attrs==25.4.0
 backoff==2.2.1
 bark==0.1.5
@@ -122,6 +123,8 @@ pdfminer.six==20250506
 pi_heif==1.1.1
 pikepdf==10.0.0
 pillow==12.0.0
+pipx==1.8.0
+platformdirs==4.5.0
 proto-plus==1.26.1
 protobuf==5.29.5
 psutil==7.1.2
@@ -189,6 +192,7 @@ unstructured-inference==1.0.5
 unstructured.pytesseract==0.3.15
 uritemplate==4.2.0
 urllib3==2.5.0
+userpath==1.9.2
 watchdog==6.0.0
 webencodings==0.5.1
 wrapt==2.0.0
