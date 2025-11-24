@@ -85,18 +85,18 @@ class TTSService:
 # Instância global do serviço
 tts_service = TTSService()
 
-def text_to_speech(text: str, output_path: str) -> bool:
+def sentence_to_speech(text: str, output_path: str) -> bool:
     """Função utilitária para conversão text-to-speech"""
     return tts_service.synthesize_speech(text, output_path)
 
 # Teste do módulo
 if __name__ == "__main__":
     # Teste básico
-    test_text = "Olá! Este é um teste do Google Text-to-Speech em português brasileiro. A qualidade é muito boa e funciona perfeitamente."
+    test_text = "Olá! Este é um teste do Google Text-to-Speech em português brasileiro. A qualidade é muito boa e funciona perfeitamente.[LATIDO]"
     test_output = "gemini_tts_test_*.mp3"
 
     print(f"\n🎯 Gerando áudio: '{test_text[:50]}...'")
-    success = text_to_speech(test_text, test_output)
+    success = sentence_to_speech(test_text, test_output)
 
     if success:
         print(f"✅ Teste bem-sucedido! Arquivo MP3 gerado.")
