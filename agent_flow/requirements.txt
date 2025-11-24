@@ -1,0 +1,9 @@
+google-adk
+google-generativeai
+google-genai
+python-dotenv
+jinja2
+perspective.py
+qdrant-client
+sentence-transformers
+torch
