@@ -39,6 +39,7 @@ load_dotenv("agent_flow/.env", override=False)
 EMBEDDING_MODEL = os.getenv("EMBEDDINGS_MODEL")
 QDRANT_URL = os.getenv("QDRANT_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION")
 
 
 def clean_text(text: str) -> str:
@@ -204,8 +205,6 @@ def _extract_pdf_elements(pdf_path: str) -> List[Dict[str, Any]]:
 
     return elements_data
 
-
-@step
 def extract_file_elements(pdf_path: str) -> List[Dict[str, Any]]:
     file_path = Path(pdf_path)
     if file_path.suffix.lower() == ".txt":
@@ -216,7 +215,6 @@ def extract_file_elements(pdf_path: str) -> List[Dict[str, Any]]:
         raise ValueError(f"Formato de arquivo não suportado: {file_path.suffix}")
 
 
-@step
 def preprocess_elements(
     elements: List[Dict[str, Any]],
     skip_summary: bool = True,
@@ -267,7 +265,6 @@ def preprocess_elements(
     return processed_elements
 
 
-@step
 def create_chunks(
     processed_elements: List[Dict[str, Any]],
     chunk_size: int = 500,
@@ -317,7 +314,6 @@ def create_chunks(
     return chunk_dicts
 
 
-@step
 def generate_embeddings(
     chunks: List[Dict[str, Any]],
     model_name: str = EMBEDDING_MODEL,
@@ -326,7 +322,6 @@ def generate_embeddings(
     """
     Gera embeddings para os chunks usando SentenceTransformers.
     """
-    print("\nOi")
     if not chunks:
         print(" Nenhum chunk disponível para embedding.")
         return []
@@ -364,8 +359,6 @@ def generate_embeddings(
 
     return chunks_with_embeddings
 
-
-@step
 def ingest_embeddings(
     embeddings: List[Dict[str, Any]],
     collection_name: str,
@@ -394,6 +387,20 @@ def ingest_embeddings(
         size=vector_dimension, distance=distance
     )
 
+    def _get_existing_dimension() -> int | None:
+        try:
+            info = client.get_collection(collection_name=collection_name)
+        except Exception:
+            return None
+        vector_params = getattr(info.config.params, "vectors", None)
+        if isinstance(vector_params, qdrant_models.VectorParams):
+            return vector_params.size
+        if isinstance(vector_params, dict):
+            for params in vector_params.values():
+                if isinstance(params, qdrant_models.VectorParams):
+                    return params.size
+        return None
+
     if recreate_collection:
         print(f" Recriando coleção `{collection_name}`...")
         client.recreate_collection(
@@ -410,12 +417,15 @@ def ingest_embeddings(
             collection_exists = True
 
         if not collection_exists:
-            print(
-                f" Criando coleção `{collection_name}` (dimensão={vector_dimension})..."
-            )
-            client.create_collection(
-                collection_name=collection_name, vectors_config=vectors_config
-            )
+            print(f" Criando coleção `{collection_name}` (dimensão={vector_dimension})...")
+            client.create_collection(collection_name=collection_name, vectors_config=vectors_config)
+        else:
+            existing_dimension = _get_existing_dimension()
+            if existing_dimension and existing_dimension != vector_dimension:
+                raise ValueError(
+                    f"A coleção `{collection_name}` já existe com dimensão {existing_dimension}, "
+                    f"mas os embeddings atuais possuem dimensão {vector_dimension}. "
+
 
     def _batched(
         seq: List[qdrant_models.PointStruct], size: int
@@ -459,18 +469,17 @@ def ingest_embeddings(
     )
 
 
-@pipeline
 def embedding_pipeline(
     pdf_path: str,
     chunk_size: int = 500,
     chunk_overlap: int = 100,
     skip_summary: bool = True,
     normalize_embeddings: bool = True,
-    qdrant_collection_name: str = "inteli_documents_chunks",
+    qdrant_collection_name: str = QDRANT_COLLECTION,
     recreate_qdrant_collection: bool = False,
 ) -> None:
     """
-    Pipeline ZenML que encadeia extração, pré-processamento, chunking e embeddings.
+    Pipeline que encadeia extração, pré-processamento, chunking e embeddings.
     """
     elements = extract_file_elements(pdf_path=pdf_path)
     processed = preprocess_elements(
@@ -512,7 +521,6 @@ def main() -> None:
         help="Desabilita a normalização dos embeddings.",
     )
     parser.set_defaults(normalize_embeddings=True)
-    parser.add_argument("--qdrant-collection", default="inteli_documents_chunks")
     parser.add_argument(
         "--recreate-qdrant-collection",
         action="store_true",
@@ -533,10 +541,9 @@ def main() -> None:
         chunk_overlap=120,
         skip_summary=True,
         normalize_embeddings=args.normalize_embeddings,
-        qdrant_collection_name=args.qdrant_collection,
         recreate_qdrant_collection=args.recreate_qdrant_collection,
     )
-    print(" Pipeline finalizado. Utilize `zenml login --local` para visualizar o run.")
+    print(" Pipeline finalizado.")
     return run
 
 
