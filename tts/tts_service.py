@@ -5,7 +5,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 from google.cloud import texttospeech
 
-
 # Carregar variáveis de ambiente
 load_dotenv()
 
