@@ -1,4 +1,5 @@
 import whisper
+import base64
 
 class STTService:
 
@@ -12,5 +13,15 @@ class STTService:
 
     def run_model_test(self):
         result = self.model.transcribe("stt/audio_test.ogg")
+        return result["text"]
+
+    def convert_to_mp3 (self, base64_audio):
+        mp3_bytes = base64.b64decode(base64_audio)
+        with open("output.mp3", "wb") as f:
+            f.write(mp3_bytes)
+
+    def transcribe(self, base64_audio):
+        self.convert_to_mp3(base64_audio)
+        result = self.model.transcribe("output.mp3")
         return result["text"]
 

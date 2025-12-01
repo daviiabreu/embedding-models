@@ -32,3 +32,15 @@ async def falar_texto(websocket: WebSocket):
                 await websocket.send_bytes(audio_bytes)
     except Exception as e:
         print("WebSocket desconectado:", e)
+
+@app.websocket("/stt")
+async def falar_texto(websocket: WebSocket):
+    await websocket.accept()
+    try:
+        while True:
+            data = await websocket.receive_text()
+            if data:
+                transcription = stt.transcribe(data)
+                await websocket.send_bytes(transcription)
+    except Exception as e:
+        print("WebSocket desconectado:", e)
