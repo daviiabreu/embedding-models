@@ -31,3 +31,14 @@ class TTSService:
             )
         answer_in_base64 = base64.b64encode(answer_in_mp3.audio_content)
         return answer_in_base64
+    
+    def text_breaker(self, text:str):
+        return text.split(".")
+    
+    def optimal_audio_synthesizer(self, text: str, output_path: str):
+        broken_text = self.text_breaker(text)
+        i = 0
+        print(output_path)
+        for sentence in broken_text:
+            self.sentence_to_speech(sentence, output_path + "-" + str(i) + ".wav")
+            i = i + 1
