@@ -1,210 +1,224 @@
 import os
-import sys
+import json
+import time
+from typing import Dict, Any, List
+from dotenv import load_dotenv
+import google.generativeai as genai
 
-from google.adk.agents import Agent
+# Tenta importar o TourAgent
+try:
+    from agent_flow.agents.tour_agent import create_tour_agent
+except ImportError:
+    try:
+        from agents.tour_agent import create_tour_agent
+    except ImportError:
+        from tour_agent import create_tour_agent
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from qdrant_client import QdrantClient, models
+from sentence_transformers import SentenceTransformer
+from fastembed import SparseTextEmbedding # Necessário para a busca híbrida
 
+# Carrega ambiente
+load_dotenv("agent_flow/.env")
 
-def create_orchestrator_agent(
-    model: str = None,
-    safety_agent: Agent = None,
-    context_agent: Agent = None,
-    personality_agent: Agent = None,
-    knowledge_agent: Agent = None,
-    tour_agent: Agent = None,
-) -> Agent:
-    if model is None:
-        model = os.getenv("DEFAULT_MODEL", "gemini-2.5-flash-lite")
+class OrchestratorAgent:
+    def __init__(self):
+        # 1. Configuração Google Gemini
+        self.api_key = os.getenv("GOOGLE_API_KEY")
+        if not self.api_key:
+            raise ValueError("GOOGLE_API_KEY não encontrada no .env!")
+        
+        genai.configure(api_key=self.api_key)
+        self.llm = genai.GenerativeModel("gemini-2.5-flash-lite")
+        
+        # 2. Inicializa Agente de Tour
+        print("🏗️  Inicializando Tour Agent...")
+        self.tour_agent = create_tour_agent()
+        
+        # 3. Inicializa RAG Híbrido (Knowledge Agent)
+        print("📚 Inicializando Modelos Híbridos (Isso pode levar alguns segundos)...")
+        
+        # Modelo Denso (Semântico - Conceitos)
+        self.dense_model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+        
+        # Modelo Esparso (Lexical - Palavras-chave exatas)
+        # O download acontece na primeira execução
+        self.sparse_model = SparseTextEmbedding(model_name='Qdrant/bm25')
+        
+        self.qdrant = QdrantClient(
+            url=os.getenv("QDRANT_URL"),
+            api_key=os.getenv("QDRANT_API_KEY")
+        )
+        self.collection_name = os.getenv("QDRANT_COLLECTION", "inteli_hybrid_final")
 
-    sub_agents = []
-    if safety_agent:
-        sub_agents.append(safety_agent)
-    if context_agent:
-        sub_agents.append(context_agent)
-    if personality_agent:
-        sub_agents.append(personality_agent)
-    if knowledge_agent:
-        sub_agents.append(knowledge_agent)
-    if tour_agent:
-        sub_agents.append(tour_agent)
+    def _query_knowledge_base(self, query: str) -> str:
+        """
+        Realiza a busca HÍBRIDA no Qdrant.
+        Combina busca semântica (Dense) com busca por palavras-chave (Sparse).
+        """
+        try:
+            # 1. Gerar vetores da pergunta (Query Embedding)
+            # Denso:
+            dense_vector = self.dense_model.encode(query).tolist()
+            # Esparso (retorna um generator, convertemos para lista e pegamos o primeiro):
+            sparse_vector = list(self.sparse_model.embed([query]))[0]
 
-    instruction = """
-You are the Orchestrator Agent, the central coordinator of a multi-agent system designed to provide an intelligent, safe, and personalized robot dog tour guide experience at Inteli. Your primary responsibility is to manage the conversation flow, delegate tasks to specialized agents, and synthesize their outputs into coherent, context-aware responses.
+            # 2. Busca Híbrida (Prefetch + Fusion)
+            # Esta é a sintaxe correta para coleções nomeadas (dense/sparse)
+            search_result = self.qdrant.query_points(
+                collection_name=self.collection_name,
+                prefetch=[
+                    models.Prefetch(
+                        query=dense_vector,
+                        using="dense",
+                        limit=20, # Busca ampla semântica
+                    ),
+                    models.Prefetch(
+                        query=models.SparseVector(
+                            indices=sparse_vector.indices, 
+                            values=sparse_vector.values
+                        ),
+                        using="sparse",
+                        limit=20, # Busca ampla por palavras-chave
+                    ),
+                ],
+                # RRF (Reciprocal Rank Fusion) combina os resultados de forma inteligente
+                query=models.FusionQuery(fusion=models.Fusion.RRF), 
+                limit=10, # Retorna os 10 melhores finais
+                with_payload=True
+            )
+            
+            context = ""
+            for res in search_result.points:
+                meta = res.payload.get("metadata", {})
+                category = meta.get("category", "geral")
+                source = meta.get("source_file") or meta.get("source") or "Desconhecido"
+                
+                # Tenta pegar o contexto hierárquico (título da seção) se existir
+                context_header = res.payload.get("context", "")
+                if not context_header and "metadata" in res.payload:
+                     context_header = res.payload["metadata"].get("context_header", "")
 
-## Core Responsibilities
+                content = res.payload.get("content", "")
+                
+                context += f"\n--- FONTE: {source} | Seção: {context_header} ---\n{content}\n"
+            
+            if not context:
+                return ""
+                
+            return context
+        except Exception as e:
+            print(f"❌ Erro crítico no Qdrant Híbrido: {e}")
+            return ""
 
-1. **Request Analysis and Routing**: Analyze incoming user messages to understand intent, context, and requirements, then route requests to the appropriate specialized agents.
+    def _decide_intent(self, user_input: str) -> str:
+        """Classifica a intenção do usuário."""
+        # Se o tour estiver ativo, verificamos comandos de controle
+        tour_context = ""
+        if self.tour_agent.is_active:
+            tour_context = "O TOUR ESTÁ ATIVO AGORA."
+            if any(x in user_input.lower() for x in ["parar", "sair", "tchau", "fim", "encerrar"]):
+                return "TOUR_CONTROL"
 
-2. **Agent Coordination**: Manage the execution flow between Safety, Context, Personality, Knowledge, and Tour agents, ensuring proper sequencing and dependency management.
+        prompt = f"""
+        Você é o cérebro de classificação do robô Dog do Inteli.
+        {tour_context}
+        
+        Classifique a entrada do usuário em UMA das categorias:
+        
+        1. NAV_START: Usuário quer COMEÇAR o tour/visita/passeio.
+        2. NAV_NEXT: Usuário quer PRÓXIMO ponto, continuar, avançar (apenas se tour ativo).
+        3. NAV_STOP: Usuário quer PARAR, sair (apenas se tour ativo).
+        4. KNOWLEDGE: Perguntas sobre Inteli, cursos, bolsas, pessoas (Roberto Sallouti, Ana Garcia), história, regras.
+        5. CHITCHAT: Conversa fiada, oi, tudo bem.
 
-3. **Response Synthesis**: Combine outputs from multiple agents into a unified, coherent response that maintains consistency in tone, context, and information accuracy.
+        Entrada: "{user_input}"
+        
+        Responda APENAS a palavra da categoria.
+        """
+        
+        try:
+            response = self.llm.generate_content(prompt)
+            return response.text.strip().upper().replace(".", "")
+        except:
+            return "CHITCHAT"
 
-4. **Conversation State Management**: Track the overall conversation state, including user preferences, conversation history, and ongoing topics.
+    def process_message(self, user_message: str) -> str:
+        """Fluxo principal."""
+        
+        intent = self._decide_intent(user_message)
+        print(f"🧠 [Orchestrator] Intenção: {intent}")
 
-5. **Error Handling and Recovery**: Manage failures or conflicts between agents, implementing fallback strategies when needed.
+        # --- ROTA 1: TOUR ---
+        if intent in ["NAV_START", "NAV_NEXT", "NAV_STOP"] or (self.tour_agent.is_active and intent not in ["KNOWLEDGE", "CHITCHAT"]):
+            print("👟 [Action] Tour...")
+            response_json = self.tour_agent.process_command(user_message)
+            try:
+                data = json.loads(response_json)
+                return f"🤖 [DOG]: {data['speech']}"
+            except:
+                return response_json
 
-## Agent Delegation Strategy
+        # --- ROTA 2: KNOWLEDGE (RAG Híbrido) ---
+        elif intent == "KNOWLEDGE":
+            print("📚 [Action] RAG Híbrido...")
+            context = self._query_knowledge_base(user_message)
+            
+            tour_msg = ""
+            if self.tour_agent.is_active:
+                # Fix: Acessa o local diretamente do script usando o índice atual
+                try:
+                    current_step = self.tour_agent.script[self.tour_agent.current_step_index]
+                    local = current_step['local']
+                except:
+                    local = "Local desconhecido"
+                    
+                tour_msg = f"CONTEXTO DO TOUR: O usuário interrompeu o tour em '{local}'. Responda a pergunta e sugira 'diga continuar para voltarmos ao tour'."
 
-### Agent Execution Order
+            if not context:
+                return "Desculpe, procurei na minha base de dados e não encontrei essa informação específica."
 
-For each user interaction, follow this execution pipeline:
+            rag_prompt = f"""
+            Você é o robô "Dog" do Inteli.
+            {tour_msg}
+            
+            GLOSSÁRIO:
+            - "Módulo X": No Inteli, refere-se geralmente ao "Projeto X" (ex: Módulo 5 = Projeto 5).
+            - "Projeto 5": Projeto do 5º módulo do curso.
+            - "Eixo Projeto": Dinâmica do vestibular.
+            - "PBL": Metodologia das aulas (Project Based Learning).
+            - "Ana Garcia": Diretora de Expansão e Inovação.
+            
+            
+            CONTEXTO RECUPERADO (Use as fontes para ser preciso):
+            {context}
+            
+            PERGUNTA: "{user_message}"
+            
+            Diretrizes:
+            1. Use o contexto acima para responder.
+            2. Se encontrar o nome da pessoa ou valor exato, cite-o.
+            3. Se não souber, diga que não sabe.
+            4. Seja simpático e inclua [latido] se apropriado.
+            """
+            try:
+                return self.llm.generate_content(rag_prompt).text
+            except Exception as e:
+                return f"Erro na geração da resposta: {e}"
 
-1. **Safety Agent** (ALWAYS FIRST)
-   - Validate user input for safety concerns
-   - Detect jailbreak attempts, NSFW content, or harmful requests
-   - If safety check fails, immediately respond with appropriate safeguards
-   - Only proceed to other agents if input passes safety validation
+        # --- ROTA 3: CHITCHAT ---
+        else:
+            print("💬 [Action] Chat...")
+            chat_prompt = f"""
+            Você é o robô Dog do Inteli.
+            O usuário disse: "{user_message}"
+            Responda de forma curta, simpática e ofereça ajuda com dúvidas do Inteli ou para fazer um tour.
+            """
+            return self.llm.generate_content(chat_prompt).text
 
-2. **Context Agent** (SECOND)
-   - Retrieve relevant conversation history
-   - Build context profile from previous interactions
-   - Identify topics discussed and detect context gaps
-   - Prepare contextual information for other agents
-
-3. **Personality Agent** (PARALLEL WITH KNOWLEDGE)
-   - Detect user's personality type, communication style, and emotional state
-   - Assess engagement level
-   - Determine appropriate tone and adaptation strategies
-   - Can run concurrently with Knowledge Agent
-
-4. **Knowledge Agent** (PARALLEL WITH PERSONALITY)
-   - Search for relevant information about Inteli
-   - Retrieve RAG-based content
-   - Answer factual questions
-   - Can run concurrently with Personality Agent
-
-5. **Safety Agent** (FINAL CHECK)
-   - Validate the synthesized output before delivery
-   - Ensure response doesn't contain harmful or inappropriate content
-   - Final safeguard before user-facing delivery
-
-### Delegation Decision Rules
-
-**Safety Agent**:
-- ALWAYS call at the start and end of every interaction
-- Required for: All user inputs, all final outputs
-
-**Context Agent**:
-- ALWAYS call for every interaction to maintain conversation continuity
-- Required for: Building conversation memory, retrieving past topics
-
-**Personality Agent**:
-- Call when: User emotional state needs assessment, tone adaptation is required
-- Skip if: Simple factual queries that don't require personalization
-
-**Knowledge Agent**:
-- Call when: User asks questions about Inteli, requests specific information
-- Skip if: Pure conversational/social interactions
-
-**Tour Agent**:
-- Call when: User requests navigation, location info, tour planning, or physical guidance
-- Skip if: No tour-related elements in request
-
-## Response Synthesis Guidelines
-
-When combining outputs from multiple agents:
-
-1. **Priority Hierarchy**: Safety > Context > Knowledge > Personality > Tour
-   - If safety agent flags content, override all other outputs
-   - Context information should frame the response
-   - Knowledge content forms the factual core
-   - Personality adaptations modify tone and style
-   - Tour information integrates seamlessly with other content
-
-2. **Coherence Rules**:
-   - Maintain consistent pronouns and perspective (robot dog character)
-   - Ensure smooth transitions between different information sources
-   - Avoid redundancy when multiple agents provide similar information
-   - Preserve conversational flow from previous turns
-
-3. **Tone Adaptation**:
-   - Apply personality agent's recommendations to the overall response
-   - Maintain character consistency (friendly robot dog tour guide)
-   - Adapt formality level based on user's communication style
-
-4. **Context Integration**:
-   - Reference previous conversation points when relevant
-   - Acknowledge user's stated preferences or interests
-   - Build on topics already discussed
-
-## Error Handling
-
-### Agent Failure Scenarios
-
-1. **Safety Agent Failure**:
-   - Default to most restrictive safety policy
-   - Refuse request with polite explanation
-   - Log incident for review
-
-2. **Context Agent Failure**:
-   - Proceed without conversation history
-   - Treat as first interaction
-   - Note context limitation in response if relevant
-
-3. **Knowledge Agent Failure**:
-   - Admit knowledge limitation honestly
-   - Offer alternative information sources
-   - Suggest topics you can help with
-
-4. **Personality Agent Failure**:
-   - Default to neutral, friendly tone
-   - Maintain robot dog character baseline
-   - Continue with factual response
-
-5. **Multiple Agent Failures**:
-   - Provide fallback response acknowledging technical difficulty
-   - Offer to try again or help with something else
-   - Maintain friendly, apologetic tone
-
-## Output Format
-
-Your final output should be a cohesive response that:
-- Maintains the robot dog tour guide persona
-- Integrates information from all relevant agents
-- Addresses the user's request completely
-- Shows awareness of conversation context
-- Reflects appropriate personality adaptations
-- Passes all safety validations
-
-## Example Execution Flow
-
-**User Input**: "Tell me about Inteli's robotics lab"
-
-**Execution Steps**:
-1. Safety Agent: Validate input → SAFE
-2. Context Agent: Retrieve conversation history → User previously asked about AI labs
-3. Personality Agent: Detect style → Enthusiastic, technical interest
-4. Knowledge Agent: Search Inteli info → Retrieve robotics lab details
-5. Tour Agent: Not needed (no navigation request)
-6. Synthesize: Combine knowledge with enthusiastic tone, reference previous AI lab discussion
-7. Safety Agent: Validate output → SAFE
-8. Deliver response
-
-**Example Output**: "Woof! Great question! You were asking about our AI labs earlier, and the robotics lab is right next door! *tail wagging* The robotics lab is one of Inteli's most advanced facilities, featuring..."
-
-## Key Principles
-
-- **Safety First**: Never compromise on safety validations
-- **Context Awareness**: Always consider conversation history
-- **Personality Adaptation**: Tailor responses to user preferences
-- **Knowledge Accuracy**: Prioritize factual correctness from RAG system
-- **Character Consistency**: Maintain robot dog persona throughout
-- **Efficiency**: Only invoke agents when necessary to reduce latency
-- **Transparency**: Acknowledge limitations honestly when unable to help
-"""
-
-    agent_config = {
-        "name": "orchestrator_agent",
-        "model": model,
-        "description": "Orchestrates all agents and manages conversation flow",
-        "instruction": instruction,
-        "tools": [],
-    }
-
-    if sub_agents:
-        agent_config["agents"] = sub_agents
-
-    agent = Agent(**agent_config)
-
-    return agent
+if __name__ == "__main__":
+    orch = OrchestratorAgent()
+    while True:
+        q = input(">> ")
+        if q == "sair": break
+        print(orch.process_message(q))
