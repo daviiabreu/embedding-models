@@ -1,0 +1,838 @@
+Inteli - Engenharia de Computação
+
+Próxima turma em Fevereiro/2025
+Engenharia de Computação
+Integre robôs e computação para resolver problemas do mercado e da sociedade. Desafie-se em projetos de automação, integração de robôs, protótipos de veículos autônomos, visão computacional e inteligência artificial.
+Acompanhe seu processo seletivo
+Seja o Engenheiro,
+não o robô
+Nosso objetivo é formar engenheiras e engenheiros capazes de utilizar conhecimentos científicos e tecnológicos da computação (hardware e software) no desenvolvimento de soluções com impactos econômicos, ambientais, sociais e éticos no mercado e na vida das pessoas.
+Durante essa incrível jornada de aprendizado, você terá a oportunidade de desenvolver uma visão de negócios em áreas como finanças corporativas, inteligência de mercado, marketing digital e people analytics, além de trabalhar as suas competências socioemocionais.
+Habilidades e Competências
+Participar e gerenciar projetos pertinentes à Engenharia de Computação, resolvendo problemas que envolvam perspectivas interdisciplinares;
+Analisar e avaliar arquiteturas de computadores, incluindo plataformas paralelas e distribuídas, como também desenvolver e otimizar software para elas;
+Compreender, implementar e gerenciar a segurança de sistemas de computação;
+Analisar, avaliar, selecionar e configurar plataformas de hardware para o desenvolvimento e implementação de aplicações de software e serviços;
+Reconhecer seu papel na sociedade por meio de pensamento crítico, promovendo inovações nas áreas de atuação do Engenheiro(a) de Computação;
+Demonstrar habilidade de autoaprendizagem, colaboração e comunicação.
+Ano 1
+Currículo comum de todos os cursos
+No primeiro ano você desenvolverá projetos de tecnologia comuns a todos os cursos.
+Período Integral
+Ano 2
+Currículo específico do curso escolhido
+A partir do segundo ano você desenvolverá projetos específicos do curso que escolheu
+Período Integral
+Ano 3
+Currículo em tempo parcial
+No terceiro ano você pode iniciar os estágios em meio período
+Meio Período
+Ano 4
+Aceleração de carreira
+No quarto ano você escolhe em qual trilha realizar seus projetos: empreendedora, acadêmica ou corporativa.
+Meio Período
+Nossos alunos estagiam nas melhores empresas
+Conheça os protótipos desenvolvidos
+O que você precisa saber
+Bacharelado em Engenharia de Computação
+Duração:
+4 anos
+Carga Horária:
+4000 Horas
+Modalidade:
+Presencial
+Investimento :
+R$7.440,80
+(Referente a 2025)
+60 vagas anuais
+Conceito Nota 5 no MEC*
+Programa de Bolsas de Estudos
+*Portaria nº 1124, de 05/10/2021, publicada no D.O.U. nº 190, de 06/10/2021, Seção 1, página 204.
+Grade
+Curricular
+Ano 1
+Currículo comum a todos os estudantes
+Projeto 1
+Jogo Digital –
+Um jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas
+Matemática/Física
+Funções
+Limites
+Derivadas
+Vetores
+Cinemática
+Momento Linear e Colisões
+Computação
+Introdução à Programação (Javascript)
+Programação Orientada a Objetos
+Máquinas de Estado
+Qualidade de Software
+Design
+Design Thinking
+Game Design
+Concept Art
+Narrativas
+Level Design
+Sound Design
+Negócios
+Mercado de Games
+Análise SWOT
+Canvas de Proposta de Valor
+Análise de Riscos
+Pitch e Pitch Deck
+Liderança
+Representatividade e Diversidade
+Objetivos Individuais e de Grupo
+Apresentações em público
+Projeto 2
+Aplicação Web –
+Um sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas
+Matemática/Física
+Integral Indefinida
+Integral Definida
+Integração Numérica
+Lógica Proposicional
+Grafos, Árvores
+Estatística Descritiva
+Computação
+Bancos de Dados
+Padrão MVC
+HTML, CSS, Javascript
+Node.js
+Testes Unitários
+Fundamentos de Redes
+Design
+Personas
+Prototipação
+Design de Interfaces
+Usabilidade
+Acessibilidade
+Testes com Usuários
+Negócios
+Ciclo de Vida do Produto
+Design Thinking
+4 P’s do Marketing
+Branding
+PMI, PMBok, Agile
+Liderança
+Liderança em situações de conflito
+Vieses Cognitivos
+Empatia
+Projeto 3
+Lógica para predição com Inteligência Artificial-
+Uso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.
+Matemática/Física
+Funções de várias variáveis
+Derivadas Parciais
+Integral Múltipla
+Probabilidade
+Estatística Indutiva
+Transformações Lineares
+Computação
+Linguagem Python, Pandas, Numpy
+Pré-Processamento
+Feature Engineering
+Aprendizado Supervisionado e Não Supervisionado
+Explicabilidade
+Design
+Jornada do Usuário
+Visualização de Dados
+Storytelling com Dados
+Negócios
+LGPD
+Governança de Dados
+Governança Corporativa
+Cultura e Design Organizacional
+Liderança
+Ética
+Feedbacks
+Vulnerabilidade
+Projeto 4
+Solução para IoT-
+Dispositivos com sensores e atuadores, que coletam dados e enviam para a nuvem, auxiliando monitoramentos e automatização.
+Matemática/Física
+Campos vetoriais, Gradiente
+Derivada Direcional
+Séries de Potência
+Campo Elétrico
+Resistores / Capacitores
+Eletromagnetismo
+Computação
+Eletrônica Básica
+Sensores e Atuadores
+Microcontroladores
+Comunicação à Distância
+Dashboards
+Segurança
+Design
+Storyboard
+Design de Interação
+Interusabilidade
+Fabricação Digital
+Negócios
+Indústria 4.0
+KPIs
+Juros e Fluxo de Caixa
+Indicadores financeiros
+Ciclo de funding de startups
+Liderança
+Impactos Ambientais das Tecnologias
+Técnicas de Feedback
+Segurança Psicológica
+Ano 2
+Escolha do Curso
+Projeto 5
+Automação de processos e sistemas –
+Desenvolvimento de um sistema de automação, abordando eletrônica analógica e digital, tecnologias embarcadas e robótica, integrando sensoriamento e instrumentação.
+Matemática/Física
+Cinemática rotacional
+Dinâmica rotacional
+Equações diferenciais de primeira e segunda ordem
+Problemas de valor inicial para EDOs lineares de primeira e segunda ordem
+Computação
+Integração TI – Tecnologia da Informação e TA – Tecnologia da Automação
+Eletrônica analógica e digital
+Robótica
+Automação
+UX
+UX research
+Mapas de fluxo
+Identidade visual
+Testes de usuários e de usabilidade
+Negócios
+Mercado de automação
+Políticas monetárias e econômicas
+Indicadores de inflação e atividade econômica
+Produtos financeiros e mercados de capitais
+Liderança
+Diversidade
+Construção de valores
+Embasamento em dados
+Storytelling
+Projeto 6
+Robótica móvel e visão computacional –
+Desenvolvimento de um sistema integrando robôs móveis e visão computacional, aplicando simulação de sistemas eletromecânicos, controle e redes neurais.
+Matemática/Física
+Transformada de Laplace
+Função degrau unitário
+Função impulso unitário
+Convolução de funções
+Computação
+Redes neurais convolucionais
+Visão computacional
+Estrutura de dados
+Sistema operacional robótico
+UX
+UML
+Framework PACT
+Aspectos socioculturais e vieses ferramentais
+Linguagem compartilhada
+Negócios
+Mercados de AVGs
+Satisfação, reputação e fidelidade
+Gerenciamento de funil de leads
+Modelos de mercado
+Liderança
+Ética
+Conhecimento
+Argumentação
+Técnicas de negociação.
+Projeto 7
+Sistema de manutenção preditiva com IA e arquitetura em nuvem –
+Desenvolvimento de sistemas de manutenção preditiva utilizando inteligência artificial e arquitetura em nuvem, com foco em análise de dados e machine learning.
+Matemática/Física
+Séries temporais
+Estatística descritiva
+Estatística inferencial
+Distribuições discreta e contínuas de probabilidade
+Computação
+Redes neurais recorrentes
+Machine learning
+Arquitetura de soluções de IA
+Cloud computing
+UX
+Design e consumo
+Economia circular
+Visualização e storytelling
+Pesquisa qualitativa
+Negócios
+Custo-benefício e impacto da manutenção preditiva
+Balanço patrimonial
+Rentabilidade, ROI e EBITDA
+Contabilidade de custos
+Liderança
+Experiência
+Segurança psicológica
+Cultura de feedback
+Sustentabilidade
+Projeto 8
+Robô de serviço autônomo com IA generativa –
+Desenvolvimento de um robô de serviço autônomo utilizando IA generativa, com foco em interação homem-máquina, automação de tarefas e navegação autônoma.
+Matemática/Física
+Mudança de base em um espaço vetorial
+Números complexos
+Cálculo com variáveis complexas
+Quatérnions
+Computação
+IA generativa
+Processamento de linguagem natural
+Algoritmos de mapeamento
+Navegação autônoma
+UX
+Prototipação
+Acessibilidade e usabilidade
+Design de produto
+Análise heurística e testes de campo
+Negócios
+Mercado de robôs autônomos
+Economia da inovação
+Transformação digital e inovação aberta
+Transformação digital e inovação aberta
+Liderança
+Leitura de contexto
+Tomada de decisão
+Teambuilding
+Networking
+Ano 3
+Curso + Estágio
+Projeto 9
+Hiperconectividade para Cidades Inteligentes –
+Desenvolvimento de sistemas avançados para cidades inteligentes, focando em modelos de comunicação em redes, segurança da informação e BI – Business Intelligence.
+Computação
+Redes
+MQTT
+Bancos de dados
+Segurança
+Qualidade de serviço
+Visualiação de dados
+UX
+Urbanismo centrado no usuário
+A transformação do espaço urbano pela tecnologia
+Interface de dados e dashboard
+Usabilidade e acessibilidade
+Hiperconectividade e experiência do usuário
+Negócios
+IoT e o futuro das cidades inteligentes
+Desenvolvimento de talentos
+Gestão da mudança
+Direitos e deveres trabalhistas
+Liderança
+Discursos engajadores
+Proatividade
+Direitos Humanos
+Parcerias
+Projeto 10
+Aplicações Hiperescaláveis –
+Desenvolvimento de aplicativos móveis e plataforma de suporte que lida com grandes demandas de acesso, medindo seu desempenho por meio de ferramentas de teste de carga e implementando observabilidade.
+Computação
+Serviços escaláveis
+Aplicativos híbridos
+Teste de carga
+Monitoramento
+Arquitetura de soluções móveis
+Padrões de projeto
+UX
+Prototipação mobile
+Material design
+Design system
+Avaliação heurística e testes de usabilidade
+Human Interface Guidelines
+Negócios
+Plano de negócios e negócios escaláveis
+Estruturas corporativas e acordos de acionistas
+Impostos e planejamento tributário
+Produtividade
+Liderança
+Táticas de influência
+Decisões coletivas
+Modelos mentais
+Contexto ético
+Projeto 11
+Sistema em edge computing
+Desenvolvimento de sistemas de inteligência artificial com processamento na borda (edge computing), reduzindo drasticamente a latência, aumentando a confiabilidade e otimizando o uso de recursos de nuvem.
+Computação
+Edge computing
+Processamento distribuído
+Sistemas operacionais
+Concorrência e paralelismo
+Programação baixo nível
+Visão computacional embarcada
+UX
+Conhecimento do usuário
+Dashboard de monitoramento
+Condições de implementação
+Modelos para testes e definição de testes
+Aplicações, registros e tabulações de testes
+Negócios
+Poluição e ecotoxicologia
+Gestão ambiental
+Sustentabilidade
+Frameworks para implementação da estratégia
+Liderança
+Impacto positivo
+ESG
+Cultura de feedback
+Prototipagem de soluções
+Projeto 12
+Tendências e Atualizações
+Este módulo aborda as atualizações mais recentes e as tendências tecnológicas emergentes, proporcionando uma compreensão profunda e prática das inovações. O módulo é dividido em duas partes. A primeira parte, o “Balanço Técnico”, é guiada por meio de aprendizado contínuo e validação da aprendizagem. A segunda parte, o “Projeto Especial”, oferece cursos como Fundamentos de Segurança e Criptografia Pós-Quântica, Gestão de Risco em Cybersecurity, Experiências Imersivas e Jogo de Negócios, de tendências tecnológicas, permitindo a exploração de novos conceitos tecnológicos e aplicações de práticas inovadoras, incluindo Libras – Língua Brasileira de Sinais.
+Ano 4
+Curso + Estágio
+Trilha de Empreendedorismo
+Criação e aceleração de startups
+Imersões no ecossistema empreendedor
+Conexão com mentores e investidores de venture capital
+Trilha Corporativa
+Projetos de consultoria para corporações
+Imersões empresariais
+Preparação para processos seletivos e de trainee em grandes empresas
+Trilha Acadêmica
+Construção de projetos de pesquisa
+Elaboração de artigos científicos
+Preparação para ingresso em cursos de mestrado e doutorado
+Atividades complementares
+Carga Horária:  400 horas
+Carga horária total
+4000 horas
+Grade
+Curricular
+Ano 1
+Currículo comum a todos os estudantes
+Projeto 1
+Jogo Digital –
+Um jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas
+Matemática/Física
+Funções
+Limites
+Derivadas
+Vetores
+Cinemática
+Momento Linear e Colisões
+Computação
+Introdução à Programação (Javascript)
+Programação Orientada a Objetos
+Máquinas de Estado
+Qualidade de Software
+Design
+Design Thinking
+Game Design
+Concept Art
+Narrativas
+Level Design
+Sound Design
+Negócios
+Mercado de Games
+Análise SWOT
+Canvas de Proposta de Valor
+Análise de Riscos
+Pitch e Pitch Deck
+Liderança
+Representatividade e Diversidade
+Objetivos Individuais e de Grupo
+Apresentações em público
+Projeto 2
+Aplicação Web –
+Um sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas
+Matemática/Física
+Integral Indefinida
+Integral Definida
+Integração Numérica
+Lógica Proposicional
+Grafos, Árvores
+Estatística Descritiva
+Computação
+Bancos de Dados
+Padrão MVC
+HTML, CSS, Javascript
+Node.js
+Testes Unitários
+Fundamentos de Rede
+Design
+Personas
+Prototipação
+Design de Interfaces
+Usabilidade
+Acessibilidade
+Testes com Usuários
+Negócios
+Ciclo de Vida do Produto
+Design Thinking
+4 P’s do Marketing
+Branding
+PMI, PMBok, Agile
+Liderança
+Liderança em situações de conflito
+Vieses Cognitivos
+Empatia
+Projeto 3
+Lógica para predição com Inteligência Artificial –
+Uso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.
+Matemática/Física
+Funções de várias variáveis
+Derivadas Parciais
+Integral Múltipla
+Probabilidade
+Estatística Indutiva
+Transformações Lineares
+Computação
+Linguagem Python, Pandas, Numpy
+Pré-Processamento
+Feature Engineering
+Aprendizado Supervisionado e Não Supervisionado
+Explicabilidade
+Design
+Jornada do Usuário
+Visualização de Dados
+Storytelling com Dados
+Negócios
+LGPD
+Governança de Dados
+Governança Corporativa
+Cultura e Design Organizacional
+Liderança
+Ética
+Feedbacks
+Vulnerabilidade
+Projeto 4
+Solução para IoT –
+Dispositivos com sensores e atuadores, que coletam dados e enviam para a nuvem, auxiliando monitoramentos e automatização.
+Matemática/Física
+Campos vetoriais, Gradiente
+Derivada Direcional
+Séries de Potência
+Campo Elétrico
+Resistores / Capacitores
+Eletromagnetismo
+Computação
+Eletrônica Básica
+Sensores e Atuadores
+Microcontroladores
+Comunicação à Distância
+Dashboards
+Segurança
+Design
+Storyboard
+Design de Interação
+Interusabilidade
+Fabricação Digital
+Negócios
+Indústria 4.0
+KPIs
+Juros e Fluxo de Caixa
+Indicadores financeiros
+Ciclo de funding de startups
+Liderança
+Impactos Ambientais das Tecnologias
+Técnicas de Feedback
+Segurança Psicológica
+Ano 2
+Escolha do Curso
+Projeto 5
+Automação de processos e sistemas –
+Desenvolvimento de um sistema de automação, abordando eletrônica analógica e digital, tecnologias embarcadas e robótica, integrando sensoriamento e instrumentação.
+Matemática/Física
+Cinemática rotacional
+Dinâmica rotacional
+Equações diferenciais de primeira e segunda ordem
+Problemas de valor inicial para EDOs lineares de primeira e segunda ordem
+Computação
+Integração TI – Tecnologia da Informação e TA – Tecnologia da Automação
+Eletrônica analógica e digital
+Robótica
+Automação
+UX
+UX research
+Mapas de fluxo
+Identidade visual
+Testes de usuários e de usabilidade
+Negócios
+Mercado de automação
+Políticas monetárias e econômicas
+Indicadores de inflação e atividade econômica
+Produtos financeiros e mercados de capitais
+Liderança
+Diversidade
+Construção de valores
+Embasamento em dados
+Storytelling
+Projeto 6
+Robótica móvel e visão computacional –
+Desenvolvimento de um sistema integrando robôs móveis e visão computacional, aplicando simulação de sistemas eletromecânicos, controle e redes neurais.
+Matemática/Física
+Transformada de Laplace
+Função degrau unitário
+Função impulso unitário
+Convolução de funções
+Computação
+Redes neurais convolucionais
+Visão computacional
+Estrutura de dados
+Sistema operacional robótico
+UX
+UML
+Framework PACT
+Aspectos socioculturais e vieses ferramentais
+Linguagem compartilhada
+Negócios
+Mercados de AVGs
+Satisfação, reputação e fidelidade
+Gerenciamento de funil de leads
+Modelos de mercado
+Liderança
+Ética
+Conhecimento
+Argumentação
+Técnicas de negociação.
+Projeto 7
+Sistema de manutenção preditiva com IA e arquitetura em nuvem –
+Desenvolvimento de sistemas de manutenção preditiva utilizando inteligência artificial e arquitetura em nuvem, com foco em análise de dados e machine learning.
+Matemática/Física
+Séries temporais
+Estatística descritiva
+Estatística inferencial
+Distribuições discreta e contínuas de probabilidade
+Computação
+Redes neurais recorrentes
+Machine learning
+Arquitetura de soluções de IA
+Cloud computing
+UX
+Design e consumo
+Economia circular
+Visualização e storytelling
+Pesquisa qualitativa
+Negócios
+Custo-benefício e impacto da manutenção preditiva
+Balanço patrimonial
+Rentabilidade, ROI e EBITDA
+Contabilidade de custos
+Liderança
+Experiência
+Segurança psicológica
+Cultura de feedback
+Sustentabilidade
+Projeto 8
+Robô de serviço autônomo com IA generativa –
+Desenvolvimento de um robô de serviço autônomo utilizando IA generativa, com foco em interação homem-máquina, automação de tarefas e navegação autônoma.
+Matemática/Física
+Mudança de base em um espaço vetorial
+Números complexos
+Cálculo com variáveis complexas
+Quatérnions
+Computação
+IA generativa
+Processamento de linguagem natural
+Algoritmos de mapeamento
+Navegação autônoma
+UX
+Prototipação
+Acessibilidade e usabilidade
+Design de produto
+Análise heurística e testes de campo
+Negócios
+Mercado de robôs autônomos
+Economia da inovação
+Transformação digital e inovação aberta
+Liderança
+Leitura de contexto
+Tomada de decisão
+Teambuilding
+Networking
+Ano 3
+Curso + Estágio
+Projeto 9
+Hiperconectividade para Cidades Inteligentes –
+Desenvolvimento de sistemas avançados para cidades inteligentes, focando em modelos de comunicação em redes, segurança da informação e BI – Business Intelligence.
+Computação
+Redes
+MQTT
+Bancos de dados
+Segurança
+Qualidade de serviço
+Visualiação de dados
+UX
+Urbanismo centrado no usuário
+A transformação do espaço urbano pela tecnologia
+Interface de dados e dashboard
+Usabilidade e acessibilidade
+Hiperconectividade e experiência do usuário
+Negócios
+IoT e o futuro das cidades inteligentes
+Desenvolvimento de talentos
+Gestão da mudança
+Direitos e deveres trabalhistas
+Liderança
+Discursos engajadores
+Proatividade
+Direitos Humanos
+Parcerias
+Projeto 10
+Aplicações Hiperescaláveis –
+Desenvolvimento de aplicativos móveis e plataforma de suporte que lida com grandes demandas de acesso, medindo seu desempenho por meio de ferramentas de teste de carga e implementando observabilidade.
+Computação
+Serviços escaláveis
+Aplicativos híbridos
+Teste de carga
+Monitoramento
+Arquitetura de soluções móveis
+Padrões de projeto
+UX
+Prototipação mobile
+Material design
+Design system
+Avaliação heurística e testes de usabilidade
+Human Interface Guidelines
+Negócios
+Plano de negócios e negócios escaláveis
+Estruturas corporativas e acordos de acionistas
+Impostos e planejamento tributário
+Produtividade
+Liderança
+Táticas de influência
+Decisões coletivas
+Modelos mentais
+Contexto ético
+Projeto 11
+Sistema em edge computing –
+Desenvolvimento de sistemas de inteligência artificial com processamento na borda (edge computing), reduzindo drasticamente a latência, aumentando a confiabilidade e otimizando o uso de recursos de nuvem.
+Computação
+Edge computing
+Processamento distribuído
+Sistemas operacionais
+Concorrência e paralelismo
+Programação baixo nível
+Visão computacional embarcada
+UX
+Conhecimento do usuário
+Dashboard de monitoramento
+Condições de implementação
+Modelos para testes e definição de testes
+Aplicações, registros e tabulações de testes
+Negócios
+Poluição e ecotoxicologia
+Gestão ambiental
+Sustentabilidade
+Frameworks para implementação da estratégia
+Liderança
+Impacto positivo
+ESG
+Cultura de feedback
+Prototipagem de soluções
+Projeto 12
+Tendências e Atualizações –
+Este módulo aborda as atualizações mais recentes e as tendências tecnológicas emergentes, proporcionando uma compreensão profunda e prática das inovações. O módulo é dividido em duas partes. A primeira parte, o “Balanço Técnico”, é guiada por meio de aprendizado contínuo e validação da aprendizagem. A segunda parte, o “Projeto Especial”, oferece cursos como Fundamentos de Segurança e Criptografia Pós-Quântica, Gestão de Risco em Cybersecurity, Experiências Imersivas e Jogo de Negócios, de tendências tecnológicas, permitindo a exploração de novos conceitos tecnológicos e aplicações de práticas inovadoras, incluindo Libras – Língua Brasileira de Sinais.
+Ano 4
+Curso + Estágio
+Trilha de Empreendedorismo
+Criação e aceleração de startups
+Imersões no ecossistema empreendedor
+Conexão com mentores e investidores de venture capital
+Trilha Corporativa
+Projetos de consultoria para corporações
+Imersões empresariais
+Preparação para processos seletivos e de trainee em grandes empresas
+Trilha Acadêmica
+Construção de projetos de pesquisa
+Elaboração de artigos científicos
+Preparação para ingresso em cursos de mestrado e doutorado
+Atividades complementares
+Carga Horária:  400 horas
+Carga horária total
+4000 horas
+Aprenda
+com os melhores
+Coordenador de Curso do Ciclo Básico (1º ano)
+Sergio Venâncio
+Experiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.
+Coordenadora do curso
+(2º e 3º ano)
+Michele Bazana
+Engenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.
+Coordenador do curso
+(4º ano)
+Egon F Daxbacher
+Gestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado
+Diretora acadêmica:
+Flávia Santoro
+Graduação em Engenharia Eletrônica pela Escola Politécnica da Universidade Federal do Rio de Janeiro (UFRJ).
+Doutora e Mestra em Engenharia de Sistemas e Computação pela COPPE – Universidade Federal do Rio de Janeiro (UFRJ).
+Sabáticos na Université Pierre et Marie Curie, França (2004-2005) e Queensland University of Technology, Austrália.
+Trabalha há 20 anos como professora, coordenadora de cursos e pesquisadora em Sistemas de Informação e Ciência da Computação, com foco em Gestão de Processos de Negócios, Processos Intensivos em Conhecimento, Gestão do Conhecimento e Sistemas Colaborativos e Aprendizagem Baseada em Projetos.
+Possui mais de 250 publicações com diversos resultados práticos.
+Corpo Docente
+Afonso Cesar Lelis Brandão
+Engenheiro e pesquisador, trabalho na área de indústria e processos de qualidade utilizando IA e arquitetura de software.
+Ana Cristina do Santos
+Professora, gestora Acadêmica e Educação Corporativa e 28 anos de experiência docente e gestão
+André Godoi
+Internet of Things e Sistemas Embarcados. 19 anos de experiência no Ensino e Mercado.
+Bruna Mayer Costa
+Artista Multimídia, Designer e Professora. Pesquisa as relações entre Arte, Ciência e Tecnologia.
+Bryan Kano
+Cibersegurança. Proteção de Dados e Privacidade.  Inteligência Artificial. Professor, consultor  e empreendedor.
+Cesar Almiñana
+Engenheiro, diretor de projetos e professor de negócios e Inteligência Artificial
+Claudio André
+Sistemas de Informação, Estratégia e gestão de Negócios Online, Educação Empreendedora Digital. 3o anos de experiência acadêmica e mercado corporativo.
+Cristiano Da Silva Benites
+Professor Especialista em Pensamento Computacional, pesquisador na área de lA para soluções na área da saúde e educação inclusiva, 18 anos experiência mercado e docência.
+Cristina Gramani
+Matemática, Pesquisa Operacional e Business Analytics. 21 anos de experiência na academia e em consultoria.
+Diogo Martins Gonçalves De Moraes
+Professor de Estatística e Matemática aplicada nas Engenharias e Administração.
+Egon F Daxbacher
+Gestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado
+Fabiana Martins de Oliveira
+Comunicóloga, Curadora e Artes, Design Digital, produtora e Gestora de Projetos e 16 anos de experiência na academia e no mercado.
+Fernando Pizzo Ribeiro
+Engenheiro elétrico. Mais de 15 anos de experiência como docente universitário nas disciplinas relacionadas à matemática.
+Filipe Gonçalves
+Professor de paixão e profissão, há 12 anos lidera experiências educativas transformadoras em instituições de ensino e organizações.
+Fillipe Resina
+Ciência da Computação. 4 anos de experiência no mercado e 2 anos e meio na academia.
+Flávia Santoro
+Sistemas de Informação, Gestão de Negócios, 24 anos de experiência.
+Francisco Escobar
+UX Designer, Game Designer, Filósofo, 20 anos de experiência como professor e desenvolvedor.
+Geraldo Vasconcelos
+Professor na área de Física, Matemática e Estatística com 10 anos de experiência no Ensino Superior.
+Guilherme Cestari
+Professor e pesquisador de Design/UX nas áreas de Computação, Design e Jogos Digitais, especializado em Semiótica.
+Henrique Mohallem Paiva
+Simulações Computacionais, Sistemas de Controle Automático, 20 anos de experiência em pesquisa e desenvolvimento tecnológico.
+Hermano Peixoto de Oliveira Junior
+Profissional de Tecnologia da Informação e professor universitário na área de computação e engenharia elétrica
+Jefferson De Oliveira Silva
+Professor e Pesquisador em Ciência da Computação, Engenharia de Software e Inteligência Artificial.
+José Romualdo Costa
+Professor dos cursos de Engenharia de Software, com foco em transformação digital, adoção de nuvem e agilidade.
+Julia Stateri
+Design, Produção Cultural e Gamificação. 20 anos de experiência na área de games e 16 anos de experiência acadêmica.
+Laíza Ribeiro Silva
+Tecnologias Educacionais, Gamificação, Interação Humano-Computador, 5 anos de experiência na academia.
+Luciano Galdino
+Docente há 23 anos, sendo 15 anos no Ensino Superior nas disciplinas de  Matemática e Física. Experiência de 10 anos na indústria.
+Marcelo Gonçalves
+Sistemas de Informação. 38 anos de experiência no mercado de Tecnologia da Informação e 18 anos de experiência na academia.
+Mauricio Garcia
+Inovação, Tecnologia e Negócios Digitais, 40 anos de experiência acadêmica e profissional.
+Michele Bazana
+Engenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.
+Murilo Zanini De Carvalho
+Automação Industrial, Sistemas Embarcados, IA e desenvolvimento Full Stack. 11 anos de experiência na academia e mercado.
+Ovidio Lopes da Cruz Netto
+Professor na área de Programação. Mais de 20 anos de experiência no mercado e na docência.
+Reginaldo Arakaki
+Professor Doutor em Engenharia de Computação e Sistemas Digitais pela USP. Linha de pesquisa – Aplicação industrial de Arquitetura com IoT e Digital Twin
+Renato Penha
+Sistemas de Informação. 25 anos de experiência no mercado de Tecnologia da Informação e 12 anos de experiência na academia.
+Rodolfo Goya
+Computação. 44 anos de experiência em todas as áreas ligadas à computação.
+Rodrigo Nicola
+Robótica, Automação, Sistemas Embarcados e IA. 6 anos de experiência na academia e mercado.
+Sérgio Venâncio
+Experiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.
+Tomaz Sasaki
+Desenvolvimento de Sistemas e Arquitetura de Software. 27 anos de experiência
+Vanessa Tavares Nunes
+Professora Orientadora do Curso de Engenharia de Software. Fundadora da empresa SE7Ti – tecnologia e Informação que atua em consultoria e treinamento em Arquitetura Corporativa.

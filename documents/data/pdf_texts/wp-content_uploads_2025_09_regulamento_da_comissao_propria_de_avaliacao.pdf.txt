@@ -1,0 +1,919 @@
+RELATÓRIO DE AUTOAVALIAÇÃO
+INSTITUCIONAL 2024
+INSTITUTO DE TECNOLOGIA E LIDERANÇA - INTELI
+Relatório de autoavaliação
+institucional de 2024
+(aprovado pela CPA em 17/03/2025)
+Sumário
+1. Introdução...................................................................................................................3
+1.1. Abertura.............................................................................................................. 3
+1.2. Considerações iniciais...................................................................................... 3
+1.3. Dados da instituição e CPA...............................................................................4
+1.4. Planejamento e metodologia.............................................................................5
+2. Desenvolvimento........................................................................................................7
+2.1. Eixo 1 - Planejamento e Avaliação Institucional.............................................7
+2.2. Eixo 2 - Desenvolvimento Institucional............................................................7
+2.3. Eixo 3 - Políticas Acadêmicas...........................................................................9
+2.4. Eixo 4 - Políticas de Gestão............................................................................ 12
+2.5. Eixo 5 - Infraestrutura Física...........................................................................14
+3. Indicadores gerais....................................................................................................18
+3.1. Indicadores gerais............................................................................................18
+3.2. Painel Trimestral de Indicadores....................................................................21
+4. Objetivos e Resultados-Chave (OKR).....................................................................22
+5. Resultados diversos.................................................................................................24
+6. Destaques do ano.....................................................................................................26
+7. Análises e recomendações......................................................................................28
+7.1. Ações do ano anterior..................................................................................... 28
+7.2. Discussão......................................................................................................... 31
+7.3. Recomendações...............................................................................................32
+8. Anexo.........................................................................................................................33
+Painel Fechamento Trimestral............................................................................... 33
+1. Introdução
+1.1. Abertura
+O ano de 2024 consolidou o compromisso do Inteli com a formação acadêmica e
+profissional dos alunos. Nesse ano ficamos especialmente orgulhosos de termos
+promovido oportunidades para nossos alunos realizarem intercâmbios estudantis que
+levaram o Inteli para o mundo e proporcionou o desenvolvimento de uma mentalidade
+global. A inserção no mercado de trabalho através de estágios em empresas de
+referência e com excelentes feedbacks das contratantes foi mais um sinal que estamos
+cumprindo nossa missão de formar jovens profissionais preparados para os desafios
+atuais e na rota de se posicionarem como futuros líderes para as inúmeras
+oportunidades de transformar o Brasil através de tecnologia. Por último, assistir ao
+espírito empreendedor tomando forma através das novas empresas criadas por alunos,
+ainda durante a graduação, nos enche de esperança pois acreditamos que é esse
+espírito de inquietude e apetite por resolver problemas relevantes que vai ajudar a
+entregar nossa visão. Continuamos reforçando a nossa missão de transformar a
+educação, através da inovação e da excelência que são os pilares de cada decisão que
+tomamos diariamente.
+Maíra Habimorad
+Diretora Geral do Inteli
+1.2. Considerações iniciais
+O Relatório de Autoavaliação Institucional (RAI) é uma peça importante do processo de
+avaliação interna, ou autoavaliação, introduzido pela Lei 10.861/2004, conhecida como
+"Lei do Sinaes" (Sistema Nacional de Avaliação da Educação Superior).
+Adicionalmente, o documento intitulado "Roteiro de Autoavaliação Institucional",
+publicado em 2004 pelo Inep, trouxe uma série de orientações e sugestões que foram
+utilizadas para a elaboração desse relatório. Complementando, as especificidades
+definidas pela Nota Técnica Inep 65/2014 foram a referência para a estruturação do
+relatório, conforme se encontra preconizado no Projeto de Autoavaliação do Inteli.
+O Inteli, enquanto instituição, foi credenciado pela Portaria 2.065, de 26/11/2019. Teve,
+assim, seu primeiro relatório de autoavaliação institucional (RAI) elaborado em 2020 e
+o segundo em 2021. Esses relatórios foram elaborados antes do início das aulas e
+foram mais de caráter genérico, sem dados sobre alunos. Foram considerados
+relatórios parciais. Em 2022, foi elaborado o primeiro RAI após o início das aulas, ou
+seja, foi a primeira oportunidade para realizar o processo de forma plena. Além disso,
+ele completou o primeiro triênio da IES (2020-2021-2022), sendo assim considerado
+relatório "integral", enquanto os anteriores foram considerados "parciais", conforme
+preconizado pela Nota Técnica 65/2014. Segundo a Nota, os relatórios parciais devem
+contemplar as informações do ano anterior, enquanto o relatório integral deve
+contemplar, além das informações do ano anterior, também os dados dos relatórios
+parciais.
+Em 2023, iniciou-se um novo triênio (2023-2024-2025). Dessa forma, o presente
+relatório se refere ao ano de 2024 e é o segundo da série, sendo portanto mais um
+relatório parcial.
+1.3. Dados da instituição e CPA
+Diretoria e gestão acadêmica
+Roberto Balls Sallouti - Diretor da Mantenedora – IBTCC
+Maira Habimorad - Diretora Geral da Mantida – Inteli
+Maurício Garcia - Conselheiro Acadêmico
+Flávia Maria Santoro - Diretora Acadêmica
+Rajesh Rani - Diretor de Comunidade e Cultura
+Ana Beatriz Garcia - Diretora de Expansão e Parcerias
+Guilherme Van de Velde - Diretor de Tecnologia e Operações
+Maiana de Oliveira Nunes - Procuradora Institucional
+Comissão Própria de Avaliação - CPA
+Maurício Garcia - Coordenador - Conselho Acadêmico
+Flávia Maria Santoro - Suplente - Conselho Acadêmico
+Henrique Paiva - Membro - Docente
+Júlia Stateri - Suplente - Docente
+Guilherme Marinovic Antunes - Membro - Comunidade Civil Organizada
+Matheus Barros - Membro - Técnico Administrativo
+Lucas Niemeyer - Suplente - Técnico Administrativo
+Lucas Luccas - Membro - Discente
+Sophia Tosar - Suplente - Discente
+Mantenedora
+Instituto Brasileiro de Tecnologia e Ciência da Computação - IBTCC
+Código e-MEC 17905
+CNPJ/MF: 35.078.331/0001-29
+Natureza Jurídica: Pessoa Jurídica de Direito Privado Sem fins lucrativos
+Endereço: Avenida Professor Almeida Prado, 532, prédios 5 e 6, Butantã, São
+Paulo/SP, CEP 05508-901
+Mantida
+Instituto de Tecnologia e Liderança - Inteli
+Código e-MEC 22651
+Organização Acadêmica: Faculdade
+Categoria Administrativa: Instituição privada sem fins lucrativos
+Ato de Autorização: Portaria nº 2.065, de 26 de novembro de 2019 - D.O.U. 27/11/2019
+Endereço: Avenida Professor Almeida Prado, 532, prédios 5 e 6, Butantã, São
+Paulo/SP, CEP 05508-901
+1.4. Planejamento e metodologia
+O planejamento e a metodologia empregados para a confecção do Relatório de
+Autoavaliação Institucional (RAI) seguem os preceitos estipulados no Projeto de
+Autoavaliação Institucional (PAI) do Inteli, elaborado para atender a Lei 10.861/2004,
+que institui o Sistema Nacional de Avaliação da Educação Superior (Sinaes).
+O PAI descreve a forma de participação de todos os segmentos da comunidade
+acadêmica e da sociedade civil organizada, abrangendo os instrumentos de coleta e
+estratégias para fomentar o engajamento dos segmentos citados. O processo de
+avaliação é desenvolvido obedecendo aos seguintes princípios: sensibilização e
+conscientização da importância de avaliação por todos os segmentos da comunidade
+acadêmica; reconhecimento da legitimidade e pertinência dos princípios norteadores e
+dos critérios a serem adotados; e envolvimento direto de todos os segmentos da
+comunidade acadêmica na sua execução e na implementação de medidas para
+melhoria do desempenho institucional.
+A Comissão Própria de Avaliação (CPA) é responsável por conduzir o processo de
+avaliação institucional, tendo como principais responsabilidades: implementar e
+conduzir os processos de avaliação internos de maneira a garantir a sensibilização
+para participação efetiva de todos os segmentos da comunidade acadêmica; realizar
+análises, elaborar e divulgar os relatórios a partir dos resultados do processo de
+autoavaliação; e prestar informações demandadas pelo INEP/MEC.
+PLANEJAMENTO ESTRATÉGICO
+Conforme proposto pelo Roteiro de Autoavaliação Institucional de 2004, foram
+consideradas as seguintes dimensões no processo de avaliação institucional:
+Dimensão 1 - a missão e o Plano de Desenvolvimento Institucional (PDI)
+Dimensão 2 - políticas para o ensino, a pesquisa e a extensão
+Dimensão 3 - responsabilidade social da instituição
+Dimensão 4 - comunicação com a sociedade
+Dimensão 5 - políticas de pessoal
+Dimensão 6 - organização e gestão da instituição
+Dimensão 7 - infraestrutura física
+Dimensão 8 - planejamento e avaliação
+Dimensão 9 - políticas de atendimento aos estudantes
+O PAI do Inteli detalha cada uma dessas dimensões.
+METODOLOGIA
+Ainda de acordo com o PAI, a metodologia de trabalho e planejamento foi
+fundamentada nas seguintes ações:
+● Planejamento;
+● Sensibilização;
+● Divulgação;
+● Levantamento dos Dados;
+● Análise dos Dados;
+● Redação de Relatórios;
+● Publicação dos Resultados;
+● Discussão dos Resultados;
+● Proposição e Implantação de Ações;
+● Balanço Crítico.
+Vale ressaltar a existência dos recursos de análise de dados do Inteli, ferramentas
+integradas às diversas bases de dados do sistemas informatizados, bem como seu
+processamento e tabulação.
+2. Desenvolvimento
+2.1. Eixo 1 - Planejamento e Avaliação Institucional
+A Avaliação Institucional do Inteli está fundamentada na Lei 10.861/2004, que instituiu
+o Sistema Nacional de Avaliação da Educação Superior (Sinaes), reafirmando o
+processo de avaliação como um importante instrumento para o alcance e a
+manutenção da qualidade do sistema de educação superior. Conforme a lei, os
+processos avaliativos internos e externos são concebidos como subsídios
+fundamentais para a formulação de diretrizes para as políticas públicas de educação
+superior e, também, para a gestão das instituições. O Inteli entende que a Avaliação
+Institucional é um instrumento de gestão e de ação acadêmico-administrativa de
+melhoria institucional, por meio do qual é possível analisar, planejar e organizar ações
+baseadas em seus resultados, promovendo a excelência educacional da instituição.
+O processo de avaliação é desenvolvido obedecendo aos seguintes princípios:
+sensibilização e conscientização da importância de avaliação por todos os segmentos
+da comunidade acadêmica para sua relevância; reconhecimento da legitimidade e
+pertinência dos princípios norteadores e dos critérios a serem adotados; e
+envolvimento direto de todos os segmentos da comunidade acadêmica na sua
+execução e na implementação de medidas para melhoria do desempenho institucional.
+A Comissão Própria de Avaliação (CPA) é responsável por conduzir o processo de
+avaliação institucional e tem como principais responsabilidades implementar e conduzir
+os processos de avaliação internos de maneira a garantir a sensibilização para
+participação efetiva de todos os segmentos da comunidade acadêmica; realizar
+análises, elaborar e divulgar os relatórios a partir dos resultados do processo de
+autoavaliação; e prestar informações demandadas pelo INEP/MEC.
+O processo de autoavaliação conta com a participação de toda a comunidade
+acadêmica (docente, discente e técnico-administrativa) nas diversas formas na
+autoavaliação, quer seja como membro direto da CPA, ou por meio de participação em
+reuniões, palestras e painéis de discussão. Para tanto, a CPA tem como intuito apoiar o
+desenvolvimento, consolidação e disseminação da cultura de avaliação na instituição, a
+partir da implementação de estratégias para fomentar o engajamento crescente da
+comunidade acadêmica, previstas no Projeto de Autoavaliação Institucional.
+2.2. Eixo 2 - Desenvolvimento Institucional
+A MISSÃO E O PLANO DE DESENVOLVIMENTO INSTITUCIONAL
+Conforme recomendado no RAI 2022, o PDI do Inteli foi revisado e uma nova versão foi
+aprovada pelo Conselho Superior em 2023. Nessa nova versão, passaram a valer as
+seguintes frases:
+Missão
+Formar os futuros líderes que vão transformar o Brasil através da tecnologia.
+Visão
+Ser o melhor Instituto de Tecnologia da América Latina com currículo baseado em
+projetos que alia competências de Computação, Negócios e Liderança.
+Valores
+● Ética;
+● Sustentabilidade;
+● Estado de direito;
+● Economia de mercado.
+Além disso, o PDI do Inteli define seis macro objetivos a serem atingidos:
+1. Excelência Acadêmica
+Ser uma instituição de ensino superior de referência em aprendizado baseado em
+projetos e formação de líderes em gestão e tecnologia.
+2. Sustentabilidade Financeira
+Ter uma operação de excelência sem déficit operacional.
+3. Reconhecimento da Marca
+Ser a graduação mais desejada para obtenção de conhecimento na área de gestão e
+computação do Brasil.
+4. Desenvolvimento da Comunidade
+Desenvolver uma comunidade de membros ativos (alunos, equipe, parceiros,
+doadores, etc.) como embaixadores dos valores institucionais.
+5. Excelência dos Serviços
+Ter uma cultura de serviços internos ágeis e eficientes referência no contexto
+educacional.
+6. Inovação
+Aumentar a oferta de cursos e serviços que contribuam com a reputação institucional e
+sustentabilidade financeira.
+2.3. Eixo 3 - Políticas Acadêmicas
+POLÍTICAS PARA ENSINO
+O Inteli implementou a Aprendizagem Baseada em Projetos ("Project-Based Learning -
+PBL") de forma transversal em todos os seus cursos de graduação, pós-graduação e
+extensão. Mas destaca-se a forma com ela foi implementada. Ao escolher os projetos
+como unidades curriculares, enquanto as disciplinas atuam como provedoras de
+saberes, o Inteli adotou um modelo curricular transdisciplinar, que vai muito além dos
+modelos multi e interdisciplinar. Buscou-se, com esse modelo, romper as fronteiras das
+disciplinas tradicionais, estimulando que o aluno articule diversos tipos de conteúdos,
+visando a entrega dos projetos em que está atuando.
+Para tanto, o Inteli concebeu o "Learning Backlog - LBL", que é um conjunto de
+atividades previamente definidas, que permite um acompanhamento sistemático. Isso
+faz com que essa metodologia assegure, de forma nativa, métodos e técnicas
+didático-pedagógicas que favorecem a aprendizagem ativa, incluindo algumas como
+sala de aula invertida ("flipped classroom"), instrução entre pares ("peer instruction") e
+aprendizagem baseada em times ("team-based learning").
+Uma característica importante do LBL é a diversidade de suas atividades, que facilita a
+implementação de componentes curriculares na modalidade a distância. Por exemplo,
+atividades como "artefatos a serem entregues" e "estudo prévio de literatura
+recomendada" podem ser realizadas tanto na forma presencial, nas dependências do
+campus durante o horário de aula, quanto a distância, em qualquer lugar e a qualquer
+tempo. Ou seja, o modelo pedagógico do Inteli é nativamente intercambiável entre as
+modalidades presenciais e a distância.
+O processo de elaboração e revisão do LBL é bastante laborioso. Tipicamente, um LBL
+em cursos de graduação tem de 200 a 250 itens a serem realizados ao longo de 10
+semanas. Para suportar esse processo, foi desenvolvido um sistema informatizado que
+consiste em um ambiente colaborativo, em que os vários professores têm acesso e
+podem interagir, havendo fluxos de revisão e aprovação, antes de sua carga final na
+plataforma Adalove (o AVA/LMS desenvolvido pelo Inteli para uso próprio).
+Além disso, todas essas atividades são realizadas pelos alunos a partir de uma
+demanda de um agente de mercado real, chamado de "parceiro de negócio". Os
+parceiros de negócio são selecionados através de editais periódicos por um
+departamento específico chamado "Escritório de Projetos". A seleção dos parceiros
+leva em consideração vários aspectos, mas principalmente a aderência pedagógica, ou
+seja, a oportunidade de serem desenvolvidas as competências do respectivo módulo a
+partir da demanda do cliente.
+Essas características estão perfeitamente alinhadas com as recomendações da
+Portaria 921/2022, que preconiza:
+● A adoção de metodologias de ensino ativas;
+● Desenvolvimento de práticas integradoras entre pares;
+● A resolução de situações problemas e elaboração de produtos, serviços e
+projetos educacionais.
+Outro ponto de destaque é o Programa de Monitoria destinado a propiciar aos
+interessados a oportunidade de desenvolver suas habilidades para a carreira docente,
+nas funções de ensino, pesquisa e extensão, assegurando, por sua vez, cooperação
+didática nas funções institucionais, tanto ao corpo docente quanto ao discente. Os
+alunos podem candidatar-se a bolsas de acordo com os critérios fixados no
+Regulamento do Programa de Monitoria.
+POLÍTICAS PARA PESQUISA
+O Inteli não é primariamente uma instituição de pesquisa. Sua missão está voltada para
+a formação de lideranças com forte base tecnológica, para que possam atuar como
+agentes de mudança em empresas e outras organizações, como o objetivo de
+contribuir para o desenvolvimento econômico e social. Isso não implica, todavia, que os
+princípios e a metodologia da pesquisa não sejam utilizados em suas diversas
+atividades.
+Nesse sentido, face às características da área de seus cursos, a pesquisa de natureza
+tecnológica assume o protagonismo conceitual no Inteli, sem detrimento da pesquisa
+científica em determinadas situações. Assim, vale ressaltar que no modelo pedagógico
+do Inteli, o desenvolvimento do projeto de cada módulo guarda estrita semelhança com
+o desenvolvimento de um projeto de pesquisa tecnológica. A começar pela demanda
+inicial dos parceiros, que é uma questão a ser resolvida através de um processo
+investigativo. Segue-se o fato dos alunos passarem por uma etapa de aprofundamento
+teórico, através dos autoestudos, que se norteia em alguns princípios dos
+levantamentos bibliográficos. O produto final, por sua vez, é consubstanciado em
+documento formal.
+Além dessa abordagem, no sentido de ampliar seu enfoque para a pesquisa de
+natureza científica, o Inteli mantém um programa de Iniciação Científica, com
+professores designados especialmente para esse fim. Os projetos seguem o padrão
+formal da investigação científica e buscam sua apresentação em congressos e a
+publicação em revistas especializadas.
+Para assegurar a transmissão dos resultados para a comunidade, o Inteli mantém
+políticas de fomento a publicações e participação em eventos, bem como os resultados
+dos projetos desenvolvidos ao longo dos módulos pelos alunos ficam disponíveis em
+conhecido repositório de códigos (GitHub, uma plataforma de hospedagem de
+códigos-fonte de programação - https://github.com). Além disso, faz intensa divulgação
+em blogs e redes sociais e tem planos para realizar anualmente uma Mostra de
+Projetos, reunindo a produção dos alunos ao longo do ano.
+POLÍTICAS PARA EXTENSÃO
+As atividades acadêmicas de extensão do Inteli fazem parte do cotidiano de seus
+cursos, posto que a metodologia utilizada emprega projetos com demandas reais da
+sociedade, sejam empresas, órgãos públicos, ONGs e outras organizações. Dessa
+forma, cada módulo dos cursos é na prática um projeto de extensão, o que vai muito
+além dos 10% previstos na Resolução CNE/CES 7/2018. Isso significa que a extensão
+se encontra institucionalizada, em todos os cursos, desde o primeiro dia de aula.
+Além dessa realidade, outras atividades de extensão fazem parte da rotina do Inteli, a
+saber:
+● Cursos e oficinas: organizados a partir de demandas reais da comunidade, se
+caracterizam por oportunizar, à comunidade acadêmica e ao público em geral, o
+conhecimento de atividades de extensão desenvolvidas pela instituição junto a
+um público específico;
+● Eventos: ações que implicam na apresentação e/ou exibição pública, livre ou
+com clientela específica do conhecimento ou produto cultural, artístico,
+esportivo, científico ou tecnológico, desenvolvido ou reconhecido pelo Inteli;
+● Prestação de serviços: atividades de caráter permanente ou eventual, que
+compreendam a execução ou participação em serviços profissionais e se
+fundamenta em habilidades e conhecimento de domínio desta instituição.
+COMUNICAÇÃO COM A SOCIEDADE
+Um dos principais canais de comunicação externa do Inteli é o seu site web
+(inteli.edu.br), que disponibiliza diversas informações tais como detalhes de cada curso,
+orientações para obtenção de bolsas, detalhes sobre o dia a dia e vida no Inteli e
+instruções para o processo seletivo.
+Além disso, o Inteli possui uma Ouvidoria que consiste em um mecanismo
+institucionalizado de interação entre a comunidade acadêmica, alunos, professores,
+egressos, funcionários e membros da sociedade civil organizada, com as instâncias
+administrativas da instituição, visando contribuir para o aperfeiçoamento da gestão no
+que se refere ao tratamento das demandas das comunidades interna e externa.
+O Inteli também mantém o serviço "Contato Seguro" (contatoseguro.com.br/inteli).
+Através desse canal, discentes, docentes e corpo técnico-administrativo, bem como
+pessoas da comunidade externa, podem, de forma anônima e segura, fazer
+reclamações e denúncias sobre problemas e irregularidades que possam estar
+acontecendo na instituição. O canal é gerenciado por uma empresa independente e
+totalmente imparcial.
+Por fim, o Inteli possui intensa atividades em blogs e redes sociais, tais como
+Instagram, Facebook, TikTok, Linkedin e Youtube.
+ATENDIMENTO A ESTUDANTES E EGRESSOS
+Para o atendimento dos estudantes, um primeiro ponto a destacar é o Centro de
+Desenvolvimento de Liderança (CDL), setor que faz acompanhamento individualizado
+dos alunos, até mesmo antes de ingressarem na instituição. Dessa forma, durante o
+processo seletivo, as equipes do CDL conduzem sessões individuais e coletivas com o
+objetivo de apoiar os alunos para a transição à vida acadêmica, adaptação ao
+ambiente, gestão de conflitos e no mapeamento de bem-estar. Em casos eventuais,
+fazem a indicação para atendimento psicopedagógico ou mesmo encaminhamento
+psicológico.
+Outro ponto importante é o robusto programa de bolsas e subsídios mantido pelo Inteli.
+Esse programa inclui diferentes modalidades de bolsas, tais como permanência,
+iniciação científica, monitoria e extensão.
+Quanto aos egressos, vale mencionar que a primeira turma de graduação irá se formar
+no final de 2025, portanto o Inteli só terá egressos a partir de 2026. Todavia, desde já o
+Inteli se prepara para realizar de forma sistemática o acompanhamento de seus
+egressos, principalmente através do "Setor de Carreiras", vinculado ao "Centro de
+Desenvolvimento de Liderança" (CDL).
+2.4. Eixo 4 - Políticas de Gestão
+POLÍTICAS DE PESSOAL
+O Inteli tem uma política rigorosa quanto à titulação de seu corpo docente de tal forma
+que, salvo raras exceções, todos sejam mestres e/ou doutores e todos estejam
+contratados em regime parcial ou integral.
+Ainda assim, quanto a parcela dos docentes que ainda não possui o doutorado, o Inteli
+assegura a sua liberação, com manutenção integral de sua remuneração, para que
+usem parte do tempo dedicado à instituição, bem como a sua infraestrutura (rede Wi-Fi,
+computadores, salas etc.), em atividades relacionados com seu programa de
+doutorado, incluindo aulas remotas, estudo de artigos, redação de textos, entre outras.
+Além disso, para suportar a escolha da Aprendizagem Baseada em Projetos
+("Project-Based Learning" - PBL), como a peça central de sua metodologia pedagógica,
+o Inteli estruturou o curso de Pós-Graduação (lato sensu) intitulado "Formação Docente
+em Aprendizagem Baseada Projetos", ao qual todos os professores têm acesso,
+gratuitamente. Trata-se de um curso com 360 horas, previstas para ser integralizadas
+em três anos, ou seja, 60 horas por semestre.
+No tocante ao corpo técnico-administrativo, o Inteli oferece cursos e outras atividades
+de desenvolvimento pessoal e profissional, bem como busca subsidiar parte dos custos
+em cursos de graduação e/ou pós-graduação de membros de seu corpo
+técnico-administrativo, em áreas que tenham sinergia com sua atuação na instituição.
+Outro ponto a observar é fato do Inteli possuir verba orçamentária específica para
+assegurar a participação de seus colaboradores em eventos científicos, técnicos,
+artísticos ou culturais. Todas essas práticas estão consolidadas, instituídas e
+publicizadas nos Plano de Capacitação Docente e do Corpo Técnico-Administrativo.
+As diversas políticas de pessoal do Inteli estão consubstanciadas em quatro
+documentos importantes:
+● Plano de Capacitação Docente;
+● Plano de Carreira do Corpo Docente;
+● Plano de Capacitação do Corpo Técnico-administrativo;
+● Plano de Carreira do Corpo Técnico-administrativo.
+ORGANIZAÇÃO E GESTÃO DA INSTITUIÇÃO
+São órgãos da estrutura organizacional do Instituto de Tecnologia e Liderança:
+1. Conselho Superior (Consup)
+2. Conselho Acadêmico (Conac)
+3. Comissão Própria de Avaliação (CPA)
+4. Diretoria Geral
+5. Diretoria Acadêmica
+6. Diretoria de Comunidade e Cultura
+7. Diretoria de Expansão e Parcerias
+8. Diretoria de Tecnologia e Operações
+9. Coordenações de Curso
+10. Colegiados de Curso
+11. Núcleos Docente Estruturante (NDE)
+Além desses, constam como órgãos suplementares e de apoio:
+1. Ouvidoria
+2. Secretaria Acadêmica
+3. Biblioteca
+4. Centro de Desenvolvimento de Liderança (CDL)
+5. Escritório de Projetos
+6. Comitê de Ética
+7. Núcleo de Acessibilidade (NAC)
+8. Núcleo de Apoio Psicopedagógico (NAP)
+9. Coordenação de Relações Internacionais
+10. Comitê de Bolsas
+Dessa forma, o funcionamento da instituição está alicerçado numa gestão participativa
+e democrática por meio de seus órgãos colegiados, nos quais está prevista a
+participação efetiva do seu corpo discente, docente, técnico-administrativos e
+sociedade civil organizada, com o firme propósito de alcançar as metas institucionais,
+bem como realizar a missão e alcançar os objetivos e metas propostos. O Regimento
+Interno, Regulamento da CPA e Regulamento do NDE regulamentam o mandato dos
+membros que compõem os órgãos colegiados.
+Todas as deliberações, normatizações, proposições e avaliações nas esferas
+administrativa e acadêmica são de responsabilidade desses órgãos de acordo com as
+competências de cada um, e considerando a autonomia e a representatividade dos
+órgãos gestores e colegiados. As decisões colegiadas são registradas em atas das
+reuniões. Posteriormente, são amplamente divulgadas para conhecimento e
+apropriação pela comunidade interna, promovendo a sistematização e divulgação das
+decisões.
+SUSTENTABILIDADE FINANCEIRA
+A gestão do orçamento do Inteli é feita pela Diretoria de Tecnologia e Operações, cuja
+missão é conciliar as fontes de receita (doações, mensalidades e receitas diversas),
+com o rol de despesas (custeio e investimentos). Ou seja, ainda que o Inteli seja uma
+instituição sem fins lucrativos, essa Diretoria busca manter um caixa saudável e em
+sintonia com as políticas de ensino, extensão e pesquisa, conforme definidas no PDI.
+Para suportar essa demanda, o Inteli tem um intenso trabalho para a ampliação e
+fortalecimento de fontes captadoras de recursos. O trabalho com os doadores, por
+exemplo, é um processo estruturado, que inclui reuniões periódicas e
+acompanhamento próximo. Mas os doadores não são apenas aqueles relacionados
+com aqueles que suportam os alunos. Além desses, diversas empresas apoiam o Inteli
+com descontos, às vezes integrais, tais como AWS, Azul, IBM e Dell. Há também uma
+frente que está sendo desenvolvida que é o acesso a linhas de fomento, a fundo
+perdido, tanto públicas como privadas.
+Toda movimentação financeira é acompanhada através de métricas estabelecidas
+("OKRs"), em fechamentos mensais que monitoram o previsto versus o realizado. Esse
+monitoramento é organizado pela equipe da Diretoria de Comunidade e Cultura e
+apresentado trimestralmente a um conselho fiscal da mantenedora, composto por
+membros independentes.
+2.5. Eixo 5 - Infraestrutura Física
+AMBIENTES DE APRENDIZAGEM
+As salas de aula, chamadas "ateliês de aprendizagem", possuem recursos
+diferenciados, incluindo lousas em todas as paredes, projetores touch, câmeras
+Pan-Tilt-Zoom (PTZ), microfone de teto e sistema para videoconferência. Em cada
+ateliê há cinco mesas, com oito cadeiras cada, permitindo acomodar 40 alunos por
+ateliê. Ao todo, há 13 ateliês no prédio do Inteli, sendo cinco no térreo e oito no
+primeiro pavimento.
+O laboratório de eletrônica é equipado com osciloscópios digitais, geradores de função,
+multímetros, fontes de alimentação, microcontroladores (Arduino, ESP32, Raspberry Pi
+Pico) e microcomputadores Raspberry Pi, possibilitando práticas em eletricidade,
+eletrônica analógica e digital, e IoT. Para a prática de Automação e Robótica, o
+laboratório conta com robôs Dobot Magician Lite, TurtleBot Burger, drones DJI Tello e
+tablets, permitindo o desenvolvimento de soluções com robótica móvel e IA generativa.
+As Estações de Computação de Alto Desempenho possuem workstations com GPUs
+avançadas para treinamento de modelos de Deep Learning, Big Data, simulações e
+desenvolvimento de games 3D, além de óculos de Realidade Virtual Meta Quest 3. O
+Rack para Estruturas de Redes oferece HDs, NAS, switches, roteadores e repetidores
+para experimentação em configuração e gerenciamento de redes. O Espaço Maker
+complementa o espaço com impressoras 3D, prototipadora router, máquina de corte a
+laser e furadeiras de bancada, permitindo aos estudantes aplicarem seus
+conhecimentos teóricos em projetos práticos. Esse ambiente fomenta inovação,
+criatividade e pensamento crítico, além de ser essencial para a aprendizagem baseada
+em projetos, preparando os alunos para os desafios do mercado de trabalho.
+O Inteli possui um auditório fechado, capaz de acomodar confortavelmente até 120
+pessoas, bem como um auditório aberto em formato de arquibancada, ambos dotados
+de recursos multimídia e para videoconferência.
+AMBIENTES ADMINISTRATIVOS
+As equipes administrativas do Inteli ficam alojadas em dois ambientes, sendo um no
+térreo e um no segundo piso. Além disso, o prédio possui 15 salas de reunião, com
+diversas capacidades, sendo oito no térreo, uma no primeiro e seis no segundo piso.
+Os espaços administrativos possuem infraestrutura de áudio e vídeo, um monitor com
+sistema para videoconferência wireless, unidade compacta de câmera, caixa de som e
+internet Wi-Fi.
+Os discentes possuem um ambiente específico para atendimento, junto à Secretaria
+Acadêmica, com bancada de trabalho e balcão de atendimento. Além desse ambiente,
+os discentes possuem outras variadas formas de atendimento, que incluem o canal
+"Fale Conosco" no site web, o acesso por email, o "Help Inteli" e o contato pela
+plataforma Slack (ferramenta de comunicação corporativa que organiza conversas em
+canais - https://slack.com/).
+AMBIENTES DE CONVIVÊNCIA
+O campus do Inteli está localizado em um ambiente agradável e fartamente arborizado,
+que proporciona inúmeras oportunidades para convivência e espaços para
+alimentação. No ambiente externo, há várias mesas e cadeiras, em diferentes arranjos
+e posições, bem como poltronas, espreguiçadeiras e pufs, criando vários nichos
+confortáveis. No ambiente interno, há o prédio do restaurante, com cozinha industrial,
+buffet self-service, mesas, cadeiras e bancadas para alimentação. No prédio principal,
+há uma cantina, para lanches rápidos, cafés, refrigerantes, etc.
+Para os professores, há duas salas específicas, sendo uma no térreo e outra no
+segundo piso. As salas possuem mesas de trabalho, tomadas e monitores para serem
+usados como segunda tela, bem como sofá, poltronas, armários com chave e ar
+condicionado com controle individual do ambiente.
+BIBLIOTECA
+O Inteli incorporou vários avanços conceituais para sua biblioteca. Em primeiro lugar,
+ao priorizar os acervos digitais através de importantes fornecedores como "Minha
+Biblioteca" (livros) e "Ebsco" (periódicos), o Inteli assegura amplo acesso a milhares de
+títulos, constantemente atualizados, a qualquer momento, em qualquer lugar. Em
+segundo lugar, ao estender a todo campus as estações individuais e coletivas para
+estudos, o Inteli amplia a infraestrutura da biblioteca para todo campus.
+Assim, a combinação do acervo virtual com os espaços ampliados transforma a
+infraestrutura do Inteli numa grande biblioteca, que é efetivamente utilizada em tempo
+real, o tempo todo. Além disso, o Inteli possui um outro recurso inovador, que é a
+plataforma Adalove, desenvolvida internamente pelas equipes de tecnologia, e que
+concentra todas as informações e serviços da biblioteca em um único ponto de acesso,
+facilitando e agilizando as pesquisas de sua comunidade acadêmica.
+PLATAFORMA DE APRENDIZAGEM - ADALOVE
+Para suportar seu inovador modelo acadêmico a plataforma Adalove foi concebida para
+apoiar diversas atividades acadêmicas, incluindo aquelas tipicamente realizadas pelos
+LMS (Learning Management System), CMS (Curriculum Management System) e SIS
+(Student Information System). Ou seja, a Adalove vai muito além de um ambiente
+virtual de aprendizagem, ela é também o próprio sistema de registro acadêmico, de
+forma totalmente fluida e integrada, seja para cursos presenciais, seja para cursos a
+distância. As rotinas da Adalove garantem a interação entre docentes, discentes e
+tutores, atendendo aos processos de ensino e aprendizagem, seguindo o disposto nas
+políticas institucionais. Além disso, os dados gerados pela Adalove permitem o
+acompanhamento diário dos alunos por parte dos professores, bem como equipes do
+CDL e do apoio pedagógico.
+INFRAESTRUTURA TECNOLÓGICA
+Todo funcionamento pedagógico e administrativo do Inteli é baseado em inúmeras
+ferramentas e plataformas tecnológicas, as quais estão hospedadas numa
+infraestrutura de nuvem pública (AWS - Amazon Web Services), a qual oferece as
+melhores tecnologias para a alta disponibilidade do serviço.
+Para a comunicação interna, é utilizada a plataforma Slack, viabilizando a troca de
+informação, experiências e dúvidas relacionadas às atividades acadêmicas e
+administrativas. Para a comunicação junto aos membros da comunidade, também são
+empregados totens com telas digitais baseados na tecnologia "Digital Signage", os
+mesmos comumente vistos em aeroportos no Brasil e no mundo.
+A arquitetura lógica instalada foi concebida para um público de cinco mil pessoas e dez
+mil dispositivos simultâneos. Para isto, o Inteli conta com uma rede de internet alta
+velocidade e disponibilidade baseada em dois links dedicados, com capacidade de 2
+Gbits agregados, sendo estes redundantes para contingência. Internamente, a espinha
+dorsal da rede do Inteli utiliza fibras óticas com uma capacidade de transmissão de 40
+Gbps, com conexões e equipamentos redundantes, distribuindo assim as redes lógicas
+para acesso à internet e recursos audiovisuais de 10 Gbps por uma estrutura de
+Ethernet Categoria 6.
+A entrada de energia da concessionária está conectada à um estabilizador de energia,
+que mitiga variações de voltagem e amperagem, protegendo todo o sistema. Na
+arquitetura de energia instalada foram consideradas duas linhas principais de
+distribuição, sendo uma crítica e outra não crítica ou comum. Há também um sistema
+de baterias (no-break) de alta capacidade, com uma autonomia de até 4 horas, bem
+como um gerador à diesel de alta capacidade, para garantir o suprimento de 100% da
+energia crítica utilizada no campus.
+Para o suporte, o Inteli adotou o conceito de atendimento amplo para apoio e suporte
+de informática chamado de "IT Bar", oferecendo um atendimento imediato aos
+discentes, docentes e colaboradores. O IT Bar está localizado no primeiro pavimento e
+possui acesso fácil a todos usuários, contando com amplo espaço físico, ergonômico,
+acessível e com equipamentos adequados conectados à internet.
+Além disso, pedidos de atendimento e suporte são gerenciados e organizados por
+ferramenta de gestão de chamados chamada "Help" (help.inteli.edu.br), que pode ser
+acessada por qualquer dispositivo conectado à internet, em qualquer horário. Esta
+ferramenta usa a plataforma "Freshdesk", uma referência de classe mundial de ITSM
+(Gerenciamento de Serviços de Tecnologia da Informação) de acordo com as melhores
+práticas do ITIL (Biblioteca de Infraestrutura de Tecnologia da Informação).
+A governança destes processos, seja para cursos presenciais, seja para cursos a
+distância, é baseada no ITIL (Biblioteca de Infraestrutura de Tecnologia da Informação),
+reconhecido mundialmente como as melhores práticas para execução e suporte de
+serviços de tecnologia. Todos os ativos de tecnologia possuem monitoramento ativo
+através de uma plataforma que apoia as equipes na tomada de ação corretiva proativa.
+3. Indicadores gerais
+3.1. Indicadores gerais
+Tabela 3.1. Resumo dos indicadores gerais do Inteli
+Indicador 2020 2021 2022 2023 2024
+Cursos de graduação presenciais 0 4 4 4 5
+Cursos de graduação a distância 0 0 3 3 0
+Cursos de pós-graduação presenciais 0 0 1 0 0
+Cursos de pós-graduação a distância 0 0 0 1 2
+Docentes em sala de aula 0 0 21 39 43
+Técnicos administrativos 10 16 68 73 56
+Discentes enturmados 0 0 198 318 438
+Tabela 3.2. Cursos de graduação cadastrados no e-MEC
+Nome do curso Grau Modalidade Situação
+Ciência da Computação Bacharelado Presencial Em atividade
+Engenharia de Computação Bacharelado Presencial Em atividade
+Engenharia de Software Bacharelado Presencial Em atividade
+Sistemas de Informação Bacharelado Presencial Em atividade
+Administração de Empresas Bacharelado Presencial Autorizado
+Pedagogia Licenciatura Presencial Extinto
+Ciência da Computação Bacharelado A distância Não implementado
+Engenharia de Computação Bacharelado A distância Não implementado
+Sistemas de Informação Bacharelado A distância Não implementado
+Tabela 3.3. Principais processos regulatórios protocolados no e-MEC
+Process Modalida Data da Conceit
+o Curso/Instituição de Processo visita o
+2017155
+76 Instituição Presencial Credenciamento 12/08/18 4
+2017165
+20 Pedagogia Presencial Autorização 07/11/18 4
+2020137
+48 Instituição EAD Credenciamento 31/05/21 4
+2020137
+50 Ciência da Computação EAD Autorização 27/05/21 4
+2020138 Engenharia de
+50 Computação EAD Autorização 27/05/21 4
+2020138
+35 Sistemas de Informação EAD Autorização 27/05/21 4
+2020142
+09 Ciência da Computação Presencial Autorização 09/08/21 4
+2020142 Engenharia de
+47 Computação Presencial Autorização 22/07/21 5
+2020142
+40 Engenharia de Software Presencial Autorização 09/08/21 4
+2020142
+43 Sistemas de Informação Presencial Autorização 09/08/21 4
+2022209
+22 Administração Presencial Autorização 27/10/23 5
+2022183 Recredenciame
+37 Instituição Presencial nto 12/06/24 4
+2024047 Reconheciment
+03 Ciência da Computação Presencial o 13/11/24 5
+2024047 Engenharia de Reconheciment
+04 Computação Presencial o 13/11/24 5
+2024047 Reconheciment
+05 Engenharia de Software Presencial o 01/11/24 5
+2024047 Reconheciment
+06 Sistemas de Informação Presencial o 06/11/24 5
+Figura 3.3. Evolução dos conceitos
+Tabela 3.4. Evolução do corpo docente
+Ano 2022 2023 2024
+Doutores 15 71% 27 69% 22 51%
+Mestres 6 29% 12 31% 21 49%
+Especialistas - - - - - -
+Tempo integral 13 62% 27 69% 34 79%
+Tempo parcial 8 38% 12 31% 9 21%
+Horistas - - - - - -
+Total 21 100% 39 100% 43 100%
+3.2. Painel Trimestral de Indicadores
+Fechamento do trimestre 2024-2B
+Vide ANEXO.
+4. Objetivos e Resultados-Chave (OKR)
+Os OKRs (“Objectives and Key Result”) são métricas utilizadas pelas equipes de
+gestão do Inteli. Para analisar as tabelas a seguir, recomenda-se a leitura prévia da
+documentação detalhada de cada indicador, disponível na Diretoria de Comunidade e
+Cultura.
+Tabela 4.1. Objetivos e Resultados-Chave (OKR) – Excelência Acadêmica
+KR Alvo Resultado Progresso
+Coef. de Performance <Alvo 20% 17% 100%
+Coef. de Engajamento 91% 89% 98%
+Produção Científica 5 7 100%
+Internacionalização 100% 83.00% 83%
+Empregabilidade 70% 84.0% 100%
+Tabela 4.2. Objetivos e Resultados-Chave (OKR) - Sustentabilidade Financeira
+KR Alvo Resultado Progresso
+1.251.000,0
+Orçamento sem estouro R$0 0 100%
+Plan. Margem Bruta Grad 100% 98% 98%
+Evasão de Virada Regulares
+<Alvo 5% 1.9% 100%
+Tabela 4.3. Objetivos e Resultados-Chave (OKR) – Reconhecimento da Marca
+KR Alvo Resultado Progresso
+Seguidores Redes Sociais 23% 126.0% 0%
+PR Veículos Tier 1 60 80 100%
+Tabela 4.4. Objetivos e Resultados-Chave (OKR) – Desenvolvimento da
+Comunidade
+KR Alvo Resultado Progresso
+Captação Bolsas 96 70 73%
+Progr. de Desenvolvimento 80% 96.0% 100%
+Evasão Acumulada Global 12% 14.90% 81%
+Turnover Voluntário < Alvo 7.50% 3.80% 100%
+Alunos Impactados 1000 1014 100%
+% Alunas Graduação 28% 26.3% 94%
+Tabela 4.5. Objetivos e Resultados-Chave (OKR) - Excelência dos Serviços
+Internos
+KR Alvo Resultado Progresso
+Projetos Estruturantes 86% 87% 100%
+Manutenção do Negócio 90% 98% 100%
+Priorização e Vis. Backlog 100% 0% 0%
+Tabela 4.6. Objetivos e Resultados-Chave (OKR) - Inovação
+KR Alvo Resultado Progresso
+Compass e AI 70% 80% 100%
+InteliExec 5 4 80%
+Pós graduação 25 10 40%
+5. Resultados diversos
+Tabela 5.1. Projetos realizados pelos alunos
+Item 2022 2023 2024
+Parceiros de projeto* 21 34 43
+Projetos concluídos** 22 38 52
+Protótipos entregues 113 194 247
+Tabela 5.2. Monitorias
+Curso 2022 2023 2024
+Ciência da Computação 1 5 6
+Engenharia de Computação 1 4 9
+Engenharia de Software 1 4 8
+Sistemas de Informação 1 1 3
+Total 4 14 26
+Tabela 5.3. Bolsas de Extensão ("student jobs")
+Curso 2022 2023 2024
+Ciência da Computação 6 4 1
+Engenharia de Computação 2 5 3
+Engenharia de Software 0 1 3
+Sistemas de Informação 5 3 0
+Total 13 13 7
+Tabela 5.4. Bolsas Iniciação Científica
+Curso 2022 2023 2024
+Ciência da Computação 2 2 3
+Engenharia de Computação 2 1 4
+Engenharia de Software 1 1 1
+Sistemas de Informação 0 0 1
+Total 5 4 9
+* valor por ano, não acumulado
+** não inclui projetos do módulo 12
+Tabela 5.5. Convênios internacionais firmados
+País 2022 2023 2024
+Alemanha 1
+Argentina 1
+Bélgica 1
+Canadá 1
+Chile 1
+China 1
+Coreia 1
+Croácia 2
+Eslovênia 1
+Espanha 1 1 2
+EUA 2 2
+França 2 5
+Geórgia 1
+Holanda 1 3
+índia 1 1
+Inglaterra 1
+Irlanda 1
+Israel 1
+Italia 1
+México 1 1
+Multilateral 1
+Nova Zelândia 1
+Paris 1
+Portugal 4 2
+República Tcheca 1
+Uruguai 1
+Total 4 18 27
+Tabela 5.6. Alunos do Inteli em intercâmbios internacionais
+País 2022 2023 2024
+Chile 1
+Croácia 2
+Espanha 2
+Holanda 4
+Israel 1
+Total 0 0 10
+6. Destaques do ano
+Iniciativas internas e externas de capacitação docente
+Tivemos alguns Workshops do NAP, por exemplo, no tratante à iniciativas internas.
+Também houve a participação de docentes em programa de certificação em GitHub
+Foundation. Essa oportunidade foi disponibilizada, inicialmente, aos professores
+orientadores.
+Programa de Mentoria: Fortalecendo Futuros Líderes
+Em 2024, o Instituto de Tecnologia e Liderança (Inteli) lançou um robusto Programa de
+Mentoria, conectando estudantes a profissionais experientes do setor tecnológico. Essa
+iniciativa proporcionou orientação personalizada, ampliando as perspectivas de carreira
+e fortalecendo a rede de contatos dos participantes.
+Aula Inaugural da Pós-Graduação: Início de uma Nova Jornada
+A pós-graduação do Inteli teve sua aula inaugural em março de 2024, marcando o
+começo de uma etapa acadêmica avançada. O evento contou com a presença de
+renomados especialistas, que compartilharam insights valiosos sobre as tendências e
+desafios atuais no campo da tecnologia e liderança.
+I-Learn: Capacitação Contínua para Colaboradores
+O programa I-Learn foi implementado em 2024, focando no desenvolvimento contínuo
+dos colaboradores do Inteli. Através de workshops e cursos presenciais, os
+funcionários aprimoraram habilidades técnicas e de liderança, alinhando-se às
+demandas dinâmicas do setor tecnológico.
+Lançamento da Pós em Cybersegurança: Protegendo o Futuro Digital
+Reconhecendo a crescente importância da segurança digital, o Inteli inaugurou, em
+setembro de 2024, a Pós-Graduação em Cybersegurança. O curso aborda desde
+fundamentos até técnicas avançadas de proteção de dados, preparando profissionais
+para enfrentar ameaças cibernéticas complexas.
+Parcerias Estratégicas: Projetos Inovadores em Colaboração
+Em 2024, o Inteli fortaleceu alianças com diversas empresas e instituições, resultando
+em projetos colaborativos de destaque. Essas parcerias possibilitaram a aplicação
+prática de conhecimentos acadêmicos em soluções tecnológicas reais, beneficiando
+tanto os estudantes quanto o mercado.
+Intercâmbio Internacional: Expandindo Horizontes Acadêmicos
+O programa de intercâmbio do Inteli enviou, em 2024, diversos alunos para instituições
+parceiras no exterior. Essa experiência internacional enriqueceu a formação dos
+estudantes, proporcionando-lhes uma visão global e multicultural essencial para o
+mercado de trabalho atual.
+Maratona de Programação: Estimulando a Criatividade e a Inovação
+Em junho de 2024, o Inteli organizou uma maratona de programação que reuniu
+estudantes de todo o país. O evento desafiou os participantes a desenvolverem
+soluções inovadoras em tempo limitado, promovendo a criatividade, o trabalho em
+equipe e a aplicação prática de conhecimentos técnicos.
+Grupos Estudantis: Fomentando o Empreendedorismo e a Liderança
+Ao longo de 2024, os grupos estudantis do Inteli desempenharam papel crucial na
+promoção do empreendedorismo e da liderança. Através de eventos, workshops e
+projetos, esses grupos criaram um ambiente colaborativo que incentivou a troca de
+ideias e o desenvolvimento de habilidades essenciais.
+Currículo de Negócios: Integrando Tecnologia e Gestão
+O Inteli revisou, em 2024, seu currículo de negócios para integrar de forma mais eficaz
+os conhecimentos de tecnologia e gestão. Essa abordagem interdisciplinar irá preparar
+os alunos para assumirem posições de liderança que exigem compreensão tanto dos
+aspectos técnicos quanto estratégicos das organizações.
+Evento Global: Conectando Mentes Brilhantes
+Em novembro de 2024, o Inteli sediou um evento global que reuniu especialistas,
+acadêmicos e estudantes para discutir as tendências emergentes em tecnologia e
+liderança. O encontro serviu como plataforma para a troca de conhecimentos e
+estabelecimento de novas parcerias, reforçando o papel do Inteli como um hub de
+inovação.
+7. Análises e recomendações
+7.1. Ações do ano anterior
+Das 17 recomendações feitas no Relatório de Autoavaliação de 2023, 12 foram
+integralmente implementadas, uma parcialmente e quatro não foram implementadas.
+ORGANIZAÇÃO DIDÁTICO-PEDAGÓGICA
+- Desenhar as trilhas do quarto ano (empreendedora, corporativa e acadêmica),
+incluindo o desenvolvimento dos respectivos LBLs
+Feito: Trilhas desenhadas e LBLs desenvolvidos.
+- Enviar os intercambistas para instituições internacionais com as quais foram
+assinados os convênios em 2023
+Feito: Enviados 10 alunos para intercâmbio em instituições parceiras.
+- Receber os intercambistas de instituições internacionais com as quais foram
+assinados os convênios em 2023
+Não feito: Inteli não recebeu intercambistas.
+- Implementar programas de inglês no modelo presencial para discentes, docentes e
+equipe técnica administrativa
+Feito: programa implementado.
+CORPO DOCENTE
+- Oferecer mais dois módulos da pós-graduação da formação docente e formar a
+primeira turma
+Feito: Módulos oferecidos e primeira turma graduada.
+- Recrutar e selecionar novos professores, de acordo com as especialidades técnicas
+desejadas
+Feito: professores recrutados.
+EQUIPE TÉCNICO ADMINISTRATIVA
+- Implementar programa de capacitação no formato PBL (aprendizagem baseada em
+projetos)
+Feito: programa implementado.
+INICIATIVAS REGULATÓRIAS
+- Fazer pequenos ajustes, atualizar e publicar o PDI
+Feito: PDI revisado e publicado.
+- Consolidar e publicar os novos PPCs
+Feito: Todos os PPCs foram revisados e publicados.
+- Receber a visita de recredenciamento e obter nota máxima
+Em parte: protocolo em 2022 e visita recebida em 2024, conceito quatro.
+- Protocolar os pedidos de reconhecimento dos cursos de graduação presenciais
+Feito: processos protocolados em 2024, com visitas recebidas entre outubro e
+novembro/2024, todos com conceito cinco.
+- Realizar o primeiro Enade do Inteli, nos cursos de Ciência da Computação e Sistemas
+de Informação
+Não feito: os alunos do Inteli não se enquadram no ciclo avaliativo do Enade.
+PROCESSO SELETIVO
+- Lançar o processo seletivo para o curso de Administração
+Feito: processo seletivo lançado.
+OUTRAS
+- Formalização de uma área de Sucesso do Aluno
+Feito: área formalizada.
+- Desenhar plano de ESG para a instituição (Ambiental, Social e Governança)
+Não feito: plano não desenhado.
+- Implementação do PPA (Plano de Pagamento Alternativo) para alunos não-bolsistas
+Feito: plano implementado.
+- Retomar a Pesquisa de Clima para avaliação da satisfação e engajamento dos corpos
+docente e técnico-administrativo
+Não feito: pesquisa não retomada.
+7.2. Discussão
+O Relatório de Autoavaliação Institucional (RAI) de 2024 marca um novo capítulo na
+trajetória do Instituto de Tecnologia e Liderança (Inteli). Se nos primeiros anos o desafio
+foi estruturar e consolidar um modelo pedagógico inovador, este relatório reflete o
+amadurecimento da instituição, com resultados expressivos em diversas frentes.
+Dentre os avanços obtidos, destaca-se o reconhecimento do MEC, que atribuiu a nota
+máxima (cinco) a todos os cursos avaliados. Esse resultado reforça a solidez do
+modelo de Aprendizagem Baseada em Projetos (PBL) e dissipa eventuais dúvidas
+sobre sua adequação às normativas da Educação Superior. Além disso, a expansão do
+portfólio com o lançamento do curso de Administração, chamado internamente de Adm
+Tech, reflete a estratégia da instituição de integrar tecnologia à formação gerencial,
+respondendo às demandas do mercado.
+Outro marco foi a formatura da primeira turma de pós-graduação do Inteli. O curso de
+Formação em Aprendizagem Baseada em Projetos (PBL) capacitou os docentes da
+instituição, consolidando um corpo acadêmico alinhado aos princípios pedagógicos
+inovadores do Inteli. Esse processo também fortaleceu a comunidade acadêmica e
+elevou a qualidade do ensino oferecido.
+A instituição também avança para um momento histórico: a formatura da primeira turma
+de graduação que ocorrerá no final de 2025. O desenvolvimento dos módulos do
+quarto ano permitiu estruturar as trilhas de formação (empreendedora, corporativa e
+acadêmica), garantindo um percurso formativo adaptado às necessidades individuais
+dos alunos e às demandas do mercado.
+Os indicadores gerais também apontam um crescimento significativo. O aumento do
+número de docentes, a evolução no coeficiente de engajamento e a alta taxa de
+empregabilidade são sinais da consolidação da proposta acadêmica. Destaca-se ainda
+o fortalecimento da internacionalização, com 10 alunos enviados para intercâmbios
+internacionais e um número crescente de convênios com instituições estrangeiras.
+Apesar dos avanços, desafios permanecem. A evasão acumulada global, embora
+dentro dos patamares esperados para instituições inovadoras, é um ponto de atenção.
+A captação de bolsas também ficou abaixo da meta estabelecida, demandando
+estratégias para ampliar o acesso à formação acadêmica de qualidade. Além disso, a
+implementação de alguns projetos estruturantes precisa de maior acompanhamento,
+especialmente no que diz respeito à priorização e visibilidade do backlog de
+desenvolvimento da Adalove.
+A análise deste ciclo revela uma instituição que não apenas consolidou sua estrutura,
+mas também projetou novos desafios e oportunidades. O compromisso com a
+excelência acadêmica, a inovação e a formação de lideranças segue como um norte
+para o Inteli, impulsionando a evolução contínua de seus programas e iniciativas.
+7.3. Recomendações
+O ano de 2025 será muito importante para o Inteli, com destaque para a formatura da
+primeira turma de graduação. Nesse sentido e com base nos resultados obtidos pelo
+Inteli até o presente, a CPA sugere a implementação das seguintes ações:
+1. Seguir implementando esforços para manter a evasão em patamares razoáveis,
+buscando sua redução.
+2. Reforçar as iniciativas para a captação de bolsas e buscar sua ampliação.
+3. Implementar estratégias para reduzir o absenteísmo nos encontros dos cursos
+de graduação.
+4. Ampliar a integração de inteligência artificial em processos acadêmicos,
+administrativos e pedagógicos, priorizando sua utilização no conceito "AI First",
+incluindo seu uso para a personalização de avaliações e atividades adaptativas.
+5. Fortalecer a estratégia comercial em novos cursos e produtos educacionais para
+diferentes públicos, incluindo B2C/B2B, cursos executivos e pós-graduações.
+6. Estruturar documentações pedagógicas padronizadas para novos cursos e
+formações, incluindo seus projetos pedagógicos e outras documentações.
+7. Desenvolver um programa estruturado para acompanhamento e engajamento de
+egressos (Programa Alumni).
+8. Refinar os processos avaliativos, considerando feedbacks dos alunos e
+melhores práticas de ensino para melhorar a aprendizagem.
+9. Implementar e monitorar a efetividade das trilhas de especialização do último
+ano.
+10. Desenvolver os Learning-Backlogs (LBLs) específicos para o curso de
+Administração com foco em tecnologia.
+11. Atualizar os eixos de ensino voltados para Negócios e Liderança, integrando
+novas abordagens de mercado.
+12. Melhorar a estrutura de estágios, mapeando habilidades e oportunidades para
+estudantes.
+13. Incentivar a vinda de estudantes intercambistas de outras instituições.
+8. Anexo
+Painel Fechamento Trimestral
+Observação: os gráficos a seguir não necessariamente possuem o eixo das ordenadas
+começando do zero. A opção por ajustar as escalas tem o objetivo de deixar mais
+evidentes as eventuais diferenças, porém pode mascarar as suas magnitudes.
