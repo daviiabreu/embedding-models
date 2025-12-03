@@ -72,6 +72,98 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# ================= LÓGICA DE PARSING DE CURRÍCULO (SENIOR ENGINEER) =================
+
+def contextualize_inteli_curriculum(text: str) -> str:
+    """
+    Transforma a estrutura visual (indentação/ordem) em estrutura explícita.
+    Lê o texto linha a linha e propaga o contexto (Ano > Projeto > Matéria) para o conteúdo.
+    """
+    lines = text.split('\n')
+    new_lines = []
+    
+    # Estado da Máquina
+    state = {
+        "ano": "",
+        "projeto": "",
+        "projeto_desc": "",
+        "materia": ""
+    }
+    
+    # Regex Patterns para identificar cabeçalhos
+    # Flexível para pegar "Ano 1", "Ano 2", etc.
+    re_ano = re.compile(r"^Ano\s+\d+", re.IGNORECASE)
+    # Pega "Projeto 5", "Projeto X"
+    re_projeto = re.compile(r"^Projeto\s+\d+", re.IGNORECASE)
+    # Lista de matérias conhecidas no currículo do Inteli
+    materias_keywords = [
+        "Matemática", "Física", "Computação", "Design", "Negócios", "Liderança", 
+        "Matemática/ Física", "Matemática / Física"
+    ]
+    
+    for line in lines:
+        clean = line.strip()
+        if not clean: continue
+        
+        # 1. Detecta Mudança de ANO
+        if re_ano.match(clean):
+            state["ano"] = clean
+            # Reseta níveis inferiores quando muda o ano
+            state["projeto"] = ""
+            state["projeto_desc"] = ""
+            state["materia"] = ""
+            new_lines.append(f"--- {clean} ---") # Marcador visual
+            continue
+            
+        # 2. Detecta Mudança de PROJETO
+        if re_projeto.match(clean):
+            state["projeto"] = clean
+            # Reseta matéria
+            state["materia"] = ""
+            # A linha seguinte ao título do projeto costuma ser a descrição dele.
+            # Vamos assumir que esta linha é o título por enquanto.
+            new_lines.append(f"--- {clean} ---")
+            continue
+            
+        # 3. Detecta Descrição do Projeto (Heurística: linha logo após Projeto, longa)
+        # Se temos projeto definido mas ainda não temos matéria, e a linha parece descritiva
+        if state["projeto"] and not state["materia"] and len(clean) > 30 and "–" in clean:
+             state["projeto_desc"] = clean
+             # Injeta contexto na descrição do projeto
+             new_lines.append(f"[Contexto: {state['ano']} > {state['projeto']}] Descrição: {clean}")
+             continue
+
+        # 4. Detecta Mudança de MATÉRIA (Tópico)
+        # Verifica se a linha começa com uma das palavras-chave
+        is_materia = False
+        for mat in materias_keywords:
+            if clean.startswith(mat) and len(clean) < 50: # Títulos de matéria são curtos
+                state["materia"] = clean
+                is_materia = True
+                break
+        
+        if is_materia:
+            continue # Não adicionamos a linha solta, vamos usá-la como prefixo das próximas
+
+        # 5. Processamento de CONTEÚDO (A mágica acontece aqui)
+        # Se temos contexto acumulado, "carimbamos" a linha
+        context_tags = []
+        if state["ano"]: context_tags.append(state["ano"])
+        if state["projeto"]: context_tags.append(state["projeto"])
+        if state["materia"]: context_tags.append(state["materia"])
+        
+        if context_tags and len(clean) > 3: # Ignora lixo muito curto
+            # Cria o prefixo: "[Ano 2 | Projeto 5 | Liderança]"
+            prefix = " | ".join(context_tags)
+            # Reconstrói a linha
+            enriched_line = f"[{prefix}] {clean}"
+            new_lines.append(enriched_line)
+        else:
+            # Se não tem contexto específico (ex: intro do texto), mantém original
+            new_lines.append(clean)
+
+    return "\n".join(new_lines)
+
 # ================= FUNÇÕES AUXILIARES =================
 
 def fix_encoding(text: str) -> str:
@@ -103,34 +195,28 @@ def fix_encoding(text: str) -> str:
     return text
 
 def clean_text(text: str) -> str:
-    """Higienização rigorosa do texto."""
-    if not text: 
-        return ""
+    if not text: return ""
     
+    # Aplica o parser de currículo se detectar palavras-chave
+    # Isso garante que só alteramos arquivos que parecem grades curriculares
+    if "Projeto" in text and "Liderança" in text and "Ano" in text:
+        logger.info("🎓 Detectada estrutura de currículo. Aplicando parser contextual...")
+        text = contextualize_inteli_curriculum(text)
+        return text
+
+    # Limpeza padrão para outros arquivos
     lines = text.split('\n')
     cleaned_lines = []
     for line in lines:
         l = line.strip().lower()
-        # Lista negra de termos de menu que poluem o vetor
-        if any(x in l for x in ["skip to content", "acompanhe seu processo", "quem somos", "fundadores", "campus", "docentes", "programa de bolsas", "produção acadêmica", "blog", "contato", "saiba mais", "soluções para sua empresa"]):
+        if any(x in l for x in ["skip to content", "acompanhe seu processo", "quem somos", "fundadores", "campus", "docentes", "programa de bolsas", "blog", "contato", "saiba mais", "soluções para sua empresa"]):
             continue
         cleaned_lines.append(line)
     
     text = "\n".join(cleaned_lines)
-    
-    # Corrige encoding primeiro
     text = fix_encoding(text)
-    
-    # Remove caracteres de controle ASCII estranhos
     text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', text)
-    # Normaliza espaços
     text = re.sub(r'\s+', ' ', text).strip()
-    # Remove marcadores de página comuns
-    text = re.sub(r'Pág\.\s*\d+', '', text)
-    # Corrige ligaduras comuns em PDFs
-    text = text.replace("\ufb01", "fi")
-    text = text.replace("\ue009", "tt")
-    
     return text
 
 def infer_category(filename: str, existing_category: str = None) -> str:
@@ -141,69 +227,19 @@ def infer_category(filename: str, existing_category: str = None) -> str:
     if "edital" in fname or "regras" in fname: return "regras_edital"
     elif "faq" in fname: return "faq"
     elif "livro" in fname or "institucional" in fname: return "institucional"
-    elif "tapi" in fname or "robo" in fname: return "contexto_robo"
     return "geral"
 
-def is_navigation_noise(text: str) -> bool:
-    """Detecta ruído comum de web scraping (menus, navegação)."""
-    text_lower = text.lower().strip()
-    
-    # Frases típicas de navegação
-    noise_patterns = [
-        r"^skip to",
-        r"^acompanhe seu processo",
-        r"^saiba mais$",
-        r"^acesse já",
-        r"^quem somos$",
-        r"^fundadores$",
-        r"^campus$",
-        r"^docentes$",
-        r"^contato$",
-        r"^blog$",
-        r"^cursos$",
-        r"^seja um parceiro$",
-        r"^redes sociais$",
-        r"^localização$",
-        r"^copyright",
-        r"^processo seletivo$",
-        r"^ensino básico$",
-        r"^todos os direitos reservados"
-    ]
-    
-    # Se for muito curto e não tiver pontuação, provavelmente é menu
-    if len(text) < 50 and not any(p in text for p in ['.', ',', ';', ':']):
-        if any(re.search(pattern, text_lower) for pattern in noise_patterns):
-            return True
-    
-    return False
 
 def infer_element_type(text: str) -> str:
-    """
-    Infere se o texto é um Título, Item de Lista ou Texto Corrido.
-    Essencial para criar a hierarquia do chunking.
-    """
     text = text.strip()
     if not text: return "Unknown"
     
-    if is_navigation_noise(text):
-        return "NavigationNoise"
-    
-    is_short = len(text) < 100
-    starts_numeric = re.match(r"^\d+(\.\d+)*\.?\s", text)
-    is_upper_title = text.isupper() and len(text) > 4
-    
-    # PADRÕES ESPECÍFICOS DO SITE/INTELI (Adicionei 'Módulo' aqui)
-    if re.match(r"^Ano \d+$", text, re.IGNORECASE): return "Title"
-    if re.match(r"^Projeto \d+", text, re.IGNORECASE): return "Title"
-    if re.match(r"^Módulo \d+", text, re.IGNORECASE): return "Title" # <--- ADICIONADO
-    if re.match(r"^CLÁUSULA", text, re.IGNORECASE): return "Title"
-    if re.match(r"^Trilha de", text, re.IGNORECASE): return "Title"
-    
-    if is_short and (starts_numeric or is_upper_title):
+    # Detecta linhas que viraram "Headers" enriquecidos pelo nosso parser
+    if text.startswith("[") and "|" in text and "]" in text:
+        return "ContextualizedContent"
+        
+    if re.match(r"^Ano \d+", text) or re.match(r"^Projeto \d+", text):
         return "Title"
-    
-    if re.match(r"^[\•\-\*]\s", text) or re.match(r"^\d+\)\s", text):
-        return "ListItem"
         
     return "NarrativeText"
 
@@ -424,7 +460,7 @@ def extract_pdf_fallback(file_path: Path) -> List[Dict[str, Any]]:
                     continue
                 
                 # Inferência manual de tipo
-                el_type = infer_element_type_from_text(clean_line)
+                el_type = infer_element_type(clean_line)
                 
                 elements_data.append({
                     "text": clean_line,
@@ -458,7 +494,7 @@ def extract_pdf_fallback(file_path: Path) -> List[Dict[str, Any]]:
                     
                     elements_data.append({
                         "text": clean_line,
-                        "type": infer_element_type_from_text(clean_line),
+                        "type": infer_element_type(clean_line),
                         "metadata": {
                             "page_number": i + 1,
                             "source": file_path.name,
@@ -551,7 +587,7 @@ def extract_file_elements(file_path_str: str, use_unstructured: bool = True) -> 
                 
             elements_data.append({
                 "text": line,
-                "type": infer_element_type_from_text(line),
+                "type": infer_element_type(line),
                 "metadata": {
                     "page_number": 1,
                     "source": file_path.name,
@@ -838,7 +874,7 @@ def embedding_pipeline(
         skip_summary=skip_summary
     )
     
-    chunks = create_smart_chunks(
+    chunks = create_chunks(
         processed_elements=proc, 
         chunk_size=chunk_size, 
         chunk_overlap=chunk_overlap
