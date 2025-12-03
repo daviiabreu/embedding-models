@@ -22,7 +22,7 @@ from utils.gpu_utils import (
 # Configura o logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-MODEL_NAME = "small"
+MODEL_NAME = "medium"
 model = None
 device = None
 context_prompt = "Esta é uma conversa amigável e informativa em português brasileiro durante um tour pelo INTELI (Instituto de Tecnologia e Liderança)"
@@ -66,8 +66,8 @@ def transcribe_audio(
         logging.info(f"Iniciando transcrição no {device.upper()}: {os.path.basename(audio_filepath)}")
 
         # Iniciar monitoramento de performance
-        monitor = PerformanceMonitor(device)
-        monitor.start()
+        # monitor = PerformanceMonitor(device)
+        # monitor.start()
 
         # Executar transcrição com otimizações
         # fp16 (half precision) acelera significativamente na GPU
@@ -83,7 +83,7 @@ def transcribe_audio(
         detected_language = result.get("language", "unknown")
 
         # Mostrar estatísticas de performance
-        stats = monitor.stop()
+        # stats = monitor.stop()
         
         logging.info(f"Transcrição concluída. Idioma: {detected_language}")
         logging.info(f"Tempo: {stats.get('elapsed_time_formatted', 'N/A')}")
