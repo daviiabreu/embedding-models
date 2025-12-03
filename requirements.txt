@@ -7,7 +7,7 @@ matplotlib==3.10.7
 numpy==2.3.5
 pdfminer_six==20251107
 perspective==1.0.3
-protobuf==6.33.1
+protobuf
 PyPDF2==3.0.1
 python-dotenv==1.2.1
 qdrant_client==1.16.1
