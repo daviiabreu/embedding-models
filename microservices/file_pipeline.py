@@ -3,9 +3,8 @@ import re
 import json
 import uuid
 import logging
-import unicodedata
 from pathlib import Path
-from typing import Any, Dict, List, Set, Tuple
+from typing import Any, Dict, List, Set
 from json import JSONDecodeError
 
 from dotenv import load_dotenv
@@ -58,9 +57,6 @@ QDRANT_URL = os.getenv("QDRANT_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 COLLECTION_NAME = os.getenv("QDRANT_COLLECTION", "inteli_hybrid_final")
 
-# Threshold de qualidade mínima para chunks
-MIN_CHUNK_QUALITY_SCORE = 0.3
-
 # --- LOGGING ESTRUTURADO ---
 logging.basicConfig(
     level=logging.INFO,
@@ -72,151 +68,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ================= LÓGICA DE PARSING DE CURRÍCULO (SENIOR ENGINEER) =================
-
-def contextualize_inteli_curriculum(text: str) -> str:
-    """
-    Transforma a estrutura visual (indentação/ordem) em estrutura explícita.
-    Lê o texto linha a linha e propaga o contexto (Ano > Projeto > Matéria) para o conteúdo.
-    """
-    lines = text.split('\n')
-    new_lines = []
-    
-    # Estado da Máquina
-    state = {
-        "ano": "",
-        "projeto": "",
-        "projeto_desc": "",
-        "materia": ""
-    }
-    
-    # Regex Patterns para identificar cabeçalhos
-    # Flexível para pegar "Ano 1", "Ano 2", etc.
-    re_ano = re.compile(r"^Ano\s+\d+", re.IGNORECASE)
-    # Pega "Projeto 5", "Projeto X"
-    re_projeto = re.compile(r"^Projeto\s+\d+", re.IGNORECASE)
-    # Lista de matérias conhecidas no currículo do Inteli
-    materias_keywords = [
-        "Matemática", "Física", "Computação", "Design", "Negócios", "Liderança", 
-        "Matemática/ Física", "Matemática / Física"
-    ]
-    
-    for line in lines:
-        clean = line.strip()
-        if not clean: continue
-        
-        # 1. Detecta Mudança de ANO
-        if re_ano.match(clean):
-            state["ano"] = clean
-            # Reseta níveis inferiores quando muda o ano
-            state["projeto"] = ""
-            state["projeto_desc"] = ""
-            state["materia"] = ""
-            new_lines.append(f"--- {clean} ---") # Marcador visual
-            continue
-            
-        # 2. Detecta Mudança de PROJETO
-        if re_projeto.match(clean):
-            state["projeto"] = clean
-            # Reseta matéria
-            state["materia"] = ""
-            # A linha seguinte ao título do projeto costuma ser a descrição dele.
-            # Vamos assumir que esta linha é o título por enquanto.
-            new_lines.append(f"--- {clean} ---")
-            continue
-            
-        # 3. Detecta Descrição do Projeto (Heurística: linha logo após Projeto, longa)
-        # Se temos projeto definido mas ainda não temos matéria, e a linha parece descritiva
-        if state["projeto"] and not state["materia"] and len(clean) > 30 and "–" in clean:
-             state["projeto_desc"] = clean
-             # Injeta contexto na descrição do projeto
-             new_lines.append(f"[Contexto: {state['ano']} > {state['projeto']}] Descrição: {clean}")
-             continue
-
-        # 4. Detecta Mudança de MATÉRIA (Tópico)
-        # Verifica se a linha começa com uma das palavras-chave
-        is_materia = False
-        for mat in materias_keywords:
-            if clean.startswith(mat) and len(clean) < 50: # Títulos de matéria são curtos
-                state["materia"] = clean
-                is_materia = True
-                break
-        
-        if is_materia:
-            continue # Não adicionamos a linha solta, vamos usá-la como prefixo das próximas
-
-        # 5. Processamento de CONTEÚDO (A mágica acontece aqui)
-        # Se temos contexto acumulado, "carimbamos" a linha
-        context_tags = []
-        if state["ano"]: context_tags.append(state["ano"])
-        if state["projeto"]: context_tags.append(state["projeto"])
-        if state["materia"]: context_tags.append(state["materia"])
-        
-        if context_tags and len(clean) > 3: # Ignora lixo muito curto
-            # Cria o prefixo: "[Ano 2 | Projeto 5 | Liderança]"
-            prefix = " | ".join(context_tags)
-            # Reconstrói a linha
-            enriched_line = f"[{prefix}] {clean}"
-            new_lines.append(enriched_line)
-        else:
-            # Se não tem contexto específico (ex: intro do texto), mantém original
-            new_lines.append(clean)
-
-    return "\n".join(new_lines)
-
 # ================= FUNÇÕES AUXILIARES =================
 
-def fix_encoding(text: str) -> str:
-    """
-    Corrige problemas comuns de encoding em web scraping.
-    Converte caracteres mal codificados (Ã©, Ã, etc) para UTF-8 correto.
-    """
-    if not text:
-        return ""
-    
-    # Mapa de correções comuns
-    replacements = {
-        'Ã¡': 'á', 'Ã©': 'é', 'Ã­': 'í', 'Ã³': 'ó', 'Ãº': 'ú',
-        'Ã': 'à', 'Ã¨': 'è', 'Ã¬': 'ì', 'Ã²': 'ò', 'Ã¹': 'ù',
-        'Ã£': 'ã', 'Ãµ': 'õ', 'Ã±': 'ñ',
-        'Ã‡': 'Ç', 'Ã§': 'ç',
-        'Â°': '°', 'Âº': 'º', 'Âª': 'ª',
-        'â€œ': '"', 'â€': '"', 'â€™': "'", 'â€˜': "'",
-        'â€"': '—', 'â€"': '–',
-        'Ã': 'Ã', 'Ãª': 'ê', 'Ã´': 'ô'
-    }
-    
-    for wrong, correct in replacements.items():
-        text = text.replace(wrong, correct)
-    
-    # Normaliza Unicode (remove diacríticos duplicados)
-    text = unicodedata.normalize('NFC', text)
-    
-    return text
-
 def clean_text(text: str) -> str:
+    """Higienização rigorosa do texto."""
     if not text: return ""
-    
-    # Aplica o parser de currículo se detectar palavras-chave
-    # Isso garante que só alteramos arquivos que parecem grades curriculares
-    if "Projeto" in text and "Liderança" in text and "Ano" in text:
-        logger.info("🎓 Detectada estrutura de currículo. Aplicando parser contextual...")
-        text = contextualize_inteli_curriculum(text)
-        return text
-
-    # Limpeza padrão para outros arquivos
-    lines = text.split('\n')
-    cleaned_lines = []
-    for line in lines:
-        l = line.strip().lower()
-        if any(x in l for x in ["skip to content", "acompanhe seu processo", "quem somos", "fundadores", "campus", "docentes", "programa de bolsas", "blog", "contato", "saiba mais", "soluções para sua empresa"]):
-            continue
-        cleaned_lines.append(line)
-    
-    text = "\n".join(cleaned_lines)
-    text = fix_encoding(text)
     text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
+    text = re.sub(r'Pág\.\s*\d+', '', text)
+    text = text.replace("\ufb01", "fi")
+    text = text.replace("\ue009", "tt")
     return text
 
 def infer_category(filename: str, existing_category: str = None) -> str:
@@ -227,19 +88,23 @@ def infer_category(filename: str, existing_category: str = None) -> str:
     if "edital" in fname or "regras" in fname: return "regras_edital"
     elif "faq" in fname: return "faq"
     elif "livro" in fname or "institucional" in fname: return "institucional"
+    elif "tapi" in fname or "robo" in fname: return "contexto_robo"
     return "geral"
 
-
-def infer_element_type(text: str) -> str:
+def infer_element_type_from_text(text: str) -> str:
+    """Fallback: infere tipo se Unstructured não estiver disponível."""
     text = text.strip()
     if not text: return "Unknown"
     
-    # Detecta linhas que viraram "Headers" enriquecidos pelo nosso parser
-    if text.startswith("[") and "|" in text and "]" in text:
-        return "ContextualizedContent"
-        
-    if re.match(r"^Ano \d+", text) or re.match(r"^Projeto \d+", text):
+    is_short = len(text) < 100
+    starts_numeric = re.match(r"^\d+(\.\d+)*\.?\s", text)
+    is_upper_title = text.isupper() and len(text) > 4
+    
+    if is_short and (starts_numeric or is_upper_title):
         return "Title"
+    
+    if re.match(r"^[\•\-\*]\s", text) or re.match(r"^\d+\)\s", text):
+        return "ListItem"
         
     return "NarrativeText"
 
@@ -325,60 +190,6 @@ def process_table_element(element) -> str:
             return f"[TABELA]\n{element.metadata.text_as_html}"
     return str(element)
 
-def calculate_chunk_quality_score(chunk: Dict[str, Any]) -> float:
-    """
-    Calcula score de qualidade do chunk (0-1).
-    Chunks com score abaixo do threshold são descartados.
-    """
-    content = chunk["content"]
-    metadata = chunk.get("metadata", {})
-    score = 1.0
-    
-    # Penaliza chunks muito curtos (menos de 50 chars úteis)
-    useful_chars = len(re.sub(r'\s+', '', content))
-    if useful_chars < 50:
-        score *= 0.3
-    elif useful_chars < 100:
-        score *= 0.6
-    
-    # Penaliza alta densidade de palavras de navegação
-    nav_words = [
-        "quem somos", "contato", "blog", "saiba mais", "acesse", 
-        "skip to", "fundadores", "campus", "redes sociais",
-        "todos os direitos reservados", "copyright"
-    ]
-    nav_count = sum(1 for word in nav_words if word in content.lower())
-    if nav_count > 3:
-        score *= 0.2
-    elif nav_count > 1:
-        score *= 0.5
-    
-    # Recompensa chunks com estrutura (pontuação, quebras)
-    structure_indicators = ['.', ':', ';', '\n']
-    structure_count = sum(content.count(ind) for ind in structure_indicators)
-    if structure_count > 3:
-        score *= 1.2
-    
-    # Penaliza chunks sem contexto claro
-    context_section = metadata.get("context_section", "")
-    if context_section in ["Introdução", "Geral", ""]:
-        score *= 0.7
-    
-    # Recompensa chunks de categorias importantes
-    category = metadata.get("category", "")
-    if category in ["regras_edital", "faq"]:
-        score *= 1.3
-    
-    # Penaliza chunks que são só URLs ou emails
-    if re.match(r'^(https?://|[\w\.-]+@[\w\.-]+).*', content.strip()):
-        score *= 0.1
-    
-    # Recompensa chunks com headers
-    if metadata.get("is_header"):
-        score *= 1.1
-    
-    return min(score, 1.0)
-
 # ================= EXTRAÇÃO INTELIGENTE =================
 
 @step
@@ -460,7 +271,7 @@ def extract_pdf_fallback(file_path: Path) -> List[Dict[str, Any]]:
                     continue
                 
                 # Inferência manual de tipo
-                el_type = infer_element_type(clean_line)
+                el_type = infer_element_type_from_text(clean_line)
                 
                 elements_data.append({
                     "text": clean_line,
@@ -494,7 +305,7 @@ def extract_pdf_fallback(file_path: Path) -> List[Dict[str, Any]]:
                     
                     elements_data.append({
                         "text": clean_line,
-                        "type": infer_element_type(clean_line),
+                        "type": infer_element_type_from_text(clean_line),
                         "metadata": {
                             "page_number": i + 1,
                             "source": file_path.name,
@@ -551,43 +362,16 @@ def extract_file_elements(file_path_str: str, use_unstructured: bool = True) -> 
             text = file_path.read_text(encoding="utf-8")
         
         elements_data = []
-        
-        # Para TXT, processamos linha a linha (mais granular)
         lines = text.split('\n')
         
-        # Heurística: agrupa linhas muito curtas com a anterior
-        # (comum em scraping onde títulos são quebrados)
-        aggregated_lines = []
-        current_line = ""
-        
-        for line in lines:
+        for idx, line in enumerate(lines):
             clean_line = clean_text(line)
-            
-            if not clean_line:
-                if current_line:
-                    aggregated_lines.append(current_line)
-                    current_line = ""
-                continue
-            
-            # Se linha atual é muito curta (<30 chars) e anterior existe, agrega
-            if len(clean_line) < 30 and current_line and not current_line.endswith('.'):
-                current_line += " " + clean_line
-            else:
-                if current_line:
-                    aggregated_lines.append(current_line)
-                current_line = clean_line
-        
-        if current_line:
-            aggregated_lines.append(current_line)
-        
-        # Agora processa as linhas agregadas
-        for idx, line in enumerate(aggregated_lines):
-            if len(line) < 10:
+            if len(clean_line) < 10:
                 continue
                 
             elements_data.append({
-                "text": line,
-                "type": infer_element_type(line),
+                "text": clean_line,
+                "type": infer_element_type_from_text(clean_line),
                 "metadata": {
                     "page_number": 1,
                     "source": file_path.name,
@@ -619,7 +403,7 @@ def preprocess_elements(
     elements: List[Dict[str, Any]], 
     skip_summary: bool = True
 ) -> List[Dict[str, Any]]:
-    """Limpeza, detecção de sumário, remoção de duplicatas e enriquecimento de contexto."""
+    """Limpeza, detecção de sumário e enriquecimento de contexto."""
     
     # Detecção de sumário
     summary_indices = set()
@@ -636,10 +420,6 @@ def preprocess_elements(
         "section": "Introdução",
         "last_header": ""
     }
-    
-    # Detecção de duplicatas (para web scraping)
-    seen_texts = set()
-    duplicate_count = 0
 
     processed_elements = []
     
@@ -648,20 +428,8 @@ def preprocess_elements(
             continue
         
         text = element.get("text", "")
-        
-        # Remove ruído de navegação
-        if is_navigation_noise(text):
-            continue
-        
         if len(text) < 10:
             continue
-        
-        # Detecção de duplicatas (hash do texto normalizado)
-        text_hash = hash(text.lower().strip())
-        if text_hash in seen_texts:
-            duplicate_count += 1
-            continue
-        seen_texts.add(text_hash)
         
         # Enriquece metadados
         meta = element.get("metadata", {}).copy()
@@ -686,45 +454,68 @@ def preprocess_elements(
         processed_elements.append({"text": text, "metadata": meta})
 
     logger.info(f"🧹 Processados: {len(processed_elements)} elementos válidos")
-    logger.info(f"🗑️ Removidas: {duplicate_count} duplicatas")
     return processed_elements
 
 @step
-def create_chunks(processed_elements: List[Dict[str, Any]], chunk_size: int = 600, chunk_overlap: int = 150) -> List[Dict[str, Any]]:
+def create_smart_chunks(
+    processed_elements: List[Dict[str, Any]], 
+    chunk_size: int = 600, 
+    chunk_overlap: int = 150
+) -> List[Dict[str, Any]]:
+    """Chunking com agrupamento por contexto e prefixo semântico."""
     logger.info(f"✂️ Chunking inteligente (size={chunk_size}, overlap={chunk_overlap})")
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap, separators=["\n\n", "\n", ". ", " ", ""], add_start_index=True)
     
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size, 
+        chunk_overlap=chunk_overlap,
+        separators=["\n\n", "\n", ". ", " ", ""],
+        add_start_index=True
+    )
+    
+    # Agrupa por arquivo + seção
     grouped_text = {}
+    
     for el in processed_elements:
         key = f"{el['metadata']['source']}|{el['metadata']['context_section']}"
-        if key not in grouped_text: grouped_text[key] = {"text": [], "meta_sample": el["metadata"]}
+        
+        if key not in grouped_text:
+            grouped_text[key] = {
+                "text": [],
+                "meta_sample": el["metadata"]
+            }
+        
         grouped_text[key]["text"].append(el["text"])
 
     chunk_dicts = []
+    
     for key, data in grouped_text.items():
         full_text = "\n".join(data["text"])
         base_meta = data["meta_sample"]
         
-        # INJEÇÃO DE CONTEXTO MELHORADA
-        clean_filename = base_meta['source'].replace('-', ' ').replace('.txt', '').replace('.pdf', '').upper()
-        context_prefix = f"[Documento: {clean_filename}]\n[Tópico: {base_meta['context_section']}]\n"
+        # PREFIXO DE CONTEXTO (CRÍTICO PARA EMBEDDINGS)
+        context_prefix = f"[Contexto: {base_meta['context_section']}]\n"
         if base_meta.get('context_header'):
-            context_prefix += f"[Subtópico: {base_meta['context_header']}]\n"
+            context_prefix += f"[Seção: {base_meta['context_header']}]\n"
         
         contextualized_text = context_prefix + full_text
-        docs = text_splitter.split_documents([Document(page_content=contextualized_text, metadata=base_meta)])
+        
+        docs = text_splitter.split_documents([
+            Document(page_content=contextualized_text, metadata=base_meta)
+        ])
         
         for i, doc in enumerate(docs):
             safe_name = re.sub(r'[^a-zA-Z0-9]', '_', base_meta['source'])
-            chunk_id = f"{safe_name}_{i}"
-            chunk_dicts.append({"id": chunk_id, "content": doc.page_content, "metadata": doc.metadata})
+            safe_section = re.sub(r'[^a-zA-Z0-9]', '_', base_meta['context_section'][:20])
+            chunk_id = f"{safe_name}_{safe_section}_{i}"
+            
+            chunk_dicts.append({
+                "id": chunk_id,
+                "content": doc.page_content,
+                "metadata": doc.metadata
+            })
 
-    chunk_dicts = merge_list_items(chunk_dicts)
-    
-    # Filtro de qualidade
-    filtered = [c for c in chunk_dicts if calculate_chunk_quality_score(c) >= MIN_CHUNK_QUALITY_SCORE]
-    logger.info(f"🎯 Chunks finais: {len(filtered)} (Rejeitados: {len(chunk_dicts) - len(filtered)})")
-    return filtered
+    logger.info(f"📦 Total de chunks: {len(chunk_dicts)}")
+    return chunk_dicts
 
 # ================= EMBEDDINGS E INGESTÃO =================
 
@@ -855,10 +646,9 @@ def embedding_pipeline(
     chunk_overlap: int = 150, 
     recreate_collection: bool = False,
     skip_summary: bool = True,
-    use_unstructured: bool = True,
-    generate_report: bool = False
-) -> Dict[str, Any]:
-    """Pipeline completo com estratégia adaptativa e relatório de métricas."""
+    use_unstructured: bool = True
+) -> None:
+    """Pipeline completo com estratégia adaptativa."""
     
     logger.info("=" * 60)
     logger.info(f"🚀 INICIANDO PIPELINE: {Path(pdf_path).name}")
@@ -874,7 +664,7 @@ def embedding_pipeline(
         skip_summary=skip_summary
     )
     
-    chunks = create_chunks(
+    chunks = create_smart_chunks(
         processed_elements=proc, 
         chunk_size=chunk_size, 
         chunk_overlap=chunk_overlap
@@ -887,104 +677,18 @@ def embedding_pipeline(
         recreate_collection=recreate_collection
     )
     
-    # Gera relatório de métricas
-    metrics = {
-        "file": Path(pdf_path).name,
-        "raw_elements": len(raw),
-        "processed_elements": len(proc),
-        "final_chunks": len(chunks),
-        "reduction_rate": round((1 - len(chunks)/len(raw)) * 100, 1) if raw else 0,
-        "avg_quality": round(sum(c.get("metadata", {}).get("quality_score", 0) for c in chunks) / len(chunks), 2) if chunks else 0,
-        "categories": {},
-        "hierarchy_levels": {}
-    }
-    
-    # Contagem por categoria
-    for chunk in chunks:
-        cat = chunk["metadata"].get("category", "unknown")
-        metrics["categories"][cat] = metrics["categories"].get(cat, 0) + 1
-        
-        level = chunk["metadata"].get("hierarchy_level", "unknown")
-        metrics["hierarchy_levels"][level] = metrics["hierarchy_levels"].get(level, 0) + 1
-    
-    if generate_report:
-        report_path = Path(pdf_path).stem + "_metrics.json"
-        with open(report_path, "w", encoding="utf-8") as f:
-            json.dump(metrics, f, indent=2, ensure_ascii=False)
-        logger.info(f"📊 Relatório salvo em: {report_path}")
-    
     logger.info("=" * 60)
     logger.info("✅ PIPELINE FINALIZADO COM SUCESSO")
-    logger.info(f"📊 Redução de ruído: {metrics['reduction_rate']}%")
-    logger.info(f"🎯 Qualidade média: {metrics['avg_quality']}")
     logger.info("=" * 60)
-    
-    return metrics
 
-
-
-def merge_list_items(chunks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """
-    Agrupa chunks consecutivos que são itens de lista.
-    Evita chunks fragmentados tipo: "• Item 1", "• Item 2" em chunks separados.
-    """
-    merged = []
-    current_list = []
-    current_context = None
-    
-    for chunk in chunks:
-        meta = chunk.get("metadata", {})
-        is_list = meta.get("element_type") == "ListItem"
-        context = meta.get("context_section", "")
-        
-        # Se é lista e está no mesmo contexto, acumula
-        if is_list and (current_context is None or current_context == context):
-            current_list.append(chunk)
-            current_context = context
-        else:
-            # Se tinha lista acumulada, mescla
-            if current_list:
-                if len(current_list) >= 2:  # Só mescla se tiver 2+ itens
-                    merged_content = "\n".join([c["content"] for c in current_list])
-                    merged_chunk = dict(current_list[0])
-                    merged_chunk["content"] = f"[Lista de Itens]\n{merged_content}"
-                    merged_chunk["id"] = f"{current_list[0]['id']}_merged"
-                    merged.append(merged_chunk)
-                else:
-                    # Se só 1 item, não mescla
-                    merged.extend(current_list)
-                
-                current_list = []
-                current_context = None
-            
-            # Adiciona chunk atual
-            if is_list:
-                current_list.append(chunk)
-                current_context = context
-            else:
-                merged.append(chunk)
-    
-    # Processa lista final se houver
-    if current_list:
-        if len(current_list) >= 2:
-            merged_content = "\n".join([c["content"] for c in current_list])
-            merged_chunk = dict(current_list[0])
-            merged_chunk["content"] = f"[Lista de Itens]\n{merged_content}"
-            merged_chunk["id"] = f"{current_list[0]['id']}_merged"
-            merged.append(merged_chunk)
-        else:
-            merged.extend(current_list)
-    
-    logger.info(f"🔗 Merge de listas: {len(chunks)} → {len(merged)} chunks")
-    return merged
 def main():
     import argparse
     parser = argparse.ArgumentParser(
         description="Pipeline Híbrido: Unstructured + Controle Granular"
     )
-    parser.add_argument("file_path", help="Caminho do arquivo ou diretório")
+    parser.add_argument("file_path", help="Caminho do arquivo")
     parser.add_argument("--reset", action="store_true", 
-                       help="Recria a coleção (se for diretório, recria apenas na primeira ingestão)")
+                       help="Recria a coleção")
     parser.add_argument("--keep-summary", action="store_true", 
                        help="Não remove sumários")
     parser.add_argument("--no-unstructured", action="store_true",
@@ -993,64 +697,17 @@ def main():
                        help="Tamanho dos chunks")
     parser.add_argument("--chunk-overlap", type=int, default=150,
                        help="Overlap entre chunks")
-    parser.add_argument("--min-quality", type=float, default=0.3,
-                       help="Score mínimo de qualidade (0-1, padrão: 0.3)")
-    parser.add_argument("--report", action="store_true",
-                       help="Gera relatório de métricas (JSON) por arquivo")
     
     args = parser.parse_args()
     
-    # Atualiza threshold global se especificado
-    global MIN_CHUNK_QUALITY_SCORE
-    MIN_CHUNK_QUALITY_SCORE = args.min_quality
-    
-    path_obj = Path(args.file_path)
-    
-    if not path_obj.exists():
-        print(f"❌ Erro: Caminho '{args.file_path}' não encontrado.")
-        return
-
-    files_to_process = []
-    if path_obj.is_dir():
-        print(f"📂 Diretório detectado. Buscando arquivos suportados em: {path_obj}")
-        # Busca recursiva por extensões suportadas
-        extensions = ['*.pdf', '*.json', '*.txt', '*.docx', '*.md']
-        for ext in extensions:
-            files_to_process.extend(path_obj.rglob(ext))
-        
-        # Ordena para garantir ordem determinística
-        files_to_process = sorted(files_to_process)
-        print(f"📄 Total de arquivos encontrados: {len(files_to_process)}")
-    else:
-        files_to_process = [path_obj]
-
-    # Lógica de Reset para Batch
-    should_reset = args.reset
-    
-    for i, file_p in enumerate(files_to_process):
-        print(f"\n🔄 Processando arquivo {i+1}/{len(files_to_process)}: {file_p.name}")
-        
-        try:
-            # Só reseta no primeiro arquivo se solicitado
-            current_reset = should_reset if i == 0 else False
-            
-            metrics = embedding_pipeline(
-                pdf_path=str(file_p), 
-                chunk_size=args.chunk_size,
-                chunk_overlap=args.chunk_overlap,
-                recreate_collection=current_reset,
-                skip_summary=not args.keep_summary,
-                use_unstructured=not args.no_unstructured,
-                generate_report=args.report
-            )
-            
-            # Exibe resumo individual
-            print(f"   ✅ Sucesso: {metrics['final_chunks']} chunks gerados.")
-            
-        except Exception as e:
-            print(f"   ❌ Falha ao processar {file_p.name}: {e}")
-            # Continua para o próximo arquivo mesmo com erro
-            continue
+    embedding_pipeline(
+        pdf_path=args.file_path, 
+        chunk_size=args.chunk_size,
+        chunk_overlap=args.chunk_overlap,
+        recreate_collection=args.reset,
+        skip_summary=not args.keep_summary,
+        use_unstructured=not args.no_unstructured
+    )
 
 if __name__ == "__main__":
     main()
