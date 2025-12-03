@@ -2,6 +2,7 @@ from fastapi import FastAPI, WebSocket
 from pydantic import BaseModel
 from backend.stt.stt_service import STTService
 from backend.tts.tts_service import TTSService
+from fastapi.middleware.cors import CORSMiddleware
 
 # setup do STT
 stt = STTService()
@@ -13,6 +14,14 @@ tts = TTSService()
 tts.setup_model()
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/teste-transcricao")
 async def root():
