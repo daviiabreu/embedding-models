@@ -820,7 +820,7 @@ def embedding_pipeline(
     recreate_collection: bool = False,
     skip_summary: bool = True,
     use_unstructured: bool = True,
-    generate_report: bool = True
+    generate_report: bool = False
 ) -> Dict[str, Any]:
     """Pipeline completo com estratégia adaptativa e relatório de métricas."""
     
@@ -959,8 +959,8 @@ def main():
                        help="Overlap entre chunks")
     parser.add_argument("--min-quality", type=float, default=0.3,
                        help="Score mínimo de qualidade (0-1, padrão: 0.3)")
-    parser.add_argument("--no-report", action="store_true",
-                       help="Não gera relatório de métricas")
+    parser.add_argument("--report", action="store_true",
+                       help="Gera relatório de métricas (JSON) por arquivo")
     
     args = parser.parse_args()
     
@@ -1005,7 +1005,7 @@ def main():
                 recreate_collection=current_reset,
                 skip_summary=not args.keep_summary,
                 use_unstructured=not args.no_unstructured,
-                generate_report=not args.no_report
+                generate_report=args.report
             )
             
             # Exibe resumo individual
