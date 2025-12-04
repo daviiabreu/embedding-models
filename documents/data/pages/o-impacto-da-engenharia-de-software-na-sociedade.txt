@@ -1,0 +1,85 @@
+O impacto da Engenharia de Software na sociedade - Inteli - Instituto de Tecnologia e Liderança
+
+Inteli
+>
+Graduação
+>
+O impacto da Engenharia de Software na sociedade
+O impacto da Engenharia de Software na sociedade
+A Engenharia de Software vai além da programação: no Inteli, alunos criam soluções de impacto em serviços, educação, meio ambiente e segurança.
+Hermano Peixoto
+22 set 2025
+Hermano Peixoto
+22 set 2025
+Hermano Peixoto
+Quando falamos sobre
+desenvolvimento de software
+, muita gente pensa apenas em criar aplicativos ou sites. Mas, no dia a dia, percebo em sala de aula que o impacto vai muito além disso:
+os softwares transformam vidas
+.
+No Inteli, vejo nossos estudantes desenvolverem soluções que conectam tecnologia e propósito, com resultados reais para empresas, comunidades e para a sociedade como um todo.
+O mais inspirador é perceber que, mesmo ainda na graduação, os alunos participam de
+projetos de impacto social em áreas como serviços, educação, meio ambiente e segurança
+.
+Isso mostra que, ao escolher
+Engenharia de Software
+, você não está apenas aprendendo a programar — está aprendendo a
+transformar o mundo
+.
+Serviços: tecnologia que garante eficiência e qualidade
+Em um dos módulos, os alunos trabalharam com a
+Rappi
+para desenvolver uma
+solução inovadora
+de controle de qualidade, automatizada, integrada ao aplicativo de entregadores. O projeto transformou especificações de negócio, requisitos e integrações em código capaz de aferir, de forma contínua, a resiliência e a confiabilidade do sistema.
+Como resultado, a empresa passou a contar com
+maior cobertura de testes, redução de falhas recorrentes e um processo de integração mais robusto
+, fortalecendo a experiência dos entregadores e a eficiência operacional
+Esse tipo de projeto mostra como a
+Engenharia de Software vai muito além da programação
+: trata-se de conceber serviços que garantem
+eficiência
+,
+escalabilidade
+e
+qualidade
+em ambientes complexos. E, para chegar lá, os alunos aprendem a enfrentar desafios como integração de múltiplas camadas, automação de testes e monitoramento contínuo — competências essenciais e cada vez mais valorizadas pelo mercado.
+Educação: personalizando o aprendizado
+Em outro módulo, os alunos desenvolveram uma
+aplicação em nuvem
+para a
+Assessoria de Inclusão do Centro Paula Souza
+, com o objetivo de organizar e registrar atendimentos a estudantes. A solução permite integrar dados de diferentes sistemas acadêmicos por meio de uma API, manter o histórico de atendimentos, cadastrar tecnologias assistivas e vincular profissionais de apoio.
+O projeto trouxe benefícios claros: maior
+agilidade
+no trâmite de solicitações, melhor acompanhamento dos alunos e geração de estatísticas úteis para a gestão educacional
+Em sala de aula, percebo que esses projetos despertam um
+senso de propósito nos nossos alunos
+. Eles entendem que a tecnologia pode
+reduzir desigualdades
+e
+abrir oportunidades
+para milhões de pessoas.
+Meio ambiente: dados a favor da sustentabilidade
+O
+impacto social do software
+também é evidente quando falamos sobre meio ambiente. Em um dos projetos, os estudantes desenvolveram um
+dashboard
+interativo para monitoramento da produtividade de soja por hectare, utilizando dados anonimizados fornecidos pelo
+CESB
+.
+Com ele, foi possível cruzar informações sobre manejo, uso de insumos e impacto ambiental, ajudando produtores a tomarem decisões mais sustentáveis e eficientes.
+Essas soluções mostram que software e ciência de dados andam juntos quando o assunto é sustentabilidade — e essa tendência só vai crescer.
+Segurança: proteção de dados e prevenção de riscos
+Outro exemplo recente foi o desenvolvimento de um
+sistema de análise
+de normativas regulatórias para um banco parceiro, integrando uma
+API com inteligência artificial
+capaz de interpretar como diferentes regulamentações afetam os negócios. A solução ajudou o parceiro a antecipar riscos, ajustar processos e garantir conformidade com a legislação.
+Esse projeto exigiu decisões rápidas, priorização de funcionalidades críticas e revisão constante do backlog — um aprendizado essencial para quem quer atuar em setores sensíveis, como o financeiro e o de segurança digital.
+Tendências e mercado
+Segundo o
+Future of Jobs Report 2023 do World Economic Forum
+, trabalho colaborativo, resolução de problemas complexos e adaptabilidade estão entre as habilidades mais demandadas para os próximos anos. Ao participar de projetos reais desde o início do curso, nossos alunos desenvolvem exatamente essas competências, combinando conhecimento técnico e visão estratégica.
+No Inteli, acreditamos que a Engenharia de Software é muito mais do que aprender a programar. É sobre criar soluções que geram impacto real e que podem transformar a vida das pessoas.
+Se você quer unir tecnologia, propósito e impacto social, venha conhecer o curso de Engenharia de Software do Inteli. Que tal imaginar a solução de um problema do seu dia a dia e começar a construí-la ainda na graduação?

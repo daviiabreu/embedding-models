@@ -1,551 +1,711 @@
 import os
 import re
-import sys
-from json import JSONDecodeError
+import json
+import uuid
+import logging
 from pathlib import Path
 from typing import Any, Dict, List, Set
+from json import JSONDecodeError
 
 from dotenv import load_dotenv
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
+from PyPDF2 import PdfReader
+import docx2txt
 
-# pdfminer >=202211 remove the psexceptions module that unstructured still imports.
-# Provide a lightweight shim so downstream imports keep working regardless of version.
-try:  # pragma: no cover - compatibility shim
-    from pdfminer.psexceptions import PSSyntaxError as _  # type: ignore
+# --- UNSTRUCTURED IMPORTS (Detecção Avançada) ---
+try:
+    from unstructured.partition.pdf import partition_pdf
+    from unstructured.chunking.title import chunk_by_title
+    UNSTRUCTURED_AVAILABLE = True
+except ImportError:
+    UNSTRUCTURED_AVAILABLE = False
+    print("⚠️ Unstructured não instalado. Usando fallback PyPDFLoader.")
+
+# Shim para compatibilidade pdfminer
+try:
+    from pdfminer.psexceptions import PSSyntaxError as _
 except ImportError:
     import sys as _sys
     import types
-
     from pdfminer.pdfparser import PDFSyntaxError
-
     shim = types.ModuleType("pdfminer.psexceptions")
-
     class PSSyntaxError(PDFSyntaxError):
-        """Backwards-compatible alias expected by unstructured."""
-
+        """Backwards-compatible alias."""
     shim.PSSyntaxError = PSSyntaxError
     _sys.modules["pdfminer.psexceptions"] = shim
 
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as qdrant_models
 from sentence_transformers import SentenceTransformer
-from unstructured.partition.pdf import partition_pdf
-from zenml import pipeline, step
+from fastembed import SparseTextEmbedding
+
+# ZenML Bypass
+def step(func): return func
+def pipeline(func): return func
 
 load_dotenv()
 load_dotenv("agent_flow/.env", override=False)
 
-EMBEDDING_MODEL = os.getenv("EMBEDDINGS_MODEL")
+# --- CONFIGURAÇÕES ---
+DENSE_MODEL_NAME = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
+SPARSE_MODEL_NAME = 'Qdrant/bm25'
+DENSE_DIMENSION = 384
+
 QDRANT_URL = os.getenv("QDRANT_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
-QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION")
+COLLECTION_NAME = os.getenv("QDRANT_COLLECTION", "inteli_hybrid_final")
 
+# --- LOGGING ESTRUTURADO ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('pipeline.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# ================= FUNÇÕES AUXILIARES =================
 
 def clean_text(text: str) -> str:
-    text = re.sub(r"\s+", " ", text)
+    """Higienização rigorosa do texto."""
+    if not text: return ""
+    text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    text = re.sub(r'Pág\.\s*\d+', '', text)
     text = text.replace("\ufb01", "fi")
     text = text.replace("\ue009", "tt")
-    text = re.sub(r"Pág\.\s*\d+", "", text)
-    text = re.sub(r"[•◦▪▫]", "•", text)
-    return text.strip()
+    return text
 
+def infer_category(filename: str, existing_category: str = None) -> str:
+    """Define taxonomia do documento."""
+    if existing_category:
+        return existing_category
+    fname = filename.lower()
+    if "edital" in fname or "regras" in fname: return "regras_edital"
+    elif "faq" in fname: return "faq"
+    elif "livro" in fname or "institucional" in fname: return "institucional"
+    elif "tapi" in fname or "robo" in fname: return "contexto_robo"
+    return "geral"
 
-def determine_hierarchy_level(element: Dict[str, Any]) -> str:
-    element_type = element.get("type")
-    text = element.get("text", "")
-    if element_type == "Title":
-        if re.match(r"^\d+\.", text):
-            level = len(text.split(".")[0])
-            return f"level_{level}"
-        return "title_main"
-    if element_type == "ListItem":
-        return "list_item"
-    return "body"
+def infer_element_type_from_text(text: str) -> str:
+    """Fallback: infere tipo se Unstructured não estiver disponível."""
+    text = text.strip()
+    if not text: return "Unknown"
 
+    is_short = len(text) < 100
+    starts_numeric = re.match(r"^\d+(\.\d+)*\.?\s", text)
+    is_upper_title = text.isupper() and len(text) > 4
 
-def extract_section_info(element: Dict[str, Any]) -> str:
-    text = element.get("text", "")
-    element_type = element.get("type")
-    if element_type == "Title" and re.match(r"^\d+\.", text):
-        return (
-            text.split(".")[0] + "." + text.split(".")[1].strip()
-            if "." in text
-            else text
-        )
-    if element_type == "ListItem" and re.match(r"^\d+\.", text):
-        return text
-    return "general"
+    if is_short and (starts_numeric or is_upper_title):
+        return "Title"
 
+    if re.match(r"^[\•\-\*]\s", text) or re.match(r"^\d+\)\s", text):
+        return "ListItem"
 
-def extract_enhanced_metadata(element: Dict[str, Any]) -> Dict[str, Any]:
-    metadata = element.get("metadata", {})
-    return {
-        "element_id": element.get("element_id"),
-        "element_type": element.get("type"),
-        "page_number": metadata.get("page_number"),
-        "parent_id": metadata.get("parent_id"),
-        "text_length": len(element.get("text", "")),
-        "is_header": element.get("type") in ["Title"],
-        "is_list_item": element.get("type") == "ListItem",
-        "is_table_content": element.get("type") in ["Table", "TableRow"],
-        "hierarchy_level": determine_hierarchy_level(element),
-        "section": extract_section_info(element),
-    }
-
+    return "NarrativeText"
 
 def detect_summary_elements(
     elements: List[Dict[str, Any]],
-    detection_method: str,
-    max_pages: int = 5,
+    detection_method: str = "keywords",
+    max_pages: int = 15
 ) -> Set[int]:
-    """
-    Detecta elementos de sumário usando diferentes métodos.
-
-    Args:
-        elements: Lista de elementos
-        detection_method: "keywords", "page_range", ou "pattern"
-        max_pages: Máximo de páginas para considerar (para page_range)
-    """
+    """Detecta e retorna índices de elementos de sumário."""
     summary_elements: Set[int] = set()
 
     if detection_method == "keywords":
-        summary_keywords = [
-            "SUMÁRIO",
-            "SUMARIO",
-            "ÍNDICE",
-            "INDICE",
-            "TABLE OF CONTENTS",
-            "CONTENTS",
-        ]
+        summary_keywords = ["SUMÁRIO", "SUMARIO", "ÍNDICE", "INDICE", "TABLE OF CONTENTS", "CONTENTS"]
 
         for i, element in enumerate(elements):
             text = element.get("text", "").strip().upper()
-            if any(keyword in text for keyword in summary_keywords):
+            element_type = element.get("type", "")
+
+            # Detecta título de sumário
+            if element_type in ["Title", "Header"] and any(kw == text for kw in summary_keywords):
+                logger.info(f"🔍 Sumário detectado (keyword) no elemento {i}")
+
+                # Marca elementos subsequentes
                 j = i
-                while j < len(elements):
+                while j < len(elements) and j < i + 300:
                     summary_elements.add(j)
                     j += 1
-                    if (
-                        j < len(elements)
-                        and elements[j].get("type") == "Title"
-                        and not any(
-                            kw in elements[j].get("text", "").upper()
-                            for kw in summary_keywords
-                        )
-                    ):
-                        break
 
-    elif detection_method == "page_range":
-        for i, element in enumerate(elements):
-            page_num = element.get("metadata", {}).get("page_number")
-            if page_num and page_num <= max_pages:
-                text = element.get("text", "").strip()
-                if re.match(r".+\.{3,}\s*\d+$|.+\s+\d+$", text):
-                    summary_elements.add(i)
+                    # Critério de parada: título que não parece item de sumário
+                    if j > i + 10 and elements[j].get("type") in ["Title", "Header"]:
+                        next_text = elements[j].get("text", "")
+                        # Se não tiver padrão de sumário, para
+                        if not re.search(r"\.{3,}\s*\d+$", next_text):
+                            break
 
     elif detection_method == "pattern":
         patterns = [
-            r"^\d+\.\s+.+\s+\d+$",  # "1. Titulo 5"
-            r"^.+\.{3,}\s*\d+$",  # "Titulo ... 5"
-            r"^[A-Z\s]+\s+\d+$",  # "TITULO 5"
+            r"^\d+\.?\s+.+\s+\d+$",
+            r"^.+\.{3,}\s*\d+$",
         ]
         for i, element in enumerate(elements):
-            text = element.get("text", "").strip()
-            if any(re.match(pattern, text) for pattern in patterns):
-                summary_elements.add(i)
+            page_num = element.get("metadata", {}).get("page_number", 999)
+            if page_num <= max_pages:
+                text = element.get("text", "").strip()
+                if any(re.match(pattern, text) for pattern in patterns):
+                    summary_elements.add(i)
 
     return summary_elements
 
+def determine_hierarchy_level(element: Dict[str, Any]) -> str:
+    """Define nível hierárquico (level_1, level_2, etc)."""
+    element_type = element.get("type", "")
+    text = element.get("text", "")
 
-def _extract_txt_elements(file_path: Path) -> List[Dict[str, Any]]:
-    """Transforma um arquivo .txt em lista de elementos compatíveis com o pipeline."""
-    content = file_path.read_text(encoding="utf-8")
-    segments = [segment.strip() for segment in content.split("\n\n") if segment.strip()]
-    if not segments:
-        segments = [content.strip()] if content.strip() else []
+    if element_type in ["Title", "Header"]:
+        match = re.match(r"^(\d+(\.\d+)*)", text)
+        if match:
+            dots = match.group(1).count('.')
+            if not match.group(1).endswith('.'):
+                dots += 1
+            return f"level_{dots}"
+        return "title_main"
 
-    elements_data: List[Dict[str, Any]] = []
-    for idx, segment in enumerate(segments, start=1):
-        if not segment:
-            continue
-        elements_data.append(
-            {
-                "text": segment,
-                "type": "TextSegment",
-                "metadata": {
-                    "source_file": file_path.name,
-                    "segment_index": idx,
-                },
-                "element_id": f"txt_{file_path.stem}_{idx}",
-            }
+    if element_type == "ListItem":
+        return "list_item"
+
+    return "body"
+
+def extract_section_info(element: Dict[str, Any]) -> str:
+    """Extrai nome limpo da seção."""
+    text = element.get("text", "")
+    element_type = element.get("type", "")
+
+    if element_type in ["Title", "Header"]:
+        clean = re.sub(r"^(\d+(\.\d+)*\.?)\s*", "", text)
+        return clean if len(clean) > 2 else text
+    return "general"
+
+def process_table_element(element) -> str:
+    """Extrai HTML de tabelas se disponível."""
+    if hasattr(element, 'category') and element.category == "Table":
+        if hasattr(element.metadata, "text_as_html") and element.metadata.text_as_html:
+            return f"[TABELA]\n{element.metadata.text_as_html}"
+    return str(element)
+
+# ================= EXTRAÇÃO INTELIGENTE =================
+
+@step
+def extract_pdf_with_unstructured(file_path: Path) -> List[Dict[str, Any]]:
+    """
+    Estratégia PREMIUM: Usa Unstructured para detecção de layout e tabelas.
+    """
+    logger.info(f"🚀 Processamento Hi-Res (Unstructured): {file_path.name}")
+
+    try:
+        # Particionamento com detecção de layout
+        elements = partition_pdf(
+            filename=str(file_path),
+            strategy="hi_res",
+            infer_table_structure=True,
+            languages=["por"],
         )
 
+        # Chunking semântico nativo
+        chunks = chunk_by_title(
+            elements,
+            combine_text_under_n_chars=200,
+            max_characters=1000,
+            new_after_n_chars=800
+        )
+
+        processed_data = []
+        for i, chunk in enumerate(chunks):
+            # Processa tabelas especialmente
+            content = process_table_element(chunk) if "Table" in str(chunk.category) else chunk.text
+            content = clean_text(content)
+
+            if len(content) < 30:  # Filtro de ruído
+                continue
+
+            processed_data.append({
+                "text": content,
+                "type": str(chunk.category),
+                "metadata": {
+                    "page_number": getattr(chunk.metadata, "page_number", 1),
+                    "source": file_path.name,
+                    "is_table": "Table" in str(chunk.category)
+                },
+                "element_id": f"uns_{file_path.stem}_{i}"
+            })
+
+        logger.info(f"📊 Unstructured: {len(processed_data)} chunks semânticos criados")
+        return processed_data
+
+    except Exception as e:
+        logger.error(f"❌ Erro no Unstructured: {e}")
+        raise e
+
+@step
+def extract_pdf_fallback(file_path: Path) -> List[Dict[str, Any]]:
+    """
+    Estratégia FALLBACK: PyPDFLoader com inferência manual.
+    Usado quando Unstructured não está disponível ou falha.
+    """
+    logger.warning(f"⚠️ Usando fallback PyPDFLoader: {file_path.name}")
+
+    elements_data = []
+
+    try:
+        loader = PyPDFLoader(str(file_path))
+        pages = loader.load()
+
+        global_idx = 0
+        for page in pages:
+            page_num = page.metadata.get("page", 0) + 1
+            raw_text = page.page_content
+
+            # Quebra em linhas para granularidade
+            lines = raw_text.split('\n')
+
+            for line in lines:
+                clean_line = clean_text(line)
+                if len(clean_line) < 10:
+                    continue
+
+                # Inferência manual de tipo
+                el_type = infer_element_type_from_text(clean_line)
+
+                elements_data.append({
+                    "text": clean_line,
+                    "type": el_type,
+                    "metadata": {
+                        "page_number": page_num,
+                        "source": file_path.name,
+                        "is_table": False
+                    },
+                    "element_id": f"pdf_{global_idx}"
+                })
+                global_idx += 1
+
+    except Exception as e1:
+        logger.warning(f"⚠️ PyPDFLoader falhou, tentando PyPDF2: {e1}")
+
+        try:
+            reader = PdfReader(str(file_path))
+            global_idx = 0
+
+            for i, page in enumerate(reader.pages):
+                text = page.extract_text()
+                if not text:
+                    continue
+
+                lines = text.split('\n')
+                for line in lines:
+                    clean_line = clean_text(line)
+                    if len(clean_line) < 10:
+                        continue
+
+                    elements_data.append({
+                        "text": clean_line,
+                        "type": infer_element_type_from_text(clean_line),
+                        "metadata": {
+                            "page_number": i + 1,
+                            "source": file_path.name,
+                            "is_table": False
+                        },
+                        "element_id": f"pdf2_{global_idx}"
+                    })
+                    global_idx += 1
+
+        except Exception as e2:
+            logger.error(f"❌ Todos os métodos de PDF falharam: {e2}")
+            raise e2
+
+    logger.info(f"📊 Fallback: {len(elements_data)} elementos extraídos")
     return elements_data
 
+@step
+def extract_file_elements(file_path_str: str, use_unstructured: bool = True) -> List[Dict[str, Any]]:
+    """
+    Extração inteligente com seleção automática de estratégia.
+    """
+    file_path = Path(file_path_str)
+    if not file_path.exists():
+        raise FileNotFoundError(f"Arquivo não encontrado: {file_path}")
 
-def _extract_pdf_elements(pdf_path: str) -> List[Dict[str, Any]]:
-    elements = partition_pdf(filename=pdf_path, strategy="fast", ocr_languages="por")
-    elements_data: List[Dict[str, Any]] = []
+    logger.info(f"📂 Processando: {file_path.name}")
 
-    for element in elements:
-        element_dict: Dict[str, Any] = {
-            "text": str(element),
-            "type": element.__class__.__name__,
-            "metadata": {},
-        }
+    # JSON (Web Scraping)
+    if file_path.suffix.lower() == ".json":
+        data = json.loads(file_path.read_text(encoding="utf-8"))
+        elements_data = []
 
-        if hasattr(element, "metadata") and element.metadata:
-            element_dict["metadata"] = element.metadata.to_dict()
+        if isinstance(data, list):
+            for idx, item in enumerate(data):
+                elements_data.append({
+                    "text": f"{item.get('title', '')}\n{item.get('content', '')}",
+                    "type": "WebContent",
+                    "metadata": {
+                        "source": item.get("url", file_path.name),
+                        "category": "web_scraping",
+                        "page_number": 1
+                    },
+                    "element_id": f"web_{idx}"
+                })
 
-        if hasattr(element, "id"):
-            element_dict["element_id"] = element.id
+        return elements_data
 
-        elements_data.append(element_dict)
+    # DOCX/TXT
+    elif file_path.suffix.lower() in [".docx", ".txt", ".md"]:
+        text = ""
+        if file_path.suffix == ".docx":
+            text = docx2txt.process(file_path)
+        else:
+            text = file_path.read_text(encoding="utf-8")
 
-    return elements_data
+        elements_data = []
+        lines = text.split('\n')
 
-def extract_file_elements(pdf_path: str) -> List[Dict[str, Any]]:
-    file_path = Path(pdf_path)
-    if file_path.suffix.lower() == ".txt":
-        return _extract_txt_elements(file_path)
+        for idx, line in enumerate(lines):
+            clean_line = clean_text(line)
+            if len(clean_line) < 10:
+                continue
+
+            elements_data.append({
+                "text": clean_line,
+                "type": infer_element_type_from_text(clean_line),
+                "metadata": {
+                    "page_number": 1,
+                    "source": file_path.name,
+                    "segment_index": idx
+                },
+                "element_id": f"doc_{idx}"
+            })
+
+        return elements_data
+
+    # PDF - Estratégia Inteligente
     elif file_path.suffix.lower() == ".pdf":
-        return _extract_pdf_elements(file_path)
-    else:
-        raise ValueError(f"Formato de arquivo não suportado: {file_path.suffix}")
+        if use_unstructured and UNSTRUCTURED_AVAILABLE:
+            try:
+                return extract_pdf_with_unstructured(file_path)
+            except Exception as e:
+                logger.warning(f"⚠️ Unstructured falhou, usando fallback: {e}")
+                return extract_pdf_fallback(file_path)
+        else:
+            return extract_pdf_fallback(file_path)
 
+    else:
+        raise ValueError(f"Formato não suportado: {file_path.suffix}")
+
+# ================= PROCESSAMENTO E CHUNKING =================
 
 def preprocess_elements(
     elements: List[Dict[str, Any]],
-    skip_summary: bool = True,
-    summary_detection: str = "keywords",
+    skip_summary: bool = True
 ) -> List[Dict[str, Any]]:
-    processed_elements: List[Dict[str, Any]] = []
-    current_section = "Introduction"
-    current_subsection = ""
+    """Limpeza, detecção de sumário e enriquecimento de contexto."""
 
-    summary_elements: Set[int] = set()
+    # Detecção de sumário
+    summary_indices = set()
     if skip_summary:
-        summary_elements = detect_summary_elements(elements, summary_detection)
-        if summary_elements:
-            print(f"Detectados {len(summary_elements)} elementos de sumário para pular")
+        summary_indices = detect_summary_elements(elements, detection_method="keywords")
+        if not summary_indices:
+            summary_indices = detect_summary_elements(elements, detection_method="pattern")
+
+        if summary_indices:
+            logger.info(f"🧹 Removendo {len(summary_indices)} elementos de sumário")
+
+    # Tracking de contexto
+    current_context = {
+        "section": "Introdução",
+        "last_header": ""
+    }
+
+    processed_elements = []
 
     for i, element in enumerate(elements):
-        if i in summary_elements:
+        if i in summary_indices:
             continue
 
-        text = element.get("text", "").strip()
-
-        if not text or len(text) < 10:
-            continue
-        if re.match(r"^(Pág\.\s*|[\s·•◦▪▫\d])+$", text, re.IGNORECASE):
-            continue
-        if element.get("type") == "Footer":
+        text = element.get("text", "")
+        if len(text) < 10:
             continue
 
-        cleaned_text = clean_text(text)
-        if not cleaned_text:
-            continue
+        # Enriquece metadados
+        meta = element.get("metadata", {}).copy()
+        element_type = element.get("type", "")
 
-        metadata = extract_enhanced_metadata(element)
+        meta["element_type"] = element_type
+        meta["category"] = infer_category(meta.get("source", ""), meta.get("category"))
+        meta["hierarchy_level"] = determine_hierarchy_level(element)
+        meta["is_header"] = element_type in ["Title", "Header"]
 
-        if metadata["element_type"] == "Title" and any(
-            char.isdigit() for char in cleaned_text[:5]
-        ):
-            current_section = cleaned_text
-            current_subsection = ""
-        elif metadata["element_type"] == "Title":
-            current_subsection = cleaned_text
+        # Atualiza contexto
+        if meta["is_header"]:
+            section_name = extract_section_info(element)
+            if section_name != "general":
+                current_context["section"] = section_name
+            current_context["last_header"] = text
 
-        metadata["section_context"] = current_section
-        metadata["subsection_context"] = current_subsection
+        # Injeta contexto
+        meta["context_section"] = current_context["section"]
+        meta["context_header"] = current_context["last_header"]
 
-        processed_elements.append({"text": cleaned_text, "metadata": metadata})
+        processed_elements.append({"text": text, "metadata": meta})
 
+    logger.info(f"🧹 Processados: {len(processed_elements)} elementos válidos")
     return processed_elements
 
-
-def create_chunks(
+@step
+def create_smart_chunks(
     processed_elements: List[Dict[str, Any]],
-    chunk_size: int = 500,
-    chunk_overlap: int = 100,
+    chunk_size: int = 600,
+    chunk_overlap: int = 150
 ) -> List[Dict[str, Any]]:
-    print(
-        f"Overlapping de chunks de tamanho: (size={chunk_size}, overlap={chunk_overlap})..."
-    )
+    """Chunking com agrupamento por contexto e prefixo semântico."""
+    logger.info(f"✂️ Chunking inteligente (size={chunk_size}, overlap={chunk_overlap})")
 
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
-        length_function=len,
-        add_start_index=True,
+        separators=["\n\n", "\n", ". ", " ", ""],
+        add_start_index=True
     )
 
-    documents: List[Document] = []
-    for element in processed_elements:
-        section = element["metadata"].get("section_context", "")
-        subsection = element["metadata"].get("subsection_context", "")
+    # Agrupa por arquivo + seção
+    grouped_text = {}
 
-        context_prefix = ""
-        if section and section != "Introduction":
-            context_prefix = f"Seção: {section}. "
-        if subsection:
-            context_prefix += f"Subseção: {subsection}. "
+    for el in processed_elements:
+        key = f"{el['metadata']['source']}|{el['metadata']['context_section']}"
 
-        doc = Document(
-            page_content=f"{context_prefix}{element['text']}",
-            metadata=element["metadata"],
-        )
-        documents.append(doc)
+        if key not in grouped_text:
+            grouped_text[key] = {
+                "text": [],
+                "meta_sample": el["metadata"]
+            }
 
-    chunked_documents = text_splitter.split_documents(documents)
+        grouped_text[key]["text"].append(el["text"])
 
-    chunk_dicts: List[Dict[str, Any]] = []
-    for idx, doc in enumerate(chunked_documents):
-        chunk_dicts.append(
-            {
-                "id": f"chunk_{idx}",
+    chunk_dicts = []
+
+    for key, data in grouped_text.items():
+        full_text = "\n".join(data["text"])
+        base_meta = data["meta_sample"]
+
+        # PREFIXO DE CONTEXTO (CRÍTICO PARA EMBEDDINGS)
+        context_prefix = f"[Contexto: {base_meta['context_section']}]\n"
+        if base_meta.get('context_header'):
+            context_prefix += f"[Seção: {base_meta['context_header']}]\n"
+
+        contextualized_text = context_prefix + full_text
+
+        docs = text_splitter.split_documents([
+            Document(page_content=contextualized_text, metadata=base_meta)
+        ])
+
+        for i, doc in enumerate(docs):
+            safe_name = re.sub(r'[^a-zA-Z0-9]', '_', base_meta['source'])
+            safe_section = re.sub(r'[^a-zA-Z0-9]', '_', base_meta['context_section'][:20])
+            chunk_id = f"{safe_name}_{safe_section}_{i}"
+
+            chunk_dicts.append({
+                "id": chunk_id,
                 "content": doc.page_content,
-                "metadata": doc.metadata,
+                "metadata": doc.metadata
+            })
+
+    logger.info(f"📦 Total de chunks: {len(chunk_dicts)}")
+    return chunk_dicts
+
+# ================= EMBEDDINGS E INGESTÃO =================
+
+@step
+def generate_hybrid_embeddings(chunks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Gera vetores densos e esparsos."""
+    if not chunks:
+        return []
+
+    texts = [c["content"] for c in chunks]
+
+    logger.info(f"🧠 Gerando Dense Embeddings ({DENSE_MODEL_NAME})...")
+    dense_model = SentenceTransformer(DENSE_MODEL_NAME)
+    dense_embeddings = dense_model.encode(texts, batch_size=32, show_progress_bar=True)
+
+    logger.info(f"🧠 Gerando Sparse Embeddings ({SPARSE_MODEL_NAME})...")
+    sparse_model = SparseTextEmbedding(model_name=SPARSE_MODEL_NAME)
+    sparse_embeddings = list(sparse_model.embed(texts))
+
+    results = []
+    for i, chunk in enumerate(chunks):
+        c = dict(chunk)
+        c["dense_vector"] = dense_embeddings[i].tolist()
+        c["sparse_vector"] = sparse_embeddings[i]
+        results.append(c)
+
+    return results
+
+@step
+def ingest_hybrid_embeddings(
+    embeddings: List[Dict[str, Any]],
+    recreate_collection: bool = False
+) -> None:
+    """Ingestão no Qdrant com tratamento robusto de erros."""
+    if not embeddings:
+        logger.warning("⚠️ Nenhum embedding para ingerir")
+        return
+
+    client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+
+    # Verifica coleção
+    exists = False
+    try:
+        exists = client.collection_exists(COLLECTION_NAME)
+    except JSONDecodeError:
+        logger.warning("⚠️ JSONDecodeError ao verificar coleção, assumindo existente")
+        exists = True
+    except Exception as e:
+        logger.error(f"❌ Erro ao verificar coleção: {e}")
+
+    if recreate_collection and exists:
+        logger.info(f"♻️ Recriando coleção '{COLLECTION_NAME}'...")
+        try:
+            client.delete_collection(COLLECTION_NAME)
+            exists = False
+        except Exception as e:
+            logger.error(f"❌ Erro ao deletar coleção: {e}")
+
+    if not exists:
+        logger.info(f"✨ Criando coleção híbrida '{COLLECTION_NAME}'...")
+        client.create_collection(
+            collection_name=COLLECTION_NAME,
+            vectors_config={
+                "dense": qdrant_models.VectorParams(
+                    size=DENSE_DIMENSION,
+                    distance=qdrant_models.Distance.COSINE
+                )
+            },
+            sparse_vectors_config={
+                "sparse": qdrant_models.SparseVectorParams(
+                    index=qdrant_models.SparseIndexParams(on_disk=False)
+                )
             }
         )
 
-    print(f"Foram criados {len(chunk_dicts)} chunks.")
-    return chunk_dicts
+    points = []
+    for item in embeddings:
+        u_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, item["id"]))
 
-
-def generate_embeddings(
-    chunks: List[Dict[str, Any]],
-    model_name: str = EMBEDDING_MODEL,
-    normalize: bool = True,
-) -> List[Dict[str, Any]]:
-    """
-    Gera embeddings para os chunks usando SentenceTransformers.
-    """
-    if not chunks:
-        print(" Nenhum chunk disponível para embedding.")
-        return []
-
-    try:
-        model = SentenceTransformer(model_name)
-    except Exception as exc:  # pragma: no cover - simples log
-        print(f"Erro ao carregar o modelo: {exc}")
-        return chunks
-
-    texts = [chunk["content"] for chunk in chunks]
-
-    print(f"Gerando embeddings para {len(texts)} chunks...")
-    try:
-        embeddings = model.encode(
-            texts,
-            batch_size=32,
-            show_progress_bar=True,
-            normalize_embeddings=normalize,
-            convert_to_tensor=False,
-        )
-    except Exception as exc:  # pragma: no cover
-        print(f"Erro ao gerar embeddings: {exc}")
-        return chunks
-
-    chunks_with_embeddings: List[Dict[str, Any]] = []
-    for chunk, vector in zip(chunks, embeddings):
-        enriched = dict(chunk)
-        enriched["embedding"] = vector.tolist()
-        enriched["embedding_model"] = model_name
-        enriched["embedding_dimension"] = len(vector)
-        chunks_with_embeddings.append(enriched)
-
-    print(f" Embeddings gerados para {len(chunks_with_embeddings)} chunks")
-
-    return chunks_with_embeddings
-
-def ingest_embeddings(
-    embeddings: List[Dict[str, Any]],
-    collection_name: str,
-    distance_metric: str = "cosine",
-    recreate_collection: bool = False,
-    batch_size: int = 64,
-) -> None:
-    """
-    Envia embeddings já gerados para o Qdrant.
-    """
-    if not embeddings:
-        print(" Nenhum embedding para enviar ao Qdrant.")
-        return
-    if not QDRANT_API_KEY:
-        raise ValueError("Qdrant API key não definida no .env (QDRANT_API_KEY).")
-
-    client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, timeout=60.0)
-    distance = getattr(
-        qdrant_models.Distance,
-        distance_metric.upper(),
-        qdrant_models.Distance.COSINE,
-    )
-
-    vector_dimension = len(embeddings[0]["embedding"])
-    vectors_config = qdrant_models.VectorParams(
-        size=vector_dimension, distance=distance
-    )
-
-    def _get_existing_dimension() -> int | None:
-        try:
-            info = client.get_collection(collection_name=collection_name)
-        except Exception:
-            return None
-        vector_params = getattr(info.config.params, "vectors", None)
-        if isinstance(vector_params, qdrant_models.VectorParams):
-            return vector_params.size
-        if isinstance(vector_params, dict):
-            for params in vector_params.values():
-                if isinstance(params, qdrant_models.VectorParams):
-                    return params.size
-        return None
-
-    if recreate_collection:
-        print(f" Recriando coleção `{collection_name}`...")
-        client.recreate_collection(
-            collection_name=collection_name, vectors_config=vectors_config
-        )
-    else:
-        collection_exists = False
-        try:
-            collection_exists = client.collection_exists(
-                collection_name=collection_name
+        # Conversão de Sparse Vector (CRÍTICO!)
+        sparse_raw = item["sparse_vector"]
+        if hasattr(sparse_raw, "indices") and hasattr(sparse_raw, "values"):
+            sparse_vector = qdrant_models.SparseVector(
+                indices=sparse_raw.indices.tolist(),
+                values=sparse_raw.values.tolist()
             )
-        except JSONDecodeError:
-            print("Resposta inesperada do endpoint `collection_exists`. ")
-            collection_exists = True
-
-        if not collection_exists:
-            print(f" Criando coleção `{collection_name}` (dimensão={vector_dimension})...")
-            client.create_collection(collection_name=collection_name, vectors_config=vectors_config)
         else:
-            existing_dimension = _get_existing_dimension()
-            if existing_dimension and existing_dimension != vector_dimension:
-                raise ValueError(
-                    f"A coleção `{collection_name}` já existe com dimensão {existing_dimension}, "
-                    f"mas os embeddings atuais possuem dimensão {vector_dimension}. "
+            sparse_vector = sparse_raw
 
+        points.append(qdrant_models.PointStruct(
+            id=u_id,
+            vector={
+                "dense": item["dense_vector"],
+                "sparse": sparse_vector
+            },
+            payload={
+                "chunk_id": item["id"],  # ID legível
+                "content": item["content"],
+                "metadata": item["metadata"],
+                "category": item["metadata"].get("category", "geral"),
+                "source": item["metadata"].get("source", "unknown"),
+                "context": item["metadata"].get("context_header", ""),
+                "hierarchy": item["metadata"].get("hierarchy_level", "body")
+            }
+        ))
 
-    def _batched(
-        seq: List[qdrant_models.PointStruct], size: int
-    ) -> List[qdrant_models.PointStruct]:
-        for start in range(0, len(seq), size):
-            yield seq[start : start + size]
-
-    points: List[qdrant_models.PointStruct] = []
-    for idx, chunk in enumerate(embeddings):
-        payload = {
-            "chunk_id": chunk.get("id", f"chunk_{idx}"),
-            "content": chunk.get("content"),
-            "metadata": chunk.get("metadata", {}),
-        }
-        point_id = (
-            chunk.get("metadata", {}).get("element_id")
-            or chunk.get("id")
-            or f"{collection_name}_{idx}"
-        )
-        points.append(
-            qdrant_models.PointStruct(
-                id=str(point_id),
-                vector=chunk["embedding"],
-                payload=payload,
-            )
-        )
-
-    print(
-        f"Enviando {len(points)} embeddings para o Qdrant em lotes de {batch_size}..."
-    )
-    total_sent = 0
-    for batch in _batched(points, batch_size):
+    batch_size = 64
+    for i in range(0, len(points), batch_size):
         try:
-            client.upsert(collection_name=collection_name, points=batch, wait=True)
-            total_sent += len(batch)
+            client.upsert(
+                collection_name=COLLECTION_NAME,
+                points=points[i:i+batch_size]
+            )
+            logger.info(f"⬆️ Batch {i//batch_size + 1}/{(len(points)-1)//batch_size + 1} enviado")
         except JSONDecodeError:
-            print("Resposta inesperada do endpoint `upsert`. Prosseguindo.")
+            logger.warning("⚠️ JSONDecodeError no upsert, mas dados provavelmente foram inseridos")
+        except Exception as e:
+            logger.error(f"❌ Erro no batch {i//batch_size + 1}: {e}")
 
-    print(
-        f" Ingestão concluída na coleção `{collection_name}` ({total_sent} embeddings enviados)."
-    )
+    logger.info("✅ Ingestão híbrida concluída!")
 
+# ================= PIPELINE PRINCIPAL =================
 
 def embedding_pipeline(
     pdf_path: str,
-    chunk_size: int = 500,
-    chunk_overlap: int = 100,
+    chunk_size: int = 600,
+    chunk_overlap: int = 150,
+    recreate_collection: bool = False,
     skip_summary: bool = True,
-    normalize_embeddings: bool = True,
-    qdrant_collection_name: str = QDRANT_COLLECTION,
-    recreate_qdrant_collection: bool = False,
+    use_unstructured: bool = True
 ) -> None:
-    """
-    Pipeline que encadeia extração, pré-processamento, chunking e embeddings.
-    """
-    elements = extract_file_elements(pdf_path=pdf_path)
-    processed = preprocess_elements(
-        elements=elements,
-        skip_summary=skip_summary,
+    """Pipeline completo com estratégia adaptativa."""
+
+    logger.info("=" * 60)
+    logger.info(f"🚀 INICIANDO PIPELINE: {Path(pdf_path).name}")
+    logger.info("=" * 60)
+
+    raw = extract_file_elements(
+        file_path_str=pdf_path,
+        use_unstructured=use_unstructured
     )
-    chunks = create_chunks(
-        processed_elements=processed,
+
+    proc = preprocess_elements(
+        elements=raw,
+        skip_summary=skip_summary
+    )
+
+    chunks = create_smart_chunks(
+        processed_elements=proc,
         chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-    )
-    print(" Gerando embeddings para os chunks...")
-    embeddings = generate_embeddings(
-        chunks=chunks,
-        normalize=normalize_embeddings,
-    )
-    ingest_embeddings(
-        embeddings=embeddings,
-        collection_name=qdrant_collection_name,
-        recreate_collection=recreate_qdrant_collection,
+        chunk_overlap=chunk_overlap
     )
 
+    embeds = generate_hybrid_embeddings(chunks=chunks)
 
-def main() -> None:
-    """
-    Interface CLI alinhada ao padrão ZenML: definimos o pipeline e o executamos no bloco main.
-    """
+    ingest_hybrid_embeddings(
+        embeddings=embeds,
+        recreate_collection=recreate_collection
+    )
+
+    logger.info("=" * 60)
+    logger.info("✅ PIPELINE FINALIZADO COM SUCESSO")
+    logger.info("=" * 60)
+
+def main():
     import argparse
-
     parser = argparse.ArgumentParser(
-        description="Pipeline ZenML para extração, chunking, embeddings e ingestão no Qdrant."
+        description="Pipeline Híbrido: Unstructured + Controle Granular"
     )
-
-    parser.add_argument("pdf_path", help="Caminho para o PDF a ser processado.")
-    parser.add_argument(
-        "--no-normalize-embeddings",
-        dest="normalize_embeddings",
-        action="store_false",
-        help="Desabilita a normalização dos embeddings.",
-    )
-    parser.set_defaults(normalize_embeddings=True)
-    parser.add_argument(
-        "--recreate-qdrant-collection",
-        action="store_true",
-        default=False,
-        help="Recria a coleção antes de inserir os embeddings.",
-    )
+    parser.add_argument("file_path", help="Caminho do arquivo")
+    parser.add_argument("--reset", action="store_true",
+                       help="Recria a coleção")
+    parser.add_argument("--keep-summary", action="store_true",
+                       help="Não remove sumários")
+    parser.add_argument("--no-unstructured", action="store_true",
+                       help="Força uso de fallback (não usa Unstructured)")
+    parser.add_argument("--chunk-size", type=int, default=600,
+                       help="Tamanho dos chunks")
+    parser.add_argument("--chunk-overlap", type=int, default=150,
+                       help="Overlap entre chunks")
 
     args = parser.parse_args()
 
-    if not os.path.exists(args.pdf_path):
-        print(f" Arquivo não encontrado: {args.pdf_path}")
-        sys.exit(1)
-
-    print(" Iniciando execução do pipeline `embedding_pipeline`...")
-    run = embedding_pipeline(
-        pdf_path=args.pdf_path,
-        chunk_size=600,
-        chunk_overlap=120,
-        skip_summary=True,
-        normalize_embeddings=args.normalize_embeddings,
-        recreate_qdrant_collection=args.recreate_qdrant_collection,
+    embedding_pipeline(
+        pdf_path=args.file_path,
+        chunk_size=args.chunk_size,
+        chunk_overlap=args.chunk_overlap,
+        recreate_collection=args.reset,
+        skip_summary=not args.keep_summary,
+        use_unstructured=not args.no_unstructured
     )
-    print(" Pipeline finalizado.")
-    return run
-
 
 if __name__ == "__main__":
     main()

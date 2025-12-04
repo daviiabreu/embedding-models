@@ -1,0 +1,225 @@
+EDITAL DE SELEÇÃO DE PROJETOS
+2024
+Sumário
+1. Edital de Seleção de Projetos....................................................................................................2
+1.1. Resumo Executivo......................................................................................................2
+2. O Inteli.......................................................................................................................................2
+2.1. A Instituição................................................................................................................2
+2.2. O Modelo de Ensino...................................................................................................3
+2.3. Atividades desenvolvidas pelos alunos......................................................................4
+3. O Edital......................................................................................................................................5
+3.1. Elegibilidade................................................................................................................5
+3.2. Doações e Bolsas Estudantis.....................................................................................5
+3.3. Inscrições....................................................................................................................5
+3.4. Da Seleção de projetos...............................................................................................6
+3.5. Desenvolvimento do projeto.......................................................................................6
+3.6. Comprometimento do Inteli.........................................................................................7
+3.7. Comprometimento do Parceiro...................................................................................8
+4. Observações Gerais..................................................................................................................9
+1.Edital de Seleção de Projetos
+1.1. Resumo Executivo
+No Inteli, os alunos aprendem através do desenvolvimento de projetos para solucionar
+problemas reais trazidos por Parceiros de Mercado - entidades sem fins lucrativos, empresas
+ou entidades governamentais. Divulgamos este edital para selecionar os parceiros de projeto a
+cada trimestre.
+Abaixo você encontrará a descrição do modelo educacional do Inteli, compromisso do parceiro
+selecionado, e demais informações pertinentes a esta seleção.
+2.O Inteli
+2.1. A Instituição
+O Inteli - Instituto de Tecnologia e Liderança - é uma instituição educacional sem fins lucrativos
+que tem a missão de formar os futuros líderes de tecnologia que vão transformar o Brasil.
+Para saber mais sobre o Inteli: www.inteli.edu.br
+2.2. O Modelo de Ensino
+A estratégia do Inteli fundamenta-se na implementação de um modelo disruptivo de
+ensino-aprendizagem, totalmente baseado em projetos e metodologias ativas, combinando
+atividades presenciais e online, especialmente a sala de aula invertida, e em um currículo
+baseado em competências de computação, negócios e liderança.
+Cada um dos cursos de graduação - Ciências da Computação, Engenharia de Computação,
+Engenharia de Software e Sistemas de Informação - é dividido em 16 módulos, sendo quatro
+módulos por ano. Cada um desses 16 módulos inclui um projeto real desenvolvido com
+Parceiros de Mercado.
+Os cursos foram concebidos para abranger todo o conhecimento tecnológico necessário para
+projetar a tecnologia do futuro de forma a cobrir desde o pensamento científico (materializado
+no curso de Ciência da Computação) até a aplicação em negócios (materializado no curso de
+Sistemas da Informação), passando por um grande foco em software (Engenharia de Software)
+e cobertura dos conhecimentos de hardware (Engenharia da Computação). Na imagem abaixo,
+é possível visualizar esta abrangência dividida por cursos:
+Imagem 1
+Apesar de cada curso ter sua própria vocação, cf. Imagem 1 acima, organizamos a trajetória do
+aluno de forma que os quatro primeiros módulos (primeiro ano) sejam comuns a todos os
+cursos. O objetivo, portanto, é que o aluno construa uma base sólida de pensamento
+computacional, com sólidos princípios norteadores ao desenvolvimento tecnológico. No
+segundo e terceiro anos de currículo, cada curso oferecerá o desenvolvimento de competências
+específicas atinentes a suas diretrizes curriculares e demandas de mercado. Por fim, o quarto e
+último ano de formação, é composto por módulos em que o aluno poderá ter autonomia nas
+suas áreas de interesse e propor projetos alinhados às mesmas, orientados pelo corpo
+docente.
+2.3. Atividades desenvolvidas pelos alunos
+A aprendizagem em um projeto ocorre de forma integrada por meio de três tipos de atividades:
+desenvolvimento, instrução e autoestudo. As atividades de desenvolvimento correspondem à
+execução do projeto em si. Por exemplo, em um projeto de desenvolvimento de um aplicativo,
+há o desenho do modelo de negócio, levantamento de requisitos, modelagem, codificação, etc.
+As atividades de instrução são encontros com professores, que podem ser para apoio à
+resolução de problem sets, sala de aula invertida, discussão de temas pertinentes ao projeto e
+aulas teóricas. Por exemplo, uma atividade de instrução no contexto de um projeto de
+desenvolvimento de um aplicativo, poderia ser um exercício de construção do algoritmo
+relacionado a um requisito.
+As atividades de autoestudo são momentos de aprendizagem nos quais os alunos acessam
+materiais de estudo previamente selecionados pelo corpo docente do Inteli, sempre relacionado
+ao projeto; correspondem à formalização dos conceitos relacionados aos temas do projeto. Por
+exemplo, uma atividade de autoestudo em um projeto de desenvolvimento de um aplicativo
+seria a leitura de um artigo sobre modelagem conceitual de dados. A operacionalização da
+proposta de ensino-aprendizagem baseada em projetos neste formato garante a conjunção
+necessária entre teoria e prática.
+As atividades de projeto são realizadas de modo presencial em ateliês (sala de aula do Inteli)
+ou via plataforma online na modalidade de sala de aula invertida. - Os alunos, antes de um
+encontro presencial, podem trabalhar com material de apoio na forma de vídeos, textos,
+desafios, exercícios, registrando esse trabalho na plataforma digital proprietária do Inteli -
+Adalove. Os professores podem ter acesso aos resultados dos trabalhos dos alunos e, com
+isso, entender os temas que os alunos encontram maiores dificuldades. Com a coleta e a
+análise desse tipo de informação, a atividade presencial pode criar situações de
+ensino-aprendizagem cada vez mais personalizadas. A proposta não é ministrar aulas sobre as
+competências, mas trabalhar cada uma delas quando forem necessárias para que o aluno
+possa avançar ou ser desafiado a pensar em novas alternativas – just in time learning.
+Os projetos são realizados a cada dez semanas e desenvolvidos em parceria com Parceiros
+de Mercado. Cada projeto é sugerido por uma demanda real deste Parceiro que, por sua
+vez, pode ser uma empresa, start up, entidades sem fins lucrativos, entidade governamental,
+escola etc. Qualquer instituição que tenha um desafio tecnológico que possa ser compartilhado
+e resolvido por um grupo de alunos e professores pode ser um Parceiro de Projeto do Inteli. A
+metodologia de ensino e aprendizagem do Inteli tem como base a inovação aberta, e este
+formato de ensino por projetos é um grande diferencial no modelo acadêmico, pois não só
+proporciona uma aprendizagem prática para os alunos, como também cria uma aproximação
+entre academia e sociedade, garantindo que o currículo esteja sempre atualizado e moderno,
+dado que anualmente são escolhidas demandas do mercado e da sociedade para serem
+resolvidas e os conteúdos mais atuais para serem ensinados.
+3.O Edital
+3.1. Elegibilidade
+O ensino do Inteli é desenvolvido através da solução de problemas reais trazidos pelos
+Parceiros de Mercado (“Parceiros”). Os Parceiros podem, por sua vez, ser empresas,
+entidades sem fins lucrativos ou entidades governamentais que tenham um problema real
+que possibilite o desenvolvimento das competências dos alunos.
+O presente edital tem como objetivo principal selecionar os Parceiros do Inteli para realização
+dos projetos.
+3.2. Doações e Bolsas Estudantis
+A participação dos parceiros não é condicionada a uma doação, o único critério de seleção
+adotado será a qualidade do problema submetido e como ele possibilita o desenvolvimento
+acadêmico dos estudantes do Inteli.
+Ainda assim, destacamos neste Edital a riqueza de uma comunidade discente diversa. Através
+de um processo seletivo need blind, selecionamos os melhores candidatos independente de
+condição financeira. Uma vez aprovados, fazemos uma distribuição dos recursos do fundo de
+bolsas de maneira need based, garantindo que os candidatos aprovados, com comprovada
+necessidade financeira, possam estudar conosco.
+A primeira turma de graduação do Inteli tem, dentre seus alunos, representantes de diversas
+localidades em todo o Brasil. O resultado do desenvolvimento dos protótipos é diretamente
+impactado por essa comunidade vibrante. Isto só é possível por generosas doações arrecadas.
+Os custos de uma bolsa integral com auxílios do Inteli (mensalidade 100%, auxílios moradia e
+alimentação, laptop e inglês) e contempla os quatro anos de formação do estudante.
+Incentivamos que todos nossos parceiros, dentro de sua possibilidade, contribuam para o fundo
+de bolsas através de doações.
+3.3. Inscrições
+As inscrições de iniciativas poderão ser feitas a todo momento e o parceiro pode cadastrar
+diversas iniciativas de acordo com os módulos disponíveis. Antes do início de cada trimestre o
+time do escritório de projetos seleciona as iniciativas mais aderentes e interessantes que se
+enquadram no módulo que será realizado.
+3.4. Da Seleção de projetos
+Trinta dias antes do início do trimestre, o escritório de projetos do Inteli selecionará iniciativas
+que foram cadastradas no Edital Contínuo e que estejam alinhadas aos módulos previstos para
+o período. Após essa seleção e uma vez confirmada a participação pelo parceiro, será iniciado
+o processo de assinatura do Termo de Parceria, documento que estabelece as
+responsabilidades e compromissos de ambas as partes envolvidas nesta parceria educacional.
+Sequencialmente serão realizadas discussões detalhadas sobre o escopo dos projetos
+propostos, alinhamento de expectativas e o preenchimento do TAPI (Termo de Abertura de
+Projetos do Inteli) - Documento oficial de escopo do projeto a ser realizado.
+Além disso, os parceiros selecionados receberão uma explicação abrangente do cronograma
+do projeto. Essa explicação incluirá informações detalhadas sobre prazos, marcos e eventos
+relevantes, proporcionando uma visão completa do desenvolvimento do projeto e facilitando a
+integração harmoniosa entre o Inteli e a empresa parceira.
+Critérios de Seleção:
+● AderênciadoProjeto:Asiniciativasserãoselecionadasdeacordocoma
+apresentaçãodascompetênciascomputacionais,denegócioedeliderança
+necessáriasacadamódulo.
+● DiversidadedeProjetos:Buscamosdiversificarostiposdeprojetosoferecidos,
+garantindoumaamplagamadeexperiênciasdeaprendizagemparanossos
+alunos.
+● DiversidadedeEmpresas:Valorizamosaparticipaçãodeempresasdediferentes
+indústriasesetoresparaproporcionarumavariedadedeperspectivasaos
+estudantes.
+3.5. Desenvolvimento do projeto
+Após a fase de definição e alinhamento do escopo do projeto, daremos início às 10 semanas
+de desenvolvimento do projeto com a turma.
+Os projetos são desenvolvidos com a metodologia ágil e as 10 semanas são distribuídas em 5
+sprints de 2 semanas cada, ao longo das sprints ocorrem 7 encontros com o parceiro de
+projetos conforme abaixo:
+Onboarding executivo: Abertura da 1° Sprint
+Neste dia, é necessário a presença de um executivo da Parceira empresa parceira que
+executará o projeto junto ao Inteli, para ministrar palestra institucional, onde o palestrante falará
+sobre a empresa e sobre sua trajetória profissional.
+Encontros com os pontos focais (SPRINTS):
+● Kickoff: dentro da 1° semana;
+● Validações de Sprint: 4 encontros realizados a cada 15 dias;
+● Apresentação final: Último dia da 5° Sprint;
+● Entrega de Protótipos: Até 30 dias após o término do módulo.
+A imagem abaixo ilustra a distribuição dos encontros no trimestre.
+Os encontros para Kickoff, validações de sprints e entrega de protótipos têm duração
+aproximada de 2 (duas) horas e ocorrerão no campus do Inteli no período da tarde. Serão
+enviadas pelo Escritório de Projetos após seleção de iniciativas, convites de reuniões para
+reservas de agendas.
+3.6. Comprometimento do Inteli
+Alinhamentos e dúvidas sobre Edital
+O Inteli se compromete a promover fóruns onlines de explicação do processo de submissão de
+projetos.
+Alinhamento com o Parceiro
+Uma vez selecionados os Parceiros, o Inteli alocará a estrutura do Escritório de Projetos para o
+planejamento e início em conjunto do desenvolvimento das atividades do projeto.
+Desenvolvimento do Projeto
+Uma vez assinado o termo de parceria, o Inteli se compromete com a execução das atividades
+educacionais previstas em seu modelo acadêmico, com a transparência quanto ao cronograma
+e avanço do desenvolvimento do projeto e com a organização dos pontos de contato entre o
+Parceiro e os alunos.
+Entrega
+Ao final do desenvolvimento do projeto pelos alunos, o Inteli se compromete a entregar os
+protótipos ou soluções desenvolvidas a cada Parceiro, bem como realizar a divulgação dos
+protótipos em suas redes oficiais.
+Outras interações
+O Inteli explora formatos de parceria que traduzam benefícios de aprendizagem e profissionais
+para seus alunos, no formato de mentorias, palestras de profissionais e construção de
+programas de estágio. Caso haja interesse do Parceiro, o Inteli se compromete a trabalhar na
+construção desses formatos, em conformidade com o modelo acadêmico.
+3.7. Comprometimento do Parceiro
+Disponibilidade de contato
+O Parceiro se compromete a apontar um ponto de contato técnico para os alinhamentos
+prévios e desenvolvimento do projeto com o Inteli, bem como garante a participação de 7
+encontros com duração de até 2 horas cada, não podendo abandonar o projeto antes do seu
+término.
+O Parceiro se compromete a sempre conectar com os grupos de estudantes nos horários
+indicados pelo Escritório de Projetos, estando ciente de que este encontro integra calendário
+acadêmico dos estudantes, não podendo sofrer alterações de data ou horário.
+Garantia de término do projeto
+O Parceiro se compromete a cumprir com a disponibilidade mínima indicada no item anterior,
+garantindo a plena execução do projeto que compõe o currículo de graduação de alunos do
+Inteli.
+Outras disposições
+a. Considerando que os dois primeiros anos de graduação dos alunos do Inteli tem
+período Integral, o Parceiro se compromete a não propor estágio, remunerado
+ou não, ou trabalho voluntário ou assalariado para qualquer estudante do
+primeiro ou segundo ano do Inteli. A partir do terceiro ano, o Centro de
+Desenvolvimento de Liderança do Inteli será o ponto de contato para a oferta de
+estágio e oportunidades profissionais aos alunos.
+b. O Parceiro poderá articular junto ao Centro de Desenvolvimento de Liderança do
+Inteli estágios curtos de férias para os estudantes.
+c. O Parceiro se compromete a compartilhar e disponibilizar as documentações
+necessárias para o desenvolvimento do projeto em calendário alinhado com o
+time acadêmico do Inteli.
+4.Observações Gerais
+a. Ao inscreverem-se, as instituições estarão automaticamente autorizando o
+Inteli, caso sejam selecionadas, a divulgar, por qualquer meio de
+comunicação, a parceria no âmbito deste edital e as atividades que serão
+desenvolvidas junto ao Inteli, sem qualquer ônus.
+b. O uso do logo e imagens oficiais do Parceiro dependerá de aprovação prévia
+do Parceiro para qualquer divulgação que não tenha relação com o presente
+Edital.
+c. Ao inscreverem-se, as instituições aceitam, sem restrições, as cláusulas
+deste regulamento, cabendo exclusivamente ao Inteli decidir sobre eventuais
+omissões ou dúvidas.
+d. Não há limites para submissão de propostas por parceiro.
+e. Casos omissos serão decididos pelo Escritório de Projetos.

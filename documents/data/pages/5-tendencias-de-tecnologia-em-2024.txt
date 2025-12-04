@@ -1,0 +1,36 @@
+5 tendências de tecnologia em 2024 - Inteli - Instituto de Tecnologia e Liderança
+
+Inteli
+>
+Mercado Tech
+>
+5 tendências de tecnologia em 2024
+5 tendências de tecnologia em 2024
+Time Inteli
+15 dez 2023
+Time Inteli
+15 dez 2023
+Bernard Marr é um futurista de renome mundial, influenciador e líder de pensamento nos campos de negócios e tecnologia. Em artigo para a
+Forbes
+, Marr aponta as cinco tendências de tecnologia para 2024.
+E como aqui no Inteli a gente adora conversar sobre futuro, pedimos ao nosso professor e “Top Educational Leadership Voice” do Linkedin, Maurício Garcia, para comentar cada uma dessas tendências. Let’s bora?
+IA Generativa
+Um estudo da PwC estima que a AI pode adicionar até US$15,7 trilhões à economia global até 2030.
+À medida que a IA generativa ocupa mais espaço nas tarefas cotidianas, vai ficar mais fácil para as pessoas enxergarem a tecnologia como um assistente pessoal superinteligente à disposição 24 horas por dia, tornando-nos mais eficientes, rápidos e produtivos.
+Comentário Maurício: O tema IA dominou as discussões no ano de 2023. De um lado, os entusiastas que projetam um mundo completamente diferente, do outro os preocupados com os riscos de dominação skynet. Mas há também os cautelosos, como eu, que enxergam muito hype nessas discussões. Afinal, IA ainda depende de estatística, a qual depende de dados. E esse é o principal ponto fraco das organizações.
+Cibersegurança
+As ameaças cibernéticas estão se tornando mais sofisticadas. Pesquisas indicam que uma em cada duas empresas foi vítima de um ciberataque bem-sucedido nos últimos três anos, e a previsão é que o custo desses ataques para a indústria ultrapasse os US$10 trilhões até o final de 2024.
+Com isso, a competição para lançar novas soluções, aproveitando tecnologias inovadoras como a inteligência artificial, vai se intensificar ainda mais.
+Comentário Maurício: A cada ano, os ataques ficam mais complexos, porém mais fáceis de serem implementados. Há cursos completos no Youtube sobre como ser um hacker e frameworks prontos que facilitam a vida dos iniciantes. Porém, a principal vulnerabilidade continua sendo as pessoas, que deixam os sistemas abertos, acessam em qualquer lugar, usam senhas fracas, repetidas ou mesmo as compartilham com outros.
+Tecnologia Sustentável
+A tecnologia sustentável continuará sendo protagonista em 2024, impulsionada por esforços globais para atingir metas de neutralidade de carbono. Inovações como a captura de carbono e energias renováveis devem ganhar destaque.
+A economia circular, incorporando durabilidade e reutilização, se tornará crucial no design de produtos. Desafios incluirão a busca por métodos éticos e sustentáveis na obtenção de materiais, adaptação da infraestrutura às mudanças nos padrões de consumo e atenção ao “greenwashing”.
+Comentário Maurício: As discussões sobre ChatGPT e outras IAs acabaram ofuscando os debates sobre greentech. Mas essa é uma corrida de fundo e será o tema dominante nos próximos anos. A greentech não engloba apenas o desenvolvimento de softwares, mas também as tecnologias de hardware, em especial as que envolvem IoT, e tudo que orbita em torno de novas fontes de energia, principalmente o hidrogênio e a fusão nuclear.
+Phygital
+O real e o digital estão cada vez mais entrelaçados. Tecnologias como realidade aumentada (RA), realidade virtual (RV) e a internet imersiva estão quebrando as barreiras entre o mundo físico e os domínios digitais, onde passamos cada vez mais do nosso tempo.
+Em 2024, continuaremos a ver uma distinção cada vez menor entre o mundo real e o virtual. Isso significa que o digital está se tornando cada vez mais realista, enquanto o real está se tornando tão flexível e maleável quanto o digital.
+Comentário Maurício: Pessoalmente não tenho muita expectativa com relação às experiências imersivas. Já se fala sobre VR, AR, XR há algum tempo e elas não decolaram, mesmo com o hype do metaverso, que saiu de cena tão rapidamente quanto entrou. Os óculos da Apple (Vision Pro) ainda são uma incógnita. Para mim, o mundo phygital será mais uma combinação em que, às vezes, as pessoas se encontram fisicamente e, às vezes, remotamente.
+Computação Quântica
+Ao explorar os princípios da física quântica, como emaranhamento e superposição, os computadores quânticos, com seus qubits, têm potencial para revolucionar áreas como descoberta de medicamentos, sequenciamento genômico, criptografia, meteorologia, ciência de materiais e otimização de sistemas complexos.
+Investidores, especialmente no setor financeiro, buscam potencializar IA para detecção de fraudes e negociações de alta frequência. A computação quântica emerge como uma ferramenta poderosa para enfrentar desafios globais.
+Comentário Maurício: Não há dúvidas que os computadores quânticos terão capacidade de processamento absurdamente superiores que os computadores convencionais. Entretanto, ainda enfrenta dois desafios importantes: precisão e custo. Mesmo que seja 99,99% preciso, o 0,01% de erro, numa escala quântica, ainda é muito relevante. Além disso, são necessárias dezenas de pessoas, muitos PhDs, para operar um equipamento desse tipo, numa infraestrutura gigantesca. Mas vale acompanhar.

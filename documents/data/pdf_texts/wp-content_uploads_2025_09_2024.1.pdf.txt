@@ -1,0 +1,1941 @@
+Gabarito
+
+Processo Seletivo
+
+2024.1
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+BEM-VINDOS AO PRIMEIRO
+PROCESSO SELETIVO ADAPTATIVO
+DO BRASIL
+Este é um gabarito comentado de todas as questões
+realizadas em nosso processo seletivo – eixo prova, que
+ocorreu no dia 22/10/2023.
+Lembrando que nosso processo é dividido em 4 blocos, onde o candidato percorre uma trilha de
+acordo com seu desempenho durante a prova. Neste arquivo você irá encontrar todas as
+questões que foram disponibilizadas, independente do caminho percorrido. Note que, por conta
+disso, existirão questões parecidas, porém com grau de complexidade diferente.
+Além disso, para evitar possíveis fraudes, durante a aplicação da prova, as questões foram
+embaralhadas randomicamente, por isso, dentro deste caderno solução, decidimos não as
+numerar. O mesmo ocorreu com as alternativas de cada questão, que também foram
+embaralhadas durante a prova.
+Bons estudos a todos!
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Após cadastrar todos os estudantes de uma nova turma do Inteli, o administrador do sistema
+precisa gerar aleatoriamente senhas provisórias para cada um deles. Estas senhas podem ter
+quatro ou cinco dígitos e para gerá-las ele procede da seguinte forma:
+● Considera-se a data de aniversário do estudante na forma DDMM, isto é, dia de nascimento
+com dois dígitos e mês de nascimento com dois dígitos.
+● Considera-se o número DDMM como 𝑥 e, então, a senha é dada pela função:
+𝑆(𝑥) =2020+4𝑥,
+sendo 2020 escolhido como uma homenagem ao ano de fundação do Inteli.
+Por exemplo: Alice nasceu em 04/10/2003. Portanto, sua senha será:
+2020+4∙(0410) = 3660
+Sabendo-se que a senha de acesso de Maíra é 8428, pode-se afirmar que a data de aniversário
+dela corresponde a:
+17/01
+16/02
+08/07
+21/07
+26/12
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 16/02
+Solução:
+A senha de acesso é o 𝑆(𝑥), logo, 𝑆(𝑥) = 8428 ⇒ 2020+4𝑥 =8428 ⇒ 𝑥 = 1602.
+Então, a data de aniversário é 16/02.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+O tempo que se passa diante de monitores, ficando exposto ao brilho dessas telas, é um
+problema enfrentado por muitas pessoas, como os editores de vídeo, por exemplo.
+Diante disso, um programador desenvolveu um aplicativo que realiza ajustes do brilho da
+imagem em função do tempo de edição em minutos. Este aplicativo utiliza a função quadrática
+𝑏(𝑡) = −0,02𝑡2+1,6𝑡+63, em que 𝑏 é o brilho, em porcentagem, e 𝑡 é o tempo, em minutos,
+que o programador passa editando vídeos. Esse aplicativo funciona para 𝑡 ∈[0;100] e, após
+passado esse tempo, o aplicativo automaticamente reinicia.
+Com base nessas informações, pode-se afirmar que o percentual de brilho do monitor após o
+programador editar vídeos por uma hora e quinze minutos será:
+70,5%
+65%
+55,5%
+54,5%
+35%
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 70,5%
+Solução:
+Convertendo o tempo para minutos: 𝑡 =1 h 15 min = 75 min.
+Então, o brilho será: 𝑏(75) =−0,02×752+1,6×75+63 =−112,5+120+63 =70,5.
+Como 𝑏 já é dado em percentual, o brilho será de 70,5%.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+A interação nas relações humanas ocorre desde a origem da humanidade. As pessoas sempre
+foram motivadas pelas relações com o próximo. Com o advento dos computadores, essa
+interação se intensificou e, atualmente, com a internet e as diversas redes de relacionamento,
+novas formas de interação e de relacionamento interpessoais surgiram e, possivelmente, novas
+surgirão. Nessas redes de relacionamento, uma notícia atinge um público muito maior e muito
+mais rapidamente do que poderia atingir quando esses relacionamentos não eram
+informatizados.
+Suponha que uma notícia seja comunicada a um grupo de 100 pessoas em uma rede social numa
+primeira interação. Em seguida, na segunda interação, cada uma dessas 100 pessoas repassa a
+notícia para outras duas. Já na terceira interação, cada uma das 200 pessoas que souberam da
+notícia na segunda interação, repassa para mais duas novas pessoas. O processo se repete de
+forma sucessiva, ou seja, na interação 𝑛 apenas as pessoas da interação 𝑛−1 repassam, cada
+uma, para duas novas pessoas.
+Considerando que nunca há interseção entre as pessoas que recebem a notícia, a quantidade de
+pessoas que receberão a notícia na 11ª interação corresponde a:
+a) 200 pessoas
+b) 1.100 pessoas
+c) 2.200 pessoas
+d) 102.400 pessoas
+e) 204.800 pessoas
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 102.400 pessoas
+Solução:
+Seja 𝑎 o número de pessoas que recebem a notícia na interação 𝑛.
+𝑛
+Pelo enunciado: 𝑎 =2𝑎 e 𝑎 =100.
+𝑛 𝑛−1 1
+A sequência é uma PG de razão de razão 2. Pela fórmula do termo geral:
+𝑎 =𝑞𝑛−1𝑎 ⇒ 𝑎 =210×100 = 102.400.
+𝑛 1 11
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma empresa de desenvolvimento de aplicativos mobile realizou uma pesquisa survey com o
+intuito de observar os tipos de aplicativos mais recorrentes nos celulares domésticos. Dessa
+forma, a partir dos dados coletados, foram obtidas as seguintes informações:
+• 120 participantes utilizam aplicativos de redes sociais;
+• 80 participantes utilizam aplicativos de jogos;
+• 60 participantes utilizam aplicativos de produção profissional;
+• 40 participantes utilizam aplicativos tanto de redes sociais quanto de jogos;
+• 30 participantes utilizam aplicativos tanto de redes sociais quanto de produção profissional;
+• 20 participantes utilizam aplicativos tanto de jogos quanto de produção profissional;
+• 10 participantes utilizam os três tipos de aplicativos.
+Com base nas respostas apresentadas, pode-se afirmar que o número de participantes que
+utilizou apenas um tipo de aplicativo corresponde a:
+110
+160
+180
+240
+360
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 110
+Solução:
+Seja A o conjunto das pessoas que utilizam aplicativos de redes sociais, B conjunto das pessoas
+que utilizam aplicativo de jogos e C conjunto das pessoas que utilizam aplicativos para produção
+profissional
+O Diagrama de Venn abaixo representa todas as informações do problema:
+Logo, o número de pessoas que utilizam apenas um dos aplicativos é: 60 + 30 + 20 = 110.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Muitos softwares utilizados nos computadores por engenheiros e arquitetos já ganharam suas
+versões para smartphones, chamados então de aplicativos. Considere estes aplicativos
+instalados em um smartphone e seus respectivos tamanhos:
+Sabendo-se que 1 GB = 210 MB, pode-se afirmar que o tamanho médio desses aplicativos
+corresponde a:
+46,38 MB
+57,40 MB
+231,90 MB
+407,82 MB
+639,72 MB
+-----------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟔𝟑𝟗,𝟕𝟐 𝐌𝐁
+Solução:
+Convertendo de unidade os arquivos que estão com seus tamanhos em GB:
+• CAD: 1,2 GB =1,2×210 MB =1228,8 MB
+• Modelagem 3D: 1,7 GB=1,7×210 MB =1740,8 MB
+Assim, o tamanho médio será:
+100,9+71,9+1128,8+1740,8+56,2
+𝑥̅ = = 639,72 MB
+5
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Para liberar espaço em seu smartphone, um usuário decide contratar um serviço de
+armazenamento em nuvem. O serviço a ser contratado deverá comportar 16.384 fotos e 2.048
+vídeos, considerando que cada foto possui um tamanho médio de 4 MB e cada vídeo possui um
+tamanho médio de 16 MB. Sabendo-se que 1 GB =210 MB, o serviço de armazenamento em
+nuvem contratado deverá ter, pelo menos:
+18 GB
+42 GB
+96 GB
+128 GB
+264 GB
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟗𝟔 𝐆𝐁
+Solução:
+Para facilitar as contas, note que o número de fotos e vídeos é uma potência de 2:
+• Fotos: 16.384 = 214 ⇒ Tamanho: 214×22 =216 MB
+• Vídeos: 2.048 = 211 ⇒ Tamanho: 211 ×24 = 215 MB
+Somando:
+216+215
+(216+215) MB =( )GB= (26+25) GB= 96 GB
+210
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Suponha que você esteja gerenciando uma equipe de desenvolvedores de software em uma
+empresa de tecnologia. Você precisa decidir quantos desenvolvedores júniores e quantos
+desenvolvedores sêniores contratar para um novo projeto. A empresa tem dois tipos de tarefas:
+codificação de software e teste de qualidade.
+Cada desenvolvedor júnior pode, em uma hora, desenvolver 3 linhas de código e ainda realizar
+2 testes de qualidade. Cada desenvolvedor sênior pode, em uma hora, desenvolver 5 linhas de
+código e ainda realizar 3 testes de qualidade.
+O número de horas no contrato de um desenvolvedor júnior ou sênior é igual, ou seja, a única
+diferença está na produtividade.
+O projeto requer 1.900 linhas de codificação de software e 1.200 testes de qualidade. Sabendo
+que a empresa irá contratar exatamente 20 funcionários, contando júniores e sêniores, a carga
+horária total de trabalho, em horas, de cada funcionário será:
+600
+500
+100
+30
+25
+-----------------------------------------------------------------------------------------------------------------------------
+Gabarito: 25
+Solução:
+Seja 𝑡 o número de horas que cada funcionário trabalha, 𝑗 o número de desenvolvedores júniores
+e 𝑠 o número de desenvolvedores sêniores. Do enunciado:
+3𝑡𝑗+5𝑡𝑠 =1900 (∗)
+{
+2𝑡𝑗+3𝑡𝑠 = 1200 (∗∗)
+Eliminando o termo 𝑡𝑠, 5∙(∗∗)−3∙(∗): 𝑡𝑗 =300. Substituindo em (∗):
+900+5𝑡𝑠 = 1900 ⇒ 𝑡𝑠 = 200
+Somando os dois valores obtidos e usando que o total de funcionários é 20:
+𝑡𝑗+𝑡𝑠 = 500 ⇒ 𝑡(𝑗+𝑠) =500 ⇒ 𝑡×20 =500 ⇒ 𝑡 =25
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Enquanto os carros autônomos não chegam às lojas, os fabricantes investem em soluções
+tecnológicas que facilitam a condução, como o sistema avançado de assistência à direção (ADAS),
+que possui como uma de suas finalidades o Active Park Assist ou assistente de estacionamento.
+Para que essa tecnologia funcione, são necessários sensores e câmeras nos veículos que
+auxiliarão o computador de bordo a analisar o espaço e a verificar obstáculos ao redor.
+Com base nessas informações, considere que o sensor traseiro de um veículo, ao estacionar
+utilizando o Active Park Assist, identificou outro veículo estacionado, como é apresentado por
+meio desta figura:
+Sabendo-se que o setor circular, indicando o campo de detecção do sensor traseiro, possui uma
+área de 1,125𝜋 m2 e ângulo central de 125°, pode-se afirmar que a distância que separa os dois
+veículos, considerando-se que estão alinhados, é de:
+1,061 m
+1,125 m
+1,620 m
+1,800 m
+3,240 m
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏,𝟖𝟎𝟎 𝐦
+Solução:
+Área do setor circular: 𝐴 = 𝜋𝑟2 𝛼 =1,125𝜋 ⟹ 𝑟2 ∙125𝑜 = 1,125 ⇒
+360𝑜 360𝑜
+360𝑜 1125 72 9 81 9
+⇒ 𝑟2 = ∙ = ∙ = ⇒ 𝑟 = =1,800 m
+125𝑜 1000 25 8 25 5
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um dos mecanismos de liberação de espaço de armazenamento em um celular é a busca por
+arquivos duplicados. Uma vez encontrado um arquivo duplicado, ele pode ser excluído para que
+todo o espaço que ele ocupa seja liberado.
+Esse processo pode ser demorado porque o software deve comparar cada arquivo com todos os
+outros do computador, verificando-se, assim, todos os pares de arquivos possíveis. Ademais,
+cada par de arquivos só precisa ser verificado uma única vez.
+Diante disso, considere que cada operação de comparação entre dois arquivos demanda 0,001
+segundo. O tempo necessário para verificar todos os arquivos de um celular com 4.000 arquivos
+é de aproximadamente:
+4 s
+8 s
+133 min
+266 min
+400 min
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏𝟑𝟑 𝐦𝐢𝐧
+Solução:
+Para formar todos os pares de arquivos possíveis uma única vez podemos utilizar combinação
+simples
+4000! 4000×3999
+𝐶 = = = 7.998.000
+4000,2 3998!∙2! 2
+Cada par demora 0,001 s, assim o tempo necessário será:
+7998
+7.998.000×0,001 =7998 s = min = 133,3 min
+60
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Em um projeto relacionado à análise de performance de um web server, decidiu-se analisar
+arquivos de registro para investigar solicitações de acesso que falharam. Dessa forma, foi possível
+verificar a ocorrência de falhas pelos seguintes erros:
+• 404 – Not found errors;
+• 403 – Forbidden errors;
+• 500 – Internal server errors.
+Um dos arquivos analisados apresentou 150.400 registros de acesso, dos quais 30% falharam.
+Desse percentual, 20% se referiram ao erro 404; 65% eram direcionados ao erro 403; e o
+restante, ao Erro 500.
+Para verificar os impactos do servidor, esse resultado foi confrontado com um registro anterior,
+que havia apresentado 85.600 registros de acesso, dos quais 5.136 se referiram ao Erro 500.
+Portanto, pode-se afirmar que, entre os dois arquivos de registro analisados, a diferença entre
+os percentuais de falhas ocasionadas pelo Erro 500 corresponde a:
+1,5%
+6%
+9%
+12%
+24%
+--------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏,𝟓%
+Solução:
+No primeiro arquivo de registro, 30% dos acessos falharam. Se desse percentual, 20% foram
+de erro 404 e 65% de erro 403, então 100%−20%−65% = 15% foram de erro 500, assim,
+o percentual de erro 500 é 15%∙30% =4,5%.
+5.136
+No segundo arquivo, o percentual de erro 500 pode ser calculado pela razão: = 6%.
+85.600
+Assim, a diferença entre os percentuais é 6%−4,5% = 1,5%.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um sistema de inteligência artificial começa seu aprendizado sem saber quase nada e precisa
+analisar vários acontecimentos em busca de relações de causa e consequência. Diante disso,
+considere que uma IA, ao analisar vídeos, tenta entender quedas e que, inicialmente, não
+entende que existe uma força gravitacional atuando.
+Essa IA analisará um conjunto de situações em que existe um “antes” e um “depois” em busca
+de analisar esta proposição:
+SE “corpo está no ar”, ENTÃO “corpo cai”.
+Neste quadro, a análise de vídeo está parcialmente concluída nas situações de I até IV:
+Para avaliar se a proposição é verdadeira, é necessário concluir a análise de vídeo:
+da situação I.
+das situações I ou III.
+das situações I ou IV.
+das situações II ou IV.
+de todas as situações.
+-----------------------------------------------------------------------------------------------------------------------
+Gabarito: das situações I ou IV
+O conectivo se p, então q obedece a seguinte tabela verdade:
+p q p --> q
+V V V
+V F F
+F V V
+F F V
+Repare que uma implicação desse tipo só é falsa quando p é verdadeira, porém q não.
+Na situação I p é verdadeira (linhas 1 e 2 da tabela). Repare que nesse caso não temos como
+saber se a sentença é verdadeira, isso depende essencialmente da proposição q.
+Na situação IV q é falsa (linhas 2 e 4 tabela). Repare que nesse caso não temos como saber se a
+sentença é verdadeira, isso depende essencialmente da proposição p.
+Na situação II p é falsa (linhas 3 e 4 da tabela). Repare que nesses casos a sentença sempre é
+verdadeira, não sendo necessária nenhuma conclusão sobre q.
+Na situação III q é verdadeira (linhas 1 e 3 da tabela). Repare que nesses casos a sentença sempre
+é verdadeira, não sendo necessária nenhuma conclusão sobre p.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Como forma de manter o sigilo na troca de documentos de forma online entre a matriz de uma
+empresa e suas filiais, foi criado um código, reconhecido somente entre os usuários autorizados
+nessa tarefa.
+Esse código foi elaborado usando formas triangulares de tal maneira que cada uma representa
+os algarismos da base 4, seguindo o esquema a seguir:
+Sempre que um arquivo precisa ser aberto, o sistema gera uma nova sequência com algumas
+dessas formas triangulares formando um número na base 4. O usuário, então, deve digitar seu
+valor correspondente na base 16 para poder abri-lo.
+Ao executar a tarefa de abrir um novo arquivo, um usuário recebeu o seguinte código para
+decifrar:
+Nesse caso, o número que o usuário deveria digitar para ter acesso ao arquivo é o:
+15
+61
+327
+363
+807
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟑𝟐𝟕
+Solução:
+A figura representa a sequência 30213, lembrando que esta sequência está na base 4.
+Passando para a base 10, através da própria definição de bases de numeração:
+(30213) =3∙44 +0∙43+2∙42+1∙41+3∙40 =807
+4
+Agora passando para a base 16, utilizando divisões sucessivas:
+ou seja, 807 =(327)
+16
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um jogo em Realidade Aumentada (RA), denominado “PARCEIROS”, simula dois avatares que
+fazem o papel de “parceiros” do jogador e o acompanham em um mapa real da região onde esse
+personagem se encontra. O jogador, com o uso de um celular ou tablet, ao abrir o jogo, tem o
+mapa da região que apresenta estes dois “parceiros” em algum local próximo.
+Considere que a posição do jogador em um mapa com divisões em metros e cuja posição por
+coordenadas cartesianas seja (8,26) e que as posições de seus “parceiros” em certo momento
+sejam (𝑘,−10) e (10,𝑘), com 𝑘 variando no conjunto dos números reais.
+Existem dois momentos em que o jogador e os avatares estarão alinhados. Determine o valor de
+𝑘 onde esse alinhamento ocorrerá, considerando que o jogador e o avatar do 1º quadrante
+estarão o mais próximo possível.
+14
+20
+25
+30
+50
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 14
+Solução:
+Para que os três pontos estejam alinhados:
+8 26 1
+|𝑘 −10 1| =0 ⇒ −80+260+𝑘2+100−8𝑘−26𝑘 = 0⇒ 𝑘2−34𝑘+280 = 0
+10 𝑘 1
+⇒ 𝑘 = 14 ou 𝑘 =20
+O avatar do 1º quadrante pode estar em (10,14) ou (10,20). Considerando estes dois pontos,
+o mais próximo do jogador de coordenadas (8,26) será o (10,20), ou seja, 𝑘 = 20.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Por meio da nanotecnologia, engenheiros americanos desenvolveram uma esponja capaz de
+remover metais pesados de água contaminada, tornando-a potável, o que é um dos maiores
+desafios de saúde pública mundial. Essa tecnologia é capaz de capturar também metais valiosos,
+como ouro e cobalto, fundamentais para as baterias de íon-lítio usadas nos carros elétricos.
+Uma esponja de 100 gramas revestida com nanopartículas consegue limpar um volume de 700
+galões de água. Sabendo-se que um galão, 1 gal, de água equivale a 3,785 litros de água, pode-
+se afirmar que, com uma esponja de 2 kg revestida com nanopartículas, é possível limpar:
+5,299×10−2 m3 de água contaminada
+5,299×10−1 m3 de água contaminada
+5,299×101 m3 de água contaminada
+5,299×104 m3 de água contaminada
+5,299×107 m3 de água contaminada
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟓,𝟐𝟗𝟗×𝟏𝟎𝟏 𝐦𝟑 de água contaminada
+Solução:
+Se uma esponja de 100 g consegue limpar 700 gal, então uma esponja de 2 kg = 2000 g
+conseguiria limpar 20×700 =14.000 gal.
+Cada galão equivale a 3,785 l, assim conseguiríamos limpar
+3,785×14.000 =52.990 l =52.990 dm3 =52,99 m3 =5,299×101 m3
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Para guardar seus ativos digitais numa carteira digital, um usuário optou por fazer a segurança
+com palavras-chave. Esse tipo de segurança consistia em 20 palavras distintas que deveriam ser
+digitadas em determinada ordem para ter acesso ao conteúdo da carteira.
+Dessa forma, esse usuário anotou as 20 palavras arbitrariamente em um papel, fotografou-o e
+guardou essa foto em seu e-mail. Entretanto, por segurança, ele mudou a ordem das palavras ao
+colocá-las no papel.
+Com base nessas informações, suponha que uma quadrilha de cibercriminosos consiga acesso à
+fotografia do usuário e que seja capaz de inserir cada ordem na carteira em 1 segundo. Diante
+disso, pode-se afirmar que a quadrilha conseguirá acessar a carteira após inserir:
+20! ordens distintas, o que é inviável de ser feito em um mês.
+20! ordens distintas, o que é viável de ser feito em um mês.
+400 ordens distintas, o que é viável de ser feito em um mês.
+2020 ordens distintas, o que é inviável de ser feito em um mês.
+2020 ordens distintas, o que é viável de ser feito em um mês.
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟐𝟎! ordens distintas, o que é inviável de ser feito em um mês
+Solução:
+Ele deve testar todas as 20! permutações.
+Estimando o a ordem de grandeza:
+20! =20×19×…×10×9! >1011 ×9! =362.880×1011 ≅ 3600×1013 𝑠 = 1013 h
+tempo muito superior a um mês: 24×30 = 720 h
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um data center está enfrentando problemas de consumo energético, uma vez que seus
+servidores demandam, todos juntos, 2.000 kW de energia por hora, tendo todos o mesmo
+consumo para se manterem em funcionamento. Diante disso, a empresa decidiu substituir 30%
+dos servidores antigos por um novo modelo mais eficiente e com consumo de 25% a menos de
+energia do que os anteriores. Após essa substituição, a empresa implantou um novo sistema de
+resfriamento que reduz o consumo energético total em 20%.
+Com base nas informações apresentadas, pode-se afirmar que a demanda energética, por hora,
+reduziu para:
+840 kW
+1.450 kW
+1.480 kW
+1.850 kW
+1.970 kW
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏.𝟒𝟖𝟎 𝐤𝐖
+Solução:
+Em 30% dos servidores o consumo reduziu 25%, então a redução foi de: 25%∙30% =7,5%.
+Sobrando: 100%−7,5%∙2000 = 0,925∙2.000 𝑘𝑊 =1.850 𝑘𝑊
+Após a substituição ainda foi implementado um sistema que reduziu o consumo em 20%
+(sobrando 80%): 0,8×1.850=1.480 kW.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um conjunto de cartas é confeccionado de maneira que cada carta sempre possua uma letra em
+um dos lados e um número no outro.
+É apresentada para uma inteligência artificial (AI) a seguinte sequência de cartas com os lados
+virados aleatoriamente:
+Além disso, é feito o seguinte pedido para a AI: “Virando o mínimo de cartas possível, quais
+cartas devem ser viradas para verificar se é válida a regra: atrás de cada número ímpar existe
+sempre uma vogal?”
+Se a AI respondeu corretamente, ela listou as cartas:
+3 e 15
+3, 6, 15 e 4
+A, 3, e 15
+3, 15, J e B
+todas
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 3, 15, J e B
+Solução:
+Cada carta tem letra de um lado e número de outro e a única regra a ser verificada é se atrás de
+cada ímpar existe uma vogal.
+Então, é necessário verificar todos os números ímpares, para ver se realmente existirá vogal do
+outro lado. Nada é afirmado sobre o que existe atrás de um número par.
+Não é necessário verificar as cartas com vogais: se tiver um número par o que queremos verificar
+continua sendo verdade, e se tiver um número ímpar também.
+Entretanto, também é necessário virar todas as consoantes, porque não pode haver um número
+ímpar do outro lado.
+Assim, será necessário verificar as cartas 3, 15, J, B.
+Observação: A necessidade de virar as consoantes, não as vogais, pode ser percebida quando
+analisamos a equivalência das seguintes sentenças: p→q; ~q→~p
+p q p q ~q ~p ~q → ~p
+V V V F F V
+V F F V F F
+F V V F V V
+F F V V V V
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Dois amigos combinaram de compartilhar uma senha composta por 3 letras do alfabeto. Essa
+senha será enviada de um para o outro após ser criptografada da seguinte forma: cada letra da
+senha será criptografada com o código hexadecimal, composto de dois dígitos, o qual
+representará a posição dessa letra no alfabeto.
+O quadro a seguir apresenta as primeiras letras do alfabeto e suas associações com o sistema
+hexadecimal:
+Assim, o código 06 0𝐷 14 representa a senha 𝐹𝑀𝑇, pois:
+(06) = 0∙161 + 6∙160 = 0+6 =6 → 𝐹
+16
+(0𝐷) = 0∙161 + 13∙160 = 0+13 =13 → 𝑀
+16
+(14) = 1∙161 + 4∙160 = 16+4 =20 → 𝑇
+16
+Um dos amigos enviou o seguinte código 13 0𝐴 16. Porém, o outro amigo não conseguiu
+identificar nem o segundo, nem o terceiro caractere do código. Ou seja, ele leu 1__ __𝐴 16.
+Qual a senha correta e quantas tentativas no máximo serão necessárias para que ele descubra
+tal senha?
+𝑆𝐽𝑉 sendo necessárias no máximo 16 tentativas.
+𝑆𝐽𝑉 sendo necessárias no máximo 22 tentativas.
+𝑆𝐽𝑉 sendo necessárias no máximo 32 tentativas.
+𝑀𝐽𝑉 sendo necessárias no máximo 11 tentativas.
+𝑀𝐽𝑉 sendo necessárias no máximo 22 tentativas.
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝑺𝑱𝑽 sendo necessárias no máximo 𝟐𝟐 tentativas.
+Solução:
+Passando os números para a base 10:
+(13) =1∙161+3∙160 = 19 →𝑆
+16
+(0𝐴) =0∙161+10∙160 =10 →𝐽
+16
+(16) =1∙161+6∙160 = 22 →𝑉
+16
+Para determinar o número de tentativas até se descobrir a senha, repare que existe 15 números
+começando com 0, de fato, temos de 01 até 0F. Como são 26 letras no alfabeto, teremos 11
+números começando com 1.
+Já com o segundo dígito sendo A, existem apenas as opções 0A e 1A. Logo, temos 11×2= 22
+tentativas a serem feitas.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Cidades inteligentes são totalmente providas de tecnologias com a finalidade de melhorar a
+eficiência no consumo de energia e propiciar melhor qualidade de vida aos cidadãos.
+Por meio de um projeto ambicioso, pretende-se construir três dessas cidades, uma próxima a
+outra. Considere que em um mapa cartográfico, com distâncias dadas em quilômetros, as
+posições dessas futuras cidades foram indicadas pelas coordenadas 𝐴(𝑚,13), 𝐵(6,11) e
+𝐶(24,𝑚).
+Para que os pontos indicados estejam alinhados e a distância entre 𝐴 e 𝐶 seja de 11√5
+quilômetros, o valor de 𝑚 precisa ser igual a:
+1 km
+2 km
+12 km
+15 km
+35 km
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟐 𝐤𝐦
+Solução:
+Para que os três pontos estejam alinhados:
+𝑚 13 1
+|6 11 1|=0 ⇒ 11𝑚+312+6𝑚−264−𝑚2−78 =0 ⇒ 𝑚2−17𝑘+30 = 0
+24 𝑚 1
+⇒ 𝑚 = 2 ou 𝑚 =15
+Usando a distância entre os pontos A e C:
+𝑑(𝐴,𝐶) =√(∆𝑥)2 +(∆𝑦)2 =√(𝑚−24)2+(13−𝑚)2 =11√5
+𝑚2−48𝑚+576+169−26𝑚+𝑚2 =605 ⇒
+⇒ 2𝑚2−74𝑚 +140 = 0 ⇒𝑚2−37𝑚+70 = 0⇒ 𝑚 = 35 ou 𝑚 =2.
+Como ambas as condições devem ser satisfeitas, então 𝑚 = 2.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Nós vivemos na era em que os sonhos de colonizar Marte começam a sair do papel.
+“Serão necessários 1.000 espaçonaves e um milhão de toneladas de vitamina C para fazer a vida
+em Marte sustentáve”l, diz o CEO da SpaceX Elon Musk. ... “Nós precisamos ter uma cidade
+autossustentável lá.”
+Disponível em: https://www.cnbc.com/2020/03/09/spacex-plans-how-elon-musk-see-life-on-mars.html.
+Acesso em: 15 jul. 2023.
+Os números de Musk para a colonização de Marte surpreendem pois indicam que serão
+necessários 1.000.000 de seres humanos para a colonização ser realmente bem-sucedida.
+Considere que a probabilidade de uma colônia em Marte ter sucesso seja diretamente
+proporcional à raiz quadrada do número 𝑥 de seres humanos da colônia, para valores de 𝑥
+variando de 0 a 1 milhão. E, adicionalmente, considere que, para 𝑥 = 1.000.000, essa
+probabilidade seja exatamente 100%.
+Sendo assim, para que a colônia tenha 25% de probabilidade de sucesso, são necessárias:
+25.000 pessoas
+62.500 pessoas
+250.000 pessoas
+500.000 pessoas
+625.000 pessoas
+-----------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟔𝟐.𝟓𝟎𝟎 pessoas
+Solução:
+Se a probabilidade de sucesso é diretamente proporcional a raiz da população, então 𝑃 =𝑘√𝑥,
+onde 𝑃 é a probabilidade, 𝑥 o tamanho da população e 𝑘 a constante de proporcionalidade.
+Com 1.000.000 a probabilidade é 100%, ou seja,
+1
+1 =𝑘√106 ⇒ 𝑘 =
+1.000
+Para a probabilidade ser 25%
+1
+0,25 = √𝑥 ⇒ √𝑥 =250 ⇒ 𝑥 = 62.500
+1.000
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma empresa foi contratada para agilizar a entrada de moradores em um condomínio
+residencial. Diante disso, foi instalado um sistema de controle de acesso por meio de dois
+equipamentos de biometria facial, os quais estão localizados no portão de entrada de pedestres,
+representado pelo ponto B1, e no portão de entrada de carros, representado por B2, cujas
+coordenadas estão indicadas na imagem:
+Para aumentar ainda mais a segurança, um equipamento de biometria digital será instalado no
+condomínio de maneira a ficar equidistante dos dois equipamentos de biometria facial. A relação
+entre as coordenadas 𝑥 e 𝑦, as quais representam a posição onde o equipamento de biometria
+digital poderá ser instalado, pode ser representado por:
+𝑦 =−𝑥−6
+𝑦 =𝑥−1
+𝑥 3
+𝑦 = −
+2 2
+5
+𝑦 =
+2
+𝑦 =6−𝑥
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝒚 =𝟔−𝒙
+Solução:
+Como a biometria digital é equidistante dos dois pontos dados ela deve pertencer à mediatriz.
+A mediatriz é a reta perpendicular que passa pelo ponto médio.
+𝐵1+𝐵2 (2,1)+(5,4) 7 5
+Cálculo do ponto médio: 𝑀 = = = ( , )
+𝐵1𝐵2
+2 2 2 2
+∆𝑦 4−1
+Cálculo dos coeficientes angulares: 𝑚 = = =1
+𝐵1𝐵2
+∆𝑥 5−2
+Como a mediatriz é perpendicular e para retas perpendiculares (não alinhadas aos eixos)
+𝑚 𝑚 = −1, então, 𝑚 =−1
+1 2 ⊥𝐵1𝐵2
+Com o coeficiente angular e um ponto da reta, têm-se:
+5 7
+𝑦−𝑦 = 𝑚(𝑥−𝑥 ) ⇒ 𝑦− = −1(𝑥− )⇒ 2𝑦−5= −2𝑥+7⇒ 𝑦 = 6−𝑥
+0 0 2 2
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma empresa de streaming de música deseja entender melhor a relação entre a duração das
+músicas e o número de vezes que elas são reproduzidas.
+A empresa coletou dados de várias músicas populares e registrou o tempo de duração de cada
+música em minutos e o número de vezes que cada música foi reproduzida por diferentes
+usuários.
+Aqui estão os dados amostrais:
+• Duração das Músicas (em minutos): (3,4,2,5,6)
+• Número de Reproduções: (100,120,80,150,200)
+Agora, eles querem calcular a covariância entre a duração das músicas e o número de
+reproduções para avaliar como essas duas variáveis estão relacionadas. Sabe-se que a
+covariância é obtida pela média dos produtos dos desvios das amostras, ou seja,
+∑(𝑋 −𝑋̅)(𝑌 −𝑌̅)
+𝑖 𝑖
+𝑐𝑜𝑣(𝑋,𝑌) =
+𝑛
+onde 𝑋̅ é a média de uma amostra, neste caso, média da duração das músicas, e 𝑌̅ a média da
+outra amostra, neste caso, média do número de reproduções.
+Na fórmula, 𝑋 −𝑋̅ é a diferença entre o tempo de duração da música 𝑖 e a média de duração
+𝑖
+de todas as músicas, 𝑌 −𝑌̅ é a diferença entre o número de reproduções da música 𝑖 e a média
+𝑖
+do número de reproduções de todas as músicas. Assim, calcula-se essas diferenças para as cinco
+músicas, multiplica-se os respectivos valores e determina-se a média desses cinco produtos.
+Uma correlação positiva indica que as grandezas variam no mesmo sentido, ou seja, a tendência
+é que quando um valor aumente (ou diminua) o outro também aumente (ou diminua). Já uma
+correlação negativa indica que as grandezas variam em sentidos opostos.
+No caso desta empresa, a covariância calculada foi igual a:
+30
+58
+5
+−3
+−10
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟓𝟖
+Solução
+Calcular as médias: 𝑋̅ = 3+4+2+5+6 =4 e 𝑌̅ =100+120+80+150+200 =130
+5 5
+Os desvios são as diferenças entre os dados da amostra e sua respectiva média.
+(𝑋𝑖−𝑋)→(3−4,4−4,2−4,5−4,6−4)=(−1,0,−2,1,2)
+(𝑌𝑖−𝑌)→(100−130,120−130,80−130,150−130,200−130)=(−30,−10,−50,20,70)
+Produto: (𝑋𝑖−𝑋)(𝑌𝑖−𝑌)→(30,0,100,20,140)
+30+0+100+20+140
+A covariância é a média desses valores: 𝐶𝑜𝑣(𝑋,𝑌) = = 58.
+5
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+No hall de entrada do Inteli, Instituto de Tecnologia e Liderança, encontra-se um dos pontos mais
+procurados pelos visitantes para tirar fotos ou gravarem vídeos para suas mídias sociais.
+Como pode ser visto na foto, esta entrada consiste em dois lances de escadas e uma
+arquibancada, local onde os alunos podem acompanhar de um telão tudo que está acontecendo
+dentro do auditório.
+Uma criança de 1 m encontra-se ao pé da escada, e deseja ouvir o som que sai da base do totem
+instalado ao final do primeiro lance de escadas. Esse lance de escadas tem 7 m de altura e 8 m
+de profundidade.
+A seguinte figura geométrica descreve a situação
+1 m
+Esta é uma vista lateral onde o triângulo ABC representa o primeiro lance de escadas. O
+segmento 𝐴𝐷 =1 m representa a criança ao pé da escada, e C é o ponto de onde parte o som
+do totem.
+Qual o tempo, aproximadamente, que o som emitido pelo totem leva para chegar até à criança,
+em milissegundos, sabendo que o som se propaga em linha reta com velocidade de 343 m/s?
+24
+29
+37
+81
+200
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 29
+Solução:
+Seja E o pé da perpendicular traçada por D.
+𝐸𝐷 = 𝐴𝐵 = 8 m e 𝐸𝐶 = 𝐶𝐵−𝐸𝐵 =7−1 =6 m, portando o
+triângulo ECD é pitagórico e 𝐶𝐷 =10 m.
+A velocidade média é a razão entre deslocamento e tempo:
+∆𝑠 10
+𝑉 = = ≅0,029 s = 29 ms.
+𝑚
+∆𝑡 343
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Para verificar os custos de novas tecnologias inseridas em seus carros elétricos, uma montadora
+fez um levantamento dos custos unitários, em reais, de tela LED, de alto-falantes e de sensor de
+estacionamento, indicados, respectivamente, em cada linha da matriz A abaixo:
+550
+𝐴 =[225]
+180
+A matriz B fornece a quantidade de telas LED, a de alto-falantes e a de sensores de
+estacionamento utilizados na fabricação de cada modelo – entrada, intermediário e completo –
+indicadas em cada linha e nessa ordem. Mas veja que a quantidade de sensores de
+estacionamento para o modelo completo, representada por 𝑥, ainda não está definida.
+1 3 5
+𝐵 = [2 5 5]
+5 7 𝑥
+O gasto total com telas LED, alto-falantes e sensores de estacionamento para a fabricação de
+500 veículos do modelo de entrada, 800 veículos do modelo intermediário e 1.000 veículos do
+modelo completo não pode passar de R$ 9.450.000,00. Nessa situação, o maior valor para 𝑥
+deve ser:
+6
+7
+8
+9
+10
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 8
+Solução:
+O produto das duas matrizes resulta no custo de cada modelo por linha
+1 3 5 550 1×550+3×225+5×180 2125
+[2 5 5][225] =[2×550+5×225+5×180] =[ 3125 ]
+5 7 𝑥 180 5×550+7×225+𝑥×180 4325+180𝑥
+O produto dessa matriz pelo vetor linha que representa a quantidade de cada modelo resulta
+no custo total da empresa
+2125
+[500 800 1000][ 3125 ] =
+4325+180𝑥
+=[500×2125+800×3125+1000×(4325+180𝑥)]=
+= [7.887.500+180.000𝑥]
+Assim, 𝑥 satisfaz a seguinte inequação: 7.887.500+180.000𝑥 ≤ 9.450.000 ⟹ 𝑥 ≤8,6806.
+Como x é inteiro, 𝑥 = 8.
+𝑀Á𝑋
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Os novos recursos de Inteligência Artificial (IA) recém-adicionados em softwares de edição de
+imagens, como Adobe Firefly e Photoshop, podem utilizar modelagens matemáticas para
+completar ambientes e seções que naturalmente foram cortadas da foto.
+No cenário abaixo, considere que um usuário decidiu solicitar à IA que removesse o pescador da
+imagem, o que implicaria em completar parte da ponte:
+Após a solicitação, a Inteligência Artificial estimou o arco da ponte como uma parábola descrita
+por uma função quadrática, cujo vértice é definido pela coordenada (0,3), em metros, além de
+situar o eixo das abscissas no nível do rio.
+Além disso, a IA estimou que a distância horizontal total de abertura da ponte no nível do rio era
+de 4 metros e que a altura do homem sentado seria de 1,2 m. Nesse caso, qual seria a lei de
+formação do arco a ser reposto na figura, considerando que ele está na parte positiva do eixo
+das abscissas?
+𝑓(𝑥) = −3 𝑥2+3, para −√2,4≤ 𝑥 ≤√2,4
+4
+𝑓(𝑥) = −3 𝑥2+3, para √2,4 ≤ 𝑥 ≤2
+4
+𝑓(𝑥) = −4𝑥2+3, para √0,45 ≤ 𝑥 ≤2
+𝑓(𝑥) = −4𝑥2+3, para 0≤ 𝑥 ≤2
+𝑓(𝑥) = −4𝑥2+3, para −√0,45 ≤ 𝑥 ≤ √0,45
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝒇(𝒙) =−𝟑 𝒙𝟐+𝟑, para √𝟐,𝟒 ≤𝒙 ≤ 𝟐
+𝟒
+Solução:
+A forma fatorada da função quadrática é 𝑓(𝑥) = 𝑎(𝑥−𝑟 )(𝑥−𝑟 )
+1 2
+Como a abertura da ponte no nível do rio é 4 m, as raízes devem ser ±2, ou seja,
+𝑓(𝑥) =𝑎(𝑥+2)(𝑥−2) = 𝑎(𝑥2−4)
+Usando o ponto (0,3): 3= 𝑎(0−4) ⇒ 𝑎 = −3 ⇒ 𝑓(𝑥) =−3 (𝑥2−4) = −3 𝑥2+3.
+4 4 4
+A altura do homem sentado é 1,2 m, ou seja,
+𝑓(𝑥) = 1,2 ⇒−3 (𝑥2−4) =1,2⇒ 𝑥2−4= −1,6⇒ 𝑥 = ±√2,4
+4
+Porém, o homem está na parte positiva do eixo x, então, o arco cortado é tal que √2,4 ≤𝑥 ≤2.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Os mecanismos de busca estão cada vez mais rápidos e precisos. São algoritmos que, por meio
+de engenharias sofisticadas, rastreiam páginas Web e as indexam a grandes bases de dados.
+Quando solicitados, a partir de algum termo ou palavra-chave de busca, ranqueiam certo
+número delas. Para que os mecanismos sejam ágeis, os dados na base precisam estar ordenados
+por critérios definidos pelo desenvolvedor.
+Existem vários métodos de ordenação que se diferenciam pela rapidez, ou pela robustez, ou pelo
+uso de memória etc. Diante dessas informações, suponha que um mecanismo de busca, ao
+realizar a ordenação de uma quantidade 𝑛 de elementos, consiga realizar 𝑛2 operações no pior
+caso, e 𝑛·𝑙𝑜𝑔𝑛 operações no melhor caso.
+Em uma lista com 1.000.000 de elementos, a razão entre a quantidade de operações no pior
+caso e a quantidade de operações no melhor caso é um número:
+igual a 10
+igual a 105
+entre 104 e 105
+entre 105 e 106
+entre 106 e 107
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: entre 𝟏𝟎𝟓 e 𝟏𝟎𝟔
+Solução:
+No pior caso, a quantidade de operações será: (106)2 = 1012
+No melhor caso, a quantidade de operações será: 106 ∙𝑙𝑜𝑔106 = 106∙6∙𝑙𝑜𝑔10 = 6∙106
+Razão: 𝑟 =
+1012 =106
+≅ 1,67∙105 ⇒ 105 < 𝑟 < 106.
+6∙106 6
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Veículos autônomos já estão sendo testados e, em breve, será possível parar na porta de
+embarque de um aeroporto e enviar o carro de forma autônoma para um estacionamento. Prova
+disso é o fato de as empresas Mercedes-Benz e Bosch já receberem autorização da KBA, uma
+espécie de federação automobilística da Alemanha, para o uso de um sistema autônomo de
+estacionamento no aeroporto de Stuttgart.
+Sabe-se que sistemas autônomos como esse precisam trabalhar com distâncias calculadas entre
+o veículo e os pontos de referência em um sistema de coordenadas.
+Suponha que, para um sistema de estacionamento autônomo, três antenas localizadas em
+regiões próximas emitam sinais para um veículo e, com isso, forneçam a distância entre as
+antenas e o veículo. Considerando que as antenas estão localizadas nos pontos 𝐴(2,1),𝐵(7,6) e
+𝐶(10,−3), pode-se afirmar que a posição 𝑃 de um veículo autônomo que estivesse,
+simultaneamente, à mesma distância das três antenas seria:
+𝑃(6,1)
+𝑃(6,2)
+𝑃(7,1)
+𝑃(8,0)
+𝑃(8,3)
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝑷(𝟕,𝟏)
+Solução:
+Queremos o centro da circunferência que passa pelos pontos A, B e C.
+O centro da circunferência circunscrita é o ponto de encontro das mediatrizes, portanto, basta
+calcular a mediatriz de AB e de AC. A mediatriz de um segmento é a perpendicular que passa
+pelo ponto médio deste segmento.
+Mediatriz de AB: reta perpendicular a AB que passa pelo ponto médio do segmento AB.
+𝐴+𝐵 (2,1)+(7,6) 9 7 ∆𝑦 6−1
+𝑃 = = = ( , ) e 𝑚 = = = 1⇒ 𝑚 =−1
+𝑚é𝑑𝑖𝑜(𝐴𝐵) 𝐴𝐵 ⊥𝐴𝐵
+2 2 2 2 ∆𝑥 7−2
+7 9
+𝑦− =(−1)(𝑥− )⇒ 𝑦 =−𝑥+8
+2 2
+Mediatriz de AC: reta perpendicular a AC que passa pelo ponto médio do segmento AC.
+𝐴+𝐶 (2,1)+(10,−3) ∆𝑦 −3−1 1
+𝑃 = = = (6,−1) e 𝑚 = = =− ⇒ 𝑚 =2
+𝑚é𝑑𝑖𝑜(𝐴𝐶) 𝐴𝐵 ⊥𝐴𝐶
+2 2 ∆𝑥 10−2 2
+𝑦+1 =2(𝑥−6) ⇒ 𝑦 =2𝑥−13
+Igualando:
+−𝑥+8 =2𝑥−13 ⇒𝑥 =7,𝑦 =1 ⇒ 𝑃(7,1)
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma empresa de comércio eletrônico pretende usar a estatística para trazer maior satisfação de
+seus clientes. Ao calcular o tempo previsto para a entrega de uma compra, essa empresa exibirá
+no site a seguinte mensagem:
+“Tempo de entrega previsto: D dias”
+Para calcular D, o sistema acessará todos os pedidos anteriores para a mesma cidade e somará
+a média dos tempos de entrega com três vezes o desvio padrão dos mesmos tempos. Caso D não
+resulte em um número inteiro, será informado o número inteiro imediatamente superior.
+Com isso, é sabido que 99% dos pedidos serão entregues dentro do prazo informado.
+Para determinada cidade, os tempos dos pedidos anteriores são estes:
+Assim, é possível afirmar que a empresa, no sétimo pedido, mostrará a seguinte mensagem:
+Tempo de entrega previsto: 3 dias.
+Tempo de entrega previsto: 10 dias.
+Tempo de entrega previsto: 13 dias.
+Tempo de entrega previsto: 16 dias.
+Tempo de entrega previsto: 19 dias.
+--------------------------------------------------------------------------------------------------------------------------
+Gabarito: Tempo de entrega previsto: 𝟏𝟗 dias
+Solução:
+10+6+12+15+10+7
+Cálculo da média: 𝑥̅ = = 10
+6
+Cálculo do desvio padrão:
+(10−10)2+(6−10)2+(12−10)2+(15−10)2+(10−10)2+(7−10)2 0+16+4+25+0+9
+𝜎 = √ = √ =√9 = 3.
+6 6
+Intervalo de confiança: (𝑥̅−3𝜎,𝑥̅+3𝜎) = (1,19). O problema pede o limite superior, ou
+seja, 19 dias.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+No hall de entrada do Inteli, Instituto de Tecnologia e Liderança, encontra-se um dos pontos mais
+procurados pelos visitantes para tirar fotos ou gravarem vídeos para suas mídias sociais.
+Como pode ser visto na foto, esta entrada consiste em dois lances de escada e uma
+arquibancada, local onde os alunos podem acompanhar de um telão tudo que está acontecendo
+dentro do auditório.
+Uma criança de 1 m encontra-se ao pé da escada, e deseja
+ver completamente o totem (desde sua base) que está
+instalado ao final do primeiro lance de escadas. Este lance
+de escadas tem 7 m de altura e 8m de profundidade e
+deseja-se colocar ao final dele um totem de 2 m de altura.
+A seguinte figura geométrica descreve a situação:
+Esta vista trata-se de uma vista lateral, onde o triângulo ADB representa o primeiro lance de
+escadas (foi traçada uma linha entre o pé da escada e o ponto mais alto). AC representa a criança
+ao pé da escada e ED o totem instalado no ponto mais alto da escada.
+Considerando √2 ≅1,4, a diferença entre os comprimentos EC e CD vale:
+11,2 m
+3,2 m
+2,8 m
+1,2 m
+0,6 m
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏,𝟐 𝐦
+Solução:
+Seja F o pé da perpendicular traçada por D.
+𝐶𝐹 =𝐴𝐵 =8 m e 𝐷𝐹 = 𝐷𝐵−𝐹𝐵 =7−1 =6 m,
+portando o triângulo ECD é pitagórico e 𝐶𝐷 = 10 m.
+Além disso, 𝐸𝐹 = 𝐷𝐹+𝐸𝐷 = 6+2= 8 m.
+Então, o triângulo CFE é retângulo isósceles, assim, 𝐸𝐶 =8√2 =8×1,4 =11,2 m.
+Logo, 𝐶𝐸−𝐶𝐷 =11,2−10 =1,2 m
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Os editores de imagem estão cada vez mais populares. Atualmente, coisas incríveis podem ser
+feitas utilizando softwares com esse fim. Esses editores realizam tarefas desde as mais simples,
+como girar, redimensionar ou transladar uma imagem, até as mais complicadas, como simular
+um rejuvenescimento ou recolorir uma paisagem. Dessa forma, o usuário pode ser bastante
+criativo em seus trabalhos.
+Essas manipulações envolvem muitas técnicas de computação gráfica e muitos cálculos, como o
+uso de matrizes e suas operações para alterar a posição ou a cor de um ponto na tela.
+0 −1
+Considere uma matriz de transformação dada por [ ] que, operada sobre cada ponto
+1 0
+(𝑥,𝑦) do plano da tela, transforma uma figura inicial em uma nova imagem a partir do produto
+0 −1 𝑥
+matricial [ ][ ], cujo resultado irá gerar as novas coordenadas de cada ponto.
+1 0 𝑦
+Considere a matriz de transformação anterior operando sobre a imagem apresentada neste
+plano cartesiano:
+Com base no produto, a nova imagem está representada em:
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Gabarito:
+Solução:
+Aplicando a matriz nos pontos A, B e C:
+0 −1 2 −3 0 −1 4 −2 0 −1 3 −1
+𝐴′ =[ ][ ] =[ ]; 𝐵′ =[ ][ ]= [ ] e 𝐶′ = [ ][ ] = [ ]
+1 0 3 2 1 0 2 4 1 0 1 3
+Assim, devemos ter o triângulo formado pelos pontos (−3,2), (−2,4) e (−1,3).
+Observação:
+Uma transformação linear que pode ser feita através de matrizes é a rotação de um vetor. Para
+isso usa-se a matriz de rotação
+cos𝜃 −sen𝜃
+[ ]
+sen𝜃 cos𝜃
+Quando multiplicamos um vetor (ou ponto) por esta matriz rotacionamos esse vetor de 𝜃 no
+sentido anti-horário.
+0 −1
+A matriz do enunciado [ ] pode ser vista como uma matriz de rotação com 𝜃 = 90𝑜.
+1 0
+Assim, ao aplicar a matriz no triângulo ABC têm-se a seguinte transformação linear:
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma empresa produz jogos no estilo do famoso Angry Birds, onde o jogador deve arremessar
+objetos contra alvos de modo a derrubá-los. Porém, neste jogo, o objeto lançado é um projétil
+capaz até mesmo de atravessar os obstáculos. Por se tratar de uma munição, sua trajetória para
+distâncias curtas pode ser considerada retilínea, já que possui maior energia cinética.
+Em uma fase do jogo, a barreira tem o formato parabólico e a munição será atirada um pouco
+antes deste obstáculo. A representação do que ocorre encontra-se na ilustração abaixo:
+A munição será disparada do ponto (−6,0), mantendo sua trajetória retilínea ao ser lançada. A
+barreira é uma parábola de raízes ±2 e vértice (0,4). Sabendo que o coeficiente angular da reta
+1
+de lançamento do projétil é , determine a distância percorrida pelo projétil dentro do obstáculo.
+2
+3√85
+2
+√85
+√85
+3
+√85
+4
+2√85
+3
+-----------------------------------------------------------------------------------------------------------------------------
+√𝟖𝟓
+Gabarito:
+𝟒
+Solução:
+Como o coeficiente angular da reta é 1/2 e a raiz é −6,
+1
+sua equação é: 𝑦 = 𝑥+3.
+2
+Já a parábola tem raízes ±2 e vértice (0,4), assim, sua
+equação é 𝑦 =−𝑥2+4.
+Igualando: 1 𝑥+3= −𝑥2+4 ⇒ 2𝑥2+𝑥−2 =0 ⇒
+2
+−1±√17 √17
+𝑥 = . Então, na figura, ∆𝑥 = .
+4 2
+∆𝑦 1 √17
+Porém, = ⇒ ∆𝑦 = .
+∆𝑥 2 4
+17 17 √85
+Pelo Teorema de Pitágoras, a distância pedida é: √ + =
+4 16 4
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma startup em tecnologia deseja realizar um empréstimo junto a um banco de investimentos.
+Eles pretendem levantar uma quantia inicial de R$ 1.000.000,00 e pagar o empréstimo em
+parcelas de no máximo R$ 20.000,00, de modo a não prejudicar o fluxo de caixa da operação.
+Esse banco concede empréstimos a uma taxa de juros de 1% ao mês.
+O departamento financeiro da empresa, após trazer as parcelas mensais que serão pagas a valor
+presente e realizar uma soma de PG para igualar com o valor do empréstimo, chegou à
+conclusão que as parcelas podem ser calculadas pela seguinte expressão:
+𝐶×(1+𝑖)𝑛 ×𝑖
+𝑃 = ,
+(1+𝑖)𝑛 −1
+onde 𝑃 é o valor da parcela, 𝐶 é o valor do empréstimo, 𝑖 é a taxa de juros e 𝑛 é o número de
+parcelas.
+Deste modo, qual o número mínimo de parcelas necessárias de modo a não prejudicar o fluxo
+de caixa da operadora, sabendo que log(1,01) = 0,00432 e log(2) = 0,30102?
+70
+69
+61
+60
+50
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟕𝟎
+Solução:
+Substituindo todos os valores na fórmula dada:
+1.000.000×(1,01)𝑛 ×0,01
+≤20.000 ⇒
+(1,01)𝑛 −1
+(1,01)𝑛
+⇒ ≤2 ⇒ (1,01)𝑛 ≤ 2×(1,01)𝑛 −2⇒ (1,01)𝑛 ≥2 ⇒
+(1,01)𝑛 −1
+log 2 0,30102
+⇒ 𝑛 ≥ = ≅ 69,68
+log 1,01 0,00432
+Desta forma, 𝑛 = 70.
+𝑚í𝑛
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Em um cenário corporativo, uma empresa de tecnologia gerencia dois tipos de produtos:
+celulares e tablets. Esses produtos são armazenados em dois galpões distintos, um para cada
+produto, conhecidos como centros de distribuição logística.
+Para garantir a segurança desses centros de distribuição, um robô com uma câmera integrada é
+implantado na reta que une o centro dos galpões. Ao direcionar a câmera para um dos galpões,
+o ângulo de visão da câmera é otimizado para abranger todo o galpão com o menor ângulo
+possível. Além disso, as distâncias dos pontos extremos visíveis pela câmera são uniformes,
+independentemente do galpão em foco. Essa abordagem permite que o robô responda
+eficazmente a qualquer incidente.
+O mapa da empresa é representado em um sistema de coordenadas, mostrando a localização
+dos galpões (circunferências), a localização do robô e o limite de visão da câmera quando
+monitora os galpões (linhas tracejadas, todas com o mesmo tamanho).
+Sabendo que as circunferências têm equações:
+(𝑥−1)2+(𝑦−2)2 = 1 e (𝑥−5)2+(𝑦−3)2 = 5,
+determine a razão entre o menor e o maior tamanho determinados pelo robô sobre o segmento
+de reta AB
+13
+21
+5
+17
+14
+31
+8
+23
+7
+8
+------------------------------------------------------------------------------------------------------------------------------
+𝟏𝟑
+Gabarito:
+𝟐𝟏
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Solução:
+Seja 𝑥 o tamanho das tangentes, 𝑟 =1 o raio da circunferência menor, 𝑅 =√5 o raio da
+circunferência maior, a a distância do robô até o centro da distribuidora de celulares e b a
+distância do robô até o centro da distribuidora de tablets:
+𝑏+𝑎 =𝑑(𝐶 ,𝐶 ) = √(∆𝑥)2+(∆𝑦)2 =√(5−1)2+(3−2)2 =√16+1= √17
+1 2
+Teorema de Pitágoras:
+𝑥2+𝑟2 = 𝑎2 ⇒ 𝑥2+1 =𝑎2
+{
+𝑥2+𝑅2 = 𝑏2 ⇒ 𝑥2+5 =𝑏2
+Subtraindo as equações: 𝑏2−𝑎2 = 4⇒ (𝑏+𝑎)(𝑏−𝑎) = 4
+4 4√17
+Então: 𝑏−𝑎 = =
+√17 17
+𝑏+𝑎 =√17
+21√17 13√17 𝑎 13
+{ 4√17 ⇒𝑏 = ,𝑎 = ⟹ =
+𝑏−𝑎 = 34 34 𝑏 21
+17
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um experimento realizado para testar um sistema de autenticação biométrica facial utilizou 5
+pessoas. Entre essas pessoas, a média de idade foi de 21 anos; a mediana, 20 anos; e a moda,
+sendo um valor único, 26 anos.
+Nessa situação, pode-se afirmar que a menor idade possível para um participante desse
+experimento foi de:
+13 anos
+14 anos
+18 anos
+19 anos
+21 anos
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏𝟒 anos
+Solução:
+Considere 𝑥, 𝑦, 𝑧, 𝑤 e 𝑞 as idades das 5 pessoas em ordem crescente. Uma vez que a quantidade
+de termos é ímpar, a mediana é o termo central, portanto z=20.
+Como a moda é 26 e existem dois termos acima de 20, é obrigatório que 𝑤 =𝑞 =26, caso
+contrário a sequência ou seria amodal (todos os termos apareceriam uma vez), ou a moda seria
+menor que 20, absurdo!
+Usando a média e os fatos anteriores
+𝑥+𝑦+20+26+26
+= 21 ⇒ 𝑥+𝑦 = 33
+5
+O enunciado pede a menor idade possível de um dos participantes devemos, ou seja, 𝑥 mínimo
+e, portanto, 𝑦 máximo. Porém, 𝑦 = 19 já que a sequência é unimodal e 𝑦 ≤ 𝑧.
+𝑚á𝑥
+Logo, 𝑥 =14.
+𝑚í𝑛
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+No hall de entrada do Inteli, Instituto de Tecnologia e Liderança, encontra-se um dos pontos mais
+procurados pelos visitantes para tirar fotos ou gravarem vídeos para suas mídias sociais.
+Como pode ser visto na foto, esta entrada consiste em dois lances de escada e uma
+arquibancada, local onde os alunos podem acompanhar de um telão tudo que está acontecendo
+dentro do auditório.
+Uma criança de 1 𝑚 encontra-se ao pé da escada, e deseja
+ver completamente o totem (desde sua base) que está
+instalado ao final do primeiro lance de escadas. Este lance
+de escadas tem 7 𝑚 de altura e 8m de profundidade e
+deseja-se colocar ao final dele um totem de 2 𝑚 de altura.
+A seguinte figura geométrica descreve a situação:
+Esta vista trata-se de uma vista lateral, onde o triângulo ADB representa o primeiro lance de
+escadas (foi traçada uma linha entre o pé da escada e o ponto mais alto). AC representa a criança
+ao pé da escada e ED o totem instalado no ponto mais alto da escada.
+Para que a criança enxergue todo totem, seu ângulo de visão, ou seja, o ângulo ECD deve ter
+cosseno igual a:
+7√2
+10
+√2
+10
+√2
+5
+7√2
+5
+√2
+2
+------------------------------------------------------------------------------------------------------------------------------
+𝟕√𝟐
+Gabarito:
+𝟏𝟎
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Solução:
+Seja F o pé da perpendicular traçada por D.
+𝐶𝐹 =𝐴𝐵 =8 m e 𝐷𝐹 = 𝐷𝐵−𝐹𝐵 =7−1 =6 m, portando o triângulo ECD é pitagórico e
+𝐶𝐷 =10 m.
+Além disso, 𝐸𝐹 = 𝐷𝐹+𝐸𝐷 = 6+2= 8 m.
+Então, o triângulo CFE é retângulo isósceles, assim, 𝐸𝐶 =8√2.
+Agora, da Lei dos Cossenos: ED2 = CD2+CE2−2∙CD∙EC∙cos (∠ECD).
+Substituindo os valores:
+4 =100+128−2∙10∙8√2∙cos (∠ECD) ⇒
+⇒ 160√2∙cos(∠ECD) = 224 ⇒ cos(∠ECD)
+=224√2 =7√2
+320 10
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Na computação gráfica, a projeção é uma das ações que envolve o tratamento de imagem,
+principalmente para obter sombras de objetos.
+Em um plano bidimensional, por exemplo, as projeções de uma figura plana nos eixos x ou y são
+1 0 0 0
+feitas por meio do produto entre cada ponto da figura pelas matrizes ( ) e ( ),
+0 0 0 1
+respectivamente:
+A matriz que, operada sobre cada ponto (𝑥,𝑦,𝑧) de uma figura espacial permite sua projeção
+no plano 𝑥𝑦, como na figura a seguir, corresponde a:
+1 1 0
+(1 1 0)
+0 0 0
+1 0 0
+(1 0 0)
+0 0 0
+1 0 0
+(0 1 0)
+0 0 0
+1 1 0
+(1 1 0)
+1 1 0
+1 0 0
+(0 0 0)
+0 0 1
+-----------------------------------------------------------------------------------------------------------------------------
+𝟏 𝟎 𝟎
+Gabarito: (𝟎 𝟏 𝟎)
+𝟎 𝟎 𝟎
+Solução:
+Os pontos da projeção no plano 𝑥𝑦 terão os valores de 𝑥 e de 𝑦 inalterados, e o valor da
+1 0 0 𝑥 𝑥
+coordenada 𝑧 zerado. Note que: (0 1 0)(𝑦) =(𝑦)
+0 0 0 𝑧 0
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma empresa produz jogos no estilo do famoso Angry Birds, onde o jogador deve arremessar
+objetos contra alvos de modo a derrubá-los.
+Em estágios mais avançados do jogo, existem barreiras que tentam impedir que esses objetos
+atinjam o alvo, então o jogador deve apontar estes em trajetórias adequadas de modo a não
+colidir ou ser impedido por essas barreiras.
+Em uma fase do jogo, a barreira tem o formato de parábola e possui equação 𝑦 = −(𝑥2−12).
+O objeto será arremessado do ponto (−4,0) e deve manter uma trajetória retilínea ao ser
+lançado. Sabendo que o alvo 𝐴 se encontra sobre a reta 𝑥 = 6, determine a altura mínima que
+o programador do jogo deve colocar este alvo de modo a ser possível atingi-lo.
+40
+36
+24
+16
+6
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito:
+Solução:
+A equação reduzida da reta é 𝑦 = 𝑚𝑥+𝑞. Como a reta passa pelo ponto (−4,0):
+0 =−4𝑚+𝑞 ⇒ 𝑞 = 4𝑚
+Assim, a trajetória do objeto lançado é 𝑦 = 𝑚𝑥+4𝑚
+Para o objeto passar pela barreira, esta trajetória no mínimo deve ser tangente a parábola, assim,
+a reta e a parábola devem ter uma única interseção.
+𝑚𝑥+4𝑚 =−(𝑥2−12) ⇒𝑥2+𝑚𝑥+4𝑚−12 =0
+Para a interseção ser única: ∆ = 0⟹ 𝑚2−16𝑚+48 =0 ⇒ 𝑚 = 4 ou 𝑚 = 12
+Temos dois valores, pois existem duas tangentes a parábola
+passando pelo ponto (−4,0). Na figura, têm-se uma
+representação da situação (as duas retas que saem de A são
+tangentes a parábola), onde vemos que a reta com menor
+coeficiente angular é a desejada.
+Assim, a reta do objeto lançado é 𝑦 = 4𝑥+16.
+Como o alvo está sobre a reta 𝑥 = 6, então 𝑦 =4×6+16 = 40
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+O uso da computação em simulações de acidentes naturais é extremamente importante, pois é
+possível prever as consequências e, possivelmente, evitá-las.
+A simulação sobre as consequências devastadoras de terremotos utiliza como modelo para o
+cálculo de sua magnitude 𝑀 da escala Richter a seguinte fórmula matemática:
+2 𝐸
+𝑀 = log( ),
+3 𝐸
+0
+em que 𝐸 é a energia liberada no terremoto, em kWh, e 𝐸 = 7∙10−3 kWh.
+0
+Em uma simulação, os programadores criaram duas situações: uma supondo uma magnitude
+𝑀 =10 e, outra, supondo uma magnitude 𝑀 = 6.
+1 2
+Nessa simulação, pode-se afirmar que a energia liberada na situação hipotética 1 é maior que a
+energia liberada na situação hipotética 2 em:
+5
+3
+103
+5∙104
+106
+2∙108
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏𝟎𝟔
+Solução:
+A definição de logaritmos diz que: log 𝑎 = 𝑐 ⇒ 𝑎 = 𝑏𝑐
+𝑏
+Assim, na primeira situação:
+2 𝐸 𝐸 𝐸
+10 = log( 1 ) ⇒ log( 1 ) = 15 ⇒ 1 =1015 ⇒ 𝐸 = 𝐸 ∙1015
+3 𝐸 𝐸 𝐸 1 0
+0 0 0
+Na segunda situação
+2 𝐸 𝐸 𝐸
+6 = log( 2 ) ⇒log( 2 ) =9 ⇒ 2 =109 ⇒ 𝐸 = 𝐸 ∙109
+3 𝐸 𝐸 𝐸 2 0
+0 0 0
+Dividindo:
+𝐸 𝐸 ∙1015
+1 = 0 =106
+𝐸 𝐸 ∙109
+2 0
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Empresas de tecnologia acompanham constantemente a demanda do mercado para decidirem
+em que período podem lançar seus novos aparelhos. Por exemplo, próximo a datas festivas,
+como Dia dos Namorados, Dia das Mães, etc., existe um aumento da demanda devido a cultura
+popular da compra de presentes.
+Uma desenvolvedora decide então criar um modelo matemático que acompanha a média de
+preços dos produtos pesquisados em seu site de vendas ao longo de cada mês. Após um ano
+armazenando tais informações, a empresa chega ao seguinte modelo:
+𝜋𝑥−3𝜋
+𝑃(𝑥) =5−3cos( )
+8
+onde P representa o valor médio dos produtos pesquisados em centenas de reais e 𝑥 é o mês
+correspondente, com 𝑥 = 1 correspondendo ao mês de janeiro, 𝑥 = 2 ao mês de fevereiro, e
+assim por diante. O modelo mostra que em alguns meses as pessoas estão mais dispostas a
+gastar do que em outros.
+Além disso, sabe-se que 99% dos possíveis clientes que acessam o seu site buscando um
+produto estão dispostos a gastar no máximo 2,5 vezes o valor médio das pesquisas naquele mês.
+Sabendo disso, esta desenvolvedora decide lançar seu novo smartphone exatamente no mês
+em que as pessoas estão dispostas a comprar produtos de maior valor. Sendo assim, em que
+mês ela deverá lançar seu novo produto e qual o valor máximo que ela pode colocar neste
+produto para que não exclua mais de 1% dos clientes?
+março com valor de R$ 800,00.
+março com valor de R$ 2.000,00.
+outubro com valor de R$ 200,00.
+novembro com valor de R$ 800,00.
+novembro com valor de R$ 2.000,00.
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: novembro com valor de 𝐑$ 𝟐.𝟎𝟎𝟎,𝟎𝟎
+Solução:
+A função cosseno oscila no intervalo [−1,1]. Como o sinal do cosseno em P é negativo, esta
+função será máxima se o cosseno for −1.
+Note que: cos𝜃 =−1 ⇒ 𝜃 =𝜋+𝑘𝜋,𝑘 ∈ ℤ. Assim,
+𝜋𝑥−3𝜋
+=𝜋+𝑘𝜋 ⇒ 𝑥 =11+𝑘,𝑘 ∈ ℤ
+8
+Como 𝑥 representa um mês do ano, 𝑥 = 11 (novembro).
+Sendo o cosseno −1, têm-se 𝑃 = 5+3= 8 centenas de reais, ou seja, o valor médio dos
+𝑚á𝑥
+produtos pesquisados em novembro é R$ 800,00.
+Porém, 99% das pessoas estão dispostas a gastar até 2,5∙𝑃 = 2,5∙800 = R$ 2.000,00.
+𝑚á𝑥
+Assim, se o valor do produto passar de R$ 2.000,00 perdesse mais de 1% dos clientes.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Em uma feira de inovação tecnológica, há um setor que contém 8 estandes dispostos um ao lado
+do outro. Para apresentar seus produtos, 4 diferentes startups de educação deverão ocupar cada
+um desses 8 estandes disponíveis, de forma que cada uma dessas startups sempre tenha pelo
+menos uma outra ao seu lado.
+No caso abaixo, por exemplo, ao lado de cada uma das startups, há uma outra de educação:
+Neste outro caso apresentado, a startup indicada pelo número 4 não possui uma outra ao seu
+lado e, desse modo, elas não poderão estar dispostas dessa forma:
+A quantidade de maneiras distintas das quatro startups serem dispostas nesse setor é:
+360
+240
+70
+60
+15
+----------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟑𝟔𝟎
+x x x x
+Solução: x x x x
+x x x x
+Listando as possíveis disposições nos estandes,
+x x x x
+vemos que há 15 configurações x x x x
+x x x x
+x x x x
+Observação: Existe uma forma de determinar este valor,
+x x x x
+sem listar. Essa solução é feita na prova P43. x x x x
+x x x x
+x x x x
+Permutando as startups: 4! =24 x x x x
+x x x x
+x x x x
+Usando o princípio multiplicativo: 15×24 =360
+x x x x
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um complexo formado por 3 prédios receberá uma única antena de Wi-Fi, cujo sinal cobrirá
+todo o conjunto. Essa antena será colocada no topo desse complexo e, sua cobertura circular,
+está identificada pela linha tracejada que contêm exatamente cinco pontos do complexo,
+conforme mostra a planta baixa a seguir.
+Os prédios são todos quadrados, sendo que os dois maiores têm lado 40 m. Sabe-se que os três
+quadrados possuem exatamente um ponto de interseção. Nessas condições, qual é o percentual
+da área de cobertura do Wi-Fi ocupada pelo complexo de prédios?
+Considere 𝜋 =3,14.
+65,23%
+61,15%
+57,32%
+52,36%
+48,18%
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟓𝟕,𝟑𝟐%
+Traçando a diagonal do retângulo formado pelos quadrados
+maiores, como os lados do retângulo enxergam essa
+diagonal com ângulo de 90𝑜 esta diagonal é um diâmetro
+,
+da circunferência. Se um retângulo está inscrito numa
+circunferência, então a interseção das diagonais é o centro
+desta circunferência.
+Usando o Teorema de Pitágoras para calcular a diagonal do
+retângulo:
+𝑑2 = 402+802 = 8000 ⇒ 𝑑 = 40√5 m ⇒ 𝑟 =20√5
+Ligando o centro ao vértice do quadrado menor da
+circunferência e usando o Teorema de Pitágoras:
+2
+(𝐿+20)2+𝐿2 = (20√5) = 2000 ⇒
+⇒ 2𝐿2+40𝐿−1600 = 0⇒ 𝐿2+20𝐿−800 =0 ⇒
+⇒ 𝐿 = −40 (impossível) ou 𝐿 =20 m.
+Área dos prédios: 202 +2×402 =3600 m2
+Área de cobertura: 𝜋𝑟2 = 3,14×2000 = 6280 m2
+3600
+Percentual: = 57,32%
+6280
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma agência de publicidade controla o canal de um influenciador A, que posta um vídeo sobre
+tecnologia semanalmente, e está testando estratégias para promoção e aumento da audiência
+desse canal.
+Analisando o comportamento de certo grupo que assiste vídeos de tecnologia, uma pesquisa
+identificou algumas informações, que estão descritas na seguinte matriz de transição:
+Estado Precedente
+A O
+0,70 0,50 A
+𝑃 = [ ] Novo Estado
+0,30 0,50 O
+Nela, vemos que 70% das pessoas do grupo que atualmente seguem o influenciador A querem
+ver um novo vídeo dele na próxima semana, enquanto 30% deles pretendem assistir o vídeo de
+outros canais, indicados por O, em valores aproximados.
+Na mesma matriz, ainda podemos ver que entre os que atualmente seguem outros
+influenciadores, indicados por O, cerca de 50% vão continuar com eles na próxima semana e
+50% vão para o canal do influenciador A.
+No início da pesquisa, também foi verificado que o canal A detém 30% dessa audiência e os
+demais, O, ficam com 70% desse grupo, fornecendo o seguinte vetor de estado inicial:
+0,30
+𝑋0 =[ ]
+0,70
+Logo, o vetor de estado depois da primeira semana 𝑋1 é dado pelo produto 𝑃∙𝑋0:
+0,70 0,50 0,30 0,56
+𝑋1 =𝑃∙𝑋0 =[ ]∙[ ] =[ ]
+0,30 0,50 0,70 0,44
+Isso significa que, depois da primeira semana, espera-se que aproximadamente 56% das
+pessoas do grupo assistirão o vídeo do canal A e 44% assistirão os vídeos dos demais canais.
+Continuando com esse processo e análise, no qual 𝑋𝑛+1 =𝑃∙𝑋𝑛 e sempre usando duas casas
+decimais após a vírgula, à medida que o tempo passa, se esse grupo em análise é formado por
+160.000 pessoas, qual é o número mais próximo da quantidade esperada de expectadores para
+o vídeo do canal A depois da quarta semana, com base no vetor de estado 𝑋4?
+99.200
+72.500
+65.600
+58.900
+82.300
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟗𝟗.𝟐𝟎𝟎
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Solução:
+Depois da segunda semana, o vetor de estado é
+0,70 0,50 0,56 0,61
+𝑋2 =𝑃∙𝑋1 =[ ]∙[ ] =[ ]
+0,30 0,50 0,44 0,39
+Depois da terceira semana, o vetor de estado é
+0,70 0,50 0,61 0,62
+𝑋3 = 𝑃∙𝑋2 =[ ]∙[ ] = [ ]
+0,30 0,50 0,39 0,38
+Depois da quarta semana, o vetor de estado é
+0,60 0,50 0,62 0,62
+𝑋4 = 𝑃∙𝑋4 =[ ]∙[ ] = [ ]
+0,40 0,50 0,38 0,38
+Assim, o valor de expectadores para o vídeo A será:
+0,62×160.000 =99.200
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Imagine que você está trabalhando no desenvolvimento de um robô de entrega autônomo para
+uma empresa de logística. O robô foi programado para seguir uma série de instruções específicas
+para chegar ao seu destino. O trajeto é definido da seguinte forma:
+1. O robô parte do ponto inicial, onde sua bateria é carregada, e anda 9 metros em linha
+reta até o ponto de distribuição de comida.
+2. Em seguida, o robô vira 90 graus no sentido anti-horário e anda mais 12 metros em linha
+reta até o ponto de distribuição de bebidas.
+3. Após isso, o robô muda de direção, novamente girando no sentido anti-horário, de forma
+que o ângulo entre sua nova direção e o segmento que une a distribuidora de bebidas e
+o ponto de partida seja reto. Agora ele anda 8 metros até o local onde se encontra a
+parte administrativa da empresa, que aguarda pela comida e a bebida a serem entregues
+diariamente pelo robô.
+Todo esse deslocamento não seria necessário se os centros de distribuição de comida e bebida
+se encontrassem no mesmo local onde o robô carrega sua bateria. Neste caso, bastaria ele girar
+𝜃 no sentido anti-horário, onde 𝜃 é o ângulo entre as semirretas com origem no ponto inicial e
+que passam pelos pontos de distribuição de comida e pela administração, e ir diretamente até à
+equipe administrativa da empresa. Determine o cosseno deste ângulo 𝜃.
+1
+5
+1
+2
+8
+25
+12
+65
+13
+85
+------------------------------------------------------------------------------------------------------------------------------
+𝟏𝟑
+Gabarito:
+𝟖𝟓
+Solução:
+Considere o desenho ao lado, onde AB representa o deslocamento
+do ponto de recarga até o setor de distribuição de comida; BC até a
+distribuição de bebidas; CD até o setor administrativo. O segmento
+AC pode ser determinado pelo Teorema de Pitágoras no triângulo
+ABC e AD no triângulo ACD.
+Considere o triângulo retângulo CED obtido pelo prolongamento
+de BC e pela perpendicular a reta suporte de BC passando por D.
+Usando ângulos complementares, vemos que os ângulos indicados com a mesma cor são
+iguais. Portanto, os triângulos ABC e CDE são semelhantes.
+12 15 32 9 15 24
+= ⇒ 𝐷𝐸 = ; = ⇒ 𝐸𝐶 =
+𝐷𝐸 8 5 𝐸𝐶 8 5
+Seja D’ a projeção ortogonal de D em AB, 𝐴𝐷′ =𝐴𝐵−𝐵𝐷′ = 9−32 = 13
+5 5
+13/5
+cos𝜃 =𝐴𝐷′/𝐴𝐷= =13/85
+17
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Em uma feira de inovação tecnológica, há um setor que contém 6 estandes dispostos um ao lado
+do outro. Para apresentar seus produtos, 4 diferentes startups de educação deverão ocupar cada
+um desses 6 estandes disponíveis, de forma que cada uma dessas startups sempre tenha pelo
+menos uma outra ao seu lado.
+No caso abaixo, por exemplo, ao lado de cada uma das startups, há outra de educação:
+Neste outro caso apresentado, a startup indicada pelo número 4 não possui uma outra ao seu
+lado e, desse modo, elas não poderão estar dispostas dessa forma:
+Além disso, sabe-se que 6 pessoas estarão presentes no horário de abertura da feira.
+A quantidade de maneiras distintas das quatro startups serem dispostas nesse setor recebendo
+todas pelo menos um dos 6 visitantes no horário de abertura é.
+224.640
+9.360
+1.560
+720
+6
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟐𝟐𝟒.𝟔𝟒𝟎
+x x x
+Solução: x x x x
+Listando as possíveis disposições nos estandes 6 configurações. x x x x
+Permutando as startups: 4! = 24 x x x x
+x x x x
+Por serem 6 pessoas podemos distribuir das seguintes formas: x x x x
+3/1/1/1: 4 possibilidades permutando esses números
+Escolha das pessoas: 𝐶 ∙𝐶 ∙𝐶 ∙𝐶 = 20×3×2×1 =120
+6,3 3,1 2,1 1,1
+Nesse caso então temos: 120×4 =480 possibilidades de distribuir as pessoas
+2/2/1/1: 6 possibilidades permutando esses números
+Escolha das pessoas: 𝐶 ∙𝐶 ∙𝐶 ∙𝐶 = 15×6×2×1 =180
+6,2 4,2 2,1 1,1
+Nesse caso então temos: 6×180 =1080 possibilidades de distribuir as pessoas
+Somando os casos: 1.080+480 = 1.560 formas de distribuir as pessoas nas startups.
+Então, o número de distribuições das startups e das pessoas será: 6×24×1.560 = 224.640
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um complexo formado por 5 prédios receberá uma única antena de Wi-Fi, cujo sinal cobrirá
+todo o conjunto. Essa antena será colocada no topo desse complexo e, sua cobertura circular,
+está identificada pela linha tracejada que contêm exatamente 12 pontos, conforme mostra a
+planta baixa a seguir.
+Os prédios são todos quadrados, sendo que o maior deles tem lado 60 m. Nessas condições,
+qual é o percentual da área de cobertura de cobertura de Wi-Fi ocupada pelo complexo de
+prédios?
+Considere 𝜋 =3,14.
+81,25%
+78,45%
+73,86%
+65,58%
+58,29%
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟕𝟑,𝟖𝟔%
+Solução:
+A diagonal do quadrado maior é um diâmetro da circunferência. Assim, 2𝑟 = 𝐿√2 =60√2 ⇒
+𝑟 =30√2.
+Formando o triângulo retângulo abaixo e usando o teorema de Pitágoras
+2 2 2
+(𝑙 ) +(𝐿 +𝑙) = 𝑟2 = (𝐿√2 ) ⇒
+2 2 2
+5𝑙2 𝐿2 𝐿2 𝐿2 5𝑙2
+⇒ + +𝐿𝑙 = ⇒ −𝐿𝑙− =0 ⇒
+4 4 2 4 4
+⇒ 𝐿2−4𝑙𝐿−5𝑙2 =0 ⇒
+𝐿
+⇒ 𝐿 = 5𝑙 ou 𝐿 =−𝑙 (impossível)⇒ 𝑙 = = 12 m
+5
+Área dos prédios: 602 +4×122 =4176 m2
+Área de cobertura: 𝜋𝑟2 = 3,14×1800 = 5652 m2
+4176
+Percentual: = 73,86%
+5652
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma agência de publicidade controla os canais de dois influenciadores, A e B, que postam um
+vídeo sobre tecnologia semanalmente, e está testando estratégias para promoção e aumento da
+audiência desses canais.
+Analisando o comportamento de certo grupo que assiste a vídeos de tecnologia, uma pesquisa
+identificou algumas informações, que estão descritas na seguinte matriz de transição:
+Estado Precedente
+A B O
+0,30 0,50 0,40 A
+𝑃 = [0,30 0,30 0,30] B Novo Estado
+0,40 0,20 0,30
+O
+Nela, vemos que 30% das pessoas que atualmente seguem o influenciador A querem ver um
+novo vídeo dele na próxima semana, enquanto 30% pretendem assistir ao vídeo do
+influenciador B e 40% vão para outros canais, indicados por O, em valores aproximados.
+Na mesma matriz, entre os que seguem o influenciador B, cerca de 30% vão continuar vendo o
+próximo vídeo dele, enquanto 50% têm interesse em ir para o canal A e 20% vão mudar para
+outros canais, indicados por O.
+Por último, entre os que atualmente seguem outros influenciadores, O, cerca de 30% vão
+continuar com eles na próxima semana, 40% vão migrar para o A e 30% vão para o B.
+No início da pesquisa, também foi verificado que o canal A detém 47% dessa audiência, o canal
+B detém 28% e os demais, O, ficam com 25% desse grupo, fornecendo o seguinte vetor de
+estado inicial:
+0,47
+𝑋0 =[0,28]
+0,25
+Logo, o vetor de estado depois da primeira semana 𝑋1 é dado pelo produto 𝑃∙𝑋0:
+0,30 0,50 0,40 0,47 0,38
+𝑋1 = 𝑃∙𝑋0 =[0,30 0,30 0,30]∙[0,28] =[0,30]
+0,40 0,20 0,30 0,25 0,32
+Isso significa que, depois da primeira semana, aproximadamente 38% das pessoas do grupo
+assistirão ao vídeo do canal A, 30% assistirão ao vídeo do canal B e 32% assistirão aos vídeos
+dos demais canais, O.
+Continuando com esse processo e análise, no qual 𝑋𝑛+1 =𝑃∙𝑋𝑛 e sempre usando duas casas
+decimais após a vírgula, à medida que o tempo passa, se esse grupo em análise é formado por
+160.000 pessoas, qual é o número mais próximo da quantidade esperada de espectadores para
+o vídeo do canal A depois da quarta semana, com base no vetor de estado 𝑋4?
+71.700
+62.400
+52.600
+86.800
+41.500
+----------------------------------------------------------------------------------------------------------
+Gabarito: 𝟔𝟐.𝟒𝟎𝟎
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Solução:
+Depois da segunda semana, o vetor de estado é
+0,30 0,50 0,40 0,47 0,38
+𝑋2 = 𝑃∙𝑋1 =[0,30 0,30 0,30]∙[0,28] =[0,30]
+0,40 0,20 0,30 0,25 0,32
+Depois da terceira semana, o vetor de estado é
+0,30 0,50 0,40 0,38 0,39
+𝑋3 = 𝑃∙𝑋2 = [0,30 0,30 0,30]∙[0,30] = [0,30]
+0,40 0,20 0,30 0,32 0,31
+Depois da quarta semana, o vetor de estado é
+0,30 0,50 0,40 0,39 0,39
+𝑋4 = 𝑃∙𝑋3 = [0,30 0,30 0,30]∙[0,30] = [0,30]
+0,40 0,20 0,30 0,31 0,31
+Assim, o valor de expectadores para o vídeo A será:
+0,39×160.000 =62.400
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+A função 𝑓(𝑡) = 𝐴∙sen(𝜔𝑡)+𝐵∙cos(𝜔𝑡) é frequentemente utilizada para modelar
+fenômenos oscilatórios, sendo um importante modelo para propagação de sinais sonoros. Esta
+mesma função pode ser reescrita no formato 𝑓(𝑡) =𝐶 ∙sen(𝜔𝑡+𝜑 ), para isto basta dividir a
+0
+𝐴 𝐵
+função por 𝐶 = √𝐴2+𝐵2, e escrever e como cos𝜑 e sen𝜑 , respectivamente, onde
+0 0
+𝐶 𝐶
+𝜑 ∈ [0,2𝜋[.
+0
+Imagine um alto-falante reproduzindo um sinal sonoro de acordo com esta última função. Nesse
+caso, a constante C determina a amplitude da onda, a constante 𝜔 é a velocidade angular
+(inversamente proporcional ao período), e o deslocamento de fase 𝜑 ajusta o início da saída da
+0
+onda sonora, sendo essencial para sincronizar o som reproduzido com outras fontes.
+𝜋 𝜋
+Por exemplo, a função 𝑓(𝑡) =3sen(𝑡+ ) tem amplitude 3, fase inicial e período 2𝜋
+4 4
+(período da função seno).
+Uma empresa de tecnologia, responsável pela instalação de alto-falantes numa faculdade,
+utilizou o seguinte modelo de propagação de som 𝑓(𝑡) =sen(2𝑡)+cos (2𝑡). Nesse caso, se
+outro funcionário escrever esta mesma função no segundo formato, ou seja, escrever na forma
+𝑓(𝑡) = 𝐶 ∙sen(𝜔𝑡+𝜑 ), qual seria a amplitude, o período e a fase inicial da onda,
+0
+respectivamente?
+𝜋
+√2, 2𝜋 e
+4
+𝜋
+√2, 𝜋 e
+4
+𝜋
+√2, 𝜋 e
+2
+𝜋
+1, 2𝜋 e
+4
+𝜋
+1, 2𝜋 e
+2
+------------------------------------------------------------------------------------------------------------------------------
+𝝅
+Gabarito: √𝟐, 𝝅 e
+𝟒
+Solução:
+Dividindo 𝑓(𝑡) por 𝐶 =√𝐴2+𝐵2 =√12+12 =√2
+𝑓(𝑡) 1 1 𝜋 𝜋 𝜋
+= sen(2𝑡)+ cos(2𝑡) =cos sen(2𝑡)+sen cos(2𝑡) =sen(2𝑡+ )
+√2 √2 √2 4 4 4
+𝜋
+Então: 𝑓(𝑡) = √2sen(2𝑡+ ).
+4
+𝜋
+Comparando com 𝐶 ∙sen(𝜔𝑡+𝜑 ), temos 𝜑 = (fase inicial).
+0 0
+4
+Sabe-se do enunciado que a velocidade angular e o período são inversamente proporcionais,
+assim: 𝜔𝑇 = 𝑘. Ainda do enunciado, para 𝜔 =1 o período é 2𝜋 (período da função seno), ou
+seja, 𝑘 =2𝜋. Então para 𝜔 =2: 2𝑇 = 2𝜋 ⇒ 𝑇 = 𝜋.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Em uma feira de inovação tecnológica, há um setor que contém 12 estandes dispostos um ao
+lado do outro. Para apresentar seus produtos, 4 diferentes startups de educação deverão ocupar
+cada um desses 12 estandes disponíveis, de forma que cada uma dessas startups sempre tenha
+pelo menos uma outra ao seu lado.
+No caso abaixo, por exemplo, ao lado de cada uma das startups, há outra de educação:
+Neste outro caso apresentado, a startup indicada pelo número 4 não possui uma outra ao seu
+lado e, desse modo, elas não poderão estar dispostas dessa forma:
+A quantidade de maneiras distintas das quatro startups serem dispostas nesse setor é:
+1.080
+720
+360
+45
+24
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏.𝟎𝟖𝟎
+Solução:
+Primeiro será definido apenas o local das startups. Olhando da esquerda para a direita, chame
+os estandes ocupados de 1, 2, 3 e 4, na ordem que forem sendo ocupados (conforme a figura do
+enunciado).
+Como o estande 1 não pode ficar isolado, a sua direita sempre teremos o estande 2.
+Como o estande 4 não pode ficar isolado, a sua esquerda sempre teremos o estande 3.
+Assim, existe o bloco 12 e o bloco 34 que podem estar juntos ou separados.
+Seja 𝑥 o número de estandes vazios antes do bloco 12, 𝑦 o número de estandes vazios entre os
+blocos 12 e 34 e 𝑧 a quantidade de estandes vazios depois do bloco 34, então:
+𝑥+𝑦+𝑧 =8 (total de estandes vazios)
+10!
+O número de soluções inteiras não-negativas dessa equação é: 𝐶𝑅 = =45
+3,8
+8!2!
+Como as startups são diferentes, é necessário permutar, ou seja, multiplicar por 4! =24.
+Então, a resposta seria 45×24 = 1.080.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um complexo formado por 5 prédios receberá uma única antena de Wi-Fi, cujo sinal cobrirá
+todo o conjunto. Essa antena será colocada no topo desse complexo e, sua cobertura circular,
+está identificada pela linha tracejada que contém exatamente quatro pontos do complexo,
+conforme mostra a planta baixa a seguir.
+Os prédios são quadrados, todos de lado 40 m. Nessas condições, qual é o percentual da área
+de cobertura de Wi-Fi ocupada pelo complexo de prédios?
+Considere 𝜋 =3,14.
+55%
+47%
+44%
+40%
+33%
+-----------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟓𝟓%
+Solução:
+Por simetria, a reta vertical a qual pertence a interseção de
+quatro prédios contêm o centro da circunferência e divide o lado
+do quadrado superior ao meio. Ligando este centro a dois
+vértices que pertencem a circunferência, temos a figura abaixo:
+Utilizando o Teorema de Pitágoras:
+402+(40+𝑥)2 = 𝑟2 ⇒ 3200+80𝑥+𝑥2 =𝑟2
+202 +(80−𝑥)2 = 𝑟2 ⇒ 6800−160𝑥+𝑥2 =𝑟2
+Subtraindo as equações, −3600+240𝑥 = 0⇒ 𝑥 = 15 𝑚
+𝑟2 =3200+80×15+152 =3200+1200+225 =4625 ⇒ 𝑟 =5√185 m
+Área dos prédios: 5×402 =8.000 m2
+Área de cobertura: 𝜋𝑟2 = 3,14×4625 = 14.522,5 m2
+8.000
+Percentual: =55%
+14522,5
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma agência de publicidade controla o canal de um influenciador A, que posta um vídeo sobre
+tecnologia semanalmente, e está testando estratégias para promoção e aumento da audiência
+desse canal.
+Analisando o comportamento de certo grupo que assiste a vídeos de tecnologia, uma pesquisa
+identificou algumas informações, que estão descritas na seguinte matriz de transição:
+Estado Precedente
+A O
+0,70 0,50 A
+𝑃 = [ ] Novo Estado
+0,30 0,50 O
+Nela, vemos que 70% das pessoas do grupo que atualmente seguem o influenciador A querem
+ver um novo vídeo dele na próxima semana, enquanto 30% deles pretendem assistir aos vídeos
+de outros canais, indicados por O, em valores aproximados.
+Na mesma matriz, ainda podemos ver que entre os que atualmente seguem outros
+influenciadores, indicados por O, cerca de 50% vão continuar com eles na próxima semana e
+50% vão para o canal do influenciador A.
+No início da pesquisa, também foi verificado que o canal A detém 30% dessa audiência e os
+demais, O, ficam com 70% desse grupo, fornecendo o seguinte vetor de estado inicial:
+0,30
+𝑋0 =[ ]
+0,70
+Logo, o vetor de estado depois da primeira semana 𝑋1 é dado pelo produto 𝑃∙𝑋0:
+0,70 0,50 0,30 0,56
+𝑋1 =𝑃∙𝑋0 =[ ]∙[ ] =[ ]
+0,30 0,50 0,70 0,44
+Isso significa que, depois da primeira semana, espera-se que aproximadamente 56% das
+pessoas do grupo assistirão ao vídeo do canal A e 44% assistirão aos vídeos dos demais canais.
+Continuando com esse processo e análise, no qual 𝑋𝑛+1 =𝑃∙𝑋𝑛 e sempre usando duas casas
+decimais após a vírgula, à medida que o tempo passa, depois de qual semana a taxa de
+visualização estimada do vídeo do canal A apresentará um aumento, em relação à semana
+anterior, menor do que 2% pela primeira vez?
+2ª semana
+3ª semana
+4ª semana
+5ª semana
+6ª semana
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 3ª semana
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Solução:
+Depois da primeira semana, o aumento estimado da taxa de visualização do vídeo do canal A é
+0,56−0,30
+de ≅ 86,67% em relação à semana anterior.
+0,30
+Depois da segunda semana, o vetor de estado é
+0,7 0,5 0,56 0,61
+𝑋2 = 𝑃∙𝑋1 =[ ]∙[ ] = [ ]
+0,3 0,5 0,44 0,39
+0,61 − 0,56
+e verifica-se um crescimento de ≅ 8,93% em relação à semana anterior.
+0,56
+Note que este valor é bem menor do que a variação anterior, o que indica que a sequência deve
+convergir.
+Depois da terceira semana, o vetor de estado é
+0,7 0,5 0,61 0,62
+𝑋3 =𝑃∙𝑋2 = [ ]∙[ ]= [ ]
+0,3 0,5 0,39 0,38
+0,62 − 0,61
+e verifica-se um crescimento de ≅ 1,64% em relação a semana anterior, menor do que
+0,61
+o 2% procurado.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+A função 𝑓(𝑡) = 𝐴∙sen(𝜔𝑡)+𝐵∙cos(𝜔𝑡) é frequentemente utilizada para modelar
+fenômenos oscilatórios, sendo um importante modelo para propagação de sinais sonoros. Esta
+mesma função pode ser reescrita no formato 𝑓(𝑡) =𝐶 ∙cos(𝜔𝑡+𝜑 ).
+0
+Imagine um alto-falante reproduzindo um sinal sonoro de acordo com esta última função. Nesse
+caso, a constante C determina a amplitude da onda, a constante 𝜔 controla a frequência, e o
+deslocamento de fase 𝜑 ajusta o início da saída da onda sonora, sendo essencial para
+0
+sincronizar o som reproduzido com outras fontes.
+Uma empresa de tecnologia, responsável pela instalação de alto-falantes numa faculdade,
+utilizou o seguinte modelo de propagação de som 𝑓(𝑡) = sen𝑡+cos𝑡. Porém, ao tentar
+escrever no segundo formato, um funcionário da mesma empresa escreveu a função da seguinte
+forma 𝑓(𝑡) = cos(2𝑡), sendo esta função diferente da apresentada anteriormente.
+Para quantos valores de 𝑡, considerando 𝑡 𝜖 [0,2𝜋[, ambos os funcionários encontrarão o mesmo
+resultado?
+1
+2
+3
+4
+5
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟒
+Solução:
+Usando a fórmula do arco duplo: sen𝑡+cos𝑡 =cos(2𝑡)
+Elevando ao quadrado (usando a relação fundamental e sen(2𝑡) =2∙sen𝑡∙cos𝑡)
+1+sen(2𝑡)= cos2(2𝑡) = 1−sen2(2𝑡) ⟹ sen(2𝑡)= 0 ou sen(2𝑡) =−1 ⇒
+𝑡 𝜖 [0,2𝜋[ ⇒ 2𝑡 𝜖 [0,4𝜋[
+3𝜋 7𝜋 𝜋 3𝜋 3𝜋 7𝜋
+2𝑡 ∈ [0,𝜋, ,2𝜋,3𝜋, ] ⇒ 𝑡 ∈[0, , ,𝜋, , ]
+2 2 2 4 2 4
+Como elevamos ao quadrado temos que testar todas as raízes
+𝑡 = 0: 0+1 =1 (ok)
+𝜋
+𝑡 = : 1+0 =−1 (absurdo)
+2
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+3𝜋 √2 √2
+𝑡 = : − =0 (ok)
+4 2 2
+𝑡 = 𝜋: 0−1 =1 (absurdo)
+3𝜋
+𝑡 = : −1+0 =−1 (ok)
+2
+7𝜋 √2 √2
+𝑡 = : − + =0 (ok)
+4 2 2
+3𝜋 3𝜋 7𝜋
+Temos então as seguintes respostas: 𝑡 =0, , , , ou seja, 4 soluções.
+4 2 4
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Em uma feira de inovação tecnológica, há um setor que contém 12 estandes dispostos um ao
+lado do outro. Para apresentar seus produtos, 4 diferentes startups de educação deverão ocupar
+cada um desses 12 estandes disponíveis, de forma que cada uma dessas startups sempre tenha
+pelo menos uma outra ao seu lado.
+No caso abaixo, por exemplo, ao lado de cada uma das startups, há outra de educação:
+Neste outro caso apresentado, a startup indicada pelo número 4 não possui uma outra ao seu
+lado e, desse modo, elas não poderão estar dispostas dessa forma
+Além disso, sabe-se que 6 pessoas estarão presentes no horário de abertura da feira.
+A quantidade de maneiras distintas das quatro startups serem dispostas nesse setor recebendo
+todas pelo menos um dos 6 visitantes no horário de abertura é:
+1.684.800
+224.640
+9.360
+1.080
+720
+-----------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟏.𝟔𝟖𝟒.𝟖𝟎𝟎
+Solução:
+Primeiro será definido apenas o local das startups. Olhando da esquerda para a direita, chame
+os estandes ocupados de 1, 2, 3 e 4, na ordem que forem sendo ocupados (conforme a figura do
+enunciado).
+Como o estande 1 não pode ficar isolado, a sua direita sempre teremos o estande 2.
+Como o estande 4 não pode ficar isolado, a sua esquerda sempre teremos o estande 3.
+Assim, existe o bloco 12 e o bloco 34 que podem estar juntos ou separados.
+Seja 𝑥 o número de estandes vazios antes do bloco 12, 𝑦 o número de estandes vazios entre os
+blocos 12 e 34 e 𝑧 a quantidade de estandes vazios depois do bloco 34, então:
+𝑥+𝑦+𝑧 =8 (total de estandes vazios)
+10!
+O número de soluções inteiras não-negativas dessa equação é: 𝐶𝑅 = =45
+3,8
+8!2!
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Como as startups são diferentes, é necessário permutar, ou seja, multiplicar por 4! =24.
+Então, o número de formas de alocar as startups seria 45×24 =1.080.
+Faltando agora, alocar as 6 pessoas nas startups sem que nenhuma fique vazia.
+Por serem 6 pessoas podemos distribuir das seguintes formas:
+1º caso: 3/1/1/1: 4 possibilidades permutando esses números
+Escolha das pessoas: 𝐶 ∙𝐶 ∙𝐶 ∙𝐶 = 20×3×2×1 =120
+6,3 3,1 2,1 1,1
+Nesse caso então temos: 120×4 =480 possibilidades de distribuir as pessoas
+2º caso: 2/2/1/1: 6 possibilidades permutando esses números
+Escolha das pessoas: 𝐶 ∙𝐶 ∙𝐶 ∙𝐶 = 15×6×2×1 =180
+6,2 4,2 2,1 1,1
+Nesse caso então temos: 6×180 =1080 possibilidades de distribuir as pessoas
+Somando os casos: 1.080+480 = 1.560 formas de distribuir as pessoas nas startups.
+Assim, o número pedido é 1080×1560 = 1.684.800.
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Um complexo formado por 6 prédios receberá uma única antena de Wi-Fi, cujo sinal cobrirá
+todo o conjunto. Essa antena será colocada no topo desse complexo e, sua cobertura circular,
+com centro no segmento A̅̅̅B̅, está identificada pela linha tracejada que contém exatamente dois
+pontos do complexo, conforme mostra a planta baixa a seguir.
+A
+.
+B
+Nessa planta, os prédios são todos em formato de quadrados, sendo que o maior deles tem lado
+40 m e os cinco menores têm lado 20 m. Nessas condições, qual é o percentual da área de
+cobertura de Wi-Fi ocupada pelo complexo de prédios?
+Considere 𝜋 =3,14.
+50%
+47,82%
+45,86%
+42,71%
+38,23%
+------------------------------------------------------------------------------------------------------------------------------
+Gabarito: 𝟒𝟓,𝟖𝟔%
+Ligando o ponto A aos pontos de tangência e completando os triângulos retângulos, têm-se a
+seguinte figura:
+Pelo Teorema de Pitágoras,
+(40−𝑥)2+402 =𝑟2
+(20+𝑥)2+402 =𝑟2
+Subtraindo as equações,
+(40−𝑥)2−(20+𝑥)2 = 0 ⇒
+⇒ 60(20−2𝑥) =0 ⇒ 𝑥 =10 ⇒
+⇒ 𝑟2 = 302+402 ⇒ 𝑟 = 50 m
+Área dos prédios: 5×202 +402 =3600 m2
+Área de cobertura: 𝜋𝑟2 = 2500𝜋 =2500×3,14 =7850 m2
+3600
+Percentual: = 45,86%
+7850
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Uma agência de publicidade controla os canais de dois influenciadores, A e B, que postam um
+vídeo sobre tecnologia semanalmente, e está testando estratégias para promoção e aumento da
+audiência desses canais.
+Analisando o comportamento de certo grupo que assiste vídeos de tecnologia, uma pesquisa
+identificou algumas informações, que estão descritas na seguinte matriz de transição:
+Estado Precedente
+A B O
+0,40 0,20 0,40 A
+𝑃 = [0,40 0,60 0,40] B Novo Estado
+0,20 0,20 0,20
+O
+Nela, vemos que 40% das pessoas que atualmente seguem o influenciador A querem ver um
+novo vídeo dele na próxima semana, enquanto 40% pretendem assistir o vídeo do influenciador
+B e 20% vão para outros canais, indicados por O, em valores aproximados.
+Na mesma matriz, entre os que seguem o influenciador B, cerca de 60% vão continuar vendo o
+próximo vídeo dele, enquanto 20% têm interesse em ir para o canal A e 20% vão mudar para
+outros canais, indicados por O.
+Por último, entre os que atualmente seguem outros influenciadores, O, cerca de 20% vão
+continuar com eles na próxima semana, 40% vão migrar para o A e 40% vão para o B.
+No início da pesquisa, também foi verificado que o canal A detém 20% dessa audiência, o canal
+B detém 20% e os demais, O, ficam com 60% desse grupo, fornecendo o seguinte vetor de
+estado inicial:
+0,20
+𝑋0 =[0,20]
+0,60
+Logo, o vetor de estado depois da primeira semana 𝑋1 é dado pelo produto 𝑃∙𝑋0:
+0,40 0,20 0,40 0,20 0,36
+𝑋1 = 𝑃∙𝑋0 =[0,40 0,60 0,40]∙[0,20] =[0,44]
+0,20 0,20 0,20 0,60 0,20
+Isso significa que, depois da primeira semana, aproximadamente 36% das pessoas do grupo
+assistirão o vídeo do canal A, 44% assistirão o vídeo do canal B e 20% assistirão o vídeo dos
+demais canais, O.
+Continuando com esse processo e análise, no qual 𝑋𝑛+1 =𝑃∙𝑋𝑛 e sempre usando duas casas
+decimais após a vírgula, à medida que o tempo passa, depois de qual semana a taxa de
+visualização estimada do vídeo do canal B apresentará um aumento, em relação à semana
+anterior, menor do que 3% pela primeira vez?
+2ª semana
+3ª semana
+4ª semana
+5ª semana
+6ª semana
+---------------------------------------------------------------------------------------------------------------------------
+Gabarito: 3ª semana
+Processo de Admissão 2024.1 – Instituto de Tecnologia e Liderança
+Solução:
+Depois da primeira semana, o aumento estimado da taxa de visualização do vídeo do canal B é
+0,44−0,20
+de = 120% em relação a semana anterior.
+0,20
+Depois da segunda semana, o vetor de estado é
+0,40 0,20 0,40 0,36 0,31
+𝑋2 = 𝑃∙𝑋1 =[0,40 0,60 0,40]∙[0,44] =[0,49]
+0,20 0,20 0,20 0,20 0,20
+0,49−0,44
+e verifica-se um crescimento de ≅ 11,36% em relação a semana anterior.
+0,44
+Depois da terceira semana, o vetor de estado é
+0,40 0,20 0,40 0,31 0,30
+𝑋3 = 𝑃∙𝑋2 = [0,40 0,60 0,40]∙[0,49] = [0,50]
+0,20 0,20 0,20 0,20 0,20
+0,50−0,49
+e verifica-se um crescimento de ≅ 2,04% em relação à semana anterior, menor do
+0,49
+que o 3% procurado.

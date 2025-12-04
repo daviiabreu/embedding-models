@@ -1,0 +1,585 @@
+1
+O Inteli torna público o Edital para o Programa de Bolsas Inteli - Graduação 2026, para os
+cursos de Administração (ADM Tech), Ciência da Computação, Engenharia da Compu-
+tação, Engenharia de Software e Sistemas de Informação.
+O presente Edital estabelece as normas, critérios e etapas para participação no Proces-
+so Seletivo de Bolsas Inteli. É de exclusiva responsabilidade do(a) candidato(a) o acom-
+panhamento de eventuais atualizações de cronograma, adendos ao edital, resultados,
+convocações e datas de realização de cada etapa. O(a) candidato(a) que não compa-
+recer a qualquer etapa na qual for convocado(a) ou não entregar toda a documentação
+solicitada dentro dos prazos estipulados, será automaticamente desclassificado(a) do
+Processo Seletivo para o Programa de Bolsas.
+Eventuais alterações em qualquer etapa serão comunicadas via e-mail informado no
+Formulário de Inscrição e disponibilizadas na plataforma para todos(as) candidatos(as)
+participantes. Ao realizar a candidatura, o(a) candidato(a) confirma a leitura deste edi-
+tal e a concordância com todos os termos e condições, se comprometendo a fornecer
+informações verdadeiras, atualizadas e completas.
+2
+SUMÁRIO
+EDITAL PROGRAMA DE BOLSAS INTELI - GRADUAÇÃO 2026
+1. Disposições Gerais
+1.1. O processo descrito neste edital destina-se à seleção de candidatos(as) para a
+concessão de bolsas de estudos nos cursos de graduação do Inteli, com o objetivo
+de ampliar o acesso à educação superior a pessoas em situação de vulnerabilidade
+socioeconômica.
+1.2. A candidatura ao Programa de Bolsas de Estudo poderá ser realizada para todos
+os cursos contemplados no Edital para o Processo Seletivo Inteli Graduação 2026,
+disponibilizado no site https://www.inteli.edu.br/processo-seletivo/, sendo obriga-
+toriamente realizada no ato da inscrição no Processo Seletivo. O período para inscri-
+ção no Processo Seletivo é de 05 de agosto de 2025 a 12 de outubro de 2025. Será
+possível solicitar a isenção da taxa de inscrição até dia 05 de outubro de 2025. Não
+serão aceitas inscrições para o Programa de Bolsas após o encerramento das inscri-
+ções do Processo Seletivo Inteli.
+3
+1.3. O Programa de Bolsas poderá contemplar, conforme a necessidade comprovada do(a)
+candidato(a) pelos critérios do item 2.1 e a disponibilidade de recursos do Inteli, um ou mais
+dos seguintes auxílios:
+• Bolsa de Estudos com isenção total ou parcial da mensalidade;
+• Auxílio Moradia; (prioritariamente para candidatos(as) com mais de duas horas de
+tempo de deslocamento em transporte público até o Campus Inteli),
+• Auxílio Alimentação;
+• Auxílio Notebook;
+• Auxílio Curso de inglês.
+1.4. O processo de submissão e avaliação do pedido de bolsa será o mesmo, independente
+do tipo de bolsa solicitado, centralizado na plataforma de Processo Seletivo. Os critérios
+de renovação semestral das bolsas constarão no Regimento Interno e no Regulamento do
+Programa de Bolsas do Inteli.
+1.5. Candidatos(as) que não participarem do programa de bolsas ou não tiverem a bolsa
+concedida, mas forem aprovados no Processo Seletivo e, por meios próprios, realizarem a
+matrícula, não poderão solicitar bolsa uma vez que se tornarem alunos(as) ativos(as) do
+Inteli.
+2. A quem se destina
+2.1. O Inteli observa os critérios da Lei Complementar 187/2021 e do Decreto 11.791/2023
+para concessão das Bolsas de Estudo, em que o(a) candidato(a) deverá atender, cumulati-
+vamente, aos seguintes requisitos:
+2.1.1. Comprovar renda familiar bruta mensal per capita de até 1,5 (um salário mínimo
+e meio) para os(as) candidatos(as) à bolsa integral de 100% (cem por cento) e de até 3
+(três) salários mínimos para a bolsa parcial de 50% (cinquenta por cento), conforme cál-
+culo previsto no item 6.4;
+2.1.2. Demonstrar condição social compatível ao perfil socioeconômico, considerando
+qualidade de vida, bens e hábitos de consumo, que deverão ser compatíveis entre a renda
+familiar bruta apurada e com a condição econômica do grupo familiar.
+2.1.3. Não ser graduado(a) no ensino superior, seja bacharel, licenciatura ou tecnólogo,
+em qualquer curso ou instituição de ensino;
+4
+2.1.4. Disponibilidade para morar em São Paulo, dado que nosso curso é 100% presen-
+cial;
+2.1.5. Disponibilidade de dedicação integral nos primeiros 2 (dois) anos da graduação.
+2.2. O Inteli se resguarda o direito de oferecer bolsas a candidatos que não se enquadrem
+no perfil socioeconômico descrito acima, podendo o(a) candidato(a) concorrer a bolsas
+descritas no item 3.3.
+3. Das vagas disponíveis
+3.1. Para a oferta das Bolsas de Estudo será respeitada a concessão de 01 (uma) bolsa in-
+tegral para cada 04 (quatro) alunos pagantes, nos termos do art. 22, da Lei Complementar
+187/2021, por tratar-se de instituição não aderente ao PROUNI.
+3.2. Em substituição às Bolsas de Estudo integrais descritas no item 3.1, poderão ser ofer-
+tadas Bolsas de Estudo parciais de 50% (cinquenta por cento), desde que respeitada a
+proporção de 01 (uma) Bolsa de Estudo integral para cada 09 (nove) alunos pagantes, em
+conformidade com o art. 22, § 1o, da Lei Complementar 187/2021.
+3.3. Além do número mínimo previsto na legislação mencionada, candidatos(as) aprova-
+dos(as) no Processo Seletivo que comprovarem necessidade financeira de acordo com
+critérios definidos pelo presente edital e adesão ao perfil socioeconômico prioritário do
+item 2.1, poderão ser contemplados(as) com bolsas de:
+• Integral de 100% (cem por cento),
+• Parcial de 75% (setenta e cinco por cento),
+• Parcial de 50% (cinquenta por cento), ou
+• Parcial de 25% (vinte e cinco por cento).
+4. Calendário
+4.1. Para concorrer a uma Bolsa de Estudo é necessário cumprir todas as etapas descritas
+no Processo Seletivo Inteli e mais as etapas do cronograma a seguir:
+5
+DATA E HORÁRIO
+(horário de Brasília) DESCRIÇÃO
+Envio de documentos para Avaliação So-
+21/10/2025 a 28/10/2025 (23h59) cioeconômica
+Entrevista Social
+03/11/2025 a 28/11/2025
+Entrevista Comitê de Bolsas Inteli
+01/12/2025 a 05/12/2025
+Divulgação da lista de aprovados(as)no
+10/12/2025 Programa de Bolsas Inteli - Graduação
+2026.
+Matrícula online e presencial dos(as) can-
+10/12/2025 a 30/12/2025 didatos(as) aprovados(as) no Programa
+de Bolsas Inteli - Graduação 2026
+4.2. Todas as etapas acima descritas para as quais o(a) candidato(a) for convocado,
+torna-se obrigatória a realização. O não cumprimento de quaisquer etapas citadas ou
+realizadas fora do prazo estabelecido pelo Inteli desclassifica automaticamente o(a)
+candidato(a) para o Programa de Bolsas de Estudo.
+4.3. O cronograma poderá sofrer alterações e/ou complementos, bem como as convoca-
+ções poderão ocorrer ao longo de todo o prazo estipulado para realização do Programa de
+Bolsas, não obrigatoriamente ocorrendo no primeiro dia destinado para cada etapa. Ade-
+mais, as etapas do Programa de Bolsas poderão ocorrer em paralelo com outras do Proces-
+so Seletivo e/ou em datas diferentes, previamente comunicadas pelo Inteli via Plataforma
+do Processo Seletivo e/ou e-mail, antes da divulgação da lista de aprovados(as) no proces-
+so de bolsas, conforme estipulado por este edital.
+4.4. Durante a realização do Processo Seletivo, poderão ser realizadas sessões de tira-dú-
+vidas (lives) para auxiliar os(as) candidatos(as), com datas determinadas e informadas
+pelo Inteli via e-mail e Plataforma do Processo Seletivo.
+6
+4.5. Não serão permitidos, em nenhuma das etapas do Programa de Bolsas, e não serão
+deferidos, quaisquer pedidos de vista, recursos e/ou revisões, renunciando aos(as) candi-
+datos(as), desde já, a quaisquer pedidos de vista, recursos e/ou revisões. Todas as infor-
+mações relacionadas ao Programa de Bolsas, bem como avaliações e pareceres técnicos
+sobre os(as) candidatos(as) são confidenciais e não serão disponibilizados nem aos can-
+didatos(as), nem aos responsáveis legais.
+5. Etapas do Programa de Bolsas
+5.1. O Processo Seletivo para o Programa de Bolsas contará com as seguintes etapas:
+ETAPA 01: Envio de documentos para Avaliação Socioeconômica - O(a) candidato(a) de-
+verá compartilhar documentações sobre as pessoas do seu núcleo familiar e respectivas
+rendas brutas para análise de renda per capita (por pessoa), ficando o(a) candidato(a) res-
+ponsável pelo compartilhamento de tais documentações (conforme em Anexo I).
+ETAPA 02: Entrevista Social - Caso haja a convocação, o(a) candidato(a) deverá realizar
+uma entrevista remota junto ao(a) responsável (legal e/ou financeiro) com um(a) assisten-
+te social. Esta entrevista tem como objetivo compreender os contextos econômico, fami-
+liar, educacional e emocional do(a) candidato(a). Durante a entrevista, serão validadas as
+informações indicadas na Avaliação Socioeconômica, confirmando o atingimento de todos
+os critérios presentes no edital.
+ETAPA 03: Entrevista Comitê de Bolsas Inteli - Caso haja convocação, o(a) candidato(a)
+deverá realizar uma entrevista remota desacompanhado(a) com o Comitê de Bolsas Inteli.
+Essa entrevista tem como objetivo conhecer a história de vida do(a) candidato(a) e sua
+aderência ao perfil Inteli.
+5.2. As etapas 02 e 03, de Entrevistas Social e com o Comitê de Bolsas Inteli, respectiva-
+mente, não serão realizadas com todos(as) os(as) candidatos(as) - a seleção acontecerá
+conforme critérios internos definidos pelo Inteli. Caso haja a convocação, a participação
+torna-se obrigatória e o agendamento de data e horário será realizado pelo Inteli, não sen-
+do possível remarcação.
+7
+5.3. Demais candidatos(as) que não forem convocados(as) para participarem das etapas
+02 e/ou 03 ainda estarão concorrendo ao Programa de Bolsas, que terá seu resultado divul-
+gado seguindo o cronograma do item 4 deste edital.
+6. Etapa 01: Avaliação Socioeconômica
+6.1. A etapa Avaliação Socioeconômica consiste no envio de informações sobre todas as
+pessoas do núcleo familiar que morem na mesma residência do(a) candidato(a) (inclusive
+menores de idade e pessoas sem renda) com entrega da documentação comprobatória,
+tendo objetivo de identificar a renda per capita (por pessoa) e situação patrimonial compa-
+tível com essa renda.
+6.2. O envio das informações e dos documentos solicitados pelo Inteli deve ser feito exclu-
+sivamente por meio da Plataforma do Processo Seletivo com objetivo de entender a neces-
+sidade financeira do(a) candidato(a) e seu núcleo familiar através de uma Avaliação Socio-
+econômica.
+6.3. Consideram-se para o cálculo a soma de todos os rendimentos brutos recebidos por
+todas as pessoas do núcleo familiar, inclusive menores de idade e pessoas sem renda, in-
+dependente do vínculo legal ou sanguíneo. Entende-se como grupo familiar a unidade nu-
+clear composta por uma ou mais pessoas, eventualmente ampliada por outras pessoas
+que contribuam para o rendimento ou tenham suas despesas atendidas por aquela unida-
+de familiar, todas moradoras em um mesmo domicílio.
+6.4. A renda familiar bruta mensal per capita será apurada de acordo com o seguinte pro-
+cedimento: I - calcula-se a soma dos rendimentos brutos auferidos por todos os membros
+do grupo familiar a que pertence o(a) candidato(a), levando-se em conta, no mínimo, os
+três meses anteriores ao Processo Seletivo; II - calcula-se a média mensal dos rendimentos
+brutos apurados após a comprovação da renda pelo assistente social; e III - divide-se o valor
+apurado pelo assistente social pelo número de pessoas do grupo familiar do(a) candida-
+to(a).
+8
+6.5. Serão computados os rendimentos de qualquer natureza percebidos pelos membros
+do grupo familiar, a título regular ou eventual, inclusive aqueles provenientes de locação ou
+de arrendamento de bens móveis e imóveis. Caso algum membro do grupo familiar possua
+mais de uma fonte de renda, deverá informar o valor e apresentar documentação referente
+a todas as suas rendas.
+6.6. Serão excluídos do cálculo de renda familiar bruta mensal per capita valores recebidos
+de a) auxílios para alimentação e transporte, b) diárias e reembolsos de despesas, c) adian-
+tamentos e antecipações, d) estornos e compensações referentes a períodos anteriores,
+e) indenizações decorrentes de contratos de seguros e f) indenizações por danos materiais
+e morais por força de decisão judicial, bem como os rendimentos percebidos no âmbito dos
+seguintes programas: a) Programa de Erradicação do Trabalho Infantil, b) Programa Agente
+Jovem de Desenvolvimento Social e Humano, c) Programa Bolsa Família e os programas re-
+manescentes nele unificados, d) Programa Nacional de Inclusão do Jovem - Pró-Jovem, e)
+Auxílio Emergencial Financeiro e outros programas de transferência de renda destinados à
+população atingida por desastres, residente em municípios em estado de calamidade pú-
+blica ou situação de emergência e f) demais programas de transferência condicionada de
+renda implementados pela União, Estados, Distrito Federal ou Municípios.
+6.7. Os documentos a serem enviados para a Avaliação Socioeconômica são variáveis, de
+acordo com a ocupação selecionada pelo membro do núcleo familiar, e estarão disponibili-
+zados na Plataforma do Processo Seletivo, bem como no Anexo I do presente edital.
+6.8. Após preenchimento de informações e envio de documentos, todos(as) os(as) candi-
+datos(as) serão analisados(as) individualmente. Poderão ser solicitadas documentações
+complementares ou informações adicionais além das previstas no Anexo I caso o Inteli jul-
+gue necessário para melhor Avaliação Socioeconômica.
+6.9. Durante as análises, caso seja identificado algum tipo de pendência de documentação
+e/ou documentação ilegível, o(a) candidato(a) será notificado via e-mail e Plataforma do
+Processo Seletivo para regularização da pendência. O prazo para resolução é de 1 (um) dia
+útil, contabilizado a partir da data de envio da mensagem, limitando-se a até 2 (duas) co-
+branças de pendências por candidato(a).
+9
+6.10. Somente serão aceitos documentos enviados no prazo estabelecido pelo Inteli e pela
+Plataforma do Processo Seletivo, não sendo consideradas documentações físicas ou en-
+viadas por e-mail e/ou whatsapp do Inteli.
+6.11. É de responsabilidade do(a) candidato(a) e/ou responsável registrar todas as informa-
+ções solicitadas e enviar a documentação necessária em fotos e/ou arquivos legíveis para
+realização da Avaliação Socioeconômica.
+6.12. Candidatos(as) que não tenham suas informações registradas e documentos entre-
+gues corretamente, bem como sua submissão em desacordo com os prazos estipulados,
+serão automaticamente desclassificados(as) do Processo Seletivo.
+6.13. Todas as informações prestadas devem ser verdadeiras, estando este ciente de que
+a omissão ou fornecimento de informações falsas implicará na imediata anulação da can-
+didatura, ainda que tenha sido classificado(a) nas etapas seguintes ou que já componha o
+quadro de bolsistas Inteli.
+7. Etapa 02: Entrevista Social
+7.1. A Entrevista Social é obrigatória somente para candidatos(as) convocados para esta
+etapa, e tem como objetivo compreender os contextos econômico, familiar, educacional e
+emocional do(a) candidato(a), validando as informações indicadas na Avaliação Socioeco-
+nômica e confirmando o atingimento de todos os critérios presentes no edital.
+7.2. A entrevista será conduzida por um(a) assistente social contratado(a) pelo Inteli, com
+a presença obrigatória do(a) candidato(a) e de um(a) responsável (legal e/ou financei-
+ro), preferencialmente residente no mesmo domicílio. A participação do(a) responsável é
+fundamental para assegurar o fornecimento completo e preciso das informações necessá-
+rias à adequada compreensão do contexto socioeconômico familiar.
+7.2. A entrevista será conduzida por um(a) assistente social contratado(a) pelo Inteli, com
+a presença obrigatória do(a) candidato(a) e de um(a) responsável (legal e/ou financei-
+ro), preferencialmente residente no mesmo domicílio.
+10
+A participação do(a) responsável é fundamental para assegurar o fornecimento
+completo e preciso das informações necessárias à adequada compreensão do contexto
+socioeconômico familiar.
+7.3. Entende-se como responsável a pessoa que possui responsabilidade legal, no caso de
+menores de idade, ou financeira, no caso de maiores de idade - uma vez que será necessá-
+ria dedicação integral nos primeiros 2 (dois) anos da graduação, é essencial a participação
+do(a) responsável financeiro que proverá o necessário ao(a) candidato(a) no caso de não
+contemplação de todos os auxílios solicitados.
+7.4. Poderá ser solicitado o envio de pendências documentais e/ou documentos extras
+para finalização da Avaliação Socioeconômica durante a realização da entrevista com o(a)
+Assistente Social. A falta de envio de documentos solicitados na entrevista poderá incorrer
+na desclassificação do(a) candidato(a).
+7.5. A entrevista acontecerá na modalidade online, em que o agendamento de data e ho-
+rário será realizado pelo Inteli e comunicado por e-mail e Plataforma do Processo Seletivo.
+Não haverá outra data e horário para realização da entrevista além da disponibilizada por
+e-mail e o não comparecimento no dia e hora marcados poderá incorrer na desclassifica-
+ção do(a) candidato(a).
+7.6. É necessário que no dia da entrevista, o(a) candidato(a) e o(a) responsável tenham
+acesso à internet e a um dispositivo (celular, computador, notebook ou tablet) com câmera
+e microfone, não sendo necessário realizar a instalação de nenhum aplicativo ou programa.
+7.7. No dia da entrevista, será necessário acessar o link enviado por e-mail e disponível na
+Plataforma do Processo Seletivo com pelo menos 10 minutos de antecedência do horário
+agendado. A entrevista tem duração estimada de 1 (uma) hora, em que serão realizadas
+verificações de autenticidade de questões familiares e financeiras importantes para elegi-
+bilidade ao Programa de Bolsas.
+7.8. Caso seja necessário, o(a) candidato(a) ou o(a) responsável poderão solicitar, pelo
+e-mail admissoes@inteli.edu.br, um comprovante de comparecimento à entrevista. O pra-
+zo para envio do comprovante é de até 5 dias úteis.
+11
+8. Etapa 03: Entrevista com Comitê de Bolsas Inteli
+8.1. A entrevista com o Comitê de Bolsas Inteli é obrigatória somente para candidatos(as)
+convocados para esta etapa, e tem objetivo de conhecer a história de vida do(a) candida-
+to(a), sua aderência ao perfil do Inteli, e verificar sua excelência acadêmica.
+8.2. A entrevista acontecerá na modalidade online, com duração estimada de 30 (trinta)
+minutos e será realizada por integrantes do time Inteli que compõe o Comitê de Bolsas jun-
+to somente ao(à) candidato(a), seguindo os mesmos direcionais da Entrevista Social de
+conexão e dispositivos de acesso.
+8.3. O agendamento de data e horário será realizado pelo Inteli e comunicado por e-mail e
+Plataforma do Processo Seletivo. Não haverá outra data e horário para realização da entre-
+vista além da disponibilizada na Plataforma do Processo Seletivo e o não comparecimento
+no dia e hora marcados poderá incorrer na desclassificação do(a) candidato(a).
+8.4. Caso seja necessário, o(a) candidato(a) poderá solicitar, pelo e-mail admissoes@inte-
+li.edu.br, um comprovante de comparecimento à entrevista. O prazo para envio do compro-
+vante é de até 5 dias úteis.
+9. Divulgação da lista de aprovados(as) no processo de bolsas e Matrículas
+9.1. O(a) candidato(a) que for aprovado(a) no Processo Seletivo poderá aguardar o resul-
+tado de bolsas para efetivar sua matrícula. Deve ser observado o prazo de matrículas de
+bolsas, uma vez que, passado esse período, o(a) candidato(a) perderá o direito à vaga.
+9.2. Todos os(as) candidatos(as) receberão uma comunicação por e-mail em que será in-
+formado(a) da aprovação ou reprovação no Programa de Bolsas de Estudo e Auxílios adi-
+cionais.
+9.3. Candidatos(as) inscritos(as) para Bolsa Integral poderão ser contemplados(as) com
+a Bolsa Parcial, bem como poderão ser contemplados(as) com uma menor quantidade de
+Auxílios adicionais solicitados. É prerrogativa do Inteli alocar as bolsas conforme legislação
+vigente e, de forma complementar, conforme disponibilidade do fundo de bolsas, não es-
+tando obrigada a instituição à alocação de bolsas complementares à legislação.
+12
+9.4. Uma vez aprovado(a) no Processo Seletivo do Programa de Bolsas, o(a) candidato(a)
+receberá a documentação necessária para formalização do contrato de prestação de ser-
+viços educacionais e da Bolsa de Estudo, que conterá todas as regras de recebimento e
+manutenção da Bolsa de Estudo. Somente após a assinatura do referido contrato é que
+o(a) candidato(a) se tornará oficialmente bolsista e passará a ter direito aos benefícios
+previstos neste Regulamento, desde que atenda, enquanto aluno(a) regular, aos critérios
+necessários e cumpra os regulamentos internos pertinentes para manutenção da bolsa.
+9.5. O(a) bolsista poderá ter a sua Bolsa de Estudo retirada a qualquer tempo caso seja
+identificada qualquer irregularidade ou descumprimento deste edital, incluindo o forne-
+cimento de informação falsa ou incompleta, ainda que tenha sido divulgado seu nome na
+lista de pessoas aprovadas ou mesmo já tenha recebido e-mail de aprovação e/ou assinado
+o Termo de Doação ou que já tenha cursado 1 (um) ou mais semestres, bem como já tenha
+recebido qualquer valor referente aos Auxílios Adicionais.
+9.6. Caso o(a) candidato(a), após aprovação em todas as etapas do presente Processo Se-
+letivo, comunique sua decisão de não receber a Bolsa de Estudo Inteli, independentemente
+do motivo, será considerada desistente do Programa de Bolsas, não sendo permitida mais
+a sua participação.
+10. Tratamento de Dados Pessoais
+10.1. O(a) candidato(a) declara ter ciência e concorda que o Inteli coletará e realizará o tra-
+tamento dos seus dados pessoais nos termos e para as finalidades expressamente previs-
+tas neste Regulamento e no Termo de Doação (caso venha a ser aprovado(a) no Processo
+Seletivo). O Inteli, por sua vez, obriga-se a:
+• Realizar o tratamento dos dados pessoais sempre em observância ao presente Regula-
+mento e à legislação aplicável
+• Cumprir com as obrigações legais e regulatórias em vigor relativas à privacidade e pro-
+teção de dados pessoais, bem como envidar melhores esforços para estar em conformi-
+dade com as obrigações estabelecidas na Lei nº 13.709/2018 (Lei Geral de Proteção de
+Dados ou “LGPD”)
+13
+• Assegurar que colaboradores(as), consultores(as) e/ou prestadores(as) de serviços
+que, no exercício das suas funções, devam ter acesso e/ou conhecimento da infor-
+mação e/ou dos dados pessoais para fins de cumprimento deste Regulamento, en-
+contram-se obrigadas a deveres de sigilo, quando cabível, responsabilizando-se pela
+conformidade em relação à legislação aplicável
+• Implementar medidas de segurança, técnicas e administrativas, adequadas para ga-
+rantir um nível de segurança efetivo à proteção dos dados pessoais contra acessos
+não autorizados e incidentes envolvendo destruição, perda, alteração, comunicação
+ou qualquer forma de tratamento inadequado ou ilícito, principalmente quando en-
+volver dados pessoais sensíveis, exigindo contratualmente de seus fornecedores e
+parceiros a adoção do mesmo nível de segurança da informação, com base nas me-
+lhores práticas de mercado e nos termos da Política de Privacidade e da legislação
+aplicável
+• Assegurar ao(à) candidato(a) o exercício dos seus direitos enquanto titulares dos
+dados pessoais, nos termos da legislação aplicável.
+11. Disposições Finais
+A Diretoria Geral do Inteli reserva-se o direito de alterar este edital, inclusive datas ou
+etapas, a qualquer tempo e a seu exclusivo critério. Eventuais alterações deste edital
+serão informadas pelos mesmos meios utilizados para sua divulgação.
+Os casos omissos relativos ao Programa de Bolsas Inteli - Graduação 2026 serão decidi-
+dos pela Comissão do Processo Seletivo e Programa de Bolsas. O presente edital entra
+em vigor na data de sua assinatura e publicação no site inteli.edu.br.
+São Paulo, 5 de agosto de 2025.
+Maíra Habimorad
+14
+ANEXOS
+ANEXO I. Documentos necessários para Avaliação Socioeconômica
+Atenção:
+• Os documentos deverão ser enviados em cópias de forma legível, não sendo neces-
+sário autenticar nenhuma documentação. Poderão ser solicitadas documentações
+complementares ou informações adicionais além das previstas no presente anexo,
+caso o Inteli julgue necessário para uma melhor Avaliação Socioeconômica. A falta de
+documentos é de responsabilidade do(a) candidato(a) e/ou de seu(sua) responsá-
+vel legal e poderá resultar na desclassificação do Processo Seletivo.
+• Deverão ser enviados documentos de todas as pessoas do núcleo familiar, inclusive
+menores de idade e pessoas sem renda, e independente do vínculo legal ou sanguí-
+neo. Conforme PN 15/2017, entende-se como grupo familiar a unidade nuclear com-
+posta por uma ou mais pessoas, eventualmente ampliada por outras pessoas que
+contribuam para o rendimento ou tenham suas despesas atendidas por aquela uni-
+dade familiar, todas moradoras em um mesmo domicílio.
+1. Documentos de identificação - para todas as pessoas do grupo familiar
+• Para o(a) candidato(a)
+Carteira de Identidade (RG) ou CNH
+CPF (caso não haja no RG)
+• Para maiores de 18 anos
+Carteira de Identidade (RG) ou CNH
+CPF (caso não haja no RG)
+• Para menos de 18 anos
+Identidade ou Certidão de Nascimento
+15
+2. Informações Residenciais
+Comprovante de residência
+Do último mês e em nome do(a) candidato(a) ou em nome de seu(sua) responsá-
+vel, como conta de água, luz, telefone, cartão de crédito ou declaração de associação de
+moradores.
+Comprovante de situação de moradia
+Própria: Declaração de Imposto de Renda ou IPTU
+Alugada ou Financiada: Comprovante de pagamento do último mês
+Posse ou Cedida: Declaração de posse ou declaração de cessão (de acordo com
+modelo disponível no Anexo II)
+3. Automóveis
+• Somente para grupos familiares que possuem automóveis
+Quitado: Declaração de Imposto de Renda ou RENAVAM ou Certificado de Registro
+e Licenciamento de Veículo (CRLV)
+Financiado: Contrato de financiamento ou boleto do mês anterior
+Alugado: boleto de pagamento do mês anterior
+4. Comprovação de rendimentos para todas as pessoas do grupo familiar maiores de
+18 anos
+• Documentação para todas as pessoas, independente se estão trabalhando ou não
+CTPS - Carteira de trabalho: preferencialmente a versão digital disponível no ht-
+tps://www.gov.br/ ou cópia da página de identificação, página com informações do últi-
+mo contrato de trabalho e, folha em branco seguinte ao último contrato de trabalho
+CNIS - Extrato de contribuições previdenciárias (Versão Completa - Plataforma
+Meu INSS)
+Imposto de renda 2025 (ano base 2024): Declaração completa do Imposto de
+Renda acompanhada do recibo de entrega. Se for isento e não declarar, deverá emitir e
+enviar o “Nada consta”, documento representado pelo print da tela após consulta com
+CPF e data de nascimento, disponível no seguinte endereço: https://servicos.receita.
+fazenda.gov.br/Servicos/ConsRest/Atual.app/paginas/index.asp
+Extrato Bancário detalhado dos últimos 3 (três) meses: com entradas e saídas, de
+todas as contas correntes, bancárias e/ou carteiras digitais.
+16
+5. Comprovação de rendimentos: Cada pessoa do grupo familiar com mais de 18 anos
+deve ser enquadrada em uma ou mais das opções a seguir (exemplo: uma pessoa do
+grupo familiar pode ser assalariada e profissional liberal. Neste caso deve apresentar a
+documentação referente aos 2 tipos de renda).
+• Trabalhador(a) formal (assalariado com carteira assinada, funcionário(a) públi-
+co(a) ou militar)
+Contracheque/Holerite dos últimos 3 (três) meses
+• Trabalhador(a) informal (sem carteira assinada)
+Declaração de Trabalho Informal (de acordo com modelo disponível no Anexo III),
+reportando o rendimento médio dos últimos 3 (três) meses
+• Autônomo(a) (pagamento de autonomia ao INSS) ou Profissional Liberal
+Declaração Anual de Faturamento do Simples Nacional (DASN – SIMEI) ou
+Declaração original (Decore Eletrônico) feita por contador inscrito no CRC, con-
+tendo dados pessoais, tipo de atividade que exerce, local, endereço e retirada mensal
+dos últimos 3 (três) meses
+• Produtor(a) Rural
+Notas fiscais de vendas de produtos ou mercadorias dos últimos 3 (três) meses,
+quando for o caso
+Declaração de Aptidão ao Pronaf (DAP) de 2025 (ano base 2024). Para emitir o
+documento, acesse https://dap.mda.gov.br/ ou
+Declaração no Sindicato dos Trabalhadores Rurais (assinada pela pessoa técnica
+responsável)
+• Proprietário(a), Sócio(a) de empresa, Empresário(a) EIRELI, Sociedade Limitada/
+LTDA, Sociedade Anônima, Empresa de Pequeno Porte (EPP), Empresário(a) indi-
+vidual (EI)
+IRPJ - Imposto de renda pessoa jurídica 2025 (ano base 2024): Declaração com-
+pleta do Imposto de Renda acompanhada do recibo de entrega
+Comprovante de pró-labore dos últimos 3 (três) meses
+Contrato social com a composição da empresa
+Guia de recolhimento de INSS referentes ao mês anterior ou extrato do benefício,
+emitido em http://www.previdencia.gov.br/
+Caso a empresa esteja inativa, apresentar Declaração de Inatividade
+17
+• Empreendedor Individual (MEI)
+Comprovante MEI disponível em https://meu.inss.gov.br/central/#/login
+Declaração Anual de Faturamento do Simples Nacional (DASN – SIMEI) ou decla-
+ração original (Decore Eletrônico) feita por contador inscrito no CRC, contendo dados
+pessoais, tipo de atividade que exerce, local, endereço e retirada mensal dos últimos 3
+(três) meses
+• Aposentado ou pensionista
+Extrato dos últimos 3 (três) meses do pagamento do benefício. Caso o recebi-
+mento seja feito via INSS, emitir extrato em https://meu.inss.gov.br/#/login
+Caso a fonte pagadora não seja o INSS, enviar o comprovante da aposentadoria/
+pensão dos últimos 3 (três) meses das diferentes fontes: servidores, inclusive milita-
+res, federais, estaduais ou municipais
+• Desempregado
+Rescisão contratual
+Comprovante do recebimento do Fundo de Garantia (FGTS)
+Comprovante do recebimento do seguro desemprego
+Em caso de não recebimento de rescisão ou fundo de garantia (FGTS) ou segu-
+ro desemprego: apresentar carta manuscrita afirmando que houve demissão, mas sem
+recebimento de nenhum valor
+Se pessoa “do lar” (não houve demissão nos últimos 12 meses ou nunca traba-
+lhou): Enviar declaração que não exerce atividade profissional (de acordo com modelo
+disponível no Anexo IV)
+• Estagiário, monitor, bolsista, pesquisador ou jovem aprendiz
+Comprovante de recebimento dos últimos 3 (três) meses ou
+Contrato/declaração do local onde desempenha a atividade com período de vi-
+gência e respectiva remuneração
+• Rendimentos de aplicação financeira/previdência privada
+Comprovante de recebimento dos últimos 3 (três) meses
+• Se recebe auxílio financeiro de outras pessoas que não residem no domicílio
+Enviar declaração de recebimento de auxílio financeiro (de acordo com modelo
+disponível no Anexo V)
+18
+• Se recebe pensão alimentícia
+Comprovante de recebimento dos últimos 3 (três) meses (exemplo: com-
+provante de depósito ou pix), se houver.
+Caso não tenha: enviar declaração de recebimento de pensão alimentícia
+(de acordo com modelo disponível no Anexo VI)
+6. Comprovação de gastos (se aplicável)
+A comprovação de gastos é variável e deve ser definida por cada contexto de gru-
+po familiar, considerando a média dos últimos 3 meses. A documentação aqui des-
+crita não é limitante e exemplifica situações que devem ser comprovadas, poden-
+do ser enviados outros comprovantes caso o grupo familiar julgue ser pertinente
+para o processo
+• Educação
+Mensalidade (ensino básico, fundamental, médio ou superior), Transporte
+escolar, Curso de idiomas, entre outros
+• Moradia
+Aluguel, Financiamento, IPTU, Água, Luz, Gás, Internet, entre outros
+• Saúde
+Caso algum membro do grupo familiar faça uso de medicação de uso contínuo,
+possua doença grave e/ou seja pessoa com deficiência, anexar documentação
+que ateste situação de saúde e comprovantes de gastos para tratamento
+• Alimentação
+Mercado, Padaria, Açougue, Hortifruti, Alimentações externas, entre outros
+• Outros
+Comprovantes diversos de gastos de qualquer outra categoria não listada
+em itens anteriores
+19
+ANEXO II - Modelo de Declaração: Cessão de Uso do Imóvel
+Importante: A pessoa que vive em um imóvel cedido deve enviar a declaração de cessão
+de uso do imóvel seguindo o modelo abaixo. A declaração deve conter a mesma assina-
+tura do documento de identificação (RG, CNH ou outro documento enviado).
+DECLARAÇÃO DE CESSÃO DE USO DO IMÓVEL,
+Eu, (nome completo de quem cede o imóvel), RG (especificar número), CPF (especi-
+ficar número), residente no endereço (especificar rua, número, complemento, bairro,
+cidade, estado, CEP), declaro para os devidos fins que cedo o meu imóvel em (especifi-
+car rua, número, complemento, bairro, cidade, estado e CEP) à (nome completo do(a)
+candidato(a) ou responsável legal) desde (colocar data em formato dia, mês e ano).
+Declaro ainda que a afirmação acima é verdadeira e que estou ciente de que a omissão
+ou a falsidade das informações prestadas poderão implicar na adoção das medidas
+judiciais cabíveis.
+Local e data: ______________________________
+Assinatura: ________________________
+RG: ___________________________
+CPF: __________________________
+20
+ANEXO III - Declaração de trabalho informal
+Importante: A pessoa que realiza trabalho informal deve enviar a declaração de trabalho
+informal seguindo o modelo abaixo. A declaração deve conter a mesma assinatura do
+documento de identificação (RG, CNH ou outro documento enviado).
+DECLARAÇÃO DE TRABALHO INFORMAL,
+Eu, (nome completo), RG (especificar número), CPF (especificar número), residente
+no endereço (especificar rua, número, complemento, bairro, cidade, estado, CEP),
+declaro, para todos os fins, especialmente para os fins previstos na Lei Complementar
+187/2021, e Decreto 11.791/2024, que trabalho informalmente como (especificar ativida-
+de realizada) com renda mensal média de R$ (especificar média recebida nos últimos
+três meses) nos últimos três meses.
+Declaro ainda que a afirmação acima é verdadeira e que estou ciente de eventuais con-
+sequências cíveis e penais de sua falsidade.
+Local e data: ______________________________
+Assinatura: ________________________
+RG: ___________________________
+CPF: __________________________
+21
+ANEXO IV - Declaração de inatividade profissional
+Importante: A pessoa que não realiza atividade profissional deve enviar a declaração de
+inatividade profissional seguindo o modelo abaixo. A declaração deve conter a mesma
+assinatura do documento de identificação (RG, CNH ou outro documento enviado).
+DECLARAÇÃO DE INATIVIDADE PROFISSIONAL,
+Eu, (nome completo), RG (especificar número), CPF (especificar número), residente
+no endereço (especificar rua, número, complemento, bairro, cidade, estado, CEP), de-
+claro que não exerço atividade profissional na presente data conforme motivos abaixo
+indicados.
+Motivo da inatividade profissional:
+(preencher com detalhamento do porque não trabalha)
+____________________________________________________________
+____________________________________________________________
+____________________________________________________________
+Declaro ainda que a afirmação acima é verdadeira e que estou ciente de eventuais con-
+sequências cíveis e penais de sua e que a omissão ou a falsidade.
+Local e data: ______________________________
+Assinatura: ________________________
+RG: ___________________________
+CPF: __________________________
+22
+ANEXO V - Declaração de recebimento de auxílio financeiro
+Importante: A pessoa que recebe auxílio financeiro deve enviar a declaração de recebi-
+mento de auxílio financeiro seguindo o modelo abaixo. A declaração deve conter a mes-
+ma assinatura do documento de identificação (RG, CNH ou outro documento enviado).
+DECLARAÇÃO DE RECEBIMENTO DE AUXÍLIO FINANCEIRO,
+Eu, (nome completo), RG (especificar número), CPF (especificar número), residente
+no endereço (especificar rua, número, complemento, bairro, cidade, estado, CEP),
+declaro que recebo auxílio financeiro mensal, no valor médio de R$ (especificar valor
+recebido) nos últimos três meses. O auxílio financeiro mensal é recebido de (nome
+completo da pessoa que oferece o auxílio financeiro), RG (especificar número), CPF
+(especificar número).
+Declaro ainda que a afirmação acima é verdadeira e que estou ciente de eventuais con-
+sequências cíveis e penais de sua e que a omissão ou a falsidade.
+Local e data: ______________________________
+Assinatura: ________________________
+RG: ___________________________
+CPF: __________________________
+23
+ANEXO VI - Declaração de recebimento de pensão alimentícia
+Importante: A pessoa que recebe pensão alimentícia deve enviar a declaração de rece-
+bimento de pensão alimentícia seguindo o modelo abaixo. A declaração deve conter a
+mesma assinatura do documento de identificação (RG, CNH ou outro documento envia-
+do).
+DECLARAÇÃO DE RECEBIMENTO DE PENSÃO ALIMENTÍCIA,
+Eu, (nome completo de quem recebe a pensão alimentícia), RG (especificar número),
+CPF (especificar número), residente no endereço (especificar rua, número, comple-
+mento, bairro, cidade, estado, CEP), declaro que recebo pensão alimentícia mensal
+no valor de R$ (especificar valor recebido). A pensão alimentícia é recebida de (nome
+completo da pessoa que oferece o auxílio financeiro), RG (especificar número), CPF
+(especificar número).
+Declaro ainda que a afirmação acima é verdadeira e que estou ciente de eventuais con-
+sequências cíveis e penais de sua e que a omissão ou a falsidade.
+Local e data: ______________________________
+Assinatura: ________________________
+RG: ___________________________
+CPF: __________________________
+24
+25

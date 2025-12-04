@@ -8,12 +8,14 @@ import numpy as np
 import streamlit as st
 
 # Importar as funções do main.py
-from streamlit.main import process_document_with_embeddings  # Nova função
+from main import process_document_with_embeddings
+# Importar a página de chat
+from chat_page import render_chat_page
 
 # Configuração da página
 st.set_page_config(
-    page_title="Document Chunking Pipeline",
-    page_icon="📄",
+    page_title="Inteli Embedding Tools",
+    page_icon="�️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -123,6 +125,15 @@ def display_embedding_stats(chunks):
 
 
 def main():
+    # Sidebar de Navegação
+    st.sidebar.title("Navegação")
+    page = st.sidebar.radio("Ir para:", ["Document Chunking", "Robot Dog Chat"])
+    st.sidebar.markdown("---")
+
+    if page == "Robot Dog Chat":
+        render_chat_page()
+        return
+
     st.title("📄 Document Chunking & Embedding Pipeline")
     st.markdown("Faça upload de documentos PDF e processe-os em chunks com embeddings")
 

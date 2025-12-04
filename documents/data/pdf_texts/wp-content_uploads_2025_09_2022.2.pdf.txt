@@ -1,0 +1,1134 @@
+PdE rai o
+x
+Go
+c er
+P
+sa
+r
+sd
+o
+ou
+v
+aa
+S
+ç
+eã l eo t i2 v
+0
+o
+2 2 . 2
+QUESTÃO 01 | Os metaversos são espaços virtuais cujo objetivo é criar uma realidade por meio de um mundo virtual –
+usualmente – online, multijogador e compartilhado. Diante disso, uma ferramenta indispensável para esses espaços é a
+possibilidade de criar e personalizar determinado personagem, adicionando variedade, representatividade e unicidade
+no universo ficcional.
+Ademais, um projeto embrionário de um metaverso tem as seguintes possibilidades para personalização do personagem
+no ato de sua criação:
+Tipo de personalização Quantidade de possibilidades
+Cabelo 8
+Cor dos olhos 5
+Formato de rosto 4
+Blusa 5
+Calça 8
+Sapato 7
+Considerando que os desenvolvedores decidam adicionar um novo tipo de personalização para que existam, no mínimo,
+200 000 combinações distintas, qual a menor quantidade de possibilidades que deve haver para essa nova categoria?
+A 4 possibilidades.
+B 5 possibilidades.
+C 22 possibilidades.
+D 23 possibilidades.
+E 41 possibilidades.
+RASCUNHO
+Página | 1
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+A quantidade de combinações é expressa pelo produto das quantidades de cada tipo de possibilidade. Portanto:
+8.5.4.5.8.7.___ ≥ 200 000
+Dessa forma, tem-se que:
+8.5.4.5.8.7.x ≥200 000
+44 800 .𝑥 ≥200 000
+𝑥 ≥ 4,46
+Portanto, como o número de possibilidades deve ser um valor inteiro, tem-se que x é, no mínimo, 5.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Realizou-se todo o procedimento corretamente, entretanto realizou-se o arredondamento para baixo.
+C Incorreta. Não se incluiu o segundo número cinco no processo multiplicativo, o que resultou em:
+8.5.4.8.7.x ≥200 000 →8 960 .𝑥 ≥200 000 → 𝑥 ≥22,32. Por fim, arredondou-se o valor para baixo.
+D Incorreta. Não se incluiu o segundo número cinco no processo multiplicativo, o que resultou em:
+8.5.4.8.7.x ≥200 000 →8 960 .𝑥 ≥200 000 → 𝑥 ≥22,32. Por fim, arredondou-se o valor para cima.
+E Incorreta. Usou-se corretamente o P.F.C., mas equivocou-se ao realizar o cálculo da inequação 448 · x ≥ 2 000,
+considerando um zero adicional ao dividir 2 000 por 448, obtendo-se x ≥ 40,4 e concluindo-se por x = 41.
+Página | 2
+QUESTÃO 02 | Um programador gera uma lista de todos os anagramas da palavra INTELI e, em seguida, exibe-os um a
+um, em ordem alfabética, em um letreiro na entrada da faculdade.
+A intenção do programador é exibir todos os anagramas, um de cada vez e em intervalos iguais, em um prazo de 6 horas.
+Para isso, cada anagrama deverá ficar exposto por
+A 1 segundo.
+B 30 segundos.
+C 60 segundos.
+D 360 segundos.
+E 720 segundos.
+RASCUNHO
+Página | 3
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+O total de anagramas com 6 letras, em que duas letras são repetidas (I) é:
+Página | 4
+P
+6
+2 =
+6
+2
+!
+!
+=
+7 2
+2
+0
+= 3 6 0
+O número de segundos em 6 horas é: 6 x 60 x 60 = 21 600.
+Assim, o tempo de exposição de cada anagrama deve ser de
+2 1
+3
+6
+6
+0
+0
+0
+= 6 0 segundos.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Calculou-se erroneamente que 6 horas possuem 6 x 60 segundos e, por fim, dividiu-se 360 anagramas pelos
+360 segundos.
+B Incorreta. Não se considerou a repetição de letras, obtendo-se 720 anagramas. Ademais, realizou-se a divisão de
+21 600 por 720, obtendo-se 30 segundos.
+D Incorreta. Calculou-se apenas a quantidade de anagramas e não se atentou para a resposta em segundos.
+E Incorreta. Calculou-se, sem considerar a repetição da letra i, apenas a quantidade de anagramas e não se atentou
+para a resposta em segundos.
+QUESTÃO 03 | Sabe-se que as publicidades online são exibidas para os usuários de acordo com as informações pessoais
+e com as preferências de busca. Recentemente, determinada profissional, responsável pela administração de um banco
+de dados publicitários, percebeu que seu acervo estava categorizado e configurado para exibição de acordo com duas
+características do usuário: sexo, masculino ou feminino, e idade, jovem ou sênior. A profissional, no entanto, notou que
+parte do acervo se encontrava em duplicidade, pois havia propagandas que possuíam requisitos de exibição tanto para
+idades quanto para sexos específicos.
+Sabendo que existem 375 anúncios distintos nesse banco de dados, sendo 258 propagandas catalogadas de acordo com
+o sexo e 217 publicidades indexadas de acordo com a idade, pode-se afirmar que a quantidade de anúncios em
+duplicidade é igual a
+A 21.
+B 41.
+C 50.
+D 82.
+E 100.
+RASCUNHO
+Página | 5
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Primeiramente, desenha-se o Diagrama de Venn conforme exposto:
+Posteriormente, somam-se os valores para que totalizem 375. Portanto:
+258 – x + x + 217 – x = 375
+475 – x = 375
+X = 100
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Realizou-se a diferença entre os valores de 258 e 217, o que resultou em 41, sem acrescentar à operação o
+valor da interseção entre os dois conjuntos, e dividiu-se o resultado entre as duas características.
+B Incorreta. Realizou-se a diferença entre os valores 258 e 217.
+C Incorreta. Calculou-se sem acrescentar à operação o valor da interseção entre os dois conjuntos.
+D Incorreta. Realizou-se a diferença entre os valores de 258 e 217 e, posteriormente, por haver dois conjuntos,
+multiplicou-se por 2.
+Página | 6
+QUESTÃO 04 | Impulsionado pela euforia de mercado acerca das NFT’s, um investidor decidiu direcionar seu dinheiro
+para a coleção Bored Ape, devido à divulgação realizada por diversas celebridades brasileiras que colocaram essas artes
+digitais como foto de perfil em suas redes sociais.
+Para mapear o comportamento de mercado, o investidor acessou uma plataforma de negociação de diferentes NFT’s e
+organizou o seguinte quadro:
+Preço
+50 ETH 100 ETH 150 ETH 200 ETH 250 ETH 300 ETH 350 ETH
+(em Ether)
+Quantidade de
+2 212 174 90 64 53 20
+exemplares
+Com base nas informações e no espaço amostral apresentados, qual é o preço médio aproximado de uma peça dessa
+coleção?
+A 88 ETH.
+B 144 ETH.
+C 158 ETH.
+D 170 ETH.
+E 200 ETH.
+RASCUNHO
+Página | 7
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+É necessário realizar a média ponderada, considerando a quantidade de peças e o valor delas:
+(50.2)+(100.212)+(150.174)+(200.90)+(250.64)+(300.53)+(350.20)
+𝑥̅ =
+(2+212+174+90+64+53+20)
+𝑥̅ =169,59 ETH
+𝑥̅ ≅170 ETH
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Realizou-se a média aritmética simples entre os valores apresentados como quantidades da tabela.
+2+212+174+90+64+53+20
+𝑥̅ = →𝑥̅ = 87,86 ETH→ 𝑥̅ ≅88 ETH .
+7
+B Incorreta. Realizou-se o cálculo de média corretamente, entretanto não se adicionou ao somatório o termo (250.64),
+o que resultou em, aproximadamente, 144 ETH.
+C Incorreta. Realizou-se o cálculo de média corretamente, entretanto não se adicionou ao somatório o termo (350.20),
+o que resultou em, aproximadamente, 158 ETH.
+E Incorreta. Realizou-se o quociente entre o somatório dos preços e a quantidade de colunas da tabela, o que resultou
+50+100+150+200+250+300+350
+em 𝑥̅ = → 𝑥̅ = 200 ETH.
+7
+Página | 8
+QUESTÃO 05 | Leia este texto e, em seguida, faça o que se pede.
+Com média de 50 Mbps, conexão 5G nos EUA perde para nações asiáticas
+Recentes análises da qualidade de conexão da tecnologia 5G evidenciaram disparidades entre nações
+desenvolvidas. Os EUA apresentaram uma média de velocidade de download consideravelmente menor que
+de países como a Arábia Saudita e a Coreia do Sul, por exemplo.
+De acordo com o estudo apresentado pela OpenSignal, empresa de análise e estatística de
+tecnologia, as melhores métricas foram registradas principalmente na Ásia e no Oriente Médio.
+Comparação da velocidade de download no 4G e no 5G
+Disponível em: https://olhardigital.com.br/2020/08/27/noticias/com-media-de-50-mbps-conexao-5g-
+nos-eua-perde-para-nacoes-asiaticas/. Acesso em: 30 mar. 2022.
+Comparando-se os diversos países apresentados no gráfico, qual é, aproximadamente, a média aritmética entre as
+velocidades de download (em Mbps) para a tecnologia 5G?
+A 5,2.
+B 38.
+C 161.
+D 180.
+E 232.
+Página | 9
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+No próprio gráfico, encontram-se os dados relativos às velocidades de download na tecnologia 5G nas barras de cor
+vermelha. Calculando a média aritmética dos valores obtidos, tem-se o seguinte:
+50,9+79,2,+102+133,5+142,8+150,7+171,5+178,1+210,2+215,7+312,7+414,2
+x =
+12
+Página | 10
+x 
+2 1
+1
+6
+2
+0
+= 1 8 0
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Calculou-se a média dos fatores de aumento da velocidade 5G quando comparada à tecnologia 4G em cada
+país.
+B Incorreta. Calculou-se a média das velocidades de download da tecnologia 4G.
+C Incorreta. Calculou-se a mediana das velocidades de download 5G.
+E Incorreta. Calculou-se a média apenas entre o maior e o menor valor das velocidades de download 5G presentes no
+gráfico. Ademais, arredondou erroneamente o resultado de 232,55 para 232.
+QUESTÃO 06 | Muitas aeronaves utilizam um sistema de propulsão eletromecânico constituído por uma hélice, um motor
+elétrico do tipo Brushless e um controlador eletrônico de velocidade. Ademais, um dos itens analisados para estudar a
+performance de um sistema como esse é a velocidade de rotação do motor.
+Considere que, para certo sistema, o gráfico da velocidade angular do motor (rpm) em função do tempo de
+funcionamento é dado por esta parábola:
+A partir dessas informações, é possível concluir que a fórmula de uma função quadrática associada a esse gráfico é
+A
+Página | 11
+y = −
+1
+4
+x 2 +
+5
+2
+x +
+7
+4
+.
+1 5 1
+B y=− x2+ x− .
+2 4 4
+C y = − x 2 + 1 0 x + 7 .
+1 5 7
+D y= x2− x− .
+4 2 4
+E y = x + 3 .
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+Primeiramente, considere a função quadrática
+Página | 12
+y = a x 2 + b x + c .
+Como os pontos (1,4), (5,8) e (9,4) pertencem ao gráfico, tem-se:
+4
+8
+4
+=
+=
+=
+a
+a
+a
+1
+5
+9
++
+2
+2
+b
++
++
+1 +
+5b 
+9b 
+c
++
++
+c
+c
+( I)
+( II)
+( III)
+Fazendo (II) – (I), tem-se: 2 4 a + 4 b = 4  6 a + b = 1 (IV)
+Fazendo (III) – (I), tem-se: 80a+8b=0  b=−10a (V)
+1
+Substituindo (V) em (IV), tem-se: 6a−10a=1 a=−
+4
+−1 5
+Em (IV): 6 +b=1 b=
+ 4  2
+Em (I): 4 = −
+1
+4
++
+5
+2
++ c  c =
+7
+4
+Assim, a função é y = −
+1
+4
+x 2 +
+5
+2
+x +
+7
+4
+Obs.: O estudante tem a opção de testar as alternativas, para encontrar a equação que é satisfeita por todos os pares
+ordenados fornecidos no gráfico.
+JUSTIFICATIVA DOS DISTRATORES:
+B Incorreta. Equivocou-se na resolução do sistema.
+C Incorreta. Equivocou-se tentando simplificar as frações da função.
+D Incorreta. Equivocou-se nos sinais da resolução.
+E Incorreta. Considerou-se uma função afim.
+QUESTÃO 07 | No universo de problemas da computação, existem aqueles considerados intratáveis, que são
+caracterizados por não admitirem um algoritmo eficiente, seja pelo tempo gasto para a execução completa do programa,
+seja pelo espaço necessário para gerá-lo.
+Suponha que um algoritmo possua seu tempo de execução regido de forma exponencial. Ademais, considere que, para
+uma entrada numérica 𝑛, o tempo de execução T(n) do programa seja T(n) = 10n, dado em milissegundos. Devido ao
+rápido crescimento da função exponencial, se a entrada for consideravelmente grande, o período de execução do
+programa pode se tornar inviável.
+Dessa forma, considerando uma entrada n = 9, pode-se afirmar que o período de execução do programa será de,
+aproximadamente,
+A 2 dias.
+B 12 dias.
+C 28 dias.
+D 278 dias.
+E 11 574 dias.
+RASCUNHO
+Página | 13
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Aplicando-se o valor na função descrita:
+T(9) = 109
+Posteriormente, converte-se esse valor (milissegundos) em segundos, ou seja, 109 ÷ 103 = 106 segundos.
+Por fim, converte-se tal valor utilizando uma divisão por 3 600, para encontrar a quantidade de horas passadas:
+106:3 600 ≅ 278 horas. Para a conversão em dias, 278:24 ≅ 12.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Realizou-se a conversão em horas de forma incorreta, acrescentando um zero ao divisor (36 000) e, após
+converter o valor obtido em dias, realizou-se o arredondamento.
+C Incorreta. Realizou-se a conversão em horas de forma incorreta, acrescentando um zero ao divisor (36 000), e não se
+realizou a conversão de horas em dias.
+D Incorreta. Realizou-se o cálculo sem realizar a conversão de horas em dias.
+E Incorreta. Realizou-se todo o cálculo sem converter milissegundos em segundos; portanto, o produto está 10³ vezes
+maior.
+Página | 14
+QUESTÃO 08 | Painéis de LED possuem centenas ou milhares de pequenas luzes que podem ser comandadas
+individualmente para serem acesas ou apagadas. Um desses painéis permite controle individual de cada LED por software
+mediante a indicação de linha e de coluna e a ação desejada (acender ou apagar).
+Neste esquema, cada retângulo simboliza um LED, que pode ser identificado por sua linha y e coluna x.
+Em um teste de configuração, o acendimento de todas as luzes foi programado para que ocorresse obedecendo a y = x2
+ou y = x – 3. Dessa forma, indicando uma luz acesa por um retângulo colorido, o resultado esperado será
+A
+B
+Página | 15
+C
+D
+E
+Página | 16
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+O sistema apresentado é o único que marca somente os retângulos descritos por qualquer uma das duas equações.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Interpretou-se x2 como 2x e procedeu-se na marcação dos pontos após esse erro.
+B Incorreta. Interpretou-se x2 como 2x e trocaram-se os significados de x e y entre si.
+C Incorreta. Calculou-se corretamente os pontos, mas acreditou-se ser impossível haver descontinuidade no gráfico da
+função quadrática, completando pontos abaixo de cada ponto correto. (Alternativamente, analisou-se cada item e
+considerou-se que a função quadrática deveria ter o formato mais semelhante a uma parábola dentro de um
+reticulado).
+D Incorreta. Marcaram-se corretamente os pontos de y = x2, mas erraram-se nos pontos de y = x – 3, pois,
+possivelmente, considerou-se que a menor ordenada valeria necessariamente zero ou efetuou-se um erro de cálculo,
+especificamente em 3 – 3.
+Página | 17
+QUESTÃO 09 | A Agência Nacional de Aviação Civil (ANAC) concedeu, em janeiro deste ano, a primeira autorização para
+entregas comerciais no Brasil por meio de drones para cargas de até 2,5 kg. Ao saber disso, determinada empresa de
+delivery operou seu primeiro teste realizando duas entregas, em pontos diferentes, antes de retornar à sua sede.
+Nesta imagem, gerada pelo programa que orienta o drone, é possível localizar a sede da empresa indicada por S e os
+pontos de entrega por A e B:
+Considere que o drone, percorrendo a menor distância possível, saiu da sede S e fez sua primeira entrega no ponto A. Em
+seguida, foi até o ponto B fazer a segunda entrega e, por fim, retornou à sede. De acordo com essas informações e com
+as indicações na imagem, a distância horizontal total percorrida pelo drone, em quilômetros, é
+A 3,10.
+B 3,30.
+C 4,40.
+D 6,20.
+E 6,79.
+RASCUNHO
+Página | 18
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+Para o cálculo da distância total percorrida pelo drone, é preciso determinar a distância entre os pontos S e A, A e B e B
+e S.
+● Distância entre S e A:
+(𝑆̅̅̅𝐴̅)2 =1,22+1,62
+(𝑆̅̅̅𝐴̅)2 =1,44+2,56
+(𝑆̅̅̅𝐴̅)2 =4
+𝑆̅̅̅𝐴̅ =2 𝑘𝑚
+● Distância entre A e B:
+(𝐴̅̅̅𝐵̅)2 =1,22+0,52
+(𝐴̅̅̅𝐵̅)2 =1,44+0,25
+(𝐴̅̅̅𝐵̅)2 =1,69
+𝐴̅̅̅𝐵̅ =1,3 𝑘𝑚
+● Distância entre B e S:
+̅𝐵̅̅𝑆̅ = 1,1 𝑘𝑚
+Portanto, a distância total percorrida pelo drone foi de 2 + 1,3 + 1,1 = 4,4 km.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Considerou-se a distância percorrida pelo drone saindo da sede até o ponto A e a distância percorrida pelo
+drone saindo da sede até o ponto B, separando-se os percursos.
+B Incorreta. Considerou-se a distância percorrida pelo drone saindo da sede até o ponto A e, em seguida, a distância do
+ponto A até o ponto B, desconsiderando a distância até a sede.
+D Incorreta. Considerou-se a entrega saindo da sede até o ponto A. Depois, o drone retornou à sede, voou até o ponto
+B e regressou à sede novamente.
+E Incorreta. Ao calcular as distâncias entre S e A e A e B, pelo Teorema de Pitágoras, desconsiderou-se a raiz quadrada
+ao final, obtendo-se, respectivamente, 4 km e 1,69 km.
+Página | 19
+QUESTÃO 10 | Para tentar solucionar o problema da falta de água doce potável, a Arábia Saudita está testando uma nova
+tecnologia, neutra em carbono e livre de produtos químicos poluentes, para dessalinizar a água do mar a um custo de
+produção de US$ 0,34/m3 de água.
+As usinas de dessalinização são chamadas de “domo solar” e tem o formato esférico. Em cada processo de dessalinização,
+metade do volume da esfera, que fica acima do solo, recebe luz solar, e a outra metade, que fica enterrada, é preenchida
+pela água do mar a ser dessalinizada, conforme demonstrado nesta imagem:
+Disponível em: https://www.youtube.com/watch?v=KdFIHecZDfc.
+Acesso em 18 mar. 2022 (adaptado)
+Considere  = 3,14 e despreze a espessura da estrutura do domo.
+2
+A partir dessas informações e considerando que a área dessa esfera é 2 826 m , o custo de produção de água doce potável
+em cada processo de dessalinização, em dólares, será de
+A 480,42.
+B 2 402,10.
+C 4 804,20.
+D 7 065,00.
+E 14 130,00.
+Página | 20
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+A partir do valor da área da esfera indicado, é possível determinar a medida do raio da esfera:
+𝐴 = 4𝜋𝑟2
+2 826 =4×3,14×𝑟2
+𝑟2 = 225
+𝑟 = 15 𝑚
+Com a medida do raio, é possível calcular o volume da esfera:
+4
+𝑉 = 𝜋𝑟3
+3
+4
+𝑉 = ×3,14×153
+3
+𝑉 = 14 130 𝑚3
+Como apenas metade da esfera será preenchida por água, o volume de água a ser considerado no processo de
+dessalinização será de apenas 7 065 m3. Por fim, basta multiplicar por 0,34 para determinar o custo do processo:
+𝐶 = 7 065×0,34
+𝐶 = 2 402,10 𝑑ó𝑙𝑎𝑟𝑒𝑠
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Calculou-se o valor do processo de dessalinização multiplicando metade da área da esfera pelo custo por
+metro cúbico.
+C Incorreta. Considerou-se, para o cálculo do valor do processo de dessalinização, que toda a esfera seria preenchida
+por água, ou seja, calculou-se o dobro do valor correto.
+D Incorreta. Esse valor corresponde à metade do volume da esfera.
+E Incorreta. Esse valor corresponde ao volume total da esfera.
+Página | 21
+QUESTÃO 11 | Para finalizar seu projeto de tentar conter o aumento do aquecimento global causado pela queima de
+combustíveis fósseis, Elon Musk lançou a telha fotovoltaica da Tesla. Seu projeto inovador substitui o telhado comum de
+forma orgânica, pois a estética não é alterada e o custo é mais baixo em relação aos painéis solares.
+Analise as medidas deste telhado, considerando que suas duas “águas” possuem as mesmas dimensões e que todas as
+telhas serão trocadas pelas telhas fotovoltaicas:
+De acordo com a inclinação do telhado, com a quantidade de horas de Sol por dia e com a localização do imóvel,
+determinado software calculou que, para esse telhado, cada metro quadrado das telhas fotovoltaicas será capaz de
+produzir 0,55 kWh por mês.
+Sendo assim, a produção de energia desse telhado, por mês, nessas condições, será de
+A 71,5 kWh.
+B 132,0 kWh.
+C 134,8 kWh.
+D 143,0 kWh.
+E 260,0 kWh.
+RASCUNHO
+Página | 22
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+Para calcular a área do retângulo correspondente a cada “água” do telhado, é preciso aplicar o Teorema de Pitágoras.
+Nesse caso, os catetos medem 6 e 2,5 m:
+𝐿2 = 62 +(2,5)2
+𝐿2 = 36+6,25
+𝐿2 = 42,25
+𝐿 = 6,5 𝑚
+Portanto, cada “água” pode ser representada por um retângulo cujas dimensões são 6,5 m de largura e 20 m de
+comprimento. Para calcular a produção de energia por mês, basta multiplicar a área das duas “águas” por 0,55:
+𝐴 =2×(6,5×20)
+𝑇𝑒𝑙ℎ𝑎𝑑𝑜
+𝐴 =260 𝑚2
+𝑇𝑒𝑙ℎ𝑎𝑑𝑜
+𝑃𝑟𝑜𝑑𝑢çã𝑜 𝑒𝑛𝑒𝑟𝑔𝑖𝑎 =260×0,55
+𝑃𝑟𝑜𝑑𝑢çã𝑜 𝑒𝑛𝑒𝑟𝑔𝑖𝑎 =143 𝑘𝑊ℎ 𝑝𝑜𝑟 𝑚ê𝑠
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Calculou-se a largura de 6,5 m do telhado pelo teorema de Teorema de Pitágoras, no entanto, ao calcular
+a área total, considerou-se apenas uma “água”, obtendo metade da produção de energia.
+B Incorreta. Calculou-se a área do telhado por meio do produto 12 m por 20 m e multiplicou-se esse resultado por 0,55.
+C Incorreta. Calculou-se a largura do telhado pelo teorema de Teorema de Pitágoras, utilizando como catetos 12 m e
+2,5 m, e obteve-se 12,25 m. Por fim, multiplicou-se esse resultado por 20 m, para obter a área, e por 0,55 kWh/mês,
+para obter a produção de energia, obtendo-se, aproximadamente, 134,8.
+E Incorreta. Esse valor corresponde à área do telhado.
+Página | 23
+QUESTÃO 12 | Uma montadora produz computadores de três categorias diferentes: Profissional, Iniciante e Gamer. Em
+cada modelo, pode ser instalado um tipo de ventoinha de resfriamento, cujos tamanhos disponíveis podem ser estes três:
+P, M, G. A matriz [ventoinha – computador] indica a quantidade de unidades de ventoinhas instaladas em cada modelo:
+A quantidade Q de computadores produzidos em certo mês é dada por esta matriz [computador – quantidade]:
+O produto da matriz [ventoinha – computador] pela matriz [computador – quantidade] é:
+Com base nessas informações, pode-se afirmar que, nesse mês, a quantidade de unidades de computadores produzida
+por essa montadora foi
+A 120.
+B 150.
+C 200.
+D 470.
+E 493.
+RASCUNHO
+Página | 24
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+Ao multiplicarem-se as duas matrizes, é possível determinar o seguinte sistema de equações:
+𝑥+2𝑦+3𝑧 =890 →(𝐼)
+{4𝑥+𝑦+3𝑧 =1370 → (𝐼𝐼)
+5𝑥+2𝑦+𝑧 = 1390 →(𝐼𝐼𝐼)
+Multiplicando-se a equação I por (– 1) e somando-se com a III, obtém-se: 4𝑥−2𝑧 = 500 → (𝐼𝑉)
+Multiplicando-se a equação II por (– 2) e somando-se com a III, obtém-se: −3𝑥−5𝑧 = −1350 →(𝑉)
+Resolvendo-se o sistema de duas equações e duas variáveis formado pelas equações IV e V, obtém-se:
+4𝑥−2𝑧 =500 →(×3)
+{
+−3𝑥−5𝑧 =−1350 → (×4)
+12𝑥−6𝑧 =1500
+{
+−12𝑥−20𝑧 =−5400
+−26𝑧 =−3900
+𝑧 = 150
+Substituindo o valor de z na equação IV, obtém-se o valor de x:
+4𝑥−300 =500
+4𝑥 = 500+300
+𝑥 = 200
+Substituindo os valores de x e z na equação I, obtém-se o valor de y:
+𝑥+2𝑦+3𝑧 =890
+200+2𝑦+450 = 890
+𝑦 = 120
+Por fim, basta somar os três valores: 200+120+150 = 470
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Considerou-se apenas o valor corresponde à quantidade produzida do modelo I.
+B Incorreta. Considerou-se apenas o valor corresponde à quantidade produzida do modelo G.
+C Incorreta. Considerou-se apenas o valor corresponde à quantidade produzida do modelo P.
+E Incorreta. Dividiu-se cada valor da matriz produto pela somatória da linha correspondente na matriz [ventoinha –
+computador] e somaram-se os resultados.
+Página | 25
+QUESTÃO 13 | Leia este texto e, em seguida, faça o que se pede.
+Procura por profissionais de tecnologia cresce 670% durante a pandemia
+A procura por profissionais de tecnologia cresceu cerca de 670% em 2020, em relação a 2019. Um
+dos profissionais mais procurados é o desenvolvedor, fundamental para o avanço da revolução tecnológica
+em curso.
+(...) No Brasil, durante o primeiro ano da pandemia, houve 85 mil novas vagas para quem lida com
+tecnologia.
+“Todas as empresas de tecnologia estão recrutando. Ao mesmo tempo, a gente também tem uma
+revisão do que é o formato de empresa do mundo de hoje”, diz o co-fundador da 99 Jobs, Eduardo Migliano.
+Essa revolução digital colocou os profissionais de tecnologia em um novo mundo. Entre as 10
+profissões que mais cresceram no Brasil estão analista de sistemas, analista de suporte, analista de business
+intelligence e desenvolvedor.
+Disponível em: https://www.cnnbrasil.com.br/business/procura-por-profissionais-de-tecnologia-cresce-671-durante-a-pandemia/
+Acesso: 24 mar. 2022 (Adaptada).
+Com base nessas informações, o número de vagas abertas na área de tecnologia no ano de 2019, logo antes do início da
+pandemia, foi de, aproximadamente,
+A 126.
+B 11 000.
+C 12 685.
+D 84 330.
+E 654 000.
+RASCUNHO
+Página | 26
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Seja V o número de vagas abertas em 2019. Após o aumento de 670%, o novo número de vagas abertas passou a ser,
+0
+em 2020, V = 85 000. Da fórmula do aumento percentual, tem-se:
+F
+Página | 27
+V
+F
+= V
+0
+ (1 + i )
+8 5 0 0 0 = V
+0
+ (1 +
+6
+1
+7
+0
+0
+0
+)
+8 5 0 0 0 = V
+0
+ 7 , 7
+V 11000
+0
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Calculou-se equivocadamente a divisão
+8 5
+6
+0
+7
+0
+0
+0
+.
+C Incorreta. Calculou-se o aumento percentual, realizando 85 000 = V · 6,7.
+0
+D Incorreta. Subtraiu-se o número de vagas por 670.
+E Incorreta. Somou-se 670% do valor e obteve-se um valor maior do que o número atual de vagas.
+QUESTÃO 14 | A blockchain é uma ferramenta de conexão, validação e segurança para negociações online e tráfego de
+informações. Ela se constitui como uma rede de inúmeros computadores que constantemente verificam a procedência
+de transações protegidas por criptografia de ponta a ponta. Com isso, essa rede tecnológica é fundamental para o
+funcionamento da bitcoin e de outras criptomoedas. Entretanto, o fato de o valor da moeda e a necessidade de força
+computacional aumentarem, o que resulta em um alto nível de poluição devido à alta exigência de consumo de energia
+elétrica, é uma preocupação que recentemente se intensifica.
+O Centro de Finanças Alternativas da Universidade de Cambridge estimou que, em fevereiro de 2021, época de um dos
+picos de valores da bitcoin, a rede blockchain demandava uma quantia energética de, aproximadamente, 130 Terawatt-
+hora (TWh). A título de comparação, segundo informações da Empresa de Pesquisa Energética (EPE), o consumo de
+energia elétrica anual de toda região Norte do Brasil em 2014 foi de, aproximadamente, 32,5 mil Gigawatt-hora (GWh).
+Sabendo que 1 TWh equivale a 1 000 GWh, o percentual de consumo energético da blockchain, em fevereiro de 2021,
+corresponde a
+A 4% da demanda energética da região Norte em 2014.
+B 40% da demanda energética da região Norte em 2014.
+C 400% da demanda energética da região Norte em 2014.
+D 4 000% da demanda energética da região Norte em 2014.
+E 40 000% da demanda energética da região Norte em 2014.
+RASCUNHO
+Página | 28
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+Primeiramente, é necessário realizar a conversão de 130 TWh para GWh, o que resultará em 130 000. Posteriormente, o
+valor descrito é, em razão do consumo da região Norte, quatro vezes maior, já que 130 000 : 32 500 = 4. Em notação
+percentual, ao considerarmos 32 500 GWh como 100%, o valor da blockchain será, portanto, 4 · 100% = 400%.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Considerou-se o resultado da divisão de 130 000 por 32 500.
+B Incorreta. Realizou-se a conversão de TWh para GWh utilizando 100 em vez de 1 000, o que resultou em um valor 10x
+menor.
+D Incorreta. Armou-se a conta normalmente, entretanto realizou-se a operação sem se atentar que era 32 500,
+utilizando-se como divisor no quociente apenas 32,5.
+E Incorreta. Armou-se a operação corretamente, entretanto, como a resposta se apresenta em porcentagem,
+multiplicou-se erroneamente o valor obtido por 100.
+Página | 29
+QUESTÃO 15 | Phishing é uma técnica fortemente utilizada para enganar usuários, cuja intenção é obter informações
+confidenciais, como CPF, senhas e números de cartões. Um esquema bastante comum consiste em registrar sites com
+domínios parecidos aos originais e, neles, é feita a alteração de uma letra ou a adição de um caractere. Diante desses sites
+maliciosos, as pessoas acreditam acessar os domínios corretos, porém a eles são enviados milhares de e-mails com
+links.
+Como a interface dos sites falsos é muito parecida com a dos domínios originais, o usuário acredita na idoneidade da
+plataforma, porém todas as informações registradas por ele são enviadas para um computador que armazenará e
+disponibilizará essas informações a terceiros. Portanto, para adicionar segurança e proteção aos seus usuários, é natural
+que provedores de e-mail se organizem de modo a detectar automaticamente mensagens relacionadas a esquemas de
+phishing como spam.
+Considere que os provedores tenham 98% de probabilidade de detectar um e-mail malicioso antes de ele chegar ao
+usuário e que, se esse e-mail conseguir contornar a proteção do provedor, a chance de o usuário abri-lo e divulgar suas
+informações pessoais seja de 90%. Dessa forma, pode-se afirmar que a probabilidade de o usuário receber um e-mail de
+phishing, sem este ser detectado como spam, e divulgar suas informações pessoais é de
+A 1,8%.
+B 2%.
+C 2,22%.
+D 88,2%.
+E 92%.
+RASCUNHO
+Página | 30
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+Primeiramente, deve-se observar que a taxa de retenção de e-mails phishing é igual a 98%. Portanto, a chance de um
+desses passar pela proteção nativa do provedor é de 2% e, caso isso aconteça, há 90% de chance de o usuário passar
+dados pessoais. Dessa forma:
+2 90
+𝑃(𝑥) = .
+100 100
+180
+𝑃(𝑥) =
+10 000
+𝑃(𝑥) =0,018 𝑜𝑢 1,8%
+JUSTIFICATIVA DOS DISTRATORES:
+B Incorreta. Realizou-se apenas a diferença de 100% e 98%, o que resultou em apenas 2%, sendo este, porém, o
+percentual de e-mails que escapam da proteção spam do provedor.
+C Incorreta. Realizou-se o cálculo do produto das probabilidades de modo incorreto, invertendo-se a segunda fração no
+processo e determinando-se o quociente entre 2 e 90.
+D Incorreta. Calculou-se a probabilidade sem utilizar como fator a diferença entre o todo e 98%, ou seja, colocou-se
+como fator a probabilidade de um e-mail ser retido na caixa de spam, 0,98 · 0,9 = 0,882.
+E Incorreta. Verificou-se o valor da probabilidade de um e-mail não ser retido na caixa de spam, ou seja, 2%, e somou-
+se esse valor à probabilidade de um usuário abrir a mensagem e divulgar dados pessoais.
+Página | 31
+QUESTÃO 16 | Leia este texto e, em seguida, faça o que se pede.
+Uma nova forma de editar o código genético humano pode corrigir até
+89% de erros no DNA que causam doenças, dizem cientistas americanos.
+A tecnologia, conhecida como “prime editing” (“edição de qualidade”, em tradução livre), foi descrita
+como uma espécie de “editor de texto genético” capaz de reescrever o DNA com precisão.
+Em teste de laboratórios, a nova tecnologia foi usada para corrigir mutações que causam doenças.
+Uma das mutações que a técnica conseguiu corrigir foi a da anemia falciforme.
+O método foi desenvolvido pela equipe do Instituto Broad, ligado à universidade de Harvard e ao MIT
+(Massachusetts Institute of Technology) nos Estados Unidos. A equipe de cientistas afirma que a tecnologia
+é “muito versátil e precisa”, mas destaca que a pesquisa está apenas começando.
+Disponível em: https://www.bbc.com/portuguese/geral-50133350. Acesso: 29 mar. 2022.
+Considere a possibilidade de edição do DNA de uma célula eucariota acarretando a substituição, no RNA mensageiro de
+uma proteína, da 3ª base nitrogenada de cada códon. Um códon é uma sequência de três bases, escolhidas entre quatro
+possíveis, representadas por U, A, C ou G.
+A disposição de bases da porção inicial do RNA mensageiro da célula, antes de suas edições, é apresentada a seguir:
+início da tradução
+U U C – U U G – ...
+Observe que a terceira base desses códons corresponde às bases C e G. Suponha que, nas edições, essas duas bases sejam
+substituídas por outra base diferente. Assim, por exemplo, a base C poderia ser substituída por U, A ou G.
+Nesta imagem, estão os códons correspondentes a dois aminoácidos:
+Qual a probabilidade de, após as duas edições, a proteína a ser traduzida apresente pelo menos uma alteração na
+disposição de seus aminoácidos?
+A
+Página | 32
+1
+9
+.
+2
+B .
+9
+C
+4
+9
+.
+5
+D .
+9
+8
+E .
+9
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Há sempre três escolhas possíveis de qual base substituirá cada base retirada.
+Deseja-se obter a probabilidade do evento A: “A proteína a ser traduzida apresenta alguma alteração na disposição de
+seus aminoácidos”.
+É necessário considerar, porém, o evento complementar AC: “A proteína não apresenta alteração na disposição dos
+aminoácidos”.
+Nesse caso, a base C deveria ser trocada por U, pois UUC e UUU codificam o mesmo aminoácido, e a base G deveria ser
+trocada por A, pois UUG e UUA codificam um mesmo aminoácido. A probabilidade dessa sequência de eventos é:
+1 1 1
+P(AC)=  =
+3 3 9
+Portanto, tem-se que:
+Página | 33
+P ( A ) = 1 − P ( A C ) = 1 −
+1
+9
+=
+8
+9
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Calculou-se a probabilidade de que nenhum aminoácido fosse alterado.
+B Incorreta. Calculou-se a probabilidade de apenas o primeiro aminoácido ter sido alterado.
+C Incorreta. Calculou-se a probabilidade de que os dois aminoácidos fossem alterados.
+D Incorreta. Equivocou-se quanto aos casos favoráveis.
+QUESTÃO 17 | Leia este texto e, em seguida, faça o que se pede.
+A geometria fractal para o desenvolvimento de antenas tem recebido grande atenção do campo da
+engenharia de antenas. As antenas fractais apresentam características que tornam o seu emprego
+vantajoso em relação ao modelo convencional de desenvolvimento de antenas. A Ilha Fractal de Von Koch
+é uma forma originada a partir de iterações do tipo curva de Koch, que são feitas em cada um dos lados de
+um triângulo equilátero. Essa geometria tem como uma das principais vantagens o aumento do perímetro
+de uma determinada antena, sem aumento de sua área.
+BARROS, Rafael Costa. MINIATURIZAÇÃO DE ANTENAS ATRAVÉS DO USO DA GEOMETRIA
+FRACTAL DA CURVA DE KOCH. O comunicante, Brasília, p. 45-47, 2019.
+Um exemplo de antena que faz uso da geometria fractal da curva de Koch pode ser criado a partir de um triângulo
+equilátero de lado 1. Então, no meio de cada lado desse triângulo, é colocado externamente um novo triângulo equilátero,
+cujo lado mede 1/3 do lado do triângulo original. Em seguida, no meio de cada lado desses novos triângulos, são colocados
+novos triângulos equiláteros, cujos lados medem 1/3 dos triângulos anteriores, e assim sucessivamente, como mostra
+esta figura:
+De acordo com as informações anteriores e com o padrão descrito, o número de lados do 10º floco de Koch é
+A 49.
+B 3 · 49.
+C 410.
+D 3 · 410.
+E 39.
+RASCUNHO
+Página | 34
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+É necessário observar que, em cada lado do triângulo, surgem quatro lados na etapa seguinte do floco de Koch:
+Assim, o número de lados quadruplica a cada nova etapa do processo. Trata-se, portanto, de uma progressão geométrica,
+em que o primeiro termo é 3 (número de lados da primeira figura) e a razão é 4.
+Pela fórmula do termo geral, o décimo termo é dado por:
+Página | 35
+a
+1 0
+= a
+1
+ q 9  a
+1 0
+= 3  4 9
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Considerou-se o primeiro termo como 1, confundindo-se o número de lados com o tamanho do lado.
+C Incorreta. Considerou-se o primeiro termo como 1, confundindo-se o número de lados com o tamanho do lado, e
+equivocou-se ao aplicar a fórmula do termo geral.
+D Incorreta. Considerou-se que o expoente da razão é igual ao número de termos.
+E Incorreta. Interpretou-se a sequência como uma progressão aritmética.
+QUESTÃO 18 | Uma das inovações trazidas pela tecnologia 5G é o aumento na densidade de dispositivos conectados à
+rede. Enquanto uma rede 4G original admite 10 000 dispositivos conectados por quilômetro quadrado, a rede 5G permite
+a conexão de 1 milhão de dispositivos na mesma área. Isso será essencial para o desenvolvimento de casas inteligentes,
+com centenas de dispositivos conectados simultaneamente.
+De acordo com essas informações, a quantidade máxima de dispositivos conectados a uma rede 5G em um quarteirão
+quadrado, cujos lados medem 200 m, é de
+(Dado: 1 quilômetro quadrado é a área de um quadrado com lado medindo 1 000 m)
+A 400 dispositivos.
+B 2 000 dispositivos.
+C 40 000 dispositivos.
+D 200 000 dispositivos.
+E 40 000 000 dispositivos.
+RASCUNHO
+Página | 36
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+A área do quarteirão dado é 200 · 200 = 40 000 m2.
+A área de um quilômetro quadrado expressa em metros quadrados é 1 000 · 1 000 = 1 000 000 m2.
+Obtém-se a resposta procurada, portanto, pela regra de três:
+1 000 000 𝑚2 → 1 000 000 𝑑𝑖𝑠𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑜𝑠
+40 000 𝑚2 → 𝑁
+Obtém-se N = 40 000 dispositivos.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Calculou-se a área corretamente, no entanto efetuou-se a proporcionalidade usando o número de
+dispositivos da rede 4G.
+B Incorreta. Utilizou-se, na regra de três, a densidade de dispositivos do 4G e as medidas lineares (200 m e 1 000 m).
+D Incorreta. Efetuou-se a proporcionalidade usando as medidas lineares (200 m e 1 000 m).
+E Incorreta. Calculou-se a área de 40 000 m2, efetuou-se o corte de três zeros realizando uma conversão errada e
+concluiu-se que essa área corresponde a 40 km2.
+Página | 37
+QUESTÃO 19 | As fazendas verticais estão se tornando uma saída para a produção de alimentos nos grandes centros
+urbanos. Em ambientes fechados e automatizados, o cultivo é feito por hidroponia e aeroponia em camadas empilhadas
+verticalmente. Dessa forma, em uma fazenda vertical, foi possível plantar 36 000 mudas em 8 fileiras, com 3 andares em
+cada fileira.
+Mantendo-se essa mesma proporção em uma fazenda vertical composta por 10 fileiras, com 7 andares em cada, será
+possível plantar quantas mudas?
+A 12 343.
+B 45 000.
+C 67 200.
+D 84 000.
+E 105 000.
+RASCUNHO
+Página | 38
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+A partir da proporção indicada, é possível calcular, por meio de uma regra de 3 composta, a quantidade de mudas pedida.
+Considerando x a quantidade de mudas pedida, tem-se:
+𝑥 7 10
+= ×
+36 000 3 8
+𝑥 70
+=
+36 000 24
+70
+𝑥 = 36 000×
+24
+𝑥 = 105 000 𝑚𝑢𝑑𝑎𝑠
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Considerou-se que as grandezas quantidade de fileiras e quantidade de andares eram inversamente
+proporcionais à quantidade de mudas.
+B Incorreta. Considerou-se apenas o aumento no número de fileiras.
+C Incorreta. Considerou-se que a grandeza quantidade de fileiras era inversamente proporcional às demais grandezas.
+D Incorreta. Considerou-se apenas o aumento no número de andares.
+Página | 39
+QUESTÃO 20 | Um curso online é composto de 40 módulos e cada módulo é composto por um vídeo e por algumas
+perguntas de verificação de aprendizagem. Além disso, a plataforma registra o módulo como concluído quando o vídeo
+foi assistido e quando as perguntas foram respondidas.
+A todo momento, é exibida uma barra de progresso em que cada estudante pode verificar seu andamento no curso. Esse
+progresso é exibido como um número de 0 a 100, sendo “0”, para 0% concluído, e “100”, para curso 100% concluído.
+Sendo N o número de módulos já concluídos, a fórmula que calcula o número a ser exibido na barra de progresso é
+A
+Página | 40
+1 0 0
+4
+
+0
+N
+.
+B
+4 0
+1
+ N
+0 0
+.
+C
+N
+4 0
+.
+D
+1
+N
+0 0
+.
+E
+1 0 0  ( 4
+4
+0
+0
+− N )
+.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+A porcentagem concluída do curso é
+Página | 41
+N
+4 0
+, porém esse é um número decimal situado entre 0 e 1, o que não é a resposta
+que completa o enunciado. Para expressá-lo na forma de porcentagem (“forma centesimal”), deve-se multiplicar por
+100%, de forma que o número situado antes do símbolo de porcentagem será
+1 0 0
+4
+
+0
+N
+.
+JUSTIFICATIVA DOS DISTRATORES:
+B Incorreta. Associou-se “porcentagem” ao fato de dividir por 100 e, erroneamente, inverteu-se a posição do 100 e do
+40.
+C Incorreta. Calculou-se corretamente a porcentagem na forma unitária N/40, mas não se seguiram as instruções
+contidas nos dois parágrafos finais do enunciado que orientam a exibir a resposta como um número situado entre 0
+e 100, forma centesimal.
+D Incorreta. Associou-se “porcentagem” ao fato de dividir por 100 e calculou-se N/100.
+E Incorreta. Calculou-se a porcentagem faltante para concluir o curso.
+QUESTÃO 21 | Leia este texto e, em seguida, faça o que se pede.
+O metaverso, utopia futurista que busca unir os mundos real e virtual, ainda está em construção. No
+entanto, algumas plataformas já começaram a desenhar essa nova camada de realidade e desenvolveram
+universos digitais, em que é possível comprar pedaços de terra para construir casas e negócios digitais, que
+ficaram conhecidos como “terrenos no metaverso”.
+Disponível em: https://www.infomoney.com.br/guias/terrenos-no-metaverso/.
+Acesso: 16 mar. 2022.
+Em 2021, um terreno virtual, formado por 116 sublotes idênticos, foi comprado na Decentraland (MANA), que é uma
+plataforma de metaverso, em que é possível adquirir terrenos virtuais e participar de uma comunidade virtual por
+618 000 MANA. Considerando que 1 MANA é vendida a R$ 11,60 e que cada dólar é vendido a R$ 5,15, o valor pago nessa
+negociação, em dólares, por cada sublote, foi de
+A 2 365,26.
+B 12 000,00.
+C 27 437,07.
+D 61 800,00.
+E 1 392 000,00.
+RASCUNHO
+Página | 42
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Para calcular o valor de cada sublote, é preciso, inicialmente, converter o valor da venda do terreno em MANA para reais:
+618 000 × 11,60 = 7 168 800 reais
+Em seguida, é necessário realizar-se a conversão do valor em reais para dólares:
+7 168 800 ÷ 5,15 = 1 392 000 dólares
+Esse valor calculado corresponde ao valor da venda do terreno em dólares. Para finalizar, basta dividir o valor em dólares
+pela quantidade de sublotes:
+1 392 000 ÷ 116 = 12 000 dólares cada sublote
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Ao calcular o valor correspondente de cada sublote, inverteram-se as operações na conversão do valor em
+reais e, em seguida, em dólares.
+C Incorreta. Calculou-se o valor de cada sublote multiplicando o valor pago em MANA por 5,15 ao fazer a conversão
+para dólares e, em seguida, dividiu-se o resultado por 116.
+D Incorreta. Calculou-se o valor de cada sublote multiplicando o valor pago em MANA por 11,60 ao fazer a conversão
+para reais e, em seguida, dividiu-se o resultado por 116, desprezando a conversão em dólares.
+E Incorreta. Esse valor corresponde ao preço pago por todo o terreno no metaverso em dólares.
+Página | 43
+QUESTÃO 22 | Os asteroides possuem diversas matérias-primas que estão escassas no planeta Terra, como ferro, ouro,
+platina, lítio e água. Devido a essa escassez, a ideia da mineração de asteroides é cogitada desde a década de 80, mas
+nunca foi levada adiante por causa dos altos custos envolvidos no processo. Recentemente, vários empresários bilionários
+começaram a se interessar por essa possibilidade, o que poderá adiar o esgotamento desses elementos.
+Atualmente, as reservas mundiais de lítio parecem enormes: 14 milhões de toneladas. Cada carro elétrico, no entanto,
+que é grande esperança para reduzir o aquecimento global, usa cerca de 8 quilos de lítio e, no mundo, são produzidos, a
+cada ano, 71 milhões de carros.
+Nesse cenário, se todos os carros produzidos fossem elétricos, em quantos anos, aproximadamente, as reservas mundiais
+de lítio estariam totalmente consumidas?
+A 0,025.
+B 2,5.
+C 25.
+D 250.
+E 2500.
+RASCUNHO
+Página | 44
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+A quantidade de lítio utilizada na produção anual de carros elétricos seria 8 · 71 · 106 = 568 · 106 = 5,68 · 108 kg.
+As reservas mundiais são de 14 · 106 toneladas, isto é, 14 · 1010 kg.
+Assim, o número de anos que essa reserva duraria é dado por:
+Página | 45
+5
+1
+,
+4
+6
+1 0
+8 1
+9
+0 8
+= 2 , 4 6 1 0  2 5 anos.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Calculou-se a quantidade de lítio sem converter de toneladas para quilogramas.
+B Incorreta. Considerou-se, na conversão de toneladas para quilos, a relação de 1 tonelada = 100 kg.
+D Incorreta. Equivocou-se na notação científica ao realizar a divisão.
+E Incorreta. Realizou-se o quociente da reserva de lítio pela quantidade necessária na produção de veículos sem
+considerar as casas decimais ao trabalhar com a notação científica.
+QUESTÃO 23 | Como forma de economizar banda e transmitir mais rapidamente as mensagens, um aplicativo de
+mensagens usará códigos numéricos para identificar emojis.
+Cada emoji será associado a um único número binário, cuja sequência está exemplificada a seguir:
+Base 10 1 2 3 4 5 6 7 8 9 10 ...
+Binário 1 10 11 100 101 110 111 1000 1001 1010 ...
+Os desenvolvedores preveem que o aplicativo tenha 100 emojis. Assim, eles devem escolher um tamanho de código que
+seja capaz de enumerar a quantidade correta de emojis – por exemplo, para 10 emojis, seria necessário um código de 4
+dígitos.
+Dessa forma, o número de dígitos do código utilizado para esse aplicativo deve ser, no mínimo, de
+A 4 dígitos.
+B 6 dígitos.
+C 7 dígitos.
+D 8 dígitos.
+E 40 dígitos.
+RASCUNHO
+Página | 46
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+O número 100, escrito em binário, é 1 100 100. Portanto, são necessários 7 dígitos.
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Interpretou-se a tabela ao contrário e associou o número 100 da linha de baixo com o número 4 da linha
+de cima, considerando-o como resposta.
+B Incorreta. Equivocou-se na conversão de 100 para binário, obtendo 110 010. Esse erro ocorre se a casa das unidades
+for tomada com valor 2, a casa das dezenas, com valor 4, e assim sucessivamente.
+D Incorreta. Considerou-se que seria necessário o número de dígitos da potência de 2 imediatamente superior a 100, a
+saber, 128, e 128 convertido em binário é 10 000 000, tendo 8 dígitos.
+E Incorreta. Estabeleceu-se uma proporcionalidade inexistente; entre 4 dígitos decimais para 10 em binário, “x” dígitos
+binários para 100 decimais. Com isso, obtiveram-se 40 dígitos.
+Página | 47
+QUESTÃO 24 | A ideia de arcologia pode ser entendida como a construção de habitações humanas autossustentáveis e
+densamente povoadas. Seu desenvolvimento pode permitir acomodar confortavelmente grandes parcelas da população
+com economia de recursos e com padrão de vida superior ao atual, como mostra esta imagem:
+Disponível em: https://cuevadelobo.com/arcologias-y-ciudades-del-futuro/.
+Acesso em: 22 abr. 2022.
+Considere que uma dessas habitações deva obedecer às seguintes regras:
+I) A área verde total será composta por uma parcela fixa de 100 000 m2 mais 2 m2 de área verde por humano residente.
+II) O custo de construção é de R$ 1 000,00 por metro quadrado de área verde e de R$ 80 000,00 por humano residente.
+A partir dessas informações e considerando um orçamento disponível de um bilhão de reais, o sistema de equações que
+permite calcular a área verde total (A) em metros quadrados e o número N de humanos residentes é
+A
+Página | 48
+ A
+1 0
+=
+0
+1
+0
+0
+A
+0
++
+0
+8
+0
+0
+2
+0
+N
+0 0 N = 1 0 0 0 0 0 0
+B
+ A
+1 0
+=
+0
+A
+2
+0
+N
++
+8 0 0
+N
+0 0
+= 1 0 0 0 0 0 0 0 0 0
+A=100 000+2N
+C
+
+N =80A
+D
+ A
+1 0
+=
+0
+1
+0
+0
+A
+0
++
+0
+8
+0
+0
+0
+0
++
+0 0
+2
+N
+N
+= 1 0 0 0 0 0 0
+A=100 000+2N
+E
+
+1000A+80000N =1 000 000 000
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+● A área A deve ser calculada somando 100 000 ao produto de 2 metros quadrados pelo número N de habitantes.
+● A soma dos custos com área verde e habitação deve ser igual a 1 bilhão de reais, que é 1 000 000 000.
+Assim:
+Página | 49
+ A
+1 0
+=
+0
+1
+0
+0
+A
+0
++
+0
+8
+0
+0
+0
+0
++
+0 0
+2
+N
+N
+= 1 0 0 0 0 0 0 0 0 0
+JUSTIFICATIVA DOS DISTRATORES:
+A Incorreta. Somaram-se 100 000 + 2N, obtendo-se 100 002N. Ademais, equivocou-se na quantidade de zeros de bilhão.
+B Incorreta. Interpretou-se erroneamente o dado de R$ 1 000,00 por metro quadrado, traduzindo isso em uma divisão.
+E equivocou-se da mesma maneira em relação ao custo por humano residente. Além disso, considerou-se somente a
+parcela variável da área verde em relação ao número de humanos residentes.
+C Incorreta. Calculou-se corretamente a equação da área verde total, porém buscou-se estabelecer uma relação entre N
+N 80000
+e A pela razão entre os custos unitários: = N =80A.
+A 1000
+D Incorreta. Calcularam-se corretamente a área verde e a soma entre os custos na segunda equação, mas considerou-
+se 1 000 000 como um bilhão.
+Página | 50

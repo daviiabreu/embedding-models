@@ -1,0 +1,49 @@
+O Talento de Delegar: um jogo para desenvolver habilidades de liderança - Inteli - Instituto de Tecnologia e Liderança
+
+Inteli
+>
+Graduação
+>
+O Talento de Delegar: um jogo para desenvolver habilidades de liderança
+O Talento de Delegar: um jogo para desenvolver habilidades de liderança
+Jogo “O Talento de Delegar” aprimora habilidades de liderança em jovens profissionais, usando mecânicas simples e interativas para ensinar delegação eficaz.
+Time Inteli
+20 out 2025
+Time Inteli
+20 out 2025
+O artigo “
+O talento de delegar: testagem de um jogo para o aperfeiçoamento de soft skills em treinamentos oferecidos por RH terceirizado
+” apresenta o desenvolvimento e a testagem do jogo
+“O Talento de Delegar”
+, criado para aprimorar a
+habilidade de delegação de tarefas
+em profissionais em cargos de liderança, com idades entre
+23 e 35 anos
+. Com mecânicas simples, como o gesto de
+arrastar e soltar
+, o jogo foi projetado para ser intuitivo e eficaz no ensino dessa competência fundamental para o ambiente corporativo.
+Durante o processo de testes, a equipe aprimorou o jogo com base na
+experiência do usuário
+, garantindo facilidade de uso e clareza nas interações. Os resultados mostraram que os participantes foram capazes de
+aprender e aplicar os conceitos de delegação
+de maneira prática e eficiente — reforçando o potencial do jogo como uma abordagem dinâmica para o desenvolvimento de
+soft skills
+voltadas à liderança.
+Mais do que um jogo,
+“O Talento de Delegar”
+se apresenta como uma
+ferramenta inovadora
+que complementa os programas tradicionais de capacitação. Ao transformar o aprendizado em uma experiência interativa e envolvente, a proposta contribui para o
+aperfeiçoamento das competências de liderança
+e oferece às empresas um novo caminho para fortalecer suas equipes.
+Autores:
+Guilherme Henrique de Oliveira Cestari (professor orientador)
+Caio Teixeira de Paula (Engenharia da Computação – EC)
+Heitor Prudente (Engenharia de Software – ES)
+Pedro Bannwart (Ciência da Computação – CC)
+Raissa Melo (Engenharia de Software – ES)
+Raphaela Guiland Ferraz (Engenharia de Software – ES)
+Yan Coutinho (Sistemas de Informação – SI)
+📖
+Referência:
+Paula, C.T., et al. O talento de delegar: testagem de um jogo para o aperfeiçoamento de soft skills em treinamentos oferecidos por RH terceirizado”. Anais Estendidos do XXII Simpósio Brasileiro de Jogos e Entretenimento Digital (SBGames). SBC, 2023. p. 850-857
