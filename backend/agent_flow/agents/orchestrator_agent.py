@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 from typing import Dict, List
 
@@ -6,20 +7,26 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 from google.adk.agents import Agent
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
+
 # Import agents from same package
 try:
-    from backend.agent_flow.agents.tour_agent import create_tour_agent
     from backend.agent_flow.agents.context_agent import create_context_agent
     from backend.agent_flow.agents.knowledge_agent import create_knowledge_agent
     from backend.agent_flow.agents.personality_agent import create_personality_agent
     from backend.agent_flow.agents.safety_agent import create_safety_agent
+    from backend.agent_flow.agents.tour_agent import create_tour_agent
 except ImportError:
     # Fallback to relative imports
-    from .tour_agent import create_tour_agent
     from .context_agent import create_context_agent
     from .knowledge_agent import create_knowledge_agent
     from .personality_agent import create_personality_agent
     from .safety_agent import create_safety_agent
+    from .tour_agent import create_tour_agent
 
 # Carrega ambiente - try both locations
 load_dotenv("backend/agent_flow/.env")
@@ -327,9 +334,13 @@ Respond with just: SAFE or UNSAFE
     def process_message(self, user_message: str) -> str:
         """Main processing flow with full multi-agent pipeline."""
 
+        logger.info(f"[ORCHESTRATOR] Processing input: {user_message[:60]}")
+
         # STAGE 1: Safety Input Validation
+        logger.info("[STAGE 1] Running safety validation")
         safety_check = self._validate_input_safety(user_message)
         if not safety_check.get("safe", False) or safety_check.get("action") == "block":
+            logger.warning("[SAFETY] Input blocked")
             blocked_msg = safety_check.get(
                 "user_message",
                 "Desculpe, não posso responder a isso. Vamos manter nossa conversa educativa e respeitosa! [latido]",
@@ -337,22 +348,31 @@ Respond with just: SAFE or UNSAFE
             self._add_to_history("user", user_message, "blocked", "safety")
             self._add_to_history("assistant", blocked_msg, "blocked", "safety")
             return blocked_msg
+        logger.info("[SAFETY] Validation passed")
 
         # STAGE 2: Context Management
+        logger.info("[STAGE 2] Retrieving conversation context")
         relevant_context = self._manage_context_memory(user_message)
 
         # STAGE 3: Personality Analysis
+        logger.info("[STAGE 3] Analyzing user personality")
         personality_info = self._detect_personality_and_adapt(
             user_message, relevant_context
+        )
+        logger.info(
+            f"[PERSONALITY] Style: {personality_info.get('style', 'conversational')}"
         )
 
         # Add user message to local history
         self._add_to_history("user", user_message)
 
         # STAGE 4: Intent Classification with context
+        logger.info("[STAGE 4] Classifying intent")
         intent = self._decide_intent(user_message)
+        logger.info(f"[INTENT] Classified as: {intent}")
 
         # STAGE 5: Route to Appropriate Agent
+        logger.info("[STAGE 5] Routing to agent")
         response_text = ""
         agent_used = ""
 
@@ -360,18 +380,23 @@ Respond with just: SAFE or UNSAFE
         if intent in ["NAV_START", "NAV_NEXT", "NAV_STOP", "TOUR_CONTROL"] or (
             self.tour_agent.is_active and intent not in ["KNOWLEDGE", "CHITCHAT"]
         ):
+            logger.info("[AGENT] Calling tour_agent")
             response_json = self.tour_agent.process_command(user_message)
             try:
                 data = json.loads(response_json)
                 response_text = data["speech"]
                 agent_used = "tour_agent"
+                logger.info(
+                    f"[TOUR] Response generated, action: {data.get('action', 'none')}"
+                )
             except Exception as e:
-                print(f"⚠️  Tour response parse error: {e}")
+                logger.error(f"[TOUR] Parse error: {e}")
                 response_text = response_json
                 agent_used = "tour_agent"
 
         # --- ROTA 2: KNOWLEDGE ---
         elif intent == "KNOWLEDGE":
+            logger.info("[AGENT] Calling knowledge_agent")
             try:
                 tour_context = ""
                 if self.tour_agent.is_active:
@@ -386,10 +411,14 @@ Respond with just: SAFE or UNSAFE
 
                 # Use knowledge agent's RAG pipeline directly
                 try:
+                    logger.info("[TOOL] Calling rag_inference_pipeline")
                     from agent_flow.tools.knowledge_tools import rag_inference_pipeline
 
                     # Get knowledge from RAG
                     rag_result = rag_inference_pipeline(user_message)
+                    logger.info(
+                        f"[RAG] Retrieved {len(rag_result.get('context', ''))} chars of context"
+                    )
 
                     # Extract context from RAG result
                     rag_context = rag_result.get(
@@ -397,6 +426,7 @@ Respond with just: SAFE or UNSAFE
                     )
 
                     # Generate response using LLM with RAG context
+                    logger.info("[KNOWLEDGE] Generating response with RAG context")
                     knowledge_prompt = f"""
 {tour_context}
 Conversation context: {relevant_context}
@@ -412,7 +442,11 @@ Be helpful and include [latido] for personality.
                     response = self.llm.generate_content(knowledge_prompt)
                     response_text = response.text
                     agent_used = "knowledge_agent"
+                    logger.info("[KNOWLEDGE] Response generated successfully")
                 except ImportError:
+                    logger.warning(
+                        "[KNOWLEDGE] RAG tools not available, using fallback"
+                    )
                     # Fallback if tool not available
                     response = self.llm.generate_content(f"""
 You are Dog, the Inteli robot.
@@ -424,14 +458,15 @@ Answer helpfully about Inteli. Include [latido].
                     agent_used = "knowledge_fallback"
 
             except Exception as e:
+                logger.error(f"[KNOWLEDGE] Error: {e}")
                 response_text = (
                     f"Desculpa [latido], erro ao buscar informação: {str(e)}"
                 )
                 agent_used = "error"
-                print(f"❌ Knowledge error: {e}")
 
         # --- ROTA 3: CHITCHAT ---
         else:
+            logger.info("[AGENT] Using chitchat mode")
             chat_prompt = f"""
 You are Dog, the friendly Inteli robot.
 Context: {relevant_context}
@@ -446,23 +481,30 @@ Include [latido].
                 response = self.llm.generate_content(chat_prompt)
                 response_text = response.text
                 agent_used = "chitchat"
+                logger.info("[CHITCHAT] Response generated")
             except Exception as e:
+                logger.error(f"[CHITCHAT] Error: {e}")
                 response_text = "Oi! [latido] Como posso ajudar? Posso responder dúvidas sobre o Inteli ou fazer um tour!"
                 agent_used = "fallback"
-                print(f"⚠️  Chitchat error: {e}")
 
         # STAGE 6: Output Safety Validation
+        logger.info("[STAGE 6] Validating output safety")
         safety_result = self._validate_output_safety(response_text, relevant_context)
         if (
             not safety_result.get("safe", True)
             or safety_result.get("action") == "block"
         ):
+            logger.warning("[SAFETY] Output blocked")
             response_text = "Desculpe, não posso fornecer essa resposta. Posso ajudar com outra dúvida? [latido]"
             agent_used = "safety_blocked"
+        else:
+            logger.info("[SAFETY] Output validation passed")
 
         # STAGE 7: Store in Context Memory
+        logger.info("[STAGE 7] Storing interaction in history")
         self._add_to_history("assistant", response_text, intent, agent_used)
 
+        logger.info(f"[ORCHESTRATOR] Processing complete. Agent used: {agent_used}")
         return response_text
 
     def get_conversation_history(self) -> List[Dict[str, str]]:

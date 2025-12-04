@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 import os
 from collections.abc import Sequence as SequenceABC
 from pathlib import Path
@@ -9,6 +10,9 @@ from dotenv import load_dotenv
 from google.adk.tools.tool_context import ToolContext
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 try:
     from zenml import pipeline, step
@@ -357,16 +361,31 @@ def rag_inference_pipeline(
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
 ) -> Dict[str, Any]:
+    logger.info(f"[RAG_PIPELINE] Starting with query: {query[:60]}")
+    logger.info(
+        f"[RAG_PIPELINE] Parameters: top_k={top_k}, adjacency_limit={adjacency_limit}"
+    )
+
+    logger.info("[TOOL] query_embedding")
     query_vector = query_embedding(query=query)
+    logger.info(f"[EMBEDDING] Generated vector of size {len(query_vector)}")
+
+    logger.info("[TOOL] retrieval_from_qdrant")
     retrieval = retrieval_from_qdrant(
         query_embedding=query_vector,
         top_k=top_k,
         adjacency_limit=adjacency_limit,
     )
+    logger.info(f"[QDRANT] Retrieved {len(retrieval)} nodes")
+
+    logger.info("[TOOL] build_graph_rag_payload")
     payload = build_graph_rag_payload(
         query=query,
         query_embedding=query_vector,
         retrieved_nodes=retrieval,
+    )
+    logger.info(
+        f"[RAG_PIPELINE] Complete. Result count: {payload.get('result_count', 0)}"
     )
     return payload
 
