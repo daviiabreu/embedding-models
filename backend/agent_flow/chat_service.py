@@ -1,0 +1,14 @@
+from backend.agent_flow.agents.orchestrator_agent import OrchestratorAgent
+from dotenv import load_dotenv
+
+load_dotenv("../.env", override=False)
+
+
+class ChatService:
+    def __init__(self):
+        self.orchestrator = OrchestratorAgent()
+
+    def give_response(self, prompt: str):
+        response = self.orchestrator.process_message(prompt.lower())
+
+        return response

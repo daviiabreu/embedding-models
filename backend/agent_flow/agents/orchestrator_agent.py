@@ -8,7 +8,7 @@ from google.adk.agents import Agent
 
 # Tenta importar o TourAgent
 try:
-    from agent_flow.agents.tour_agent import create_tour_agent
+    from backend.agent_flow.agents.tour_agent import create_tour_agent
 except ImportError:
     try:
         from agents.tour_agent import create_tour_agent
