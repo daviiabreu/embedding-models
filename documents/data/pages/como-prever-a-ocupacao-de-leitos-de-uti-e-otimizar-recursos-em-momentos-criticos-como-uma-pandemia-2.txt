@@ -1,0 +1,24 @@
+Como prever a ocupação de leitos de UTI e otimizar recursos em momentos críticos, como uma pandemia? - Inteli - Instituto de Tecnologia e Liderança
+
+Inteli
+>
+Graduação
+>
+Como prever a ocupação de leitos de UTI e otimizar recursos em momentos críticos, como uma pandemia?
+Como prever a ocupação de leitos de UTI e otimizar recursos em momentos críticos, como uma pandemia?
+Estudo do Inteli em parceria com a UNIFESP, publicado na Mathematical Modelling of Natural Phenomena, propõe modelo para prever ocupação de UTIs durante a COVID-19, com alta precisão e potencial de aplicação em futuras epidemias.
+Time Inteli
+12 nov 2025
+Time Inteli
+12 nov 2025
+Com o objetivo de analisar e prever a dinâmica da COVID-19, especialmente a ocupação de leitos de UTI em diferentes ondas epidêmicas, o estudo conduzido pelo professor
+Henrique Paiva,
+em parceria com a Universidade Federal de São Paulo (UNIFESP) e publicado no periódico
+Mathematical Modelling of Natural Phenomena
+, propôs um modelo fenomenológico utilizando dados de cinco regiões italianas.
+O objetivo foi oferecer suporte à tomada de decisões por autoridades de saúde e administradores hospitalares, permitindo uma gestão mais eficiente de recursos e medidas de contenção.
+Os resultados demonstraram alta eficácia: o modelo se ajustou muito bem aos dados históricos, com uma média de RMSE relativa de 0,51% para o ajuste e 0,93% para as previsões. Essa precisão foi essencial para antecipar a demanda por leitos e contribuir para a redução das taxas de mortalidade.
+Além da pandemia de COVID-19, o estudo destaca que o modelo pode ser adaptado a outras regiões e doenças, devido ao seu baixo custo e eficiência de otimização.
+Trata-se de uma ferramenta valiosa para o planejamento e alocação de recursos médicos em futuras epidemias, fortalecendo a capacidade de resposta em situações de emergência.
+Acesse o artigo completo
+aqui

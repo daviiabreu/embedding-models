@@ -1,0 +1,59 @@
+Como é o dia a dia de um engenheiro de software - Inteli - Instituto de Tecnologia e Liderança
+
+Inteli
+>
+Graduação
+>
+Como é o dia a dia de um engenheiro de software
+Como é o dia a dia de um engenheiro de software
+Descubra como é a rotina de um engenheiro de software: codificação, testes, metodologias ágeis e inovação contínua no curso do Inteli.
+Vanessa Nunes
+25 set 2025
+Vanessa Nunes
+25 set 2025
+Por Vanessa Nunes
+Professora Orientadora  do curso de Engenharia de Software e de Liderança do Inteli
+Hoje quero te levar para dentro do universo de um engenheiro de software. Se você já se perguntou como surgem os aplicativos que usa, os sistemas que organizam empresas ou até mesmo os jogos mais complexos, vai gostar de saber que por trás de tudo isso existe um profissional com um dia a dia dinâmico e repleto de desafios.
+Muitas pessoas pensam que um engenheiro de software passa o dia inteiro apenas digitando linhas de código em frente ao computador. E sim, codificar é uma parte importante, mas a verdade é que a rotina é muito mais abrangente e colaborativa. É uma profissão que envolve criatividade, lógica, comunicação e uma vontade constante de aprender.
+Da ideia ao planejamento: entender para construir
+O dia de quem trabalha com
+Engenharia de Software
+geralmente não começa pelo código, mas pela compreensão. É o momento de se reunir com equipes, clientes ou outros stakeholders para entender o que precisa ser construído. Quais problemas o software deve resolver? Quais são os objetivos do negócio e como a tecnologia pode gerar valor? Quais funcionalidades são realmente essenciais?
+No Inteli, por exemplo, ensinamos a analisar requisitos funcionais e não funcionais, que formam a base de qualquer projeto. É quase como ser um detetive, coletando pistas para chegar à melhor solução.
+Nesses encontros, a
+comunicação é fundamental
+. Trocar ideias, apresentar propostas e alinhar expectativas fazem parte da rotina. É um espaço de muita conversa, desenho de fluxogramas e definição da arquitetura inicial do sistema.
+Também discutimos qualidades que quase não aparecem aos olhos de quem usa, mas que fazem toda a diferença: uma
+arquitetura digital segura, tolerante a falhas,
+em que cada decisão de design impacta diretamente a escalabilidade e o desempenho do software.
+Mão na Massa: O Projeto e a Codificação
+Com o problema bem definido e a arquitetura pensada, chega a hora de
+colocar a mão na massa
+. Em um time de engenharia de software, a colaboração é constante. As equipes se organizam, muitas vezes, em métodos ágeis como o
+Scrum
+, que prevê “daily meetings” rápidas para alinhar o trabalho do dia. Minhas turmas no Inteli frequentemente realizam essas reuniões diárias, e é perceptível como elas ajudam na organização e na solução rápida de bloqueios.
+A
+codificação
+é a parte onde o projeto ganha vida. Trabalhamos com programação orientada a objetos, aplicando padrões de design e mantendo uma qualidade de código alta. Em projetos como a Plataforma digital baseada em
+arquitetura orientada a serviços
+, desenvolvemos soluções para diferentes dispositivos, como os móveis, sempre com foco na eficiência e na experiência do usuário.
+Ver os alunos aplicando o desenvolvimento dirigido por testes, escrevendo testes antes mesmo do código, me enche de orgulho. É uma mentalidade que garante um software mais robusto e duradouro.
+Garantindo a Qualidade: Testar, Testar e Otimizar
+Quando um engenheiro de software pensa em
+escrever código,
+ele quer fazer isso de forma a garantir que esse código funcione perfeitamente. Essa é uma das bases desta profissão. Por isso, uma parte significativa do dia é dedicada a testes. E não estamos falando apenas de testes manuais!
+Aprendemos a construir um
+sistema digital
+resiliente com qualidade como ativo de software, usando testes automatizados para detectar erros rapidamente e simular diversos cenários de uso. Essa automação é o que permite que as empresas lancem atualizações de software de forma contínua e segura.
+Além disso, é comum
+refinar e otimizar o que foi construído
+. Seja analisando dados de uso de uma arquitetura e governança de dados alinhada à estratégia corporativa para identificar oportunidades de negócio, seja trabalhando no processamento de linguagens naturais em texto, vídeo e áudio para aprimorar o reconhecimento e análise de sentimentos.
+O trabalho envolve um ciclo constante de
+construção, medição e aprendizado.
+Entrega e Evolução Contínua: A “Esteira” da Inovação
+A rotina de um engenheiro de software inclui a participação ativa na esteira ágil de produção de software, que envolve a aplicação de
+técnicas de DevOps
+para assegurar a qualidade e a entrega contínua de valor.
+Isso significa que o software está sempre evoluindo, com novas funcionalidades sendo lançadas de forma rápida e controlada, minimizando riscos.
+É uma satisfação ver os projetos do Inteli resultarem em soluções que impactam a sociedade e o mercado e que foram construídos com o pensamento em organização para continuar evoluindo e ter vida longa. É sem dúvida uma profissão que oferece uma carreira promissora, repleta de oportunidades e de constantes aprendizados.
+Se você gosta de desafios, de colaborar em equipe e de ver suas ideias se transformarem em produtos que facilitam a vida das pessoas, a engenharia de software pode ser o seu caminho. Venha para o Inteli e construa o futuro com a gente.

@@ -1,0 +1,39 @@
+Como criar um game sobre educação constitucional em apenas dez semanas? - Inteli - Instituto de Tecnologia e Liderança
+
+Inteli
+>
+Vida do Aluno
+>
+Como criar um game sobre educação constitucional em apenas dez semanas?
+Como criar um game sobre educação constitucional em apenas dez semanas?
+Time Inteli
+8 dez 2022
+Time Inteli
+8 dez 2022
+Nossos alunos contam como foi a experiência de desenvolver um game para a ONG Constituição nas Escolas logo no primeiro trimestre da faculdade
+.
+Todo mundo sabe que aqui no Inteli acreditamos que a formação acadêmica de um profissional de Computação precisa focar na resolução de problemas reais, em um mix entre teoria e prática. Para fazer isso acontecer, nossa metodologia de projetos desafia os nossos alunos a
+elaborar um protótipo de um produto ou uma solução para um cliente real.
+Um dos parceiros de mercado foi a ONG
+Constituição nas Escolas
+, que desde 2014 promove aulas, palestras e conteúdo sobre a nossa Constituição Federal aos alunos das escolas públicas. O trabalho conta com o apoio de advogados que se voluntariam para contribuir com a causa.
+Felipe Neves, fundador da ONG Constituição nas Escolas, acompanha o jogo criado pelos alunos.
+Logo nos primeiros dias de aula, os alunos do Inteli receberam a missão de desenvolver um jogo computacional/aplicação gamificada, utilizando os conteúdos curriculares do curso. Quer saber como foi essa experiência? Vem com a gente.
+Como se aprende programação no Inteli?
+Trabalhando de forma coletiva e colaborativa, cinco grupos ficaram responsáveis pelo projeto da ONG Constituição nas Escolas. E como foi esse início?
+“É muito diferente, mas quando comecei a pegar o ritmo da coisa, pude perceber o quão efetivo é o aprendizado por meio dos projetos. É incrível ver como nós conseguimos construir coisas tão interessantes em um período de tempo relativamente curto”, destaca Allan dos Santos Casado, aluno do curso de Ciência da Computação.
+Ao longo do trimestre, foram trabalhadas competências técnicas, de liderança e de negócio como desenvolvimento ágil, desenvolvimento de games, algoritmos e técnicas de programação; cinemática aplicada a jogos; engenharia de requisitos; modelos de negócios; experiência do usuário e expressão oral (
+storytelling
+).
+Os primeiros desafios
+A falta de conhecimento sobre direito e política da nossa população, principalmente alunos das escolas públicas, era a grande dor do cliente Constituição nas Escolas. O objetivo comum do game era incentivar e propor que jovens e adultos pudessem compreender a estrutura política e jurídica do Brasil de forma simples e divertida.
+Thainá de Deus Lima, do curso de Sistema de Informação, reforça  que a seleção do conteúdo político exigiu muita leitura sobre o tema. “Tivemos que aprender e resumir da forma mais simples possível para que  fosse inserido no jogo”, conta a estudante.
+A turma destaca a relação próxima com Felipe Neves, fundador da ONG, que sempre esteve disposto a ajudar os grupos com feedbacks construtivos, em uma relação próxima e amigável, mas sempre com muito profissionalismo.
+Game funcional e (quase) pronto para o mercado
+Vale lembrar que boa parte dos alunos não tinha experiência anterior com desenvolvimento de jogos. Os grupos tiveram que aprender a programar, enquanto desenvolviam competências socioemocionais, como trabalho em grupo, autocontrole e comunicação.
+“Tivemos também grandes avanços acadêmicos, desde o básico sobre negócios, UX e programação, até chegar à entrega final do produto”, conta Pablo Ruan Lana Viana, de  Engenharia da Computação.
+Os alunos ressaltam o apoio dos professores orientadores e instrutores, que ajudaram no desenvolvimento de um raciocínio conjunto, orientando o caminho correto na resolução de problemas. Tudo é pensado para que os jovens vivenciem experiências reais do mercado de trabalho.
+O game foi apresentado ao cliente depois de dez semanas e o resultado não poderia ser mais surpreendente. “Fiquei impressionado com a capacidade dos alunos em entregar um produto final capaz de ser testado e rodado em tão pouco tempo. Outra coisa incrível foi a capacidade que eles tiveram de apresentar os projetos, entendendo o mercado, entendendo o produto, apresentando oralmente de uma forma muito legal”, destaca Felipe Neves.
+Quer conferir o resultado final do jogo? Clica
+aqui
+.

@@ -1,0 +1,261 @@
+Protótipos entregues - Inteli - Instituto de Tecnologia e Liderança
+
+Protótipos entregues
+Nosso
+Edital de Projetos
+é a forma que comunicamos ao mercado quais os
+projetos disponíveis para o próximo semestre
+. Nesse período recebemos as inscrições das iniciativas das empresas, ONGs e instituições governamentais com seus desafios de negócios.
+A contribuição para a sociedade é um pilar fundamental do nosso modelo. Por isso, disponibilizamos os protótipos desenvolvidos pelos nossos alunos ao longo dos anos.
+O nosso modelo de aprendizagem por projetos desenvolve competências computacionais, competências de negócios e habilidades socioemocionais através de soluções de problemas reais do mercado.
+Desejamos que outras empresas, organizações não governamentais (ONGs) ou entidades governamentais encontrem aqui um repositório abrangente de soluções inovadoras e alternativas para enfrentar seus desafios.
+Os protótipos podem ser baixados, customizados e adaptados livremente para atender a problemas similares, e acreditamos que esses protótipos têm o potencial de serem amplamente utilizados por toda a comunidade de tecnologia, promovendo colaboração e inovação em larga escala.
+Projeto
+Algoritmo com grafos
+Aplicação hiperescalável
+Aplicação Web
+Arquitetura de software
+Automação com robótica
+Automação NLP (Texto, vídeo, voz)
+Big Data
+Blockchain
+Cidades inteligentes
+Esteira ágil de produção de software
+Estratégias de teste A/B
+Estrutura e governança para análise de dados
+IDE para dispositivo sensorial
+Jogo Digital
+Linguagem natural com IA generativa
+Manutenção preditiva
+Modelo IoT
+Modelo Preditivo
+Otimização e pesquisa operacional
+Plataforma digital baseada em SOA
+Predição com Deep Learning
+Processamento de linguagem natural
+Qualidade de software
+Redes neurais com aprendizado por reforço
+Relatórios gerenciais
+Robótica e visão computacional
+Sistema em edge computing
+Sistema empresarial integrado
+Sistemas digitais de processamento distribuído
+Sistemas distribuídos
+Veículo autônomo
+Visão computacional
+Todos
+Empresa
+AACD
+Abundance Brasil
+Aegea
+AEL Sistemas
+Alliance Consultoria
+Ambev
+Atech
+Atvos
+Azul
+Banco Pan
+Bank Of America
+Bayer
+BCG
+Beacon School
+Better Beef
+Bettha
+Brastel
+Brazilians in Tech
+BTG Pactual
+Centro Paula Souza
+Cia de Talentos
+Cogny
+Comgás
+Compass
+Constituição na Escola
+Coover
+CPTM
+CVM
+Dell Technologies
+Dr. Pet
+Estapar
+Everymind
+Falconi
+Fundação Dom Cabral
+G2 Tecnologia
+Gerando Falcões
+Gerdau
+Google
+Hospital Sírio-Libanês
+Hurb
+IBM
+Inspa
+Instituto Apontar
+Instituto Cactus
+Instituto Vita
+Integration
+Inteli
+IPT
+Klabin
+MARS
+Meta
+Minipa
+Mobly
+MRV
+Natura
+Nova Escola
+Oracle
+Parceiros Voluntários
+Pearson
+Pepperlaw
+Pirelli
+Prodam
+Prodesp
+Rappi
+Rede Gazeta
+Revirar
+RNP
+Rockwell Automation
+Sambatech
+Secretaria da Educação - São Paulo
+Sette
+St. Paul's School
+Stone
+Timenow
+Uber
+UFAL
+Unilever
+Unipar
+USP - Medicina
+Vale
+Vivo
+Volkswagen
+Vtal
+Yamaha
+ZUYD
+Todos
+Curso
+Ciência da Computação
+Comum - 1º Ano
+Engenharia de Computação
+Engenharia de Software
+Sistemas de Informação
+Todos
+Big Data
+Sistemas de Informação
+Ver projeto
+Empresa:
+CPTM
+.
+Problema:
+Big data para gestão operacional.
+Objetivo:
+Solução de Big Data para auxiliar a gestão administrativa operacional da empresa.
+Público:
+Time de tecnologia.
+Ver projeto
+Big Data
+Sistemas de Informação
+Ver projeto
+Empresa:
+Integration
+.
+Problema:
+“GAP” na estratégia de dados para uma visualização que possibilite tomar decisões inteligentes na operação do dia a dia.
+Objetivo:
+Criar um pipeline de Big Data baseado em recursos da AWS (Amazon Web Services), para realizar análises estatísticas em dados armazenados em um datalake ou um data warehouse.
+Público:
+Time de Tech & Digital da cia.
+Ver projeto
+Automação com robótica
+Engenharia de Computação
+Ver projeto
+Empresa:
+Hospital Sírio-Libanês
+.
+Problema:
+Processo manual, com possibilidades de automação a ser explorado.
+Objetivo:
+Automatizar a montagem de carrinhos de emergência na área da farmácia.
+Público:
+Time de gestão de farmácia da cia.
+Ver projeto
+Automação com robótica
+Engenharia de Computação
+Ver projeto
+Empresa:
+IPT
+.
+Problema:
+O processo de separação de minerais magnéticos é manual.
+Objetivo:
+Desenvolver um equipamento automatizado que tenha capacidade aplicar um campo magnético constante ao longo de toda a amostra promovendo assim uma separação dos minerais magnéticos, que serão depositados em um recipiente diferente dos minerais não magnéticos que permanecerão depositados no recipiente original.
+Público:
+Funcionários da área de materiais avançados do IPT.
+Ver projeto
+Aplicação hiperescalável
+Engenharia de Computação
+Ver projeto
+Empresa:
+Hospital Sírio-Libanês
+.
+Problema:
+Automatizar por meio de tecnologia o processo do departamento / área.
+Objetivo:
+Construção de uma plataforma (mobile e backend) que possibilite os colaboradores enviarem requisições sobre o uso de dispensadores de medicamentos localizados nos diferentes andares do hospital.
+Público:
+Time de tecnologia interno.
+Ver projeto
+Arquitetura de software
+Engenharia de Software
+Ver projeto
+Empresa:
+IPT
+.
+Problema:
+Arquitetura de software para inspeção predial.
+Objetivo:
+Conceber e implementar requisitos de arquitetura de uma plataforma de apoio a inspeção predial e seus sistemas.
+Público:
+Time de tecnologia.
+Ver projeto
+Arquitetura de software
+Engenharia de Software
+Ver projeto
+Empresa:
+Bank Of America
+.
+Problema:
+Trazer desafios reais para o universo acadêmico, explorando possibilidades de melhorias tecnológicas.
+Objetivo:
+Avaliação e evolução de uma plataforma de gestão de conteúdo do ambiente de TI do BOFA, usando técnicas arquiteturais, simulação e controle de requisitos não funcionais relacionados à disponibilidade, desempenho, segurança, tolerância a falhas e rastreabilidade.
+Público:
+Time de tecnologia da cia.
+Ver projeto
+Arquitetura de software
+Engenharia de Software
+Ver projeto
+Empresa:
+Meta
+.
+Problema:
+Ter um percentual de categorização de taxonomia e classificação dos fornecedores da cia menor ou igual 65%.
+Objetivo:
+Analise e criação de uma estratégia para categorização de  fornecedores e notas fiscais, a fim de gerar insights para aprimoramento das estratégias de sourcing da empresa.
+Público:
+Time de Sourcing da cia.
+Ver projeto
+Anterior
+Page
+1
+…
+Page
+13
+Page
+14
+Page
+15
+Page
+16
+Page
+17
+Page
+18
+Próximo

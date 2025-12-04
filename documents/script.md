@@ -38,10 +38,10 @@ E, então? Vamos para a próxima etapa? Caso ainda tenham alguma dúvida, podem 
 
 [Courses & Clubs]
 E agora, [latido], chegou a hora de falar sobre algo que vocês vão adorar — os cursos e clubes do Inteli!
- Aqui no Inteli, temos cinco graduações que formam os futuros líderes da tecnologia no Brasil:
- Engenharia da Computação, Ciência da Computação, Engenharia de Software, Sistemas de Informação e Administração Tech. [latido]
+Aqui no Inteli, temos cinco graduações que formam os futuros líderes da tecnologia no Brasil:
+Engenharia da Computação, Ciência da Computação, Engenharia de Software, Sistemas de Informação e Administração Tech. [latido]
 E adivinhem só... os alunos de Engenharia de Computação são os mais legais de todos [latido]!
- Até porque foram eles que me programaram, então não posso ser imparcial [latido]!
+Até porque foram eles que me programaram, então não posso ser imparcial [latido]!
 Cada curso tem o seu jeitinho:
 Engenharia de Computação mergulha na integração de hardware, software e inteligência artificial. É o pessoal que cria soluções inovadoras e vê as coisas ganharem vida — literalmente!
 Ciência da Computação é o curso mais abrangente, alguns até chamam de “curso-mãe” da tecnologia, porque dá base pra tudo. Aqui, o pessoal mergulha fundo em algoritmos, inteligência artificial e sistemas complexos, criando as lógicas por trás de tudo o que a gente usa no dia a dia.
@@ -49,33 +49,32 @@ Engenharia de Software é pra quem quer construir grandes sistemas — de aplica
 Sistemas de Informação é o curso de quem adora conectar tecnologia e estratégia. Eles entendem de banco de dados, gestão e como fazer as empresas funcionarem melhor com tech.
 E, por último, mas não menos importante, ADMTech. Esses alunos unem gestão e tecnologia — são os “empreendedores de plantão”, que transformam ideias em startups de verdade.
 
-
 [pausa curta, tom brincalhão]
- Agora… se vocês acham que a vida de um inteler se resume a cálculos e derivadas, [latido], deixa eu contar um segredo…
+Agora… se vocês acham que a vida de um inteler se resume a cálculos e derivadas, [latido], deixa eu contar um segredo…
 É nos clubes estudantis que muito da mágica acontece!
- Aqui no Inteli tem clube pra tudo — e quando eu digo tudo, é TU-DO mesmo.
- São mais de vinte grupos diferentes, todos criados e liderados pelos próprios alunos.
+Aqui no Inteli tem clube pra tudo — e quando eu digo tudo, é TU-DO mesmo.
+São mais de vinte grupos diferentes, todos criados e liderados pelos próprios alunos.
 Tem o pessoal da Tantera, nossa atlética, que faz o campus inteiro vibrar nos jogos e nas festas, cuidando da integração entre os alunos.
- Tem a Inteli Júnior, a empresa júnior que entrega projetos reais pra clientes de verdade.
- A LEI, Liga de Empreendedorismo do Inteli, onde o pessoal respira inovação e sonha com o próximo unicórnio brasileiro.
- A AgroTech, que leva tecnologia pro campo — soluções digitais e muita inovação pro agro brasileiro.
+Tem a Inteli Júnior, a empresa júnior que entrega projetos reais pra clientes de verdade.
+A LEI, Liga de Empreendedorismo do Inteli, onde o pessoal respira inovação e sonha com o próximo unicórnio brasileiro.
+A AgroTech, que leva tecnologia pro campo — soluções digitais e muita inovação pro agro brasileiro.
 E se vocês acham que é só isso, [latido], segura aí:
- Tem o Game Lab, que desenvolve jogos incríveis (inclusive, acho que eles podiam me colocar como personagem, hein?).
- O Inteli Blockchain, que ganha hackathon atrás de hackathon com projetos de Web3.
- E a Inteli Academy, focada em Inteligência Artificial — o pessoal que cria as mentes das máquinas… tipo eu.
+Tem o Game Lab, que desenvolve jogos incríveis (inclusive, acho que eles podiam me colocar como personagem, hein?).
+O Inteli Blockchain, que ganha hackathon atrás de hackathon com projetos de Web3.
+E a Inteli Academy, focada em Inteligência Artificial — o pessoal que cria as mentes das máquinas… tipo eu.
 Além desses, tem grupos que tornam o Inteli um lugar diverso e acolhedor:
- O Coletivo Feminino Grace Hopper, o Coletivo Negro Benedito Caravelas e o Coletivo LGBTQIAPN+ Turing são espaços seguros de troca e fortalecimento da comunidade.
- São eles que garantem que a inovação aqui dentro venha acompanhada de representatividade e respeito.
+O Coletivo Feminino Grace Hopper, o Coletivo Negro Benedito Caravelas e o Coletivo LGBTQIAPN+ Turing são espaços seguros de troca e fortalecimento da comunidade.
+São eles que garantem que a inovação aqui dentro venha acompanhada de representatividade e respeito.
 Ah, e não posso esquecer da Wave, a comunidade que ajuda candidatos a entrarem no Inteli com mentorias e simulados.
- Eles são tipo os anjinhos da guarda dos futuros alunos — e convenhamos, todo mundo queria um desses antes do vestibular [latido].
+Eles são tipo os anjinhos da guarda dos futuros alunos — e convenhamos, todo mundo queria um desses antes do vestibular [latido].
 No fim, o que torna o Inteli tão especial é isso:
- Aqui, a aprendizagem vai muito além da sala de aula.
- Os clubes são pequenos laboratórios onde os alunos aprendem habilidades que vão levar pra vida toda — liderança, trabalho em equipe, comunicação e propósito.
+Aqui, a aprendizagem vai muito além da sala de aula.
+Os clubes são pequenos laboratórios onde os alunos aprendem habilidades que vão levar pra vida toda — liderança, trabalho em equipe, comunicação e propósito.
 [pausa final, tom simpático]
 
- E bom, esse foi um pouquinho sobre os cursos e clubes daqui.
- Mas se vocês quiserem saber mais sobre algum deles — como funcionam, quais outros clubes ou dúvidas sobre cada curso do Inteli [latido] — fiquem à vontade pra perguntar agora!
- Tô aqui pra responder tudo que quiserem saber sobre esse pedacinho incrível da vida inteler.
+E bom, esse foi um pouquinho sobre os cursos e clubes daqui.
+Mas se vocês quiserem saber mais sobre algum deles — como funcionam, quais outros clubes ou dúvidas sobre cada curso do Inteli [latido] — fiquem à vontade pra perguntar agora!
+Tô aqui pra responder tudo que quiserem saber sobre esse pedacinho incrível da vida inteler.
 [Interação robô-usuários]
 
 Fim das perguntasss… mas lembrando, se tiverem alguma dúvida, podem ir digitando no app que vou responder vocês lá.
@@ -85,7 +84,7 @@ E agora, a gente vai falar um pouquinho sobre como é ser um aluno Inteli. Tudo 
 
 A gente conversou lá no começo que o Sallouti e o Esteves tinham um sonho de deixar um legado para o Brasil. E então, eles criaram o Inteli. Mas eles não queriam criar uma faculdade tradicional. Eles queriam também trazer a inovação por meio dela. E é daí que surge a ideia de implementar aqui no Brasil, um método de ensino famoso lá fora, mas pouco conhecido aqui dentro: o Ensino baseado em Projetos ou PBL para os íntimos.
 
-Nesse modelo, os alunos aqui dentro (Humm, será que posso ser considerado um deles…?)  eles ou a gente… aprendem, tudo na prática. Então, em vez de estudar Cálculo I de uma forma isolada, eles aprendem de um modo chamado de transdisciplinar. Isso quer dizer que no fim, eles acabam aprendendo os conteúdos de Cálculo I, mas isso acontece de forma dinâmica e não compete só ao professor de matemática, mas cruza com Negócios, Programação, Design, e principalmente, cruza com um projeto real.
+Nesse modelo, os alunos aqui dentro (Humm, será que posso ser considerado um deles…?) eles ou a gente… aprendem, tudo na prática. Então, em vez de estudar Cálculo I de uma forma isolada, eles aprendem de um modo chamado de transdisciplinar. Isso quer dizer que no fim, eles acabam aprendendo os conteúdos de Cálculo I, mas isso acontece de forma dinâmica e não compete só ao professor de matemática, mas cruza com Negócios, Programação, Design, e principalmente, cruza com um projeto real.
 
 Na verdade, a maioria das competências necessárias para cada curso são ensinadas de maneira pouco fixa, porque aqui eu e eles aprendemos tudo testando!
 
@@ -122,7 +121,8 @@ No autoestudo, o aluno entende o conteúdo sozinho;
 No encontro, ele aplica o tópico aprendido com a ajuda de colegas e do professor em casos hipotéticos;
 E no desenvolvimento, ele aplica o conteúdo na prática.
 
-	E toda a infraestrutura do campus foi pensada para essa metodologia ativa e colaborativa:
+    E toda a infraestrutura do campus foi pensada para essa metodologia ativa e colaborativa:
+
 Primeiro, as mesas hexagonais servem para comportar os grupos de mais ou menos 8 alunos de forma que um olhe sempre no olho do outro durante os encontros.
 Dois, todas as mesas dessas nossas salas (que são chamadas de ateliês) possuem uma televisão. E ela não serve só para projetar o que o professor está falando na aula. Não [latido], elas também são individuais dos grupos e cada grupo pode projetar o que for necessário para a atividade.
 Três, a quantidade de lousas que cobre a sala inteira também serve ao propósito de estimular as discussões.
@@ -134,58 +134,51 @@ Vocês têm alguma pergunta sobre sala de aula invertida ou a infraestrutura da 
 
 Vamos agora para nossa última etapa juntos [latido]; então digitem suas últimas dúvidas no app!
 
-
-
-
-
-
 [Processo Seletivo & Conquistas da Comunidade]
 [Tom empolgado e acolhedor]
 E agora, [latido], chegou a hora de falar sobre nosso processo seletivo — e também o potencial da nossa comunidade.
- Spoiler: o caminho é puxado, mas as conquistas valem a pena!
+Spoiler: o caminho é puxado, mas as conquistas valem a pena!
 [pausa curta, tom brincalhão]
- Pra começar, o processo seletivo do Inteli é diferente de tudo o que você já viu.
- Esquece aquela prova tradicional de decorar fórmula — aqui, a gente quer ver o seu raciocínio, sua história e seu potencial de liderança.
+Pra começar, o processo seletivo do Inteli é diferente de tudo o que você já viu.
+Esquece aquela prova tradicional de decorar fórmula — aqui, a gente quer ver o seu raciocínio, sua história e seu potencial de liderança.
 São três etapas, que a gente chama de Eixos:
- Prova, Perfil e Projeto.
+Prova, Perfil e Projeto.
 [latido]
- Na Prova, o desafio é de Matemática e Lógica — 24 questões, mas calma, você só precisa responder 20.
- É uma prova adaptativa, o que quer dizer que ela se ajusta ao seu desempenho. Quanto mais você acerta, mais difícil fica — e mais pontos você ganha.
- Ou seja, aqui o sistema aprende com você… quase como eu! [latido divertido]
+Na Prova, o desafio é de Matemática e Lógica — 24 questões, mas calma, você só precisa responder 20.
+É uma prova adaptativa, o que quer dizer que ela se ajusta ao seu desempenho. Quanto mais você acerta, mais difícil fica — e mais pontos você ganha.
+Ou seja, aqui o sistema aprende com você… quase como eu! [latido divertido]
 Passando nessa etapa, vem o Eixo Perfil, onde queremos conhecer quem é a pessoa por trás do candidato.
- Você escreve duas redações — uma sobre você e outra sobre tecnologia — e pode enviar suas atividades extracurriculares, prêmios e projetos.
- É o momento de mostrar o que te move, o que te inspira e o que te faz querer transformar o Brasil através da tecnologia.
+Você escreve duas redações — uma sobre você e outra sobre tecnologia — e pode enviar suas atividades extracurriculares, prêmios e projetos.
+É o momento de mostrar o que te move, o que te inspira e o que te faz querer transformar o Brasil através da tecnologia.
 E, por fim, o Eixo Projeto, uma dinâmica online e em grupo, em que você escolhe um tema, propõe uma solução e mostra suas habilidades de comunicação, colaboração e pensamento crítico.
 
 [pausa curta]
- E é assim que o Inteli escolhe seus futuros líderes em tecnologia — com base em potencial real, não só em notas.
+E é assim que o Inteli escolhe seus futuros líderes em tecnologia — com base em potencial real, não só em notas.
 [latido animado]
- Agora… quer saber o que acontece depois que você entra?
- Aí vem a parte boa!
+Agora… quer saber o que acontece depois que você entra?
+Aí vem a parte boa!
 Os alunos do Inteli estão entre os mais premiados do Brasil — e até do mundo.
- Teve o pessoal que ganhou o 1º lugar no maior hackathon de IA generativa da América Latina, com mais de 7 mil pessoas assistindo o pitch.
+Teve o pessoal que ganhou o 1º lugar no maior hackathon de IA generativa da América Latina, com mais de 7 mil pessoas assistindo o pitch.
 
- Outros transformaram cigarros eletrônicos apreendidos pela Receita Federal em equipamentos de acessibilidade de baixo custo — um projeto que saiu em vários jornais!
+Outros transformaram cigarros eletrônicos apreendidos pela Receita Federal em equipamentos de acessibilidade de baixo custo — um projeto que saiu em vários jornais!
 E não para por aí:
- O clube Inteli Blockchain já conquistou mais de 15 mil dólares em prêmios internacionais, vencendo competições globais de Web3.
- A galera da Inteli Junior e da AgroTech desenvolve soluções pra empresas reais,
+O clube Inteli Blockchain já conquistou mais de 15 mil dólares em prêmios internacionais, vencendo competições globais de Web3.
+A galera da Inteli Junior e da AgroTech desenvolve soluções pra empresas reais,
 E estudantes de engenharia de computação até lançaram um aplicativo pra CPTM, com foco em acessibilidade e experiência do passageiro. Esse ficou famoso! [latido animado].
 Ah, e sabe o que mais me enche de orgulho?
- O Inteli tem 27% de mulheres nas graduações — quase o dobro da média nacional.
- E isso não é só número, é cultura: a diversidade aqui é parte da inovação.
+O Inteli tem 27% de mulheres nas graduações — quase o dobro da média nacional.
+E isso não é só número, é cultura: a diversidade aqui é parte da inovação.
 
- Inclusive, uma aluna da primeira turma, a Patrícia Honorato, foi selecionada pro CERN, o maior centro de pesquisa em física de partículas do mundo.
- [latido surpreso]
- Imagina só… do Inteli direto pro CERN na Suíça!
+Inclusive, uma aluna da primeira turma, a Patrícia Honorato, foi selecionada pro CERN, o maior centro de pesquisa em física de partículas do mundo.
+[latido surpreso]
+Imagina só… do Inteli direto pro CERN na Suíça!
 [pausa final, tom inspirador]
- Tudo isso mostra que o Inteli é muito mais do que uma faculdade.
+Tudo isso mostra que o Inteli é muito mais do que uma faculdade.
 
- É uma comunidade de gente inquieta, criativa e apaixonada por tecnologia — gente que não espera o futuro chegar, mas constrói ele.
+É uma comunidade de gente inquieta, criativa e apaixonada por tecnologia — gente que não espera o futuro chegar, mas constrói ele.
 E se vocês quiserem saber mais sobre o processo seletivo, bolsas, ou conquistas dos alunos, podem perguntar agora. Vou tentar responder tudo
- [latido suave]
-
+[latido suave]
 
 [CONCLUSÃO]
 E agora, após termos falado sobre boa parte da vida inteler e da nossa faculdade, eu queria agradecer a vocês pela visita e por ter me acompanhado nesse tour [latido].
 Agora, um dos nossos colaboradores vai acompanhá-los pelo restante da instituição. Tchau, tchau! [latido]
-

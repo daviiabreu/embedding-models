@@ -1,0 +1,37 @@
+O que eu aprendo no curso de Engenharia de Software do Inteli - Inteli - Instituto de Tecnologia e Liderança
+
+Inteli
+>
+Sem categoria
+>
+O que eu aprendo no curso de Engenharia de Software do Inteli
+O que eu aprendo no curso de Engenharia de Software do Inteli
+Descubra o que se aprende no curso de Engenharia de Software do Inteli e como formar-se para criar, testar e liderar sistemas que transformam o mundo digital.
+Vanessa Nunes
+9 out 2025
+Vanessa Nunes
+9 out 2025
+Vanessa Nunes, professora do Inteli
+Sou professora orientadora aqui no Inteli e quero compartilhar com você por que o curso de
+Engenharia de Software
+é uma jornada tão especial. Se você gosta de resolver problemas, criar soluções tecnológicas e imaginar como grandes sistemas digitais funcionam por trás das telas, este curso pode ser o caminho certo para você.
+No Inteli, acreditamos que aprender engenharia de software não é apenas escrever código. É entender como projetar, construir e sustentar sistemas complexos que fazem parte do nosso dia a dia: aplicativos de celular, serviços de streaming, plataformas financeiras, sistemas de saúde e até as ferramentas que usamos para estudar.
+Tudo isso exige muito mais do que programação — envolve raciocínio lógico, criatividade, trabalho em equipe e visão estratégica.
+Construindo sistemas que realmente funcionam
+Nos primeiros módulos, você aprende a pensar como engenheiro(a): como dividir problemas grandes em partes menores, organizar componentes e conectar serviços para que o sistema funcione de ponta a ponta. Em sala de aula, já vi alunos se surpreenderem ao perceber que, para uma simples transação online, dezenas de processos acontecem em milissegundos — desde o clique do usuário até a confirmação do pagamento. É nesse tipo de desafio que mergulhamos juntos.
+Você vai vivenciar temas como:
+Sistemas Distribuídos:
+projetar aplicações que funcionam em várias máquinas ao mesmo tempo, garantindo velocidade e confiabilidade.
+Arquitetura Orientada a Serviços e Microsserviços:
+aprender a estruturar o software em blocos independentes, que facilitam a manutenção e inovação.
+Tolerância a Falhas e Segurança:
+projetar sistemas que resistem a erros e ataques, sem parar de funcionar.
+Do código à qualidade
+Engenharia de Software também significa cuidar da qualidade em cada etapa. Trabalhamos com testes automatizados, pipelines de integração contínua (DevOps/DevSecOps) e práticas modernas que empresas de ponta utilizam para lançar novas versões de software diariamente. Já acompanhamos grupos de alunos configurando “esteiras ágeis” que simulam o ambiente de startups globais, com entregas rápidas e seguras.
+Além disso, você vai aprender a usar inteligência artificial na própria engenharia de software: desde avaliar a usabilidade de uma interface até automatizar verificações de qualidade em tempo real.
+Tecnologia conectada ao mundo real
+Outro aspecto essencial do curso é a conexão com os desafios atuais das organizações. No Inteli, não trabalhamos com problemas fictícios: cada módulo traz projetos em parceria com empresas e instituições que buscam soluções reais. Já desenvolvemos sistemas que analisam linguagem natural em textos e áudios, plataformas resilientes para grandes volumes de dados e aplicações voltadas à privacidade e governança de informações (sim, LGPD faz parte do seu aprendizado!).
+Essas experiências permitem que você perceba como a engenharia de software está no centro da transformação digital — seja para criar novos produtos, seja para manter a confiança de milhões de usuários que dependem de sistemas críticos.
+Seu futuro como engenheiro(a) de software
+Ao se formar, você estará preparado(a) para atuar em diversas áreas: desenvolvimento de sistemas, arquitetura de soluções, gestão de qualidade, governança de dados e até pesquisa em tecnologias emergentes como IA, blockchain e segurança cibernética. O mercado valoriza profissionais que unem domínio técnico, visão de negócio e capacidade de inovar — exatamente o que buscamos formar aqui no Inteli.
+Se você deseja uma carreira que combina qualidade, impacto e tecnologia de ponta, o curso de Engenharia de Software do Inteli é o seu espaço para crescer e transformar ideias em sistemas que realmente mudam vidas.

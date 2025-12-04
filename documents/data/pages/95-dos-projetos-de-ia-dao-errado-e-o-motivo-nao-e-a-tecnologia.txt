@@ -1,0 +1,33 @@
+95% dos projetos de IA dão errado, e o motivo não é a tecnologia - Inteli - Instituto de Tecnologia e Liderança
+
+Inteli
+>
+Mercado Tech
+>
+95% dos projetos de IA dão errado, e o motivo não é a tecnologia
+95% dos projetos de IA dão errado, e o motivo não é a tecnologia
+95% dos projetos de IA falham não pela tecnologia, mas pela falta de estratégia, dados de qualidade e integração real nas empresas.
+Mauricio Garcia
+19 set 2025
+Mauricio Garcia
+19 set 2025
+Tem muita gente comentando sobre o relatório
+State of AI in Business 2025
+do
+MIT,
+que afirma que 95% das tentativas de ganhar dinheiro ou eficiência com modelos de IA não deram resultado.
+Mauricio Garcia, professor do Inteli
+Eu tenho insistido nisso. A IA é uma ferramenta poderosa, mas ela não funciona sozinha, sem agência humana. Não é uma bala de prata. Não basta dar ChatGPT, Gemini, Claude, etc., para todo mundo e pronto.
+Vejam o que diz o relatório: “.
+..a principal razão para os fracassos reside na lacuna de aprendizado. Isso porque as empresas ainda não sabem como usar bem as novas ferramentas e nem aproveitá-las na sua rotina de trabalho”
+.
+Não tem jeito, tem que meter a mão no código e desenvolver agentes específicos para cada situação. E as soluções “no code” estão apenas atrasando isso. Elas dão a sensação de velocidade no desenvolvimento, mas é vôo de galinha. Servem apenas para pequenos projetos e provas de conceito.
+Além disso, vejam esta matéria falando sobre a “
+IA Paralela
+“, que é o uso de assistentes de IA sem autorização formal da empresa. Ou seja, a empresa está falhando em seus projetos de IA, enquanto seus funcionários estão usando-a “por fora”.
+Não tem caminho fácil, não tem bala de prata e nem fórmula mágica. Continuamos como sempre:
+Escolha de um problema relevante
+Clareza na sua definição
+Qualidade dos dados
+Gente boa no desenvolvimento
+Isso não vai mudar.
