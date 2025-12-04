@@ -1,28 +1,25 @@
-import os
-import sys
 import logging
+import sys
 from datetime import datetime
 from pathlib import Path
 
 # Adicionar diretórios ao path para importações - CAMINHOS CORRIGIDOS
 project_root = Path(__file__).parent  # main.py está na raiz agora
 sys.path.append(str(project_root / "pipeline"))  # Para llm_service
-sys.path.append(str(project_root / "stt"))       # Para stt_service
-sys.path.append(str(project_root / "tts"))       # Para tts_service
+sys.path.append(str(project_root / "stt"))  # Para stt_service
+sys.path.append(str(project_root / "tts"))  # Para tts_service
 
-from stt_service import transcribe_audio
-from llm_service import get_llm_response
 from breaker_service import optimal_tts_synthesizer
+from llm_service import get_llm_response
+from stt_service import transcribe_audio
 
 # Configuração de logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('pipeline.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler("pipeline.log"), logging.StreamHandler()],
 )
+
 
 class AudioPipeline:
     """Pipeline completa: Áudio → Transcrição → LLM → TTS → Áudio"""
@@ -104,15 +101,17 @@ class AudioPipeline:
         except Exception as e:
             logging.error(f"❌ Erro na pipeline: {e}")
             import traceback
+
             logging.error(traceback.format_exc())
             return False, None, None, None
 
     def process_all_audio_files(self):
         """Processa todos os arquivos de áudio na pasta de entrada"""
-        audio_extensions = {'.mp3', '.wav', '.m4a', '.flac', '.ogg', '.aac'}
+        audio_extensions = {".mp3", ".wav", ".m4a", ".flac", ".ogg", ".aac"}
 
         audio_files = [
-            f for f in self.input_dir.iterdir()
+            f
+            for f in self.input_dir.iterdir()
             if f.is_file() and f.suffix.lower() in audio_extensions
         ]
 
@@ -124,31 +123,34 @@ class AudioPipeline:
 
         results = []
         for audio_file in audio_files:
-            logging.info(f"\n{'='*50}")
+            logging.info(f"\n{'=' * 50}")
             logging.info(f"🔄 Processando: {audio_file.name}")
 
             success, output_path, transcription, llm_response = self.process_audio(
                 audio_file.name
             )
 
-            results.append({
-                'input_file': audio_file.name,
-                'success': success,
-                'output_file': output_path,
-                'transcription': transcription,
-                'llm_response': llm_response
-            })
+            results.append(
+                {
+                    "input_file": audio_file.name,
+                    "success": success,
+                    "output_file": output_path,
+                    "transcription": transcription,
+                    "llm_response": llm_response,
+                }
+            )
 
         # Relatório final
-        logging.info(f"\n{'='*50}")
+        logging.info(f"\n{'=' * 50}")
         logging.info("📊 RELATÓRIO FINAL")
 
-        successful = sum(1 for r in results if r['success'])
+        successful = sum(1 for r in results if r["success"])
         logging.info(f"✅ Sucessos: {successful}/{len(results)}")
 
         for result in results:
-            status = "✅" if result['success'] else "❌"
+            status = "✅" if result["success"] else "❌"
             logging.info(f"{status} {result['input_file']}")
+
 
 def main():
     """Função principal da pipeline"""
@@ -168,7 +170,7 @@ def main():
         )
 
         if success:
-            logging.info(f"🎉 Pipeline concluída com sucesso!")
+            logging.info("🎉 Pipeline concluída com sucesso!")
             logging.info(f"📄 Transcrição: {transcription}")
             logging.info(f"🤖 Resposta LLM: {llm_response}")
             logging.info(f"🔊 Áudio gerado: {output_path}")
@@ -178,6 +180,7 @@ def main():
         # Processar todos os arquivos
         logging.info("📁 Processando todos os arquivos na pasta de entrada")
         pipeline.process_all_audio_files()
+
 
 if __name__ == "__main__":
     main()

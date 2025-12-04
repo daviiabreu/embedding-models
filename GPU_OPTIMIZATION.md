@@ -32,15 +32,15 @@ python -c "import torch; print('CUDA:', torch.version.cuda)"
 
 ### Requisitos de memória
 
-| Modelo | Memória GPU Mínima | Recomendado |
-|--------|-------------------|-------------|
-| Whisper Tiny | 1 GB | 2 GB |
-| Whisper Base | 1 GB | 2 GB |
-| Whisper Small | 2 GB | 4 GB |
-| Whisper Medium | 5 GB | 8 GB |
-| Whisper Large | 10 GB | 12 GB |
-| Bark Small | 4 GB | 6 GB |
-| Coqui XTTS v2 | 6 GB | 8 GB |
+| Modelo         | Memória GPU Mínima | Recomendado |
+| -------------- | ------------------ | ----------- |
+| Whisper Tiny   | 1 GB               | 2 GB        |
+| Whisper Base   | 1 GB               | 2 GB        |
+| Whisper Small  | 2 GB               | 4 GB        |
+| Whisper Medium | 5 GB               | 8 GB        |
+| Whisper Large  | 10 GB              | 12 GB       |
+| Bark Small     | 4 GB               | 6 GB        |
+| Coqui XTTS v2  | 6 GB               | 8 GB        |
 
 ---
 
@@ -142,11 +142,13 @@ python example_gpu_usage.py
 ### 1. Half Precision (FP16)
 
 **Benefícios:**
+
 - 2-3x mais rápido
 - Usa metade da memória GPU
 - Mínima perda de qualidade
 
 **Quando usar:**
+
 - GPUs NVIDIA com Tensor Cores (RTX 20xx+, V100, A100)
 - Quando memória é limitada
 - Para processamento em lote
@@ -174,7 +176,7 @@ arquivos = ["audio1.mp3", "audio2.mp3", "audio3.mp3"]
 for i, arquivo in enumerate(arquivos):
     texto = transcribe_audio(arquivo)
     print(f"{i+1}/{len(arquivos)}: {texto}")
-    
+
     # Limpar cache periodicamente
     if (i + 1) % 10 == 0:
         clear_gpu_cache()
@@ -213,20 +215,20 @@ clear_gpu_cache()
 ### Whisper Medium (GPU vs CPU)
 
 | Áudio | GPU (RTX 3080) | CPU (i7-10700K) | Speedup |
-|-------|----------------|-----------------|---------|
-| 30s | ~2s | ~10s | 5x |
-| 1min | ~3s | ~20s | 6.6x |
-| 5min | ~12s | ~90s | 7.5x |
+| ----- | -------------- | --------------- | ------- |
+| 30s   | ~2s            | ~10s            | 5x      |
+| 1min  | ~3s            | ~20s            | 6.6x    |
+| 5min  | ~12s           | ~90s            | 7.5x    |
 
 ### Bark TTS (GPU vs CPU)
 
-| Texto | GPU (RTX 3080) | CPU (i7-10700K) | Speedup |
-|-------|----------------|-----------------|---------|
-| 1 frase | ~2s | ~8s | 4x |
-| 1 parágrafo | ~5s | ~25s | 5x |
-| Página | ~15s | ~90s | 6x |
+| Texto       | GPU (RTX 3080) | CPU (i7-10700K) | Speedup |
+| ----------- | -------------- | --------------- | ------- |
+| 1 frase     | ~2s            | ~8s             | 4x      |
+| 1 parágrafo | ~5s            | ~25s            | 5x      |
+| Página      | ~15s           | ~90s            | 6x      |
 
-*Nota: Resultados variam conforme hardware*
+_Nota: Resultados variam conforme hardware_
 
 ---
 
@@ -347,6 +349,7 @@ resultados = asyncio.run(processar_lote(arquivos))
 ## Suporte
 
 Para problemas ou dúvidas:
+
 1. Verifique os logs com `logging.INFO`
 2. Execute os testes: `python stt/stt_service.py`
 3. Consulte a documentação oficial do PyTorch

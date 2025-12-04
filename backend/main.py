@@ -1,8 +1,8 @@
 from fastapi import FastAPI, WebSocket
-from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+
 from backend.stt.stt_service import STTService
 from backend.tts.tts_service import TTSService
-from fastapi.middleware.cors import CORSMiddleware
 
 # setup do STT
 stt = STTService()
@@ -23,13 +23,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/teste-transcricao")
 async def root():
-    if (teste_transcricao):
+    if teste_transcricao:
         return {"status": 200, "transcrição": teste_transcricao}
     else:
         return {"status": 500, "erro": "Modelo de Transcrição não carregou."}
-    
+
+
 @app.websocket("/tts")
 async def falar_texto(websocket: WebSocket):
     await websocket.accept()
@@ -44,6 +46,7 @@ async def falar_texto(websocket: WebSocket):
 
     except Exception as e:
         print("WebSocket desconectado:", e)
+
 
 @app.websocket("/stt")
 async def falar_texto(websocket: WebSocket):
