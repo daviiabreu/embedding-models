@@ -1,8 +1,14 @@
 from dotenv import load_dotenv
 
-from backend.agent_flow.agents.orchestrator_agent import OrchestratorAgent
+# Import with fallback for different execution contexts
+try:
+    from backend.agent_flow.agents.orchestrator_agent import OrchestratorAgent
+except ImportError:
+    from .agents.orchestrator_agent import OrchestratorAgent
 
-load_dotenv("../.env", override=False)
+# Load .env from current directory or parent locations
+load_dotenv(".env", override=False)  # backend/agent_flow/.env
+load_dotenv("../../.env", override=False)  # project root .env if it exists
 
 
 class ChatService:
