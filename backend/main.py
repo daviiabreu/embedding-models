@@ -10,11 +10,9 @@ from backend.tts.tts_service import TTSService
 class Prompt(BaseModel):
     message: str
 
-
 # setup do STT
 stt = STTService()
 stt.setup_model()
-teste_transcricao = stt.run_model_test()
 
 # setup do TTS
 tts = TTSService()
@@ -42,7 +40,7 @@ async def teste_transcricao():
         return {"status": 500, "erro": "Modelo de Transcrição não carregou."}
 
 
-@app.post("/chat_w_bot")
+@app.post("/chat")
 async def chat_w_bot(prompt: Prompt):
     if prompt:
         response_llm = chat.give_response(prompt.message)
