@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 
 # Carrega variáveis de ambiente
 load_dotenv()
-load_dotenv("agent_flow/.env", override=False)
+load_dotenv("backend/agent_flow/.env", override=False)
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 try:
-    from agent_flow.agents.orchestrator_agent import OrchestratorAgent
+    from backend.agent_flow.agents.orchestrator_agent import OrchestratorAgent
 except ImportError as e:
     print(f"Import error: {e}")
     sys.exit(1)

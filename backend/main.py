@@ -2,12 +2,14 @@ from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from backend.agent_flow.chat_service import ChatService
 from backend.stt.stt_service import STTService
 from backend.tts.tts_service import TTSService
-from backend.agent_flow.chat_service import ChatService
+
 
 class Prompt(BaseModel):
     message: str
+
 
 # setup do STT
 stt = STTService()
@@ -31,6 +33,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/teste-transcricao")
 async def teste_transcricao():
     if teste_transcricao:
@@ -46,6 +49,7 @@ async def chat_w_bot(prompt: Prompt):
         return {"status": 200, "response": str(response_llm)}
     else:
         return {"status": 500, "erro": "Modelo de Transcrição não carregou."}
+
 
 @app.websocket("/tts")
 async def falar_texto(websocket: WebSocket):

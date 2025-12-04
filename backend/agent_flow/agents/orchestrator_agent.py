@@ -6,34 +6,24 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 from google.adk.agents import Agent
 
-# Tenta importar o TourAgent
+# Import agents from same package
 try:
     from backend.agent_flow.agents.tour_agent import create_tour_agent
+    from backend.agent_flow.agents.context_agent import create_context_agent
+    from backend.agent_flow.agents.knowledge_agent import create_knowledge_agent
+    from backend.agent_flow.agents.personality_agent import create_personality_agent
+    from backend.agent_flow.agents.safety_agent import create_safety_agent
 except ImportError:
-    try:
-        from agents.tour_agent import create_tour_agent
-    except ImportError:
-        from tour_agent import create_tour_agent
+    # Fallback to relative imports
+    from .tour_agent import create_tour_agent
+    from .context_agent import create_context_agent
+    from .knowledge_agent import create_knowledge_agent
+    from .personality_agent import create_personality_agent
+    from .safety_agent import create_safety_agent
 
-try:
-    from agent_flow.agents.context_agent import create_context_agent
-    from agent_flow.agents.knowledge_agent import create_knowledge_agent
-    from agent_flow.agents.personality_agent import create_personality_agent
-    from agent_flow.agents.safety_agent import create_safety_agent
-except ImportError:
-    try:
-        from agents.context_agent import create_context_agent
-        from agents.knowledge_agent import create_knowledge_agent
-        from agents.personality_agent import create_personality_agent
-        from agents.safety_agent import create_safety_agent
-    except ImportError:
-        from context_agent import create_context_agent
-        from knowledge_agent import create_knowledge_agent
-        from personality_agent import create_personality_agent
-        from safety_agent import create_safety_agent
-
-# Carrega ambiente
-load_dotenv("agent_flow/.env")
+# Carrega ambiente - try both locations
+load_dotenv("backend/agent_flow/.env")
+load_dotenv(".env")
 
 
 class OrchestratorAgent:

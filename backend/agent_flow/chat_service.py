@@ -1,5 +1,6 @@
-from backend.agent_flow.agents.orchestrator_agent import OrchestratorAgent
 from dotenv import load_dotenv
+
+from backend.agent_flow.agents.orchestrator_agent import OrchestratorAgent
 
 load_dotenv("../.env", override=False)
 
