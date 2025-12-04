@@ -60,7 +60,7 @@ async def falar_texto(websocket: WebSocket):
                 for sentence in broken_text:
                     audio_bytes = tts.sentence_to_speech(sentence)
                     await websocket.send_bytes(audio_bytes)
-
+                await websocket.send_bytes("END")
     except Exception as e:
         print("WebSocket desconectado:", e)
 
