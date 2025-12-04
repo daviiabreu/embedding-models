@@ -4,7 +4,7 @@
 
 ```bash
 
-docker build -t stt_tss:latest .
+docker build -t stt_tts:latest .
 
 ```
 
