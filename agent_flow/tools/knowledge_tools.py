@@ -209,8 +209,6 @@ def _resolve_scored_point(point: Any) -> Any:
             return candidate
     return point
 
-
-@step(enable_cache=False)
 def query_embedding(query: str) -> List[float]:
     if not query:
         raise ValueError("query_embedding_step recebeu uma query vazia.")
@@ -219,7 +217,6 @@ def query_embedding(query: str) -> List[float]:
     return model.encode(query).tolist()
 
 
-@step(enable_cache=False)
 def retrieval_from_qdrant(
     query_embedding: List[float],
     top_k: int = DEFAULT_TOP_K,
@@ -333,7 +330,6 @@ def _format_context_block(node: Dict[str, Any], index: int) -> str:
     return "\n".join([line for line in lines if line])
 
 
-@step(enable_cache=False)
 def build_graph_rag_payload(
     query: str,
     query_embedding: List[float],
@@ -354,7 +350,6 @@ def build_graph_rag_payload(
     }
 
 
-@pipeline
 def rag_inference_pipeline(
     query: str,
     top_k: int = DEFAULT_TOP_K,
