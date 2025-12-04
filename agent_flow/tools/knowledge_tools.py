@@ -209,6 +209,7 @@ def _resolve_scored_point(point: Any) -> Any:
             return candidate
     return point
 
+
 def query_embedding(query: str) -> List[float]:
     if not query:
         raise ValueError("query_embedding_step recebeu uma query vazia.")

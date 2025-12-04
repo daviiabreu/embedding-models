@@ -5,12 +5,13 @@ from datetime import datetime
 
 import numpy as np
 
+# Importar a página de chat
+from chat_page import render_chat_page
+
 import streamlit as st
 
 # Importar as funções do main.py
 from main import process_document_with_embeddings
-# Importar a página de chat
-from chat_page import render_chat_page
 
 # Configuração da página
 st.set_page_config(

@@ -1,11 +1,13 @@
 import json
-from typing import Dict, List, Optional, Any
+from typing import Dict
+
 
 class TourAgent:
     """
     Agente responsável por gerenciar o roteiro do tour e o estado da navegação.
     O roteiro segue o script 'Cão Robô' do Inteli.
     """
+
     def __init__(self):
         # Definição do Roteiro (Script)
         # Cada 'stop' tem um ID, o local sugerido e a fala do robô.
@@ -24,7 +26,7 @@ Acreditamos que esses líderes vêm de diversos contextos, por isso temos o maio
 Isso só foi possível graças aos doadores-parceiros que investiram no desenvolvimento desses alunos. Aqui em cima nesse painel [latido], vocês podem ver os nomes deles.
 
 Vocês têm alguma pergunta sobre a história ou o programa de bolsas do Inteli?""",
-                "acao_navegacao": "ir_para_area_academica"
+                "acao_navegacao": "ir_para_area_academica",
             },
             {
                 "id": "cursos_clubes",
@@ -40,7 +42,7 @@ Tem a Tantera (atlética), a Inteli Júnior, a LEI (Liga de Empreendedorismo), a
 Além disso, temos coletivos que tornam o Inteli acolhedor e diverso: Grace Hopper (Feminino), Benedito Caravelas (Negro) e Turing (LGBTQIAPN+), além da Wave que ajuda vestibulandos.
 
 Se quiserem saber mais sobre algum curso ou clube específico, podem perguntar agora!""",
-                "acao_navegacao": "ir_para_atelies"
+                "acao_navegacao": "ir_para_atelies",
             },
             {
                 "id": "pbl_rotina",
@@ -60,7 +62,7 @@ Na rotina, temos 3 momentos:
 3. DEV: O momento "mão na massa" (geralmente das 14h às 16h) para desenvolver o projeto.
 
 Alguma dúvida sobre nossa metodologia ou rotina?""",
-                "acao_navegacao": "entrar_no_atelie"
+                "acao_navegacao": "entrar_no_atelie",
             },
             {
                 "id": "sala_invertida_infra",
@@ -76,7 +78,7 @@ Nossa infraestrutura foi pensada para isso:
 E a visão aberta dos andares mostra que o Inteli é colaborativo e horizontal.
 
 Querem perguntar algo sobre a sala invertida ou nossa infraestrutura?""",
-                "acao_navegacao": "ir_para_hub_comunidade"
+                "acao_navegacao": "ir_para_hub_comunidade",
             },
             {
                 "id": "processo_seletivo",
@@ -94,7 +96,7 @@ E temos 27% de mulheres nas graduações (quase o dobro da média). Uma aluna da
 
 O Inteli é uma comunidade de gente inquieta que constrói o futuro.
 Se quiserem saber mais sobre o vestibular ou bolsas, estou à disposição!""",
-                "acao_navegacao": "finalizar_tour"
+                "acao_navegacao": "finalizar_tour",
             },
             {
                 "id": "conclusao",
@@ -102,12 +104,12 @@ Se quiserem saber mais sobre o vestibular ou bolsas, estou à disposição!""",
                 "fala": """E agora, após falarmos sobre a vida inteler, queria agradecer a visita e a companhia nesse tour [latido].
 Agora, um dos nossos colaboradores humanos vai acompanhá-los pelo restante da instituição.
 Tchau, tchau! [latido]""",
-                "acao_navegacao": "parar"
-            }
+                "acao_navegacao": "parar",
+            },
         ]
-        
+
         # Estado atual do Tour
-        self.current_step_index = -1 
+        self.current_step_index = -1
         self.is_active = False
 
     def start_tour(self) -> str:
@@ -120,21 +122,27 @@ Tchau, tchau! [latido]""",
     def next_step(self) -> str:
         """Avança para o próximo ponto do roteiro."""
         if not self.is_active:
-            return json.dumps({
-                "speech": "O tour não está ativo. Diga 'iniciar tour' para começar.",
-                "action": "aguardar"
-            }, ensure_ascii=False)
-        
+            return json.dumps(
+                {
+                    "speech": "O tour não está ativo. Diga 'iniciar tour' para começar.",
+                    "action": "aguardar",
+                },
+                ensure_ascii=False,
+            )
+
         self.current_step_index += 1
-        
+
         if self.current_step_index >= len(self.script):
             self.is_active = False
             self.current_step_index = -1
-            return json.dumps({
-                "speech": "O roteiro do tour foi finalizado. Foi um prazer!",
-                "action": "tour_finalizado"
-            }, ensure_ascii=False)
-            
+            return json.dumps(
+                {
+                    "speech": "O roteiro do tour foi finalizado. Foi um prazer!",
+                    "action": "tour_finalizado",
+                },
+                ensure_ascii=False,
+            )
+
         step = self.script[self.current_step_index]
         return self._format_response(step)
 
@@ -142,29 +150,34 @@ Tchau, tchau! [latido]""",
         """Interrompe o tour imediatamente."""
         self.is_active = False
         self.current_step_index = -1
-        return json.dumps({
-            "speech": "Tour interrompido. Voltando ao modo de espera.",
-            "action": "parar"
-        }, ensure_ascii=False)
+        return json.dumps(
+            {
+                "speech": "Tour interrompido. Voltando ao modo de espera.",
+                "action": "parar",
+            },
+            ensure_ascii=False,
+        )
 
     def _format_response(self, step: Dict) -> str:
         """Formata a resposta para o Orquestrador como JSON."""
         response = {
             "agent": "tour_agent",
-            "location": step['local'],
-            "speech": step['fala'],
-            "action": step['acao_navegacao'],
-            "status": "active"
+            "location": step["local"],
+            "speech": step["fala"],
+            "action": step["acao_navegacao"],
+            "status": "active",
         }
         return json.dumps(response, ensure_ascii=False)
 
     def process_command(self, command: str) -> str:
         """Processa comandos diretos de navegação."""
         cmd = command.lower()
-        
+
         if any(x in cmd for x in ["iniciar", "começar", "vamos lá", "start"]):
             return self.start_tour()
-        elif any(x in cmd for x in ["próximo", "continuar", "seguir", "next", "avançar"]):
+        elif any(
+            x in cmd for x in ["próximo", "continuar", "seguir", "next", "avançar"]
+        ):
             return self.next_step()
         elif any(x in cmd for x in ["parar", "encerrar", "stop"]):
             return self.stop_tour()
@@ -176,10 +189,14 @@ Tchau, tchau! [latido]""",
                 step = self.script[self.current_step_index]
                 return self._format_response(step)
             else:
-                return json.dumps({
-                    "speech": "Não estou em um tour ativo. Diga 'iniciar tour' se quiser começar.",
-                    "action": "aguardar"
-                }, ensure_ascii=False)
+                return json.dumps(
+                    {
+                        "speech": "Não estou em um tour ativo. Diga 'iniciar tour' se quiser começar.",
+                        "action": "aguardar",
+                    },
+                    ensure_ascii=False,
+                )
+
 
 def create_tour_agent():
     return TourAgent()
