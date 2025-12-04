@@ -232,6 +232,7 @@ def retrieval_from_qdrant(
     query_result = client.query_points(
         collection_name=QDRANT_COLLECTION,
         query=query_embedding,
+        using="dense",  # Specify named vector for collections with multiple vectors
         limit=top_k,
         with_payload=True,
         with_vectors=INCLUDE_EMBEDDINGS,

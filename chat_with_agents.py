@@ -13,69 +13,59 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 try:
     from agent_flow.agents.orchestrator_agent import OrchestratorAgent
 except ImportError as e:
-    print(f"\n❌ ERRO CRÍTICO DE IMPORTAÇÃO: {e}")
+    print(f"Import error: {e}")
     sys.exit(1)
-
-# Cores ANSI para o terminal
-BLUE = "\033[94m"
-GREEN = "\033[92m"
-YELLOW = "\033[93m"
-RED = "\033[91m"
-RESET = "\033[0m"
-BOLD = "\033[1m"
 
 
 def print_header():
-    print("\n" + "█" * 70)
-    print(
-        f"{BOLD}🤖 INTERFACE DE CHAT - SISTEMA MULTI-AGENTES INTELI (DEBUG MODE){RESET}"
-    )
-    print("█" * 70)
-    print("\n💡 O sistema agora possui:")
-    print("   1. Agente de Conhecimento (RAG Híbrido) -> Responde dúvidas")
-    print("   2. Agente de Tour (Roteiro) -> Guia o passeio")
-    print("   3. Orquestrador -> Decide quem deve responder você")
+    print("\n" + "=" * 70)
+    print("INTELI MULTI-AGENT CHAT SYSTEM")
+    print("=" * 70)
+    print("\nCommands:")
+    print("  stats  - Show conversation statistics")
+    print("  clear  - Clear conversation history")
+    print("  exit   - Exit chat")
     print("-" * 70 + "\n")
 
 
-def print_rag_debug(orchestrator, user_input):
-    """
-    Função auxiliar para mostrar o que o RAG encontrou ANTES da resposta.
-    Isso ajuda a entender por que ele acertou ou errou.
-    """
-    # Hack para acessar o método interno do orquestrador apenas para debug visual
-    # Em produção, o orquestrador faria isso internamente.
+def print_conversation_stats(orchestrator):
+    """Show conversation statistics."""
     try:
-        context_raw = orchestrator._query_knowledge_base(user_input)
-        if not context_raw:
-            print(
-                f"{YELLOW}⚠️  RAG Debug: Nenhum contexto relevante encontrado no Qdrant.{RESET}"
-            )
+        history = orchestrator.get_conversation_history()
+        if not history:
+            print("No conversation history yet.")
             return
 
-        print(f"{YELLOW}🔍 RAG DEBUG - FONTES RECUPERADAS:{RESET}")
+        print("\nConversation Statistics:")
+        print(f"  Total messages: {len(history)}")
 
-        # O contexto vem como string formatada, vamos tentar parsear visualmente
-        sources = context_raw.split("--- FONTE: ")
-        for i, source in enumerate(sources[1:], 1):  # Pula o primeiro split vazio
-            lines = source.split("\n")
-            header = lines[0]  # Ex: "Edital.pdf | Seção: 1. Cursos ---"
-            snippet = lines[1][:100] + "..." if len(lines) > 1 else ""
+        # Count by role
+        user_msgs = sum(1 for msg in history if msg["role"] == "user")
+        assistant_msgs = sum(1 for msg in history if msg["role"] == "assistant")
+        print(f"  User: {user_msgs} | Assistant: {assistant_msgs}")
 
-            print(f"   [{i}] {header}")
-            print(f'       📝 "{snippet}"')
+        # Count by agent used
+        agents_used = {}
+        for msg in history:
+            if msg.get("agent_used"):
+                agent = msg["agent_used"]
+                agents_used[agent] = agents_used.get(agent, 0) + 1
+
+        if agents_used:
+            print("  Agents used:")
+            for agent, count in agents_used.items():
+                print(f"    - {agent}: {count}x")
+
         print("-" * 70)
 
     except Exception as e:
-        print(f"{RED}Erro no debug do RAG: {e}{RESET}")
+        print(f"Statistics error: {e}")
 
 
-def print_bot_response(response: str, execution_time: float, intent: str):
-    """Formata a resposta final."""
-    print(f"\n{BLUE}🧠 Intenção Detectada: {intent}{RESET}")
-    print(f"{BLUE}🤖 [DOG/INTELI]:{RESET}")
-    print(f"{GREEN}{response}{RESET}")
-    print(f"\n⏱️ Time: {execution_time:.2f}s")
+def print_bot_response(response: str, execution_time: float):
+    """Print final response."""
+    print(f"\nAssistant: {response}")
+    print(f"Time: {execution_time:.2f}s")
     print("=" * 70)
 
 
@@ -83,46 +73,49 @@ def main():
     print_header()
 
     try:
-        print("⚙️  Inicializando o Sistema de Agentes...")
         orchestrator = OrchestratorAgent()
-        print("✅ Sistema Pronto!\n")
+        print("System initialized.\n")
     except Exception as e:
-        print(f"❌ Falha ao iniciar: {e}")
+        print(f"Initialization failed: {e}")
         return
 
     while True:
         try:
-            user_input = input(f"{BOLD}👤 VOCÊ: {RESET}").strip()
+            user_input = input("You: ").strip()
 
+            # Handle exit command
             if user_input.lower() in ["sair", "exit", "quit"]:
-                print("\n👋 Até logo!")
                 break
 
+            # Handle empty input
             if not user_input:
                 continue
 
+            # Handle special commands
+            if user_input.lower() == "stats":
+                print_conversation_stats(orchestrator)
+                continue
+
+            if user_input.lower() in ["limpar", "clear", "reset"]:
+                orchestrator.clear_history()
+                print("History cleared.\n")
+                continue
+
+            # Process normal message
             start_time = time.time()
-
-            # 1. Identifica intenção primeiro (para saber se mostra debug do RAG)
-            intent = orchestrator._decide_intent(user_input)
-
-            # 2. Se for pergunta de conhecimento, mostra o debug do RAG antes
-            if intent == "KNOWLEDGE":
-                print_rag_debug(orchestrator, user_input)
-
-            # 3. Processa a resposta final
-            # (Nota: O orquestrador vai chamar o RAG de novo internamente,
-            # mas o cache do Qdrant torna isso rápido)
             response = orchestrator.process_message(user_input)
-
             end_time = time.time()
-            print_bot_response(response, end_time - start_time, intent)
+
+            print_bot_response(response, end_time - start_time)
 
         except KeyboardInterrupt:
-            print("\n\n👋 Interrompido.")
+            print("\nInterrupted.")
             break
         except Exception as e:
-            print(f"\n❌ Erro: {e}")
+            print(f"\nError: {e}")
+            import traceback
+
+            traceback.print_exc()
 
 
 if __name__ == "__main__":
