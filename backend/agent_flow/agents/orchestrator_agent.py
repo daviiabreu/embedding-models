@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 # Tenta importar o TourAgent
 try:
-    from agent_flow.agents.tour_agent import create_tour_agent
+    from backend.agent_flow.agents.tour_agent import create_tour_agent
 except ImportError:
     try:
         from agents.tour_agent import create_tour_agent
@@ -32,11 +32,7 @@ class OrchestratorAgent:
         self.llm = genai.GenerativeModel("gemini-2.5-flash-lite")
 
         # 2. Inicializa Agente de Tour
-        print("🏗️  Inicializando Tour Agent...")
         self.tour_agent = create_tour_agent()
-
-        # 3. Inicializa RAG Híbrido (Knowledge Agent)
-        print("📚 Inicializando Modelos Híbridos (Isso pode levar alguns segundos)...")
 
         # Modelo Denso (Semântico - Conceitos)
         self.dense_model = SentenceTransformer(
@@ -152,13 +148,11 @@ class OrchestratorAgent:
         """Fluxo principal."""
 
         intent = self._decide_intent(user_message)
-        print(f"🧠 [Orchestrator] Intenção: {intent}")
 
         # --- ROTA 1: TOUR ---
         if intent in ["NAV_START", "NAV_NEXT", "NAV_STOP"] or (
             self.tour_agent.is_active and intent not in ["KNOWLEDGE", "CHITCHAT"]
         ):
-            print("👟 [Action] Tour...")
             response_json = self.tour_agent.process_command(user_message)
             try:
                 data = json.loads(response_json)
@@ -168,7 +162,6 @@ class OrchestratorAgent:
 
         # --- ROTA 2: KNOWLEDGE (RAG Híbrido) ---
         elif intent == "KNOWLEDGE":
-            print("📚 [Action] RAG Híbrido...")
             context = self._query_knowledge_base(user_message)
 
             tour_msg = ""
@@ -217,7 +210,6 @@ class OrchestratorAgent:
 
         # --- ROTA 3: CHITCHAT ---
         else:
-            print("💬 [Action] Chat...")
             chat_prompt = f"""
             Você é o robô Dog do Inteli.
             O usuário disse: "{user_message}"
