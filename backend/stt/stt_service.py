@@ -3,7 +3,7 @@ import whisper
 
 class STTService:
     def __init__(self):
-        self.model_name = "small"
+        self.model_name = "large"
         self.context_prompt = "Esta é uma conversa amigável e informativa em português brasileiro durante um tour pelo INTELI (Instituto de Tecnologia e Liderança)"
         self.model = None
 
