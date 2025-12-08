@@ -18,6 +18,7 @@ def detect_personality_type(
     tool_context: ToolContext,
     framework: str = "big_five",
 ) -> dict:
+    """Analyze user personality based on conversation messages. Uses Big Five (openness, conscientiousness, extraversion, agreeableness, neuroticism) or MBTI framework to identify personality traits."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -26,9 +27,7 @@ def detect_personality_type(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         history_context = "\n".join(
             [
@@ -148,6 +147,7 @@ Respond in JSON format:
 def detect_communication_style(
     text: str, conversation_history: List[str], tool_context: ToolContext
 ) -> dict:
+    """Identify user's preferred communication style. Analyzes formality (formal/casual), technicality (expert/beginner), verbosity (concise/detailed), and directness (direct/indirect)."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -155,9 +155,7 @@ def detect_communication_style(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         history_context = "\n".join(
             [
@@ -242,6 +240,7 @@ Respond in JSON format:
 def detect_emotional_state(
     text: str, tool_context: ToolContext, detect_intensity: bool = True
 ) -> dict:
+    """Identify current emotions and mood in user message. Detects primary/secondary emotions (happy, sad, angry, etc.), overall mood (positive/neutral/negative), valence, and arousal levels."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -249,9 +248,7 @@ def detect_emotional_state(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         intensity_instruction = (
             "Also rate the intensity (0.0-1.0) of each detected emotion."
@@ -337,10 +334,9 @@ def detect_engagement_level(
     response_times: Optional[List[float]],
     tool_context: ToolContext,
 ) -> dict:
+    """Measure user interest and attention level. Evaluates engagement based on message quality, enthusiasm, question asking, and topic investment."""
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         history_context = "\n".join(
             [
@@ -444,6 +440,7 @@ def adapt_tone(
     target_tone: str,
     tool_context: ToolContext,
 ) -> dict:
+    """Adjust response tone to match user personality. Rewrites text in formal, friendly, enthusiastic, calm, playful, or professional tone while preserving core message."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -451,9 +448,7 @@ def adapt_tone(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         personality_context = (
             f"User personality traits: {personality_profile}"
@@ -538,6 +533,7 @@ def adapt_complexity(
     tool_context: ToolContext,
     simplify: bool = True,
 ) -> dict:
+    """Adjust content complexity based on user comprehension level. Simplifies or elaborates text for beginner, intermediate, advanced, or expert users."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -545,9 +541,7 @@ def adapt_complexity(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         action = "simplify" if simplify else "elaborate"
 
@@ -625,6 +619,7 @@ Respond in JSON format:
 def adapt_response_length(
     response_text: str, preferred_length: str, tool_context: ToolContext
 ) -> dict:
+    """Adjust response verbosity to match user preference. Rewrites text as very_concise (1-2 sentences), concise, balanced, detailed, or comprehensive."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -632,9 +627,7 @@ def adapt_response_length(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         prompt = f"""Adapt the following response to match the preferred length while preserving all essential information.
 
@@ -712,6 +705,7 @@ def adapt_examples(
     user_background: Dict,
     tool_context: ToolContext,
 ) -> dict:
+    """Generate personalized examples based on user interests and background. Creates relevant examples that relate to user's context to make concepts easier to understand."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -719,9 +713,7 @@ def adapt_examples(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         interests_str = (
             ", ".join(user_interests) if user_interests else "general topics"
@@ -812,6 +804,7 @@ def adapt_pacing(
     comprehension_indicators: Dict,
     tool_context: ToolContext,
 ) -> dict:
+    """Adjust information delivery speed based on user engagement and comprehension. Recommends pacing strategy (slow/moderate/fast) and whether to pause or check understanding."""
     if not os.getenv("GOOGLE_API_KEY"):
         if engagement_level == "low" or comprehension_indicators.get("confused", False):
             recommended_pacing = "slow"
@@ -833,9 +826,7 @@ def adapt_pacing(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         comprehension_str = ", ".join(
             [f"{k}: {v}" for k, v in comprehension_indicators.items()]
@@ -928,6 +919,7 @@ def build_personality_profile(
     tool_context: ToolContext,
     update_existing: bool = True,
 ) -> dict:
+    """Create comprehensive user personality profile from conversation. Builds complete profile with personality traits, communication preferences, emotional baseline, engagement patterns, and interests."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -935,9 +927,7 @@ def build_personality_profile(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         personality_data = tool_context.state.get("personality_detections", [])
         style_data = tool_context.state.get("communication_styles", [])
@@ -1067,6 +1057,7 @@ Respond in JSON format:
 def track_adaptation_effectiveness(
     adaptation_type: str, user_response: str, tool_context: ToolContext
 ) -> dict:
+    """Monitor if personality adaptations are working. Analyzes user response after adaptation to evaluate effectiveness and provide recommendations for adjustment."""
     if not os.getenv("GOOGLE_API_KEY"):
         response_length = len(user_response.split())
         has_positive_indicators = any(
@@ -1094,9 +1085,7 @@ def track_adaptation_effectiveness(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         prompt = f"""Analyze the effectiveness of a personality adaptation based on the user's response.
 
@@ -1185,6 +1174,7 @@ def apply_personality_adaptations(
     tool_context: ToolContext,
     adaptations: Optional[List[str]] = None,
 ) -> dict:
+    """Apply all personality adaptations to response. Wrapper function that combines tone, complexity, length, and example adaptations based on user profile."""
     if adaptations is None:
         adaptations = ["tone", "complexity", "length", "examples"]
 

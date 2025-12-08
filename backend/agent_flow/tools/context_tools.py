@@ -19,6 +19,7 @@ def retrieve_relevant_context(
     similarity_threshold: float = 0.7,
     sources: Optional[List[str]] = None,
 ) -> dict:
+    """Retrieve relevant context from knowledge base using RAG. Fetches top-k most relevant chunks filtered by similarity threshold for answering user queries."""
     try:
         from .knowledge_tools import retrieve_inteli_knowledge
     except ImportError:
@@ -113,6 +114,7 @@ def rank_context_chunks(
     tool_context: ToolContext,
     ranking_method: str = "semantic",
 ) -> dict:
+    """Rerank context chunks by relevance to query. Uses semantic similarity, keyword matching, or recency-based ranking to order retrieved chunks."""
     ranked_chunks = []
 
     try:
@@ -268,6 +270,7 @@ def filter_context_by_relevance(
     min_score: float = 0.5,
     max_chunks: int = 10,
 ) -> dict:
+    """Filter context chunks by minimum relevance score. Removes low-quality chunks and limits to max_chunks most relevant results."""
     try:
         from datetime import datetime
 
@@ -410,6 +413,7 @@ def manage_conversation_memory(
     memory_type: str = "sliding_window",
     max_messages: int = 10,
 ) -> dict:
+    """Manage conversation history and memory. Stores messages using sliding window, selective (important only), or summary-based memory strategies."""
     if "conversation_history" not in tool_context.state:
         tool_context.state["conversation_history"] = []
 
@@ -418,9 +422,7 @@ def manage_conversation_memory(
     if memory_type in ["selective", "summary"]:
         try:
             if os.getenv("GOOGLE_API_KEY"):
-                model = genai.GenerativeModel(
-                    os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-                )
+                model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
                 importance_prompt = f"""Rate the importance of this message on a scale of 0.0 to 1.0 for conversation memory.
 
@@ -457,9 +459,7 @@ Respond with ONLY a number between 0.0 and 1.0."""
     elif memory_type == "summary" and len(history) > max_messages:
         try:
             if os.getenv("GOOGLE_API_KEY"):
-                model = genai.GenerativeModel(
-                    os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-                )
+                model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
                 older_messages = history[:-max_messages]
                 recent_messages = history[-max_messages:]
@@ -515,6 +515,7 @@ def track_topics_discussed(
     tool_context: ToolContext,
     extract_subtopics: bool = True,
 ) -> dict:
+    """Track and analyze topics discussed in conversation. Identifies main topics, subtopics, and topic transitions for context awareness."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -522,9 +523,7 @@ def track_topics_discussed(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         history_context = "\n".join(
             [
@@ -616,6 +615,7 @@ def detect_context_gaps(
     tool_context: ToolContext,
     available_context: str = "",
 ) -> dict:
+    """Identify missing information needed to answer query. Analyzes query against available context to detect gaps and suggest additional retrieval."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -623,9 +623,7 @@ def detect_context_gaps(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         # Handle both string and list inputs
         if isinstance(available_context, str):
@@ -733,6 +731,7 @@ def summarize_context(
     max_length: int = 500,
     summary_type: str = "abstractive",
 ) -> dict:
+    """Summarize context chunks into concise text. Uses abstractive (AI-generated) or extractive (sentence selection) summarization to condense information."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -740,9 +739,7 @@ def summarize_context(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         combined_text = "\n".join(
             [
@@ -835,6 +832,7 @@ def extract_key_information(
     tool_context: ToolContext,
     info_types: Optional[List[str]] = None,
 ) -> dict:
+    """Extract key facts and entities from context. Identifies entities (people, places, organizations), dates, numbers, and other important information types."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -842,9 +840,7 @@ def extract_key_information(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         if info_types is None:
             info_types = ["facts", "dates", "numbers", "entities", "definitions"]
@@ -930,6 +926,7 @@ Respond in JSON format:
 def deduplicate_context(
     chunks: List[Dict], tool_context: ToolContext, similarity_threshold: float = 0.9
 ) -> dict:
+    """Remove redundant and duplicate context chunks. Uses semantic similarity to identify and remove near-duplicate information."""
     try:
         import os
 
@@ -1051,6 +1048,8 @@ def manage_context_window(
     max_tokens: int = 8000,
     priority: str = "recent",
 ) -> dict:
+    """Manage LLM context window token limits. Prioritizes and truncates context to fit within max_tokens using recent, relevant, or balanced strategies."""
+
     def estimate_tokens(text: str) -> int:
         if not text:
             return 0
@@ -1247,6 +1246,7 @@ def prepare_context_for_llm(
     tool_context: ToolContext,
     format_style: str = "structured",
 ) -> dict:
+    """Format context for LLM consumption. Structures chunks as structured (numbered), narrative (flowing text), or bullet_points for optimal LLM understanding."""
     try:
         if not context_chunks:
             formatted_context = "No context available."
@@ -1373,6 +1373,7 @@ def build_context_profile(
     topics_discussed: List[str],
     tool_context: ToolContext,
 ) -> dict:
+    """Build profile of user's knowledge state and context needs. Tracks what user knows, information gaps, preferred topics, and context requirements."""
     if not os.getenv("GOOGLE_API_KEY"):
         return {
             "success": False,
@@ -1380,9 +1381,7 @@ def build_context_profile(
         }
 
     try:
-        model = genai.GenerativeModel(
-            os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
-        )
+        model = genai.GenerativeModel(os.getenv("DEFAULT_MODEL"))
 
         history_context = "\n".join(
             [
@@ -1474,6 +1473,7 @@ Respond in JSON format:
 def check_context_freshness(
     context_chunks: List[Dict], tool_context: ToolContext, max_age_days: int = 90
 ) -> dict:
+    """Verify context information is up-to-date. Checks timestamps and identifies stale context chunks that may need refreshing."""
     from datetime import datetime, timedelta
 
     try:
@@ -1643,6 +1643,7 @@ def manage_context(
     operations: Optional[List[str]] = None,
     max_tokens: int = 8000,
 ) -> dict:
+    """Comprehensive context management wrapper. Orchestrates retrieve, rank, filter, deduplicate, optimize, and format operations for complete context handling."""
     if operations is None:
         operations = ["retrieve", "rank", "filter", "deduplicate", "optimize", "format"]
 

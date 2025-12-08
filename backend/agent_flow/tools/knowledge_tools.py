@@ -11,7 +11,6 @@ from google.adk.tools.tool_context import ToolContext
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
 
-# Configure logging
 logger = logging.getLogger(__name__)
 
 try:
@@ -215,6 +214,7 @@ def _resolve_scored_point(point: Any) -> Any:
 
 
 def query_embedding(query: str) -> List[float]:
+    """Convert text query into embedding vector using sentence transformer model. Returns dense vector representation for semantic search."""
     if not query:
         raise ValueError("query_embedding_step recebeu uma query vazia.")
 
@@ -227,6 +227,7 @@ def retrieval_from_qdrant(
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
 ) -> List[Dict[str, Any]]:
+    """Search Qdrant vector database for relevant documents using embedding similarity. Returns top-k results with adjacency expansion for graph-based retrieval."""
     if not query_embedding:
         raise ValueError("retrieval_from_qdrant_step recebeu embedding vazio.")
 
@@ -236,7 +237,7 @@ def retrieval_from_qdrant(
     query_result = client.query_points(
         collection_name=QDRANT_COLLECTION,
         query=query_embedding,
-        using="dense",  # Specify named vector for collections with multiple vectors
+        using="dense",
         limit=top_k,
         with_payload=True,
         with_vectors=INCLUDE_EMBEDDINGS,
@@ -341,6 +342,7 @@ def build_graph_rag_payload(
     query_embedding: List[float],
     retrieved_nodes: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
+    """Format retrieved documents into structured RAG payload. Combines query, embeddings, and retrieved nodes into formatted context text."""
     context_blocks = [
         _format_context_block(node, idx)
         for idx, node in enumerate(retrieved_nodes, start=1)
@@ -361,31 +363,17 @@ def rag_inference_pipeline(
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
 ) -> Dict[str, Any]:
-    logger.info(f"[RAG_PIPELINE] Starting with query: {query[:60]}")
-    logger.info(
-        f"[RAG_PIPELINE] Parameters: top_k={top_k}, adjacency_limit={adjacency_limit}"
-    )
-
-    logger.info("[TOOL] query_embedding")
+    """Complete RAG pipeline for knowledge retrieval. Converts query to embedding, searches Qdrant, expands with graph adjacency, and formats context for LLM."""
     query_vector = query_embedding(query=query)
-    logger.info(f"[EMBEDDING] Generated vector of size {len(query_vector)}")
-
-    logger.info("[TOOL] retrieval_from_qdrant")
     retrieval = retrieval_from_qdrant(
         query_embedding=query_vector,
         top_k=top_k,
         adjacency_limit=adjacency_limit,
     )
-    logger.info(f"[QDRANT] Retrieved {len(retrieval)} nodes")
-
-    logger.info("[TOOL] build_graph_rag_payload")
     payload = build_graph_rag_payload(
         query=query,
         query_embedding=query_vector,
         retrieved_nodes=retrieval,
-    )
-    logger.info(
-        f"[RAG_PIPELINE] Complete. Result count: {payload.get('result_count', 0)}"
     )
     return payload
 
@@ -394,6 +382,7 @@ def retrieve_inteli_knowledge(
     query: str,
     tool_context: ToolContext,
 ) -> Dict[str, Any]:
+    """Retrieve knowledge about Inteli from vector database. Main tool for answering questions about Inteli courses, scholarships, people, facilities, and admission process using RAG pipeline."""
     normalized_query = (query or "").strip()
     if not normalized_query:
         raise ValueError("retrieve_inteli_knowledge recebeu uma consulta vazia.")

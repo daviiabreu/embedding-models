@@ -6,6 +6,10 @@ from google.adk.agents import Agent
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tools.personality_tools import (
+    adapt_complexity,
+    adapt_examples,
+    adapt_pacing,
+    adapt_response_length,
     adapt_tone,
     apply_personality_adaptations,
     build_personality_profile,
@@ -13,10 +17,11 @@ from tools.personality_tools import (
     detect_emotional_state,
     detect_engagement_level,
     detect_personality_type,
+    track_adaptation_effectiveness,
 )
 
 
-def create_personality_agent(model: str = "gemini-2.0-flash-exp") -> Agent:
+def create_personality_agent(model: str = "model") -> Agent:
     instruction = """
 You are the Personality Agent, a specialized component responsible for understanding user personality traits, communication styles, emotional states, and engagement levels to enable personalized, adaptive interactions. Your insights help the robot dog tour guide system deliver experiences tailored to each individual user.
 
@@ -439,12 +444,20 @@ Interaction Pace:
         description="Detects user personality and adapts responses for personalization",
         instruction=instruction,
         tools=[
+            # Detection tools
             detect_personality_type,
             detect_communication_style,
             detect_emotional_state,
             detect_engagement_level,
-            build_personality_profile,
+            # Adaptation tools
             adapt_tone,
+            adapt_complexity,
+            adapt_response_length,
+            adapt_examples,
+            adapt_pacing,
+            # Profile and tracking tools
+            build_personality_profile,
+            track_adaptation_effectiveness,
             apply_personality_adaptations,
         ],
     )
