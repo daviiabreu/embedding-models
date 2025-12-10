@@ -14,7 +14,10 @@ Performance improvements:
 """
 
 import google.generativeai as genai
+from google.adk import Runner
 from google.adk.agents import Agent
+from google.adk.sessions import InMemorySessionService
+from google.genai import types
 
 from config import config
 from utils import get_logger
@@ -76,10 +79,19 @@ def create_orchestrator_agent(
 
 ## Workflow (4 Stages)
 
-1. **Safety Check**: Validate input with `safety_agent` → If unsafe, STOP
-2. **Context Retrieval**: Get conversation history with `context_agent`
-3. **Knowledge Lookup**: If asking about Inteli, use `knowledge_agent`
-4. **Output Safety**: Validate response with `safety_agent` → If unsafe, use safe alternative
+1. **Safety Check**: Validate input with safety_agent → If unsafe, STOP
+2. **Context Retrieval**: Get conversation history with context_agent
+3. **Knowledge Lookup**: If asking about Inteli, use knowledge_agent
+4. **Output Safety**: Validate response with safety_agent → If unsafe, use safe alternative
+
+## Sub-Agents Available
+
+You have access to three specialized sub-agents that you can delegate to:
+- **safety_agent**: Validates content for safety, detects PII, jailbreaks, and inappropriate content
+- **context_agent**: Manages conversation memory and retrieves relevant context
+- **knowledge_agent**: Retrieves information about Inteli from the knowledge base using RAG
+
+Delegate to these agents when you need their specialized capabilities.
 
 ## Response Style
 
@@ -95,13 +107,14 @@ Use [latido] occasionally (not every message). Be helpful and concise.
 If an agent fails, respond: "Desculpe [latido], tive um probleminha. Pode perguntar de novo?"
 """
 
-    # Create orchestrator with 3 agents (no personality agent)
+    # Create orchestrator with 3 sub-agents (no personality agent)
+    # In Google ADK, agents are added as sub_agents, not tools
     orchestrator = Agent(
         name="orchestrator_agent_v3",
         model=model,
         description="V3 Orchestrator - No personality agent (LLM adapts naturally)",
         instruction=instruction,
-        tools=[
+        sub_agents=[
             safety_agent,
             context_agent,
             knowledge_agent,
@@ -132,6 +145,8 @@ class OrchestratorAgent:
         safety_agent: Agent = None,
         context_agent: Agent = None,
         knowledge_agent: Agent = None,
+        user_id: str = "default_user",
+        session_id: str = "default_session",
     ):
         """
         Initialize Orchestrator Agent V3.
@@ -141,8 +156,12 @@ class OrchestratorAgent:
             safety_agent: Optional Safety Agent
             context_agent: Optional Context Agent
             knowledge_agent: Optional Knowledge Agent (no personality agent)
+            user_id: User ID for the session
+            session_id: Session ID for the conversation
         """
         self.model = model or config.model.DEFAULT_MODEL
+        self.user_id = user_id
+        self.session_id = session_id
 
         # Configure Gemini API
         if not config.model.GOOGLE_API_KEY:
@@ -155,6 +174,23 @@ class OrchestratorAgent:
             safety_agent=safety_agent,
             context_agent=context_agent,
             knowledge_agent=knowledge_agent,
+        )
+
+        # Create Runner with in-memory session service
+        self.session_service = InMemorySessionService()
+        
+        # Create the session first
+        self.app_name = "inteli_robot_dog_tour_guide"
+        self.session_service.create_session_sync(
+            app_name=self.app_name,
+            user_id=self.user_id,
+            session_id=self.session_id,
+        )
+        
+        self.runner = Runner(
+            app_name=self.app_name,
+            agent=self.agent,
+            session_service=self.session_service,
         )
 
         # Local conversation history (backup)
@@ -182,21 +218,37 @@ class OrchestratorAgent:
         logger.info("processing_message", message_length=len(user_message))
 
         try:
-            # Use orchestrator agent to process
+            # Create content from user message
+            content = types.Content(
+                parts=[types.Part(text=user_message)],
+                role="user"
+            )
+
+            # Use runner to process message
             # It automatically:
             # 1. Validates input safety
             # 2. Retrieves context
             # 3. Routes to knowledge agent when needed
             # 4. Validates output safety
             # 5. Adapts tone naturally (no personality agent)
-            response = self.agent.run(user_message)
+            response_text = ""
+            for event in self.runner.run(
+                user_id=self.user_id,
+                session_id=self.session_id,
+                new_message=content,
+            ):
+                # Extract text from agent response events
+                if hasattr(event, 'content') and event.content:
+                    for part in event.content.parts:
+                        if hasattr(part, 'text') and part.text:
+                            response_text += part.text
 
             # Backup to local history
             self._add_to_history("user", user_message)
-            self._add_to_history("assistant", response)
+            self._add_to_history("assistant", response_text)
 
-            logger.info("message_processed", response_length=len(response))
-            return response
+            logger.info("message_processed", response_length=len(response_text))
+            return response_text
 
         except ValueError as e:
             # Validation errors

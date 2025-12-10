@@ -60,7 +60,11 @@ class ChatSession:
         """Initialize the orchestrator agent (which manages all sub-agents internally)."""
         # Create orchestrator - it will initialize all sub-agents internally
         print(f"{DIM}  → Creating Orchestrator Agent...{RESET}")
-        self.orchestrator = OrchestratorAgent(model=self.model)
+        self.orchestrator = OrchestratorAgent(
+            model=self.model,
+            user_id=self.user_id,
+            session_id=self.session_id,
+        )
 
         # Store conversation history
         self.conversation_history = []

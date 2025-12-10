@@ -508,12 +508,12 @@ def check_content_safety(
         pii_result = mask_pii(text, tool_context=tool_context)
         results["checks_run"].append("pii")
         results["pii_check"] = pii_result
-        if pii_result["pii_detected"]:
+        if pii_result.get("pii_detected", False):
             results["violations"].append(
                 {
                     "type": "pii",
                     "severity": "medium",
-                    "details": pii_result["pii_types"],
+                    "details": pii_result.get("pii_types", []),
                 }
             )
 
@@ -521,12 +521,12 @@ def check_content_safety(
         mod_result = check_moderation(text, tool_context=tool_context)
         results["checks_run"].append("moderation")
         results["moderation_check"] = mod_result
-        if mod_result["flagged"]:
+        if mod_result.get("success", False) and mod_result.get("flagged", False):
             results["violations"].append(
                 {
                     "type": "moderation",
                     "severity": "high",
-                    "details": mod_result["violations"],
+                    "details": mod_result.get("violations", []),
                 }
             )
             results["overall_safe"] = False
@@ -535,7 +535,7 @@ def check_content_safety(
         jailbreak_result = detect_jailbreak(text, tool_context=tool_context)
         results["checks_run"].append("jailbreak")
         results["jailbreak_check"] = jailbreak_result
-        if jailbreak_result["is_jailbreak"]:
+        if jailbreak_result.get("is_jailbreak", False):
             details = jailbreak_result.get(
                 "techniques_detected",
                 jailbreak_result.get("patterns_detected", []),
@@ -555,7 +555,7 @@ def check_content_safety(
         )
         results["checks_run"].append("off_topic")
         results["off_topic_check"] = off_topic_result
-        if off_topic_result["is_off_topic"]:
+        if off_topic_result.get("is_off_topic", False):
             results["violations"].append(
                 {
                     "type": "off_topic",
