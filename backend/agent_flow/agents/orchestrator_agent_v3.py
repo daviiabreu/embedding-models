@@ -178,7 +178,7 @@ class OrchestratorAgent:
 
         # Create Runner with in-memory session service
         self.session_service = InMemorySessionService()
-        
+
         # Create the session first
         self.app_name = "inteli_robot_dog_tour_guide"
         self.session_service.create_session_sync(
@@ -186,7 +186,7 @@ class OrchestratorAgent:
             user_id=self.user_id,
             session_id=self.session_id,
         )
-        
+
         self.runner = Runner(
             app_name=self.app_name,
             agent=self.agent,
@@ -219,10 +219,7 @@ class OrchestratorAgent:
 
         try:
             # Create content from user message
-            content = types.Content(
-                parts=[types.Part(text=user_message)],
-                role="user"
-            )
+            content = types.Content(parts=[types.Part(text=user_message)], role="user")
 
             # Use runner to process message
             # It automatically:
@@ -238,9 +235,9 @@ class OrchestratorAgent:
                 new_message=content,
             ):
                 # Extract text from agent response events
-                if hasattr(event, 'content') and event.content:
+                if hasattr(event, "content") and event.content:
                     for part in event.content.parts:
-                        if hasattr(part, 'text') and part.text:
+                        if hasattr(part, "text") and part.text:
                             response_text += part.text
 
             # Backup to local history
