@@ -1,6 +1,5 @@
 import logging
 import os
-from typing import Dict, List
 
 import google.generativeai as genai
 from dotenv import load_dotenv
@@ -103,16 +102,16 @@ If agent fails, respond: "Desculpe [latido], tive um probleminha. Pode perguntar
         description="Main coordinator for the Inteli robot dog tour guide system. Validates safety, manages context, personalizes responses, and routes to specialized agents.",
         instruction=instruction,
         tools=[
-            safety_agent,      # ✅ Agent como tool
-            context_agent,     # ✅ Agent como tool
-            personality_agent, # ✅ Agent como tool
-            knowledge_agent,   # ✅ Agent como tool
+            safety_agent,  # ✅ Agent como tool
+            context_agent,  # ✅ Agent como tool
+            personality_agent,  # ✅ Agent como tool
+            knowledge_agent,  # ✅ Agent como tool
         ],
     )
 
     logger.info("[Setup] Orchestrator Agent created successfully")
     logger.info(f"[Setup] Model: {model}")
-    logger.info(f"[Setup] Sub-agents: safety, context, personality, knowledge")
+    logger.info("[Setup] Sub-agents: safety, context, personality, knowledge")
 
     return orchestrator
 
@@ -161,7 +160,7 @@ class OrchestratorAgent:
         )
 
         # Conversation history (backup local)
-        self.conversation_history: List[Dict[str, str]] = []
+        self.conversation_history: list[dict[str, str]] = []
 
         logger.info("[Orchestrator] Initialized successfully")
 
@@ -202,18 +201,34 @@ class OrchestratorAgent:
 
             return response
 
+        except ValueError as e:
+            # Input validation or parsing errors
+            logger.warning(f"[Orchestrator] Validation error: {e}")
+            return "Desculpe [latido], não consegui processar sua mensagem. Pode tentar reformular?"
+        except KeyError as e:
+            # Missing required data
+            logger.error(f"[Orchestrator] Missing data: {e}", exc_info=True)
+            return "Desculpe [latido], tive um problema interno. Pode tentar de novo?"
         except Exception as e:
-            logger.error(f"[Orchestrator] Error: {e}")
-            return "Desculpe [latido], tive um probleminha técnico. Pode tentar novamente?"
+            # Unexpected errors - log with full trace
+            logger.critical(
+                f"[Orchestrator] Unexpected error: {type(e).__name__}: {e}",
+                exc_info=True,
+            )
+            return (
+                "Desculpe [latido], tive um probleminha técnico. Pode tentar novamente?"
+            )
 
     def _add_to_history(self, role: str, content: str):
         """Adiciona mensagem ao histórico local."""
-        self.conversation_history.append({
-            "role": role,
-            "content": content,
-        })
+        self.conversation_history.append(
+            {
+                "role": role,
+                "content": content,
+            }
+        )
 
-    def get_conversation_history(self) -> List[Dict[str, str]]:
+    def get_conversation_history(self) -> list[dict[str, str]]:
         """Retorna histórico de conversas."""
         return self.conversation_history
 

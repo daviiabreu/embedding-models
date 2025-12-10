@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import logging
 import os
+from collections.abc import Sequence
 from collections.abc import Sequence as SequenceABC
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any
 
 from dotenv import load_dotenv
 from google.adk.tools.tool_context import ToolContext
@@ -53,7 +54,7 @@ INCLUDE_EMBEDDINGS = os.getenv("RAG_INCLUDE_EMBEDDINGS", "false").strip().lower(
 }
 
 
-def _parse_score_threshold() -> Optional[float]:
+def _parse_score_threshold() -> float | None:
     if not SCORE_THRESHOLD:
         return None
     try:
@@ -92,7 +93,7 @@ def _prepare_vector(vector: Any) -> Any:
     if isinstance(vector, list):
         return vector
     if isinstance(vector, dict):
-        prepared: Dict[str, Any] = {}
+        prepared: dict[str, Any] = {}
         for key, value in vector.items():
             if isinstance(value, list):
                 prepared[key] = value
@@ -107,7 +108,7 @@ def _prepare_vector(vector: Any) -> Any:
 
 
 def _extract_adjacency_candidates(
-    payload: Dict[str, Any], metadata: Dict[str, Any]
+    payload: dict[str, Any], metadata: dict[str, Any]
 ) -> Any:
     for key in (ADJACENCY_FIELD, "adjacent_ids", "neighbors", "edges"):
         value = payload.get(key)
@@ -120,7 +121,7 @@ def _extract_adjacency_candidates(
 
 def _normalize_adjacency_ids(
     adjacency_raw: Any, limit: int
-) -> Tuple[List[str], List[Any]]:
+) -> tuple[list[str], list[Any]]:
     if adjacency_raw is None or limit <= 0:
         return [], []
 
@@ -131,8 +132,8 @@ def _normalize_adjacency_ids(
     else:
         tokens = [adjacency_raw]
 
-    normalized_strings: List[str] = []
-    qdrant_ids: List[Any] = []
+    normalized_strings: list[str] = []
+    qdrant_ids: list[Any] = []
     for token in tokens:
         if token is None:
             continue
@@ -148,11 +149,11 @@ def _normalize_adjacency_ids(
 
 def _retrieve_adjacency_payloads(
     client: QdrantClient, adjacency_ids: Sequence[Any]
-) -> Dict[str, Dict[str, Any]]:
+) -> dict[str, dict[str, Any]]:
     if not adjacency_ids:
         return {}
 
-    unique_ids: List[Any] = []
+    unique_ids: list[Any] = []
     seen: set[str] = set()
     for candidate in adjacency_ids:
         normalized = _stringify_point_id(candidate)
@@ -171,12 +172,12 @@ def _retrieve_adjacency_payloads(
         with_vectors=INCLUDE_EMBEDDINGS,
     )
 
-    adjacency_map: Dict[str, Dict[str, Any]] = {}
+    adjacency_map: dict[str, dict[str, Any]] = {}
     for record in records:
         payload = record.payload or {}
         metadata = payload.get("metadata") or {}
         key = _stringify_point_id(record.id)
-        adjacency_entry: Dict[str, Any] = {
+        adjacency_entry: dict[str, Any] = {
             "id": key,
             "score": None,
             "content": payload.get("content"),
@@ -191,7 +192,7 @@ def _retrieve_adjacency_payloads(
     return adjacency_map
 
 
-def _extract_query_points(results: Any) -> List[Any]:
+def _extract_query_points(results: Any) -> list[Any]:
     if hasattr(results, "points"):
         payload = getattr(results, "points")
         return list(payload or [])
@@ -213,20 +214,33 @@ def _resolve_scored_point(point: Any) -> Any:
     return point
 
 
-def query_embedding(query: str) -> List[float]:
+# Global cache for embedding model (P0-4: Cache embedding model)
+_embedding_model_cache = None
+
+
+def get_embedding_model():
+    """Get cached embedding model instance. Loads model on first call, then reuses."""
+    global _embedding_model_cache
+    if _embedding_model_cache is None:
+        logger.info(f"Loading embedding model: {EMBEDDING_MODEL_NAME}")
+        _embedding_model_cache = SentenceTransformer(EMBEDDING_MODEL_NAME)
+    return _embedding_model_cache
+
+
+def query_embedding(query: str) -> list[float]:
     """Convert text query into embedding vector using sentence transformer model. Returns dense vector representation for semantic search."""
     if not query:
         raise ValueError("query_embedding_step recebeu uma query vazia.")
 
-    model = SentenceTransformer(EMBEDDING_MODEL_NAME)
+    model = get_embedding_model()  # Use cached model
     return model.encode(query).tolist()
 
 
 def retrieval_from_qdrant(
-    query_embedding: List[float],
+    query_embedding: list[float],
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """Search Qdrant vector database for relevant documents using embedding similarity. Returns top-k results with adjacency expansion for graph-based retrieval."""
     if not query_embedding:
         raise ValueError("retrieval_from_qdrant_step recebeu embedding vazio.")
@@ -244,9 +258,9 @@ def retrieval_from_qdrant(
         score_threshold=threshold,
     )
     scored_points = _extract_query_points(query_result)
-    retrieved_nodes: List[Dict[str, Any]] = []
-    adjacency_lookup: Dict[str, List[str]] = {}
-    adjacency_requests: List[Any] = []
+    retrieved_nodes: list[dict[str, Any]] = []
+    adjacency_lookup: dict[str, list[str]] = {}
+    adjacency_requests: list[Any] = []
 
     for point in scored_points:
         point = _resolve_scored_point(point)
@@ -268,7 +282,7 @@ def retrieval_from_qdrant(
         raw_score = getattr(point, "score", None)
         if raw_score is None and isinstance(point, dict):
             raw_score = point.get("score")
-        entry: Dict[str, Any] = {
+        entry: dict[str, Any] = {
             "id": node_id,
             "score": raw_score,
             "content": content,
@@ -309,7 +323,7 @@ def retrieval_from_qdrant(
     return retrieved_nodes
 
 
-def _format_context_block(node: Dict[str, Any], index: int) -> str:
+def _format_context_block(node: dict[str, Any], index: int) -> str:
     metadata = node.get("metadata") or {}
     header_parts = [f"Trecho {index}"]
     section = metadata.get("section") or metadata.get("section_context")
@@ -339,9 +353,9 @@ def _format_context_block(node: Dict[str, Any], index: int) -> str:
 
 def build_graph_rag_payload(
     query: str,
-    query_embedding: List[float],
-    retrieved_nodes: List[Dict[str, Any]],
-) -> Dict[str, Any]:
+    query_embedding: list[float],
+    retrieved_nodes: list[dict[str, Any]],
+) -> dict[str, Any]:
     """Format retrieved documents into structured RAG payload. Combines query, embeddings, and retrieved nodes into formatted context text."""
     context_blocks = [
         _format_context_block(node, idx)
@@ -362,7 +376,7 @@ def rag_inference_pipeline(
     query: str,
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Complete RAG pipeline for knowledge retrieval. Converts query to embedding, searches Qdrant, expands with graph adjacency, and formats context for LLM."""
     query_vector = query_embedding(query=query)
     retrieval = retrieval_from_qdrant(
@@ -381,7 +395,7 @@ def rag_inference_pipeline(
 def retrieve_inteli_knowledge(
     query: str,
     tool_context: ToolContext,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Retrieve knowledge about Inteli from vector database. Main tool for answering questions about Inteli courses, scholarships, people, facilities, and admission process using RAG pipeline."""
     normalized_query = (query or "").strip()
     if not normalized_query:

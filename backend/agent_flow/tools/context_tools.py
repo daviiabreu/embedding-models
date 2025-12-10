@@ -1,11 +1,28 @@
 import json
 import os
-from typing import Dict, List, Optional
 
 import google.generativeai as genai
 from google.adk.tools.tool_context import ToolContext
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+# Global cache for embedding model (P0-4: Cache embedding model)
+_context_embedding_model_cache = None
+
+
+def _get_context_embedding_model(model_name: str = None):
+    """Get cached embedding model for context tools. Loads once, reuses thereafter."""
+    global _context_embedding_model_cache
+    if _context_embedding_model_cache is None:
+        from sentence_transformers import SentenceTransformer
+
+        if model_name is None:
+            model_name = os.getenv(
+                "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+            )
+        _context_embedding_model_cache = SentenceTransformer(model_name)
+    return _context_embedding_model_cache
+
 
 # ============================================================================
 # 1. RETRIEVE RELEVANT CONTEXT - Get relevant information from knowledge base
@@ -17,7 +34,7 @@ def retrieve_relevant_context(
     tool_context: ToolContext,
     top_k: int = 5,
     similarity_threshold: float = 0.7,
-    sources: Optional[List[str]] = None,
+    sources: list[str] | None = None,
 ) -> dict:
     """Retrieve relevant context from conversation history ONLY.
 
@@ -40,7 +57,11 @@ def retrieve_relevant_context(
 
         # Simple relevance: return recent context
         # In a full implementation, would use semantic similarity on conversation history
-        recent_context = conversation_history[-top_k:] if len(conversation_history) > top_k else conversation_history
+        recent_context = (
+            conversation_history[-top_k:]
+            if len(conversation_history) > top_k
+            else conversation_history
+        )
 
         if "context_retrievals" not in tool_context.state:
             tool_context.state["context_retrievals"] = []
@@ -49,7 +70,7 @@ def retrieve_relevant_context(
             {
                 "query": query,
                 "top_k": top_k,
-                "chunks_retrieved": len(retrieved_chunks),
+                "context_items_retrieved": len(recent_context),
                 "similarity_threshold": similarity_threshold,
             }
         )
@@ -57,12 +78,9 @@ def retrieve_relevant_context(
         return {
             "success": True,
             "query": query,
-            "chunks": retrieved_chunks,
-            "total_retrieved": len(retrieved_chunks),
-            "sources_searched": sources or ["all"],
-            "context": rag_result.get("context", ""),
-            "query_embedding": rag_result.get("query_embedding"),
-            "message": f"Retrieved {len(retrieved_chunks)} relevant context chunks from RAG system",
+            "context": recent_context,
+            "total_retrieved": len(recent_context),
+            "message": f"Retrieved {len(recent_context)} conversation context items",
         }
 
     except Exception as e:
@@ -73,7 +91,7 @@ def retrieve_relevant_context(
             {
                 "query": query,
                 "top_k": top_k,
-                "chunks_retrieved": 0,
+                "context_items_retrieved": 0,
                 "error": str(e),
             }
         )
@@ -81,9 +99,8 @@ def retrieve_relevant_context(
         return {
             "success": False,
             "query": query,
-            "chunks": [],
+            "context": [],
             "total_retrieved": 0,
-            "sources_searched": sources or ["all"],
             "message": f"Context retrieval failed: {str(e)}",
             "error": str(e),
         }
@@ -96,7 +113,7 @@ def retrieve_relevant_context(
 
 def rank_context_chunks(
     query: str,
-    chunks: List[Dict],
+    chunks: list[dict],
     tool_context: ToolContext,
     ranking_method: str = "semantic",
 ) -> dict:
@@ -107,12 +124,12 @@ def rank_context_chunks(
         if ranking_method == "semantic":
             import os
 
-            from sentence_transformers import SentenceTransformer, util
+            from sentence_transformers import util
 
             model_name = os.getenv(
                 "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
             )
-            model = SentenceTransformer(model_name)
+            model = _get_context_embedding_model(model_name)
 
             query_embedding = model.encode(query, convert_to_tensor=True)
 
@@ -250,7 +267,7 @@ def rank_context_chunks(
 
 
 def filter_context_by_relevance(
-    chunks: List[Dict],
+    chunks: list[dict],
     query: str,
     tool_context: ToolContext,
     min_score: float = 0.5,
@@ -497,7 +514,7 @@ Focus on key facts, decisions, and important points."""
 
 
 def track_topics_discussed(
-    conversation_history: List[str],
+    conversation_history: list[str],
     tool_context: ToolContext,
     extract_subtopics: bool = True,
 ) -> dict:
@@ -712,7 +729,7 @@ Respond in JSON format:
 
 
 def summarize_context(
-    context_chunks: List[Dict],
+    context_chunks: list[dict],
     tool_context: ToolContext,
     max_length: int = 500,
     summary_type: str = "abstractive",
@@ -816,7 +833,7 @@ def extract_key_information(
     context: str,
     query: str,
     tool_context: ToolContext,
-    info_types: Optional[List[str]] = None,
+    info_types: list[str] | None = None,
 ) -> dict:
     """Extract key facts and entities from context. Identifies entities (people, places, organizations), dates, numbers, and other important information types."""
     if not os.getenv("GOOGLE_API_KEY"):
@@ -910,7 +927,7 @@ Respond in JSON format:
 
 
 def deduplicate_context(
-    chunks: List[Dict], tool_context: ToolContext, similarity_threshold: float = 0.9
+    chunks: list[dict], tool_context: ToolContext, similarity_threshold: float = 0.9
 ) -> dict:
     """Remove redundant and duplicate context chunks. Uses semantic similarity to identify and remove near-duplicate information."""
     try:
@@ -1028,8 +1045,8 @@ def deduplicate_context(
 
 
 def manage_context_window(
-    context_chunks: List[Dict],
-    conversation_history: List[str],
+    context_chunks: list[dict],
+    conversation_history: list[str],
     tool_context: ToolContext,
     max_tokens: int = 8000,
     priority: str = "recent",
@@ -1227,7 +1244,7 @@ def manage_context_window(
 
 
 def prepare_context_for_llm(
-    context_chunks: List[Dict],
+    context_chunks: list[dict],
     query: str,
     tool_context: ToolContext,
     format_style: str = "structured",
@@ -1355,8 +1372,8 @@ def prepare_context_for_llm(
 
 
 def build_context_profile(
-    conversation_history: List[str],
-    topics_discussed: List[str],
+    conversation_history: list[str],
+    topics_discussed: list[str],
     tool_context: ToolContext,
 ) -> dict:
     """Build profile of user's knowledge state and context needs. Tracks what user knows, information gaps, preferred topics, and context requirements."""
@@ -1457,7 +1474,7 @@ Respond in JSON format:
 
 
 def check_context_freshness(
-    context_chunks: List[Dict], tool_context: ToolContext, max_age_days: int = 90
+    context_chunks: list[dict], tool_context: ToolContext, max_age_days: int = 90
 ) -> dict:
     """Verify context information is up-to-date. Checks timestamps and identifies stale context chunks that may need refreshing."""
     from datetime import datetime, timedelta
@@ -1624,9 +1641,9 @@ def check_context_freshness(
 
 def manage_context(
     query: str,
-    conversation_history: List[str],
+    conversation_history: list[str],
     tool_context: ToolContext,
-    operations: Optional[List[str]] = None,
+    operations: list[str] | None = None,
     max_tokens: int = 8000,
 ) -> dict:
     """Comprehensive context management wrapper. Orchestrates retrieve, rank, filter, deduplicate, optimize, and format operations for complete context handling."""

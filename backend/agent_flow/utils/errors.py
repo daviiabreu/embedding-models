@@ -1,0 +1,46 @@
+"""Custom exceptions for better error handling."""
+
+
+class AgentFlowError(Exception):
+    """Base exception for agent flow errors."""
+
+    def __init__(self, message: str, user_message: str = None):
+        self.message = message
+        self.user_message = (
+            user_message
+            or "Desculpe [latido], tive um probleminha. Pode tentar de novo?"
+        )
+        super().__init__(self.message)
+
+
+class SafetyCheckError(AgentFlowError):
+    """Safety check failed."""
+
+    def __init__(self, message: str, reason: str = None):
+        user_msg = "Desculpe, não posso ajudar com isso [latido]"
+        self.reason = reason
+        super().__init__(message, user_msg)
+
+
+class RAGRetrievalError(AgentFlowError):
+    """RAG retrieval failed."""
+
+    def __init__(self, message: str):
+        user_msg = "Estou com dificuldade para acessar informações agora [latido]. Pode perguntar de novo?"
+        super().__init__(message, user_msg)
+
+
+class RateLimitError(AgentFlowError):
+    """Rate limit exceeded."""
+
+    def __init__(self, message: str):
+        user_msg = "Você está enviando mensagens muito rápido [latido]. Aguarde um momento e tente novamente."
+        super().__init__(message, user_msg)
+
+
+class InputValidationError(AgentFlowError):
+    """Input validation failed."""
+
+    def __init__(self, message: str):
+        user_msg = f"Sua mensagem não pôde ser processada [latido]: {message}"
+        super().__init__(message, user_msg)
