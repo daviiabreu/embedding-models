@@ -1,0 +1,15 @@
+{
+  "queries": [
+    "oi",
+    "Quais s\u00e3o os cursos do Inteli?",
+    "Me conte sobre as bolsas de estudo",
+    "Como funciona o processo de admiss\u00e3o?"
+  ],
+  "iterations": 10,
+  "latencies": [],
+  "note": "Mock baseline created - agent system needs Phase 1 fixes before real benchmarking",
+  "mean_latency": 0.0,
+  "p50_latency": 0.0,
+  "p95_latency": 0.0,
+  "p99_latency": 0.0
+}

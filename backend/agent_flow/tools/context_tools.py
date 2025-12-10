@@ -19,42 +19,28 @@ def retrieve_relevant_context(
     similarity_threshold: float = 0.7,
     sources: Optional[List[str]] = None,
 ) -> dict:
-    """Retrieve relevant context from knowledge base using RAG. Fetches top-k most relevant chunks filtered by similarity threshold for answering user queries."""
+    """Retrieve relevant context from conversation history ONLY.
+
+    NOTE: This tool retrieves CONVERSATION CONTEXT, not knowledge base information.
+    For knowledge retrieval, the agent should call knowledge_agent separately.
+    This fixes the anti-pattern of tools calling other tools.
+    """
     try:
-        from .knowledge_tools import retrieve_inteli_knowledge
-    except ImportError:
-        retrieved_chunks = []
-        if "context_retrievals" not in tool_context.state:
-            tool_context.state["context_retrievals"] = []
+        # Retrieve conversation history from state
+        conversation_history = tool_context.state.get("conversation_history", [])
 
-        tool_context.state["context_retrievals"].append(
-            {"query": query, "top_k": top_k, "chunks_retrieved": 0}
-        )
+        if not conversation_history:
+            return {
+                "success": True,
+                "query": query,
+                "context": [],
+                "total_retrieved": 0,
+                "message": "No conversation history available",
+            }
 
-        return {
-            "success": False,
-            "query": query,
-            "chunks": [],
-            "total_retrieved": 0,
-            "sources_searched": sources or ["all"],
-            "message": "Knowledge tools not available",
-            "error": "Could not import retrieve_inteli_knowledge",
-        }
-
-    try:
-        rag_result = retrieve_inteli_knowledge(query, tool_context)
-
-        retrieved_chunks = rag_result.get("chunks", [])
-
-        if similarity_threshold > 0:
-            filtered_chunks = [
-                chunk
-                for chunk in retrieved_chunks
-                if chunk.get("score", 0) >= similarity_threshold
-            ]
-            retrieved_chunks = filtered_chunks
-
-        retrieved_chunks = retrieved_chunks[:top_k]
+        # Simple relevance: return recent context
+        # In a full implementation, would use semantic similarity on conversation history
+        recent_context = conversation_history[-top_k:] if len(conversation_history) > top_k else conversation_history
 
         if "context_retrievals" not in tool_context.state:
             tool_context.state["context_retrievals"] = []
