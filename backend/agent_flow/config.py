@@ -17,7 +17,7 @@ if ENV_FILE.exists():
 class ModelConfig:
     """LLM model configuration."""
 
-    DEFAULT_MODEL: str = os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+    DEFAULT_MODEL: str = os.getenv("DEFAULT_MODEL")
     GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
     PERSPECTIVE_API_KEY: str = os.getenv("PERSPECTIVE_API_KEY", "")
 
@@ -68,8 +68,8 @@ class SafetyConfig:
     SIMILARITY_THRESHOLD: float = 0.7
 
     # Rate limiting
-    MAX_REQUESTS_PER_MINUTE: int = 60
-    MAX_REQUESTS_PER_HOUR: int = 500
+    MAX_REQUESTS_PER_MINUTE: int = 5
+    MAX_REQUESTS_PER_HOUR: int = 100
 
     # Input validation
     MAX_INPUT_LENGTH: int = 10_000

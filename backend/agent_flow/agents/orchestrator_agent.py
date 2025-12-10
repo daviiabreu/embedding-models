@@ -55,7 +55,7 @@ def create_orchestrator_agent(
         Agent: Orchestrator Agent configurado
     """
     if model is None:
-        model = os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        model = os.getenv("DEFAULT_MODEL")
 
     # Criar sub-agents se não fornecidos
     if safety_agent is None:
@@ -142,7 +142,7 @@ class OrchestratorAgent:
             personality_agent: Personality Agent opcional
             knowledge_agent: Knowledge Agent opcional
         """
-        self.model = model or os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        self.model = model or os.getenv("DEFAULT_MODEL")
 
         # Configure Gemini API
         api_key = os.getenv("GOOGLE_API_KEY")

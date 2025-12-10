@@ -33,8 +33,16 @@ class RAGRetrievalError(AgentFlowError):
 class RateLimitError(AgentFlowError):
     """Rate limit exceeded."""
 
-    def __init__(self, message: str):
-        user_msg = "Você está enviando mensagens muito rápido [latido]. Aguarde um momento e tente novamente."
+    def __init__(self, message: str = "Rate limit exceeded", retry_after: int = 60):
+        """
+        Initialize rate limit error.
+
+        Args:
+            message: Internal error message
+            retry_after: Seconds until user can retry
+        """
+        user_msg = f"Você está enviando mensagens muito rápido [latido]. Aguarde {retry_after} segundos e tente novamente."
+        self.retry_after = retry_after
         super().__init__(message, user_msg)
 
 

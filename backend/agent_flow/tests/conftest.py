@@ -131,7 +131,7 @@ def mock_config():
 
     @dataclass
     class MockModelConfig:
-        DEFAULT_MODEL: str = "gemini-2.0-flash-exp"
+        DEFAULT_MODEL: str = "gemini-2.5-pro"
         GOOGLE_API_KEY: str = "test-api-key"
         PERSPECTIVE_API_KEY: str = "test-perspective-key"
 
