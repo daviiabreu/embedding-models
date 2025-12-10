@@ -12,6 +12,20 @@ Performance: All functions < 1ms (vs 200-400ms for LLM calls)
 
 import re
 
+from utils.constants import (
+    ENGAGEMENT_BASELINE_SCORE,
+    ENGAGEMENT_CONVERSATION_BOOST,
+    ENGAGEMENT_CONVERSATION_HISTORY_MIN,
+    ENGAGEMENT_ENTHUSIASM_BOOST,
+    ENGAGEMENT_HIGH_THRESHOLD,
+    ENGAGEMENT_LONG_MESSAGE_WORDS,
+    ENGAGEMENT_MODERATE_THRESHOLD,
+    ENGAGEMENT_QUALITY_MESSAGE_WORDS,
+    ENGAGEMENT_QUESTION_BOOST,
+    ENGAGEMENT_SHORT_MESSAGE_WORDS,
+    VERBOSITY_LONG_THRESHOLD,
+    VERBOSITY_SHORT_THRESHOLD,
+)
 from utils.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -98,9 +112,9 @@ def detect_verbosity(text: str) -> str:
     """
     word_count = len(text.split())
 
-    if word_count <= 10:
+    if word_count <= VERBOSITY_SHORT_THRESHOLD:
         return "concise"
-    elif word_count <= 30:
+    elif word_count <= VERBOSITY_LONG_THRESHOLD:
         return "balanced"
     else:
         return "detailed"
@@ -150,32 +164,35 @@ def detect_engagement_level(
     has_enthusiasm = "!" in text
 
     # Engagement score (0-10)
-    score = 5.0  # Baseline
+    score = ENGAGEMENT_BASELINE_SCORE
 
     # Adjust based on length
-    if word_count > 20:
+    if word_count > ENGAGEMENT_LONG_MESSAGE_WORDS:
         score += 2.0
-    elif word_count < 5:
+    elif word_count < ENGAGEMENT_SHORT_MESSAGE_WORDS:
         score -= 2.0
 
     # Adjust based on markers
     if has_questions:
-        score += 1.5
+        score += ENGAGEMENT_QUESTION_BOOST
     if has_enthusiasm:
-        score += 1.0
+        score += ENGAGEMENT_ENTHUSIASM_BOOST
 
     # Adjust based on conversation flow
-    if conversation_history and len(conversation_history) > 2:
+    if (
+        conversation_history
+        and len(conversation_history) > ENGAGEMENT_CONVERSATION_HISTORY_MIN
+    ):
         # User is engaged if they keep messaging
-        score += 1.0
+        score += ENGAGEMENT_CONVERSATION_BOOST
 
     # Normalize to 0-10
     score = max(0, min(10, score))
 
     # Map to level
-    if score >= 7:
+    if score >= ENGAGEMENT_HIGH_THRESHOLD:
         level = "high"
-    elif score >= 4:
+    elif score >= ENGAGEMENT_MODERATE_THRESHOLD:
         level = "moderate"
     else:
         level = "low"
@@ -184,7 +201,9 @@ def detect_engagement_level(
         "engagement_level": level,
         "engagement_score": score,
         "indicators": {
-            "message_quality": "high" if word_count > 15 else "low",
+            "message_quality": "high"
+            if word_count > ENGAGEMENT_QUALITY_MESSAGE_WORDS
+            else "low",
             "enthusiasm": has_enthusiasm,
             "asking_questions": has_questions,
         },

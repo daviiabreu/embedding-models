@@ -10,6 +10,12 @@ Improvements over basic regex:
 
 import re
 
+from utils.constants import (
+    CNPJ_LENGTH,
+    CPF_CNPJ_MODULO,
+    CPF_CNPJ_REMAINDER_THRESHOLD,
+    CPF_LENGTH,
+)
 from utils.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -132,18 +138,22 @@ def validate_cpf(cpf: str) -> bool:
     # Remove non-digits
     cpf = re.sub(r"\D", "", cpf)
 
-    if len(cpf) != 11:
+    if len(cpf) != CPF_LENGTH:
         return False
 
     # Check for known invalid CPFs (all same digit)
-    if cpf == cpf[0] * 11:
+    if cpf == cpf[0] * CPF_LENGTH:
         return False
 
     # Validate check digits
     def calculate_digit(cpf_partial: str, weights: list[int]) -> int:
         total = sum(int(digit) * weight for digit, weight in zip(cpf_partial, weights))
-        remainder = total % 11
-        return 0 if remainder < 2 else 11 - remainder
+        remainder = total % CPF_CNPJ_MODULO
+        return (
+            0
+            if remainder < CPF_CNPJ_REMAINDER_THRESHOLD
+            else CPF_CNPJ_MODULO - remainder
+        )
 
     weights_first = list(range(10, 1, -1))
     weights_second = list(range(11, 1, -1))
@@ -169,18 +179,22 @@ def validate_cnpj(cnpj: str) -> bool:
     # Remove non-digits
     cnpj = re.sub(r"\D", "", cnpj)
 
-    if len(cnpj) != 14:
+    if len(cnpj) != CNPJ_LENGTH:
         return False
 
     # Check for known invalid CNPJs (all same digit)
-    if cnpj == cnpj[0] * 14:
+    if cnpj == cnpj[0] * CNPJ_LENGTH:
         return False
 
     # Validate check digits
     def calculate_digit(cnpj_partial: str, weights: list[int]) -> int:
         total = sum(int(digit) * weight for digit, weight in zip(cnpj_partial, weights))
-        remainder = total % 11
-        return 0 if remainder < 2 else 11 - remainder
+        remainder = total % CPF_CNPJ_MODULO
+        return (
+            0
+            if remainder < CPF_CNPJ_REMAINDER_THRESHOLD
+            else CPF_CNPJ_MODULO - remainder
+        )
 
     # First check digit
     weights_first = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]

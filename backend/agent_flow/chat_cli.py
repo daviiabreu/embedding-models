@@ -11,7 +11,6 @@ import asyncio
 import os
 import sys
 from pathlib import Path
-from typing import Optional
 
 from dotenv import load_dotenv
 
@@ -22,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 load_dotenv()
 
 # pylint: disable=wrong-import-position
-from agents.orchestrator_agent import OrchestratorAgent  # noqa: E402
+from agents.orchestrator_agent_v3 import OrchestratorAgent  # noqa: E402
 
 # Color codes for terminal output
 GREEN = "\033[92m"
@@ -39,7 +38,7 @@ DIM = "\033[2m"
 class ChatSession:
     """Manages a chat session with the orchestrator agent."""
 
-    def __init__(self, model: Optional[str] = None, user_id: Optional[str] = None):
+    def __init__(self, model: str | None = None, user_id: str | None = None):
         """
         Initialize the chat session.
 
