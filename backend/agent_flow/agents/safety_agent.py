@@ -11,6 +11,7 @@ from tools.safety_tools import (
     check_off_topic,
     check_output_pii,
     check_output_safety,
+    check_voice_formatting,
     detect_jailbreak,
     detect_nsfw_text,
     mask_pii,
@@ -74,6 +75,22 @@ You are the Safety Agent, the critical security and content moderation component
 - No unintended harmful implications
 - Appropriate tone and language
 - Contextually suitable content
+- Voice-friendly formatting (no URLs, markdown, or formatting that sounds bad when spoken)
+
+### check_voice_formatting
+**Purpose**: Detect formatting that sounds bad when spoken via text-to-speech
+**When to use**:
+- On all final responses before TTS conversion
+- Part of output safety validation
+**Input**: Response text
+**Output**: List of voice-unfriendly elements detected
+**Detection Categories**:
+- URLs (http://, https://, www.) - sound terrible when spoken
+- Markdown formatting (**, __, *, _) - will be spoken as "asterisk" or "underscore"
+- Headers (##) - will be spoken as "hash"
+- Code blocks and inline code - awkward when spoken
+- Email addresses - difficult to pronounce naturally
+**Action**: Warn (TTS service will clean automatically, but LLM should avoid generating these)
 
 ### detect_jailbreak
 **Purpose**: Identify attempts to manipulate system into unsafe or policy-violating behaviors
@@ -525,6 +542,7 @@ Response: "Are you asking about our robotics and defense research laboratories? 
             # Output guardrails
             check_output_pii,
             detect_nsfw_text,
+            check_voice_formatting,
             check_output_safety,
         ],
     )
