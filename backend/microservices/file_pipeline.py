@@ -5,41 +5,13 @@ import re
 import uuid
 from json import JSONDecodeError
 from pathlib import Path
+from collections import OrderedDict
 from typing import Any, Dict, List, Set
 
 import docx2txt
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_core.documents import Document
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from PyPDF2 import PdfReader
-
-# --- UNSTRUCTURED IMPORTS (Detecção Avançada) ---
-try:
-    from unstructured.chunking.title import chunk_by_title
-    from unstructured.partition.pdf import partition_pdf
-
-    UNSTRUCTURED_AVAILABLE = True
-except ImportError:
-    UNSTRUCTURED_AVAILABLE = False
-    print("⚠️ Unstructured não instalado. Usando fallback PyPDFLoader.")
-
-# Shim para compatibilidade pdfminer
-try:
-    from pdfminer.psexceptions import PSSyntaxError as _
-except ImportError:
-    import sys as _sys
-    import types
-
-    from pdfminer.pdfparser import PDFSyntaxError
-
-    shim = types.ModuleType("pdfminer.psexceptions")
-
-    class PSSyntaxError(PDFSyntaxError):
-        """Backwards-compatible alias."""
-
-    shim.PSSyntaxError = PSSyntaxError
-    _sys.modules["pdfminer.psexceptions"] = shim
 
 from fastembed import SparseTextEmbedding
 from qdrant_client import QdrantClient
@@ -47,17 +19,7 @@ from qdrant_client.http import models as qdrant_models
 from sentence_transformers import SentenceTransformer
 
 
-# ZenML Bypass
-def step(func):
-    return func
-
-
-def pipeline(func):
-    return func
-
-
 load_dotenv()
-load_dotenv("agent_flow/.env", override=False)
 
 # --- CONFIGURAÇÕES ---
 DENSE_MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
@@ -152,7 +114,7 @@ def detect_summary_elements(
             if element_type in ["Title", "Header"] and any(
                 kw == text for kw in summary_keywords
             ):
-                logger.info(f"🔍 Sumário detectado (keyword) no elemento {i}")
+                logger.info(f"Sumário detectado (keyword) no elemento {i}")
 
                 # Marca elementos subsequentes
                 j = i
@@ -212,83 +174,13 @@ def extract_section_info(element: Dict[str, Any]) -> str:
         return clean if len(clean) > 2 else text
     return "general"
 
-
-def process_table_element(element) -> str:
-    """Extrai HTML de tabelas se disponível."""
-    if hasattr(element, "category") and element.category == "Table":
-        if hasattr(element.metadata, "text_as_html") and element.metadata.text_as_html:
-            return f"[TABELA]\n{element.metadata.text_as_html}"
-    return str(element)
-
-
 # ================= EXTRAÇÃO INTELIGENTE =================
 
 
-@step
-def extract_pdf_with_unstructured(file_path: Path) -> List[Dict[str, Any]]:
+def extract_pdf(file_path: Path) -> List[Dict[str, Any]]:
     """
-    Estratégia PREMIUM: Usa Unstructured para detecção de layout e tabelas.
+    PyPDFLoader com inferência manual.
     """
-    logger.info(f"🚀 Processamento Hi-Res (Unstructured): {file_path.name}")
-
-    try:
-        # Particionamento com detecção de layout
-        elements = partition_pdf(
-            filename=str(file_path),
-            strategy="hi_res",
-            infer_table_structure=True,
-            languages=["por"],
-        )
-
-        # Chunking semântico nativo
-        chunks = chunk_by_title(
-            elements,
-            combine_text_under_n_chars=200,
-            max_characters=1000,
-            new_after_n_chars=800,
-        )
-
-        processed_data = []
-        for i, chunk in enumerate(chunks):
-            # Processa tabelas especialmente
-            content = (
-                process_table_element(chunk)
-                if "Table" in str(chunk.category)
-                else chunk.text
-            )
-            content = clean_text(content)
-
-            if len(content) < 30:  # Filtro de ruído
-                continue
-
-            processed_data.append(
-                {
-                    "text": content,
-                    "type": str(chunk.category),
-                    "metadata": {
-                        "page_number": getattr(chunk.metadata, "page_number", 1),
-                        "source": file_path.name,
-                        "is_table": "Table" in str(chunk.category),
-                    },
-                    "element_id": f"uns_{file_path.stem}_{i}",
-                }
-            )
-
-        logger.info(f"📊 Unstructured: {len(processed_data)} chunks semânticos criados")
-        return processed_data
-
-    except Exception as e:
-        logger.error(f"❌ Erro no Unstructured: {e}")
-        raise e
-
-
-@step
-def extract_pdf_fallback(file_path: Path) -> List[Dict[str, Any]]:
-    """
-    Estratégia FALLBACK: PyPDFLoader com inferência manual.
-    Usado quando Unstructured não está disponível ou falha.
-    """
-    logger.warning(f"⚠️ Usando fallback PyPDFLoader: {file_path.name}")
 
     elements_data = []
 
@@ -327,7 +219,7 @@ def extract_pdf_fallback(file_path: Path) -> List[Dict[str, Any]]:
                 global_idx += 1
 
     except Exception as e1:
-        logger.warning(f"⚠️ PyPDFLoader falhou, tentando PyPDF2: {e1}")
+        logger.warning(f"PyPDFLoader falhou, tentando PyPDF2: {e1}")
 
         try:
             reader = PdfReader(str(file_path))
@@ -359,14 +251,13 @@ def extract_pdf_fallback(file_path: Path) -> List[Dict[str, Any]]:
                     global_idx += 1
 
         except Exception as e2:
-            logger.error(f"❌ Todos os métodos de PDF falharam: {e2}")
+            logger.error(f"Todos os métodos de PDF falharam: {e2}")
             raise e2
 
-    logger.info(f"📊 Fallback: {len(elements_data)} elementos extraídos")
+    logger.info(f"Fallback: {len(elements_data)} elementos extraídos")
     return elements_data
 
 
-@step
 def extract_file_elements(
     file_path_str: str, use_unstructured: bool = True
 ) -> List[Dict[str, Any]]:
@@ -377,7 +268,7 @@ def extract_file_elements(
     if not file_path.exists():
         raise FileNotFoundError(f"Arquivo não encontrado: {file_path}")
 
-    logger.info(f"📂 Processando: {file_path.name}")
+    logger.info(f"Processando: {file_path.name}")
 
     # JSON (Web Scraping)
     if file_path.suffix.lower() == ".json":
@@ -434,14 +325,7 @@ def extract_file_elements(
 
     # PDF - Estratégia Inteligente
     elif file_path.suffix.lower() == ".pdf":
-        if use_unstructured and UNSTRUCTURED_AVAILABLE:
-            try:
-                return extract_pdf_with_unstructured(file_path)
-            except Exception as e:
-                logger.warning(f"⚠️ Unstructured falhou, usando fallback: {e}")
-                return extract_pdf_fallback(file_path)
-        else:
-            return extract_pdf_fallback(file_path)
+        return extract_pdf(file_path)
 
     else:
         raise ValueError(f"Formato não suportado: {file_path.suffix}")
@@ -465,7 +349,7 @@ def preprocess_elements(
             )
 
         if summary_indices:
-            logger.info(f"🧹 Removendo {len(summary_indices)} elementos de sumário")
+            logger.info(f"Removendo {len(summary_indices)} elementos de sumário")
 
     # Tracking de contexto
     current_context = {"section": "Introdução", "last_header": ""}
@@ -502,73 +386,86 @@ def preprocess_elements(
 
         processed_elements.append({"text": text, "metadata": meta})
 
-    logger.info(f"🧹 Processados: {len(processed_elements)} elementos válidos")
+    logger.info(f"Processados: {len(processed_elements)} elementos válidos")
     return processed_elements
 
 
-@step
 def create_smart_chunks(
     processed_elements: List[Dict[str, Any]],
     chunk_size: int = 600,
     chunk_overlap: int = 150,
 ) -> List[Dict[str, Any]]:
-    """Chunking com agrupamento por contexto e prefixo semântico."""
-    logger.info(f"✂️ Chunking inteligente (size={chunk_size}, overlap={chunk_overlap})")
+    """
+    Chunking por seções previamente identificadas (metadados) em vez de novas heurísticas.
 
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        separators=["\n\n", "\n", ". ", " ", ""],
-        add_start_index=True,
-    )
+    Usa os campos já inferidos em preprocess_elements (context_section/context_header
+    ou section_id/section_path, se existirem) para agrupar o conteúdo.
+    Os parâmetros chunk_size e chunk_overlap são mantidos apenas por compatibilidade.
+    """
+    logger.info("Chunking por seções existentes em metadados (ignorando limites)")
 
-    # Agrupa por arquivo + seção
-    grouped_text = {}
+    if not processed_elements:
+        return []
 
-    for el in processed_elements:
-        key = f"{el['metadata']['source']}|{el['metadata']['context_section']}"
+    # Agrupa mantendo a ordem de primeira ocorrência por seção
+    section_groups: "OrderedDict[Any, Dict[str, Any]]" = OrderedDict()
 
-        if key not in grouped_text:
-            grouped_text[key] = {"text": [], "meta_sample": el["metadata"]}
+    for element in processed_elements:
+        meta = element.get("metadata", {}) or {}
 
-        grouped_text[key]["text"].append(el["text"])
+        # Preferência por identificadores explícitos; fallback para contexto inferido
+        section_id = meta.get("section_id") or meta.get("section_path")
+        section_label = section_id or meta.get("context_section") or "geral"
+        header_label = meta.get("context_header") or meta.get("section_header", "")
 
-    chunk_dicts = []
+        group_key = (meta.get("source"), section_label, header_label)
 
-    for key, data in grouped_text.items():
-        full_text = "\n".join(data["text"])
-        base_meta = data["meta_sample"]
+        if group_key not in section_groups:
+            section_groups[group_key] = {
+                "texts": [],
+                "pages": set(),
+                "meta_sample": meta,
+                "section_label": section_label,
+            }
 
-        # PREFIXO DE CONTEXTO (CRÍTICO PARA EMBEDDINGS)
-        context_prefix = f"[Contexto: {base_meta['context_section']}]\n"
+        section_groups[group_key]["texts"].append(element.get("text", ""))
+        page_number = meta.get("page_number")
+        if page_number is not None:
+            section_groups[group_key]["pages"].add(page_number)
+
+    chunk_dicts: List[Dict[str, Any]] = []
+
+    for idx, (_, data) in enumerate(section_groups.items()):
+        base_meta = data["meta_sample"].copy()
+        base_meta["pages"] = sorted(data["pages"]) if data["pages"] else []
+        base_meta["section_length_chars"] = sum(len(t) for t in data["texts"])
+        base_meta["section_elements"] = len(data["texts"])
+
+        context_prefix = f"[Contexto: {base_meta.get('context_section', 'geral')}]\n"
         if base_meta.get("context_header"):
             context_prefix += f"[Seção: {base_meta['context_header']}]\n"
 
-        contextualized_text = context_prefix + full_text
+        content = context_prefix + "\n".join(data["texts"])
 
-        docs = text_splitter.split_documents(
-            [Document(page_content=contextualized_text, metadata=base_meta)]
+        safe_name = re.sub(
+            r"[^a-zA-Z0-9]", "_", base_meta.get("source", "chunk_source")
+        )
+        safe_section = re.sub(
+            r"[^a-zA-Z0-9]", "_", str(data.get("section_label", "section"))[:20]
+        )
+        chunk_id = f"{safe_name}_{safe_section}_{idx}"
+
+        chunk_dicts.append(
+            {"id": chunk_id, "content": content, "metadata": base_meta}
         )
 
-        for i, doc in enumerate(docs):
-            safe_name = re.sub(r"[^a-zA-Z0-9]", "_", base_meta["source"])
-            safe_section = re.sub(
-                r"[^a-zA-Z0-9]", "_", base_meta["context_section"][:20]
-            )
-            chunk_id = f"{safe_name}_{safe_section}_{i}"
-
-            chunk_dicts.append(
-                {"id": chunk_id, "content": doc.page_content, "metadata": doc.metadata}
-            )
-
-    logger.info(f"📦 Total de chunks: {len(chunk_dicts)}")
+    logger.info(f"Total de chunks por seção: {len(chunk_dicts)}")
     return chunk_dicts
 
 
 # ================= EMBEDDINGS E INGESTÃO =================
 
 
-@step
 def generate_hybrid_embeddings(chunks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Gera vetores densos e esparsos."""
     if not chunks:
@@ -576,11 +473,11 @@ def generate_hybrid_embeddings(chunks: List[Dict[str, Any]]) -> List[Dict[str, A
 
     texts = [c["content"] for c in chunks]
 
-    logger.info(f"🧠 Gerando Dense Embeddings ({DENSE_MODEL_NAME})...")
+    logger.info(f"Gerando Dense Embeddings ({DENSE_MODEL_NAME})...")
     dense_model = SentenceTransformer(DENSE_MODEL_NAME)
     dense_embeddings = dense_model.encode(texts, batch_size=32, show_progress_bar=True)
 
-    logger.info(f"🧠 Gerando Sparse Embeddings ({SPARSE_MODEL_NAME})...")
+    logger.info(f"Gerando Sparse Embeddings ({SPARSE_MODEL_NAME})...")
     sparse_model = SparseTextEmbedding(model_name=SPARSE_MODEL_NAME)
     sparse_embeddings = list(sparse_model.embed(texts))
 
@@ -594,13 +491,12 @@ def generate_hybrid_embeddings(chunks: List[Dict[str, Any]]) -> List[Dict[str, A
     return results
 
 
-@step
 def ingest_hybrid_embeddings(
     embeddings: List[Dict[str, Any]], recreate_collection: bool = False
 ) -> None:
     """Ingestão no Qdrant com tratamento robusto de erros."""
     if not embeddings:
-        logger.warning("⚠️ Nenhum embedding para ingerir")
+        logger.warning("Nenhum embedding para ingerir")
         return
 
     client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
@@ -610,21 +506,21 @@ def ingest_hybrid_embeddings(
     try:
         exists = client.collection_exists(COLLECTION_NAME)
     except JSONDecodeError:
-        logger.warning("⚠️ JSONDecodeError ao verificar coleção, assumindo existente")
+        logger.warning("JSONDecodeError ao verificar coleção, assumindo existente")
         exists = True
     except Exception as e:
-        logger.error(f"❌ Erro ao verificar coleção: {e}")
+        logger.error(f"Erro ao verificar coleção: {e}")
 
     if recreate_collection and exists:
-        logger.info(f"♻️ Recriando coleção '{COLLECTION_NAME}'...")
+        logger.info(f"Recriando coleção '{COLLECTION_NAME}'...")
         try:
             client.delete_collection(COLLECTION_NAME)
             exists = False
         except Exception as e:
-            logger.error(f"❌ Erro ao deletar coleção: {e}")
+            logger.error(f"Erro ao deletar coleção: {e}")
 
     if not exists:
-        logger.info(f"✨ Criando coleção híbrida '{COLLECTION_NAME}'...")
+        logger.info(f"Criando coleção híbrida '{COLLECTION_NAME}'...")
         client.create_collection(
             collection_name=COLLECTION_NAME,
             vectors_config={
@@ -675,16 +571,16 @@ def ingest_hybrid_embeddings(
                 collection_name=COLLECTION_NAME, points=points[i : i + batch_size]
             )
             logger.info(
-                f"⬆️ Batch {i // batch_size + 1}/{(len(points) - 1) // batch_size + 1} enviado"
+                f"⬆Batch {i // batch_size + 1}/{(len(points) - 1) // batch_size + 1} enviado"
             )
         except JSONDecodeError:
             logger.warning(
-                "⚠️ JSONDecodeError no upsert, mas dados provavelmente foram inseridos"
+                "JSONDecodeError no upsert, mas dados provavelmente foram inseridos"
             )
         except Exception as e:
-            logger.error(f"❌ Erro no batch {i // batch_size + 1}: {e}")
+            logger.error(f"Erro no batch {i // batch_size + 1}: {e}")
 
-    logger.info("✅ Ingestão híbrida concluída!")
+    logger.info("Ingestão híbrida concluída!")
 
 
 # ================= PIPELINE PRINCIPAL =================
@@ -701,7 +597,7 @@ def embedding_pipeline(
     """Pipeline completo com estratégia adaptativa."""
 
     logger.info("=" * 60)
-    logger.info(f"🚀 INICIANDO PIPELINE: {Path(pdf_path).name}")
+    logger.info(f"INICIANDO PIPELINE: {Path(pdf_path).name}")
     logger.info("=" * 60)
 
     raw = extract_file_elements(
@@ -719,7 +615,7 @@ def embedding_pipeline(
     ingest_hybrid_embeddings(embeddings=embeds, recreate_collection=recreate_collection)
 
     logger.info("=" * 60)
-    logger.info("✅ PIPELINE FINALIZADO COM SUCESSO")
+    logger.info("PIPELINE FINALIZADO COM SUCESSO")
     logger.info("=" * 60)
 
 
@@ -733,11 +629,6 @@ def main():
     parser.add_argument("--reset", action="store_true", help="Recria a coleção")
     parser.add_argument(
         "--keep-summary", action="store_true", help="Não remove sumários"
-    )
-    parser.add_argument(
-        "--no-unstructured",
-        action="store_true",
-        help="Força uso de fallback (não usa Unstructured)",
     )
     parser.add_argument(
         "--chunk-size", type=int, default=600, help="Tamanho dos chunks"
@@ -754,7 +645,6 @@ def main():
         chunk_overlap=args.chunk_overlap,
         recreate_collection=args.reset,
         skip_summary=not args.keep_summary,
-        use_unstructured=not args.no_unstructured,
     )
 
 
