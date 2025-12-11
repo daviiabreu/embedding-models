@@ -90,9 +90,6 @@ site/
 *.sqlite
 *.sqlite3
 
-# Keep these JSON files but ignore others
-# (Comment out or be more specific as needed)
-# *.json
 
 # Specific exclusions (use ! to force-include)
 # !package.json

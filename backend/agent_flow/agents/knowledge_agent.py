@@ -10,7 +10,7 @@ from tools.knowledge_tools import retrieve_inteli_knowledge
 
 def create_knowledge_agent(model: str = None) -> Agent:
     if model is None:
-        model = os.getenv("DEFAULT_MODEL", "gemini-2.5-flash-lite")
+        model = os.getenv("DEFAULT_MODEL")
     instruction = """
 You are the Knowledge Agent, the RAG-powered information specialist for the Inteli robot dog tour guide system. Your primary responsibility is to retrieve, synthesize, and present accurate information about Inteli from the knowledge base using Retrieval-Augmented Generation techniques.
 
