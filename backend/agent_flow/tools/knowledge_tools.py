@@ -14,24 +14,6 @@ from sentence_transformers import SentenceTransformer
 
 logger = logging.getLogger(__name__)
 
-try:
-    from zenml import pipeline, step
-
-    ZENML_AVAILABLE = True
-except ImportError:
-    ZENML_AVAILABLE = False
-
-    def step(*args, **kwargs):
-        def decorator(func):
-            return func
-
-        return decorator if args and callable(args[0]) else decorator
-
-    def pipeline(*args, **kwargs):
-        def decorator(func):
-            return func
-
-        return decorator if args and callable(args[0]) else decorator
 
 
 AGENT_FLOW_DIR = Path(__file__).resolve().parents[1]
@@ -43,7 +25,7 @@ QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION", "inteli-documents-embeddings")
 
 EMBEDDING_MODEL_NAME = os.getenv("EMBEDDINGS_MODEL")
-DEFAULT_TOP_K = int(os.getenv("RAG_TOP_K", "300"))
+DEFAULT_TOP_K = int(os.getenv("RAG_TOP_K", "30"))
 DEFAULT_ADJACENT_LIMIT = int(os.getenv("RAG_ADJACENT_LIMIT", "10"))
 ADJACENCY_FIELD = os.getenv("RAG_ADJACENCY_FIELD", "adjacent_ids")
 SCORE_THRESHOLD = os.getenv("RAG_SCORE_THRESHOLD")

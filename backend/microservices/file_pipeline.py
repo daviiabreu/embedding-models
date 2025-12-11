@@ -17,6 +17,8 @@ from fastembed import SparseTextEmbedding
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as qdrant_models
 from sentence_transformers import SentenceTransformer
+import tiktoken
+from collections import defaultdict
 
 
 load_dotenv()
@@ -40,6 +42,25 @@ logger = logging.getLogger(__name__)
 
 # ================= FUNÇÕES AUXILIARES =================
 
+_encoding = tiktoken.get_encoding("cl100k_base")
+
+
+def count_tokens(text: str) -> int:
+    """Conta tokens usando tiktoken."""
+    return len(_encoding.encode(text or ""))
+
+
+def read_text_with_fallback(file_path: Path) -> str:
+    """Lê texto tentando múltiplas codificações e ignorando erros se necessário."""
+    encodings = ["utf-8", "utf-8-sig", "latin-1"]
+    for enc in encodings:
+        try:
+            return file_path.read_text(encoding=enc)
+        except UnicodeDecodeError:
+            continue
+    logger.warning(f"Decodificação parcial (errors=ignore) para {file_path}")
+    return file_path.read_text(encoding="utf-8", errors="ignore")
+
 
 def clean_text(text: str) -> str:
     """Higienização rigorosa do texto."""
@@ -51,6 +72,35 @@ def clean_text(text: str) -> str:
     text = text.replace("\ufb01", "fi")
     text = text.replace("\ue009", "tt")
     return text
+
+
+def normalize_bullets(text: str) -> str:
+    """Normaliza bullets e espaçamentos."""
+    text = re.sub(r"[•·▪►]", "- ", text)
+    text = re.sub(r"\s{2,}", " ", text)
+    return text.strip()
+
+
+def is_header_footer_line(text: str) -> bool:
+    """Heurística simples para remover cabeçalhos/rodapés recorrentes."""
+    t = text.strip().lower()
+    if len(t) < 4:
+        return False
+    return bool(
+        re.match(r"^(page\s*\d+|p[aá]g\s*\d+)$", t)
+        or re.match(r"^\d+\s*/\s*\d+$", t)
+        or re.match(r"^figura\s+\d+", t)
+        or re.match(r"^tabela\s+\d+", t)
+    )
+
+
+def is_table_like(text: str) -> bool:
+    """Marca linhas que parecem tabela (delimitadores, muitas colunas)."""
+    if "|" in text or "\t" in text:
+        return True
+    separators = len(re.findall(r"[;:]", text))
+    numbers = len(re.findall(r"\d", text))
+    return separators >= 3 and numbers > 5
 
 
 def infer_category(filename: str, existing_category: str = None) -> str:
@@ -298,7 +348,7 @@ def extract_file_elements(
         if file_path.suffix == ".docx":
             text = docx2txt.process(file_path)
         else:
-            text = file_path.read_text(encoding="utf-8")
+            text = read_text_with_fallback(file_path)
 
         elements_data = []
         lines = text.split("\n")
@@ -339,6 +389,8 @@ def preprocess_elements(
 ) -> List[Dict[str, Any]]:
     """Limpeza, detecção de sumário e enriquecimento de contexto."""
 
+    repeated_lines: Dict[str, int] = defaultdict(int)
+
     # Detecção de sumário
     summary_indices = set()
     if skip_summary:
@@ -360,8 +412,18 @@ def preprocess_elements(
         if i in summary_indices:
             continue
 
-        text = element.get("text", "")
+        raw_text = element.get("text", "")
+        text = normalize_bullets(clean_text(raw_text))
+
+        if is_header_footer_line(text):
+            continue
+
         if len(text) < 10:
+            continue
+
+        # Deduplicação simples de linhas recorrentes no documento
+        repeated_lines[text] += 1
+        if repeated_lines[text] > 3:
             continue
 
         # Enriquece metadados
@@ -372,6 +434,7 @@ def preprocess_elements(
         meta["category"] = infer_category(meta.get("source", ""), meta.get("category"))
         meta["hierarchy_level"] = determine_hierarchy_level(element)
         meta["is_header"] = element_type in ["Title", "Header"]
+        meta["is_table"] = meta.get("is_table", False) or is_table_like(text)
 
         # Atualiza contexto
         if meta["is_header"]:
@@ -396,16 +459,21 @@ def create_smart_chunks(
     chunk_overlap: int = 150,
 ) -> List[Dict[str, Any]]:
     """
-    Chunking por seções previamente identificadas (metadados) em vez de novas heurísticas.
+    Chunking por seções/subseções respeitando limites de tokens e overlap.
 
-    Usa os campos já inferidos em preprocess_elements (context_section/context_header
-    ou section_id/section_path, se existirem) para agrupar o conteúdo.
-    Os parâmetros chunk_size e chunk_overlap são mantidos apenas por compatibilidade.
+    - Agrupa por seção/contexto existente nos metadados.
+    - Divide cada grupo em pedaços de até `chunk_size` tokens.
+    - Mantém overlap fixo de `chunk_overlap` tokens entre chunks consecutivos.
     """
-    logger.info("Chunking por seções existentes em metadados (ignorando limites)")
+    logger.info("Chunking por seções com limite de tokens e overlap")
 
     if not processed_elements:
         return []
+
+    # Garantir overlap de 300 tokens por padrão, mesmo que argumentos não sejam ajustados
+    chunk_size_tokens = max(1, chunk_size)
+    overlap_tokens = max(0, chunk_overlap)
+    overlap_tokens = min(overlap_tokens, chunk_size_tokens - 1) if chunk_size_tokens > 1 else 0
 
     # Agrupa mantendo a ordem de primeira ocorrência por seção
     section_groups: "OrderedDict[Any, Dict[str, Any]]" = OrderedDict()
@@ -434,8 +502,9 @@ def create_smart_chunks(
             section_groups[group_key]["pages"].add(page_number)
 
     chunk_dicts: List[Dict[str, Any]] = []
+    content_signatures: Set[str] = set()
 
-    for idx, (_, data) in enumerate(section_groups.items()):
+    for section_idx, (_, data) in enumerate(section_groups.items()):
         base_meta = data["meta_sample"].copy()
         base_meta["pages"] = sorted(data["pages"]) if data["pages"] else []
         base_meta["section_length_chars"] = sum(len(t) for t in data["texts"])
@@ -445,19 +514,96 @@ def create_smart_chunks(
         if base_meta.get("context_header"):
             context_prefix += f"[Seção: {base_meta['context_header']}]\n"
 
-        content = context_prefix + "\n".join(data["texts"])
-
         safe_name = re.sub(
             r"[^a-zA-Z0-9]", "_", base_meta.get("source", "chunk_source")
         )
         safe_section = re.sub(
             r"[^a-zA-Z0-9]", "_", str(data.get("section_label", "section"))[:20]
         )
-        chunk_id = f"{safe_name}_{safe_section}_{idx}"
 
-        chunk_dicts.append(
-            {"id": chunk_id, "content": content, "metadata": base_meta}
+        section_texts = data["texts"]
+        if not section_texts:
+            continue
+
+        avg_tokens = sum(count_tokens(t) for t in section_texts) / max(
+            1, len(section_texts)
         )
+        section_chunk_size = chunk_size_tokens
+        if avg_tokens < 15:
+            section_chunk_size = min(chunk_size_tokens, 600)
+        elif avg_tokens < 30:
+            section_chunk_size = min(chunk_size_tokens, 750)
+
+        section_overlap = min(overlap_tokens, max(1, section_chunk_size // 2))
+
+        def build_overlap_lines(lines: List[str]) -> List[str]:
+            acc_tokens = 0
+            overlap_lines: List[str] = []
+            for line in reversed(lines):
+                overlap_lines.insert(0, line)
+                acc_tokens += count_tokens(line)
+                if acc_tokens >= overlap_tokens:
+                    break
+            return overlap_lines
+
+        current_lines: List[str] = []
+        current_tokens = 0
+        chunk_counter = 0
+        section_chunks: List[Dict[str, Any]] = []
+
+        for line in section_texts:
+            tokens = count_tokens(line)
+            if tokens == 0:
+                continue
+
+            if current_tokens + tokens <= section_chunk_size or not current_lines:
+                current_lines.append(line)
+                current_tokens += tokens
+            else:
+                content = context_prefix + "\n".join(current_lines)
+                chunk_id = f"{safe_name}_{safe_section}_{section_idx}_{chunk_counter}"
+                meta = dict(base_meta)
+                meta.update(
+                    {
+                        "chunk_index": chunk_counter,
+                        "section_label": data["section_label"],
+                        "section_header": base_meta.get("context_header", ""),
+                        "chunk_tokens": count_tokens(content),
+                        "overlap_tokens": section_overlap,
+                    }
+                )
+                meta["preview"] = content[:200]
+                section_chunks.append({"id": chunk_id, "content": content, "metadata": meta})
+                chunk_counter += 1
+
+                overlap_lines = build_overlap_lines(current_lines)
+                current_lines = overlap_lines + [line]
+                current_tokens = sum(count_tokens(l) for l in overlap_lines) + tokens
+
+        if current_lines:
+            content = context_prefix + "\n".join(current_lines)
+            chunk_id = f"{safe_name}_{safe_section}_{section_idx}_{chunk_counter}"
+            meta = dict(base_meta)
+            meta.update(
+                {
+                    "chunk_index": chunk_counter,
+                    "section_label": data["section_label"],
+                    "section_header": base_meta.get("context_header", ""),
+                    "chunk_tokens": count_tokens(content),
+                    "overlap_tokens": section_overlap,
+                }
+            )
+            meta["preview"] = content[:200]
+            section_chunks.append({"id": chunk_id, "content": content, "metadata": meta})
+
+        total_section_chunks = len(section_chunks)
+        for chunk in section_chunks:
+            chunk["metadata"]["total_section_chunks"] = total_section_chunks
+            sig = str(hash(chunk["content"]))
+            if sig in content_signatures:
+                continue
+            content_signatures.add(sig)
+            chunk_dicts.append(chunk)
 
     logger.info(f"Total de chunks por seção: {len(chunk_dicts)}")
     return chunk_dicts
@@ -583,13 +729,81 @@ def ingest_hybrid_embeddings(
     logger.info("Ingestão híbrida concluída!")
 
 
+def log_chunking_stats(chunks: List[Dict[str, Any]]) -> None:
+    """Loga estatísticas simples para inspeção offline."""
+    if not chunks:
+        logger.info("Nenhum chunk gerado.")
+        return
+
+    total_tokens = sum(c.get("metadata", {}).get("chunk_tokens", 0) for c in chunks)
+    logger.info(
+        f"Chunks gerados: {len(chunks)} | Tokens médios por chunk: {total_tokens / max(1, len(chunks)):.1f}"
+    )
+
+
+ALLOWED_EXTENSIONS = {".pdf", ".json", ".docx", ".txt", ".md"}
+
+
+def collect_input_files(path: str) -> List[str]:
+    """Retorna lista de arquivos suportados a partir de um caminho (arquivo ou pasta)."""
+    p = Path(path)
+    if not p.exists():
+        raise FileNotFoundError(f"Caminho não encontrado: {p}")
+
+    if p.is_file():
+        if p.suffix.lower() not in ALLOWED_EXTENSIONS:
+            raise ValueError(f"Extensão não suportada: {p.suffix}")
+        return [str(p)]
+
+    files: List[str] = []
+    for root, _, filenames in os.walk(p):
+        for name in filenames:
+            if Path(name).suffix.lower() in ALLOWED_EXTENSIONS:
+                files.append(str(Path(root) / name))
+
+    if not files:
+        raise ValueError("Nenhum arquivo suportado encontrado na pasta.")
+
+    files.sort()
+    logger.info(f"Arquivos encontrados: {len(files)}")
+    return files
+
+
+def embedding_pipeline_paths(
+    file_paths: List[str],
+    chunk_size: int = 900,
+    chunk_overlap: int = 300,
+    recreate_collection: bool = False,
+    skip_summary: bool = True,
+) -> None:
+    """Processa vários arquivos em sequência, recriando coleção apenas uma vez se solicitado."""
+    if not file_paths:
+        logger.warning("Lista de arquivos vazia para ingestão.")
+        return
+
+    for idx, file_path in enumerate(file_paths):
+        logger.info(f"==> Ingerindo ({idx + 1}/{len(file_paths)}): {file_path}")
+        recreate = recreate_collection and idx == 0
+        try:
+            embedding_pipeline(
+                pdf_path=file_path,
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap,
+                recreate_collection=recreate,
+                skip_summary=skip_summary,
+            )
+        except Exception as e:
+            logger.error(f"Falha ao processar {file_path}: {e}", exc_info=True)
+            continue
+
+
 # ================= PIPELINE PRINCIPAL =================
 
 
 def embedding_pipeline(
     pdf_path: str,
-    chunk_size: int = 600,
-    chunk_overlap: int = 150,
+    chunk_size: int = 900,
+    chunk_overlap: int = 300,
     recreate_collection: bool = False,
     skip_summary: bool = True,
     use_unstructured: bool = True,
@@ -610,6 +824,8 @@ def embedding_pipeline(
         processed_elements=proc, chunk_size=chunk_size, chunk_overlap=chunk_overlap
     )
 
+    log_chunking_stats(chunks)
+
     embeds = generate_hybrid_embeddings(chunks=chunks)
 
     ingest_hybrid_embeddings(embeddings=embeds, recreate_collection=recreate_collection)
@@ -625,22 +841,23 @@ def main():
     parser = argparse.ArgumentParser(
         description="Pipeline Híbrido: Unstructured + Controle Granular"
     )
-    parser.add_argument("file_path", help="Caminho do arquivo")
+    parser.add_argument("path", help="Caminho do arquivo ou pasta")
     parser.add_argument("--reset", action="store_true", help="Recria a coleção")
     parser.add_argument(
         "--keep-summary", action="store_true", help="Não remove sumários"
     )
     parser.add_argument(
-        "--chunk-size", type=int, default=600, help="Tamanho dos chunks"
+        "--chunk-size", type=int, default=900, help="Tamanho máximo do chunk em tokens"
     )
     parser.add_argument(
-        "--chunk-overlap", type=int, default=150, help="Overlap entre chunks"
+        "--chunk-overlap", type=int, default=300, help="Overlap entre chunks (tokens)"
     )
 
     args = parser.parse_args()
 
-    embedding_pipeline(
-        pdf_path=args.file_path,
+    files = collect_input_files(args.path)
+    embedding_pipeline_paths(
+        files,
         chunk_size=args.chunk_size,
         chunk_overlap=args.chunk_overlap,
         recreate_collection=args.reset,
