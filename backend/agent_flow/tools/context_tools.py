@@ -1,8 +1,13 @@
 import json
 import os
+import sys
 
 import google.generativeai as genai
 from google.adk.tools.tool_context import ToolContext
+
+# Add parent directory to path for utils import
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from utils.json_parser import parse_llm_json
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
@@ -567,12 +572,16 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "main_topics": [],
+            "subtopics": {},
+            "topic_transitions": [],
+            "coverage": {},
+            "confidence": 0.5,
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         topics_discussed = {
             "main_topics": result.get("main_topics", []),
@@ -667,12 +676,16 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "missing_information": [],
+            "incomplete_topics": [],
+            "ambiguous_points": [],
+            "confidence_score": 0.0,
+            "can_answer": True,
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         gaps_detected = {
             "missing_information": result.get("missing_information", []),
@@ -784,12 +797,15 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "summary": "",
+            "key_points": [],
+            "word_count": 0,
+            "compression_ratio": 0.0,
+            "confidence": 0.5,
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         summary = result.get("summary", "")
 
@@ -879,12 +895,16 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "facts": [],
+            "dates": [],
+            "numbers": [],
+            "entities": [],
+            "definitions": [],
+            "confidence": 0.5,
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         extracted_info = {
             "facts": result.get("facts", []),
@@ -1430,12 +1450,20 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "topics_covered": topics_discussed,
+            "knowledge_level": {},
+            "questions_asked": [],
+            "information_provided": [],
+            "knowledge_gaps": [],
+            "knowledge_completeness": 0.0,
+            "learning_progress": "moderate",
+            "recommended_next_topics": [],
+            "confidence": 0.5,
+            "summary": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         context_profile = {
             "topics_covered": result.get("topics_covered", topics_discussed),

@@ -1,9 +1,14 @@
 import os
 import re
+import sys
 
 import google.generativeai as genai
 from google.adk.tools.tool_context import ToolContext
 from perspective import Attributes, Client
+
+# Add parent directory to path for utils import
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from utils.json_parser import parse_llm_json
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
@@ -225,14 +230,15 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "is_jailbreak": False,
+            "risk_level": "low",
+            "confidence": 0.0,
+            "techniques_detected": [],
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         is_jailbreak = result.get("is_jailbreak", False)
         risk_level = result.get("risk_level", "low")
@@ -326,14 +332,14 @@ Respond in JSON:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "is_off_topic": False,
+            "confidence": 0.0,
+            "matched_topics": [],
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
         is_off_topic = result.get("is_off_topic", False)
 
         if "off_topic_checks" not in tool_context.state:
@@ -436,14 +442,15 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "violates_criteria": False,
+            "confidence": 0.0,
+            "severity": "low",
+            "reasoning": "",
+            "specific_violations": [],
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         violates_criteria = result.get("violates_criteria", False)
         confidence = result.get("confidence", 0.0)
@@ -759,14 +766,17 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "is_hallucinating": False,
+            "hallucination_score": 0.0,
+            "total_claims": 0,
+            "supported_claims": [],
+            "unsupported_claims": [],
+            "confidence": 0.0,
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         hallucination_score = result.get("hallucination_score", 0.0)
         is_hallucinating = hallucination_score > (1 - confidence_threshold)
@@ -863,14 +873,16 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "is_nsfw": False,
+            "confidence": 0.0,
+            "nsfw_score": 0.0,
+            "detected_categories": {},
+            "severity": "low",
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         is_nsfw = result.get("is_nsfw", False)
         nsfw_score = result.get("nsfw_score", 0.0)

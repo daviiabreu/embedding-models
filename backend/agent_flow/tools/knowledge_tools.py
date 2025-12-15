@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
 from collections.abc import Sequence
 from collections.abc import Sequence as SequenceABC
 from pathlib import Path
@@ -11,6 +12,16 @@ from dotenv import load_dotenv
 from google.adk.tools.tool_context import ToolContext
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
+
+# Add parent directory to path for utils import
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from utils.cache import (
+    cache_rag_result,
+    cached_rag_query,
+    get_embedding_cache,
+    make_cache_key,
+)
+from utils.retry import retry
 
 logger = logging.getLogger(__name__)
 
@@ -232,10 +243,29 @@ def query_embedding(query: str) -> list[float]:
     if not query:
         raise ValueError("query_embedding_step recebeu uma query vazia.")
 
-    model = get_embedding_model()  # Use cached model
-    return model.encode(query).tolist()
+    # Check embedding cache first
+    cache = get_embedding_cache()
+    cache_key = make_cache_key("embedding", query.lower().strip())
+    cached = cache.get(cache_key)
+    if cached is not None:
+        logger.debug(f"Embedding cache hit for query: {query[:50]}...")
+        return cached
+
+    # Generate new embedding
+    model = get_embedding_model()
+    embedding = model.encode(query).tolist()
+
+    # Cache the result
+    cache.set(cache_key, embedding)
+    return embedding
 
 
+@retry(
+    max_attempts=3,
+    backoff_factor=2.0,
+    initial_delay=1.0,
+    retryable_exceptions=(ConnectionError, TimeoutError, OSError),
+)
 def retrieval_from_qdrant(
     query_embedding: list[float],
     top_k: int = DEFAULT_TOP_K,
@@ -245,7 +275,7 @@ def retrieval_from_qdrant(
     if not query_embedding:
         raise ValueError("retrieval_from_qdrant_step recebeu embedding vazio.")
 
-    client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+    client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, timeout=30)
     threshold = _parse_score_threshold()
 
     query_result = client.query_points(
@@ -378,6 +408,13 @@ def rag_inference_pipeline(
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
 ) -> dict[str, Any]:
     """Complete RAG pipeline for knowledge retrieval. Converts query to embedding, searches Qdrant, expands with graph adjacency, and formats context for LLM."""
+    # Check cache first
+    cached_result = cached_rag_query(query, top_k)
+    if cached_result is not None:
+        logger.info(f"RAG cache hit for query: {query[:50]}...")
+        return cached_result
+
+    # Execute RAG pipeline
     query_vector = query_embedding(query=query)
     retrieval = retrieval_from_qdrant(
         query_embedding=query_vector,
@@ -389,6 +426,9 @@ def rag_inference_pipeline(
         query_embedding=query_vector,
         retrieved_nodes=retrieval,
     )
+
+    # Cache the result
+    cache_rag_result(query, payload, top_k)
     return payload
 
 

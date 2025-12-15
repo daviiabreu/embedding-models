@@ -17,7 +17,9 @@ from utils import (
     RateLimitError,
     SafetyCheckError,
     ValidationError,
+    clean_for_voice,
     configure_logging,
+    get_all_cache_stats,
     get_logger,
     get_rate_limiter,
     has_pii,
@@ -109,9 +111,23 @@ class ChatService:
                 # Note: We don't block here - safety_agent will handle PII properly
 
             # 4. Process with orchestrator V3
-            response = self.orchestrator.process_message(validated_prompt)
+            raw_response = self.orchestrator.process_message(validated_prompt)
 
-            # 5. Log success
+            # 5. Clean response for voice output (remove URLs, markdown, etc.)
+            cleaning_result = clean_for_voice(raw_response)
+            response = cleaning_result.text
+
+            # Log if cleaning made changes
+            if cleaning_result.changes_made:
+                logger.info(
+                    "response_cleaned_for_voice",
+                    request_id=request_id,
+                    changes=cleaning_result.changes_made,
+                    original_length=cleaning_result.original_length,
+                    cleaned_length=cleaning_result.cleaned_length,
+                )
+
+            # 6. Log success
             logger.info(
                 "request_completed",
                 request_id=request_id,
@@ -126,7 +142,9 @@ class ChatService:
 
         except RateLimitError as e:
             # Rate limit exceeded
-            logger.warning("rate_limit_exceeded", request_id=request_id, user_id=user_id)
+            logger.warning(
+                "rate_limit_exceeded", request_id=request_id, user_id=user_id
+            )
             metrics.requests_total.labels(
                 agent="chat_service_v3", status="rate_limited"
             ).inc()
@@ -196,3 +214,12 @@ class ChatService:
         """
         self.rate_limiter.reset_user(user_id)
         logger.info("rate_limit_reset_by_admin", user_id=user_id)
+
+    def get_cache_stats(self) -> dict:
+        """
+        Get statistics for all caches (RAG, embedding, LLM).
+
+        Returns:
+            dict: Cache statistics including hit rates and sizes
+        """
+        return get_all_cache_stats()
