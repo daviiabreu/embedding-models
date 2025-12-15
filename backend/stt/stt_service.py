@@ -20,4 +20,13 @@ class STTService:
     def transcribe(self, base64_audio):
         self.convert_to_mp3(base64_audio)
         result = self.model.transcribe("output.mp3")
-        return result["text"]
+        result_verified = self.inteli_verifier(result["text"])
+        return result_verified
+
+    def inteli_verifier(self, text):
+        cognates = ["intel", "e tele", "tele", "em tele", "interior", "intelio"]
+        new_text = text
+        for cognate in cognates:
+            new_text = new_text.lower().replace(cognate, "Inteli")
+
+        return new_text
