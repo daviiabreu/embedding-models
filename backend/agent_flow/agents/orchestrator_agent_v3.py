@@ -19,8 +19,8 @@ from google.adk.agents import Agent
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
-from config import config
-from utils import get_logger
+from backend.agent_flow.config import config
+from backend.agent_flow.utils import get_logger
 
 logger = get_logger(__name__)
 

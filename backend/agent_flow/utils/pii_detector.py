@@ -10,13 +10,13 @@ Improvements over basic regex:
 
 import re
 
-from utils.constants import (
+from backend.agent_flow.utils.constants import (
     CNPJ_LENGTH,
     CPF_CNPJ_MODULO,
     CPF_CNPJ_REMAINDER_THRESHOLD,
     CPF_LENGTH,
 )
-from utils.logging_config import get_logger
+from backend.agent_flow.utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 

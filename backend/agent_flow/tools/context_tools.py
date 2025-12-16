@@ -7,7 +7,7 @@ from google.adk.tools.tool_context import ToolContext
 
 # Add parent directory to path for utils import
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.json_parser import parse_llm_json
+from backend.agent_flow.utils.json_parser import parse_llm_json
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 

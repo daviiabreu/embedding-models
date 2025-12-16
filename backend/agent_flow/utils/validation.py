@@ -1,6 +1,6 @@
 """Input validation utilities."""
 
-from config import config
+from backend.agent_flow.config import config
 
 
 class ValidationError(Exception):

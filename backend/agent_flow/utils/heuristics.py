@@ -12,7 +12,7 @@ Performance: All functions < 1ms (vs 200-400ms for LLM calls)
 
 import re
 
-from utils.constants import (
+from backend.agent_flow.utils.constants import (
     ENGAGEMENT_BASELINE_SCORE,
     ENGAGEMENT_CONVERSATION_BOOST,
     ENGAGEMENT_CONVERSATION_HISTORY_MIN,
@@ -26,7 +26,7 @@ from utils.constants import (
     VERBOSITY_LONG_THRESHOLD,
     VERBOSITY_SHORT_THRESHOLD,
 )
-from utils.logging_config import get_logger
+from backend.agent_flow.utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 

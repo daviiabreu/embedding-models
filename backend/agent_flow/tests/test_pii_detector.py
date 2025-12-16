@@ -4,7 +4,7 @@ Unit tests for PII detector.
 Tests enhanced PII detection with Brazilian context.
 """
 
-from utils.pii_detector import (
+from backend.agent_flow.utils.pii_detector import (
     detect_pii,
     get_pii_types,
     has_pii,

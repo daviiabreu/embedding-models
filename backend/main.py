@@ -2,7 +2,7 @@ from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from backend.agent_flow.chat_service import ChatService
+from backend.agent_flow.chat_service_v3 import ChatService
 from backend.stt.stt_service import STTService
 from backend.tts.tts_service import TTSService
 
@@ -45,7 +45,9 @@ async def teste_transcricao():
 async def chat_w_bot(prompt: Prompt):
     if prompt:
         response_llm = chat.give_response(prompt.message)
-        return {"status": 200, "response": str(response_llm)}
+        if response_llm:
+            return {"status": 200, "response": str(response_llm)}
+        return {"status": 200, "response": "Desculpe. Não consegui entender sua pergunta. Pode perguntar novamente"}
     else:
         return {"status": 500, "erro": "Modelo de Transcrição não carregou."}
 

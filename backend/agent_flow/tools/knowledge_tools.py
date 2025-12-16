@@ -15,13 +15,13 @@ from sentence_transformers import SentenceTransformer
 
 # Add parent directory to path for utils import
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.cache import (
+from backend.agent_flow.utils.cache import (
     cache_rag_result,
     cached_rag_query,
     get_embedding_cache,
     make_cache_key,
 )
-from utils.retry import retry
+from backend.agent_flow.utils.retry import retry
 
 logger = logging.getLogger(__name__)
 
