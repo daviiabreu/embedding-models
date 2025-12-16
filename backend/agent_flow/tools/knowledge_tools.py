@@ -11,6 +11,7 @@ from typing import Any
 from dotenv import load_dotenv
 from google.adk.tools.tool_context import ToolContext
 from qdrant_client import QdrantClient
+from qdrant_client.models import Filter, FieldCondition, MatchValue
 from sentence_transformers import SentenceTransformer
 
 # Add parent directory to path for utils import
@@ -251,13 +252,38 @@ def retrieval_from_qdrant(
     query_embedding: list[float],
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
+    metadata_filter: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
-    """Search Qdrant vector database for relevant documents using embedding similarity. Returns top-k results with adjacency expansion for graph-based retrieval."""
+    """Search Qdrant vector database for relevant documents using embedding similarity. 
+    
+    Args:
+        query_embedding: Dense vector embedding of the search query
+        top_k: Maximum number of results to return
+        adjacency_limit: Maximum number of adjacent nodes to retrieve per result
+        metadata_filter: Optional dict of metadata field filters (e.g., {"project": "Projeto 7"})
+    
+    Returns top-k results with adjacency expansion for graph-based retrieval."""
     if not query_embedding:
         raise ValueError("retrieval_from_qdrant_step recebeu embedding vazio.")
 
     client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, timeout=30)
     threshold = _parse_score_threshold()
+    
+    # Build Qdrant filter from metadata_filter dict
+    qdrant_filter = None
+    if metadata_filter:
+        conditions = []
+        for key, value in metadata_filter.items():
+            # Construct the nested path for metadata fields
+            field_path = f"metadata.{key}"
+            conditions.append(
+                FieldCondition(
+                    key=field_path,
+                    match=MatchValue(value=value)
+                )
+            )
+        if conditions:
+            qdrant_filter = Filter(must=conditions)
 
     query_result = client.query_points(
         collection_name=QDRANT_COLLECTION,
@@ -267,11 +293,18 @@ def retrieval_from_qdrant(
         with_payload=True,
         with_vectors=INCLUDE_EMBEDDINGS,
         score_threshold=threshold,
+        query_filter=qdrant_filter,
     )
     scored_points = _extract_query_points(query_result)
     retrieved_nodes: list[dict[str, Any]] = []
     adjacency_lookup: dict[str, list[str]] = {}
     adjacency_requests: list[Any] = []
+    
+    # STRICT FILTERING: If filtering by academic_year, exclude chunks with different or null years
+    strict_year_filter = None
+    if metadata_filter and "academic_year" in metadata_filter:
+        strict_year_filter = metadata_filter["academic_year"]
+        logger.info(f"🚨 STRICT YEAR FILTERING ENABLED: Only keeping chunks with academic_year='{strict_year_filter}'")
 
     for point in scored_points:
         point = _resolve_scored_point(point)
@@ -285,6 +318,23 @@ def retrieval_from_qdrant(
         if not content:
             continue
         metadata = payload.get("metadata") or {}
+        
+        # STRICT YEAR FILTER: Skip chunks with wrong or missing academic_year
+        if strict_year_filter:
+            chunk_year = metadata.get("academic_year")
+            if chunk_year != strict_year_filter:
+                # Skip this chunk - wrong year or null
+                logger.debug(f"Skipping chunk with academic_year='{chunk_year}' (wanted '{strict_year_filter}')")
+                continue
+            
+            # EXTRA FILTER FOR 4º ANO: Skip chunks mentioning numbered projects
+            if strict_year_filter == "4º ano":
+                import re
+                # Check if content mentions "Projeto X" where X is a number
+                if re.search(r'[Pp]rojeto\s+\d+', content):
+                    logger.debug(f"Skipping 4º ano chunk that mentions numbered project (belongs to years 1-3)")
+                    continue
+        
         raw_id = getattr(point, "id", None)
         if raw_id is None and isinstance(point, dict):
             raw_id = point.get("id")
@@ -337,9 +387,27 @@ def retrieval_from_qdrant(
 def _format_context_block(node: dict[str, Any], index: int) -> str:
     metadata = node.get("metadata") or {}
     header_parts = [f"Trecho {index}"]
+    
+    # Add project information (CRITICAL for course queries)
+    project = metadata.get("project")
+    if project:
+        header_parts.append(f"projeto: {project}")
+    
+    # Add academic year
+    academic_year = metadata.get("academic_year")
+    if academic_year:
+        header_parts.append(f"ano: {academic_year}")
+    
+    # Add section info
     section = metadata.get("section") or metadata.get("section_context")
     if section:
         header_parts.append(f"seção: {section}")
+    
+    # Add subsection if available
+    subsection = metadata.get("subsection")
+    if subsection:
+        header_parts.append(f"subseção: {subsection}")
+    
     page = metadata.get("page_number")
     if page is not None:
         header_parts.append(f"página: {page}")
@@ -383,14 +451,76 @@ def build_graph_rag_payload(
     }
 
 
+def _extract_metadata_filters_from_query(query: str) -> dict[str, Any] | None:
+    """Extract metadata filters from natural language query.
+    
+    Detects patterns like:
+    - "Projeto 7" / "projeto sete" -> {"project": "Projeto 7"}
+    - "Módulo 5" / "modulo cinco" -> {"project": "Projeto 5"} (maps module to project)
+    - "2º ano" / "segundo ano" -> {"academic_year": "2º ano"}
+    
+    Returns None if no filters detected.
+    """
+    import re
+    
+    filters = {}
+    query_lower = query.lower()
+    
+    # Pattern: "projeto X" (where X is a digit or number word)
+    project_match = re.search(r'projeto\s+(\d+)', query_lower)
+    if project_match:
+        project_num = project_match.group(1)
+        filters["project"] = f"Projeto {project_num}"
+        logger.info(f"Detected project filter: Projeto {project_num}")
+    
+    # Pattern: "módulo X" (maps to Projeto X)
+    module_match = re.search(r'm[oó]dulo\s+(\d+)', query_lower)
+    if module_match:
+        module_num = module_match.group(1)
+        filters["project"] = f"Projeto {module_num}"
+        logger.info(f"Detected module filter (mapped to project): Projeto {module_num}")
+    
+    # Pattern: "Xº ano" / "X ano"
+    year_match = re.search(r'(\d+)[oº°]?\s*ano', query_lower)
+    if year_match:
+        year_num = year_match.group(1)
+        filters["academic_year"] = f"{year_num}º ano"
+        logger.info(f"Detected academic year filter: {year_num}º ano")
+    
+    return filters if filters else None
+
+
+
 def rag_inference_pipeline(
     query: str,
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
+    metadata_filter: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Complete RAG pipeline for knowledge retrieval. Converts query to embedding, searches Qdrant, expands with graph adjacency, and formats context for LLM."""
+    """Complete RAG pipeline for knowledge retrieval. 
+    
+    Converts query to embedding, searches Qdrant with optional metadata filtering, 
+    expands with graph adjacency, and formats context for LLM.
+    
+    Args:
+        query: Natural language search query
+        top_k: Maximum number of results to return
+        adjacency_limit: Maximum adjacent nodes per result
+        metadata_filter: Optional metadata filters (e.g., {"project": "Projeto 7"})
+    """
+    # Build cache key including filter
+    cache_key_suffix = f"_{metadata_filter}" if metadata_filter else ""
+    cache_key = f"{query}_{top_k}{cache_key_suffix}"
+    
+    # Adjust top_k when filtering by academic_year to avoid mixing years
+    # When filtering by year, we want ONLY that year's content, not general content
+    adjusted_top_k = top_k
+    if metadata_filter and "academic_year" in metadata_filter:
+        adjusted_top_k = min(30, top_k)  # Use smaller top_k for year-specific queries
+        logger.info(f"Academic year filter detected, reducing top_k from {top_k} to {adjusted_top_k}")
+    
     # Check cache first
-    cached_result = cached_rag_query(query, top_k)
+    cached_result = cached_rag_query(cache_key, adjusted_top_k)
     if cached_result is not None:
         logger.info(f"RAG cache hit for query: {query[:50]}...")
         return cached_result
@@ -399,8 +529,9 @@ def rag_inference_pipeline(
     query_vector = query_embedding(query=query)
     retrieval = retrieval_from_qdrant(
         query_embedding=query_vector,
-        top_k=top_k,
+        top_k=adjusted_top_k,
         adjacency_limit=adjacency_limit,
+        metadata_filter=metadata_filter,
     )
     payload = build_graph_rag_payload(
         query=query,
@@ -409,7 +540,7 @@ def rag_inference_pipeline(
     )
 
     # Cache the result
-    cache_rag_result(query, payload, top_k)
+    cache_rag_result(cache_key, payload, adjusted_top_k)
     return payload
 
 
@@ -417,15 +548,30 @@ def retrieve_inteli_knowledge(
     query: str,
     tool_context: ToolContext,
 ) -> dict[str, Any]:
-    """Retrieve knowledge about Inteli from vector database. Main tool for answering questions about Inteli courses, scholarships, people, facilities, and admission process using RAG pipeline."""
+    """Retrieve knowledge about Inteli from vector database. 
+    
+    Main tool for answering questions about Inteli courses, scholarships, people, 
+    facilities, and admission process using RAG pipeline.
+    
+    Automatically detects and applies metadata filters from query:
+    - "Projeto X" -> filters by project
+    - "Módulo X" -> maps to Projeto X and filters
+    - "Xº ano" -> filters by academic year
+    """
     normalized_query = (query or "").strip()
     if not normalized_query:
         raise ValueError("retrieve_inteli_knowledge recebeu uma consulta vazia.")
+    
+    # Extract metadata filters from query
+    metadata_filter = _extract_metadata_filters_from_query(normalized_query)
+    if metadata_filter:
+        logger.info(f"Applying metadata filters: {metadata_filter}")
 
     retrieval_payload = rag_inference_pipeline(
         query=normalized_query,
         top_k=DEFAULT_TOP_K,
         adjacency_limit=DEFAULT_ADJACENT_LIMIT,
+        metadata_filter=metadata_filter,
     )
 
     state_entry = {
@@ -433,8 +579,18 @@ def retrieve_inteli_knowledge(
         "top_k": DEFAULT_TOP_K,
         "adjacency_limit": DEFAULT_ADJACENT_LIMIT,
         "result_count": retrieval_payload.get("result_count", 0),
+        "metadata_filter": metadata_filter,
     }
     tool_context.state.setdefault("knowledge_retrievals", []).append(state_entry)
+    
+    # Build message including filter info
+    message_parts = [
+        f"Retornados {state_entry['result_count']} nós com até "
+        f"{DEFAULT_ADJACENT_LIMIT} vizinhos por nó"
+    ]
+    if metadata_filter:
+        filter_desc = ", ".join(f"{k}={v}" for k, v in metadata_filter.items())
+        message_parts.append(f"Filtros aplicados: {filter_desc}")
 
     return {
         "success": True,
@@ -443,10 +599,8 @@ def retrieve_inteli_knowledge(
         "chunks": retrieval_payload.get("results", []),
         "context": retrieval_payload.get("context", ""),
         "query_embedding": retrieval_payload.get("query_embedding"),
-        "message": (
-            f"Retornados {state_entry['result_count']} nós com até "
-            f"{DEFAULT_ADJACENT_LIMIT} vizinhos por nó"
-        ),
+        "metadata_filter": metadata_filter,
+        "message": " | ".join(message_parts),
     }
 
 
