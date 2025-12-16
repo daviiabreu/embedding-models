@@ -865,29 +865,34 @@ def process_directory(
 
 if __name__ == "__main__":
     import sys
-    
-    if len(sys.argv) < 2:
-        print("❌ Uso: python file_pipeline.py <path> [--reset] [--unstructured]")
-        print("   <path>: arquivo ou diretório a processar")
-        print("   --reset: recriar coleção Qdrant")
-        print("   --unstructured: usar Unstructured (hi-res)")
+    args = sys.argv[1:]
+    if not args:
+        print(":x_vermelho: Uso: python file_pipeline.py <path(s)> [--reset] [--unstructured]")
         sys.exit(1)
-    
-    path = sys.argv[1]
-    reset = "--reset" in sys.argv
-    use_unstr = "--unstructured" in sys.argv or UNSTRUCTURED_AVAILABLE
-    
-    if Path(path).is_dir():
-        logger.info(f"📂 Modo batch: processando diretório {path}")
-        process_directory(
-            directory_path=path,
-            recreate_collection=reset,
-            use_unstructured=use_unstr
-        )
-    else:
-        logger.info(f"📄 Modo single: processando arquivo {path}")
-        embedding_pipeline(
-            pdf_path=path,
-            recreate_collection=reset,
-            use_unstructured=use_unstr
-        )
+    reset = "--reset" in args
+    use_unstr = "--unstructured" in args or UNSTRUCTURED_AVAILABLE
+    # remove flags
+    paths = [a for a in args if not a.startswith("--")]
+    if not paths:
+        print(":x_vermelho: Nenhum caminho válido informado")
+        sys.exit(1)
+    logger.info(f":pacote: Total de paths recebidos: {len(paths)}")
+    for i, path in enumerate(paths):
+        path_obj = Path(path)
+        try:
+            if path_obj.is_dir():
+                logger.info(f":pasta_aberta: Modo batch: processando diretório {path}")
+                process_directory(
+                    directory_path=path,
+                    recreate_collection=(reset and i == 0),
+                    use_unstructured=use_unstr
+                )
+            else:
+                logger.info(f":página_virada_para_cima: Processando arquivo {path}")
+                embedding_pipeline(
+                    pdf_path=path,
+                    recreate_collection=(reset and i == 0),
+                    use_unstructured=use_unstr
+                )
+        except Exception as e:
+            logger.error(f":x_vermelho: Erro ao processar {path}: {e}")
