@@ -315,9 +315,7 @@ class OrchestratorAgent:
                 error=str(e),
                 exc_info=True,
             )
-            return (
-                "Desculpe, tive um probleminha tecnico. Pode tentar novamente?"
-            )
+            return "Desculpe, tive um probleminha tecnico. Pode tentar novamente?"
 
     def _add_to_history(self, role: str, content: str):
         """Add message to local history."""
