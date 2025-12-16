@@ -50,13 +50,13 @@ class TestOrchestratorV3Creation:
                 knowledge_agent=mock_agents["knowledge"],
             )
 
-            # Verify agent was created with correct tools
+            # Verify agent was created with correct sub-agents
             mock_agent_class.assert_called_once()
             call_kwargs = mock_agent_class.call_args[1]
 
             assert call_kwargs["name"] == "orchestrator_agent_v3"
             assert call_kwargs["model"] == "gemini-2.5-pro"
-            assert len(call_kwargs["tools"]) == 3  # Only 3 agents (no personality)
+            assert len(call_kwargs["sub_agents"]) == 3  # Only 3 agents (no personality)
 
     def test_create_without_agents(self, mock_config):
         """Should create sub-agents if not provided."""
@@ -81,8 +81,8 @@ class TestOrchestratorV3Creation:
             mock_context.assert_called_once()
             mock_knowledge.assert_called_once()
 
-    def test_no_personality_agent_in_tools(self, mock_agents, mock_config):
-        """Should NOT include personality agent in tools."""
+    def test_no_personality_agent_in_sub_agents(self, mock_agents, mock_config):
+        """Should NOT include personality agent in sub_agents."""
         with (
             patch("config.config", mock_config),
             patch("agents.orchestrator_agent_v3.Agent") as mock_agent_class,
@@ -93,15 +93,15 @@ class TestOrchestratorV3Creation:
                 knowledge_agent=mock_agents["knowledge"],
             )
 
-            # Get tools from agent creation call
+            # Get sub_agents from agent creation call
             call_kwargs = mock_agent_class.call_args[1]
-            tools = call_kwargs["tools"]
+            sub_agents = call_kwargs["sub_agents"]
 
             # Should have exactly 3 agents
-            assert len(tools) == 3
+            assert len(sub_agents) == 3
 
             # Should be safety, context, knowledge
-            assert all(hasattr(tool, "name") for tool in tools)
+            assert all(hasattr(agent, "name") for agent in sub_agents)
 
 
 class TestOrchestratorV3Processing:
