@@ -191,7 +191,7 @@ class ChatService:
                 type="unexpected", agent="chat_service_v3"
             ).inc()
             metrics.requests_total.labels(agent="chat_service_v3", status="error").inc()
-            return "Desculpe [latido], tive um problema inesperado. Por favor, tente novamente."
+            return "Desculpe, tive um problema inesperado. Pode tentar novamente?"
 
     def get_usage(self, user_id: str) -> dict:
         """

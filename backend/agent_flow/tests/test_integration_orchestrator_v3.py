@@ -76,7 +76,7 @@ class TestOrchestratorV3Processing:
     def mock_agent(self):
         """Mock Google ADK Agent."""
         mock = Mock()
-        mock.run.return_value = "Olá! [latido] Como posso ajudar você?"
+        mock.run.return_value = "Olá! Como posso ajudar você?"
         mock.name = "orchestrator_agent_v3"
         return mock
 
@@ -105,7 +105,7 @@ class TestOrchestratorV3Processing:
 
     def test_process_question_about_inteli(self, orchestrator, mock_agent):
         """Should process questions about Inteli."""
-        mock_agent.run.return_value = "O Inteli oferece cursos de tecnologia. [latido]"
+        mock_agent.run.return_value = "O Inteli oferece cursos de tecnologia."
 
         message = "Quais são os cursos do Inteli?"
         response = orchestrator.process_message(message)
@@ -275,7 +275,7 @@ class TestOrchestratorV3Integration:
         # Mock main agent
         mock_orchestrator_agent = Mock()
         mock_orchestrator_agent.run.return_value = (
-            "Ola! [latido] O Inteli oferece cursos de tecnologia."
+            "Ola! O Inteli oferece cursos de tecnologia."
         )
         mock_orchestrator_agent.name = "orchestrator_agent_v3"
 

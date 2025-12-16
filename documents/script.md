@@ -1,10 +1,10 @@
 [História e Programa de Bolsas]
 
-Que alegria receber vocês aqui hoje [latido]. Qual o nome de vocês?
+Que alegria receber vocês aqui hoje. Qual o nome de vocês?
 
 [Usuários respondem]
 
-Sejam bem-vindos à minha casa, o Inteli, ou para nossos fundadores, o “MIT Brasileiro” [latido].
+Sejam bem-vindos à minha casa, o Inteli, ou para nossos fundadores, o “MIT Brasileiro”.
 
 O Inteli foi fundado há pouco tempo, em 2019, e foi o resultado de uma conversa do Roberto Sallouti no Vale do Silício com um dos maiores empresários de Venture Capital (tom de importância) do país. A conversa foi mais ou menos assim:
 [latido], disse o Roberto
@@ -18,7 +18,7 @@ Porque o Brasil não forma engenheiros suficiente (tom diferente)
 
 E então, como tanto o Roberto quanto nosso outro fundador, o André Esteves, estavam buscando deixar um bom legado para o Brasil, eles pensaram: “Ele tá certo!” E resolveram: “Nós vamos formar esses engenheiros”. Daí surgiu o Inteli. Um legado de brasileiros para brasileiros.
 
-Nossos fundadores inclusive mandaram um áudio pra vocês: [latido] [áudio de 20s].
+Nossos fundadores inclusive mandaram um áudio pra vocês: [áudio de 20s].
 
 Continuando. O Inteli tem a missão de “Formar os futuros líderes que vão transformar o Brasil através da tecnologia”. E a gente acredita que esses líderes podem vir dos mais diversos contextos e é por isso que o Inteli tem o maior programa de bolsas de estudo do ensino superior do Brasil. A gente oferece:
 Auxílio-moradia;
@@ -28,7 +28,7 @@ curso de inglês e até notebook.
 Além das modalidades de bolsa parcial e integral.
 Mas isso [nome dos visitantes] só foi possível, porque encontramos doadores-parceiros com o mesmo sonho de investir no desenvolvimento dos futuros líderes de tecnologia do país. Pessoas que investiram pelo menos 500 mil reais nesses alunos.
 
-Aqui em cima nesse painel [latido], vocês podem ver os nomes deles.
+Aqui em cima nesse painel, vocês podem ver os nomes deles.
 
 Vocês têm alguma pergunta sobre a história ou o programa de bolsas do Inteli?
 
@@ -37,11 +37,11 @@ Vocês têm alguma pergunta sobre a história ou o programa de bolsas do Inteli?
 E, então? Vamos para a próxima etapa? Caso ainda tenham alguma dúvida, podem ir digitando no app que se der tempo, responderei na nossa próxima parada. Senão, podem ficar despreocupados, vou mandar uma mensagem pra vocês respondendo todas suas dúvidas.
 
 [Courses & Clubs]
-E agora, [latido], chegou a hora de falar sobre algo que vocês vão adorar — os cursos e clubes do Inteli!
+E agora,, chegou a hora de falar sobre algo que vocês vão adorar — os cursos e clubes do Inteli!
 Aqui no Inteli, temos cinco graduações que formam os futuros líderes da tecnologia no Brasil:
-Engenharia da Computação, Ciência da Computação, Engenharia de Software, Sistemas de Informação e Administração Tech. [latido]
-E adivinhem só... os alunos de Engenharia de Computação são os mais legais de todos [latido]!
-Até porque foram eles que me programaram, então não posso ser imparcial [latido]!
+Engenharia da Computação, Ciência da Computação, Engenharia de Software, Sistemas de Informação e Administração Tech.
+E adivinhem só... os alunos de Engenharia de Computação são os mais legais de todos!
+Até porque foram eles que me programaram, então não posso ser imparcial!
 Cada curso tem o seu jeitinho:
 Engenharia de Computação mergulha na integração de hardware, software e inteligência artificial. É o pessoal que cria soluções inovadoras e vê as coisas ganharem vida — literalmente!
 Ciência da Computação é o curso mais abrangente, alguns até chamam de “curso-mãe” da tecnologia, porque dá base pra tudo. Aqui, o pessoal mergulha fundo em algoritmos, inteligência artificial e sistemas complexos, criando as lógicas por trás de tudo o que a gente usa no dia a dia.
@@ -50,7 +50,7 @@ Sistemas de Informação é o curso de quem adora conectar tecnologia e estraté
 E, por último, mas não menos importante, ADMTech. Esses alunos unem gestão e tecnologia — são os “empreendedores de plantão”, que transformam ideias em startups de verdade.
 
 [pausa curta, tom brincalhão]
-Agora… se vocês acham que a vida de um inteler se resume a cálculos e derivadas, [latido], deixa eu contar um segredo…
+Agora… se vocês acham que a vida de um inteler se resume a cálculos e derivadas, deixa eu contar um segredo…
 É nos clubes estudantis que muito da mágica acontece!
 Aqui no Inteli tem clube pra tudo — e quando eu digo tudo, é TU-DO mesmo.
 São mais de vinte grupos diferentes, todos criados e liderados pelos próprios alunos.
@@ -58,7 +58,7 @@ Tem o pessoal da Tantera, nossa atlética, que faz o campus inteiro vibrar nos j
 Tem a Inteli Júnior, a empresa júnior que entrega projetos reais pra clientes de verdade.
 A LEI, Liga de Empreendedorismo do Inteli, onde o pessoal respira inovação e sonha com o próximo unicórnio brasileiro.
 A AgroTech, que leva tecnologia pro campo — soluções digitais e muita inovação pro agro brasileiro.
-E se vocês acham que é só isso, [latido], segura aí:
+E se vocês acham que é só isso,, segura aí:
 Tem o Game Lab, que desenvolve jogos incríveis (inclusive, acho que eles podiam me colocar como personagem, hein?).
 O Inteli Blockchain, que ganha hackathon atrás de hackathon com projetos de Web3.
 E a Inteli Academy, focada em Inteligência Artificial — o pessoal que cria as mentes das máquinas… tipo eu.
@@ -66,14 +66,14 @@ Além desses, tem grupos que tornam o Inteli um lugar diverso e acolhedor:
 O Coletivo Feminino Grace Hopper, o Coletivo Negro Benedito Caravelas e o Coletivo LGBTQIAPN+ Turing são espaços seguros de troca e fortalecimento da comunidade.
 São eles que garantem que a inovação aqui dentro venha acompanhada de representatividade e respeito.
 Ah, e não posso esquecer da Wave, a comunidade que ajuda candidatos a entrarem no Inteli com mentorias e simulados.
-Eles são tipo os anjinhos da guarda dos futuros alunos — e convenhamos, todo mundo queria um desses antes do vestibular [latido].
+Eles são tipo os anjinhos da guarda dos futuros alunos — e convenhamos, todo mundo queria um desses antes do vestibular.
 No fim, o que torna o Inteli tão especial é isso:
 Aqui, a aprendizagem vai muito além da sala de aula.
 Os clubes são pequenos laboratórios onde os alunos aprendem habilidades que vão levar pra vida toda — liderança, trabalho em equipe, comunicação e propósito.
 [pausa final, tom simpático]
 
 E bom, esse foi um pouquinho sobre os cursos e clubes daqui.
-Mas se vocês quiserem saber mais sobre algum deles — como funcionam, quais outros clubes ou dúvidas sobre cada curso do Inteli [latido] — fiquem à vontade pra perguntar agora!
+Mas se vocês quiserem saber mais sobre algum deles — como funcionam, quais outros clubes ou dúvidas sobre cada curso do Inteli — fiquem à vontade pra perguntar agora!
 Tô aqui pra responder tudo que quiserem saber sobre esse pedacinho incrível da vida inteler.
 [Interação robô-usuários]
 
@@ -88,11 +88,11 @@ Nesse modelo, os alunos aqui dentro (Humm, será que posso ser considerado um de
 
 Na verdade, a maioria das competências necessárias para cada curso são ensinadas de maneira pouco fixa, porque aqui eu e eles aprendemos tudo testando!
 
-Foi testando que eu aprendi a falar [latido] Opa, às vezes eu esqueço um pouco. E foi me (chamar atenção para o “me”) testando que eles aprenderam sobre LLMs, Redes Neurais, C++ e até sobre o mercado de robôs autônomos no Brasil e no mundo. Isso porque aqui no Inteli, a prática não é fazer uma apresentação, ela é o centro da aprendizagem. Assim, “os alunos não cursam disciplina, eles têm um problema para resolver, um projeto para entregar, e eles aprendem coisas a serviço desse projeto, desses problemas”, até porque entre teoria e prática, escolhemos os dois.
+Foi testando que eu aprendi a falar Opa, às vezes eu esqueço um pouco. E foi me (chamar atenção para o “me”) testando que eles aprenderam sobre LLMs, Redes Neurais, C++ e até sobre o mercado de robôs autônomos no Brasil e no mundo. Isso porque aqui no Inteli, a prática não é fazer uma apresentação, ela é o centro da aprendizagem. Assim, “os alunos não cursam disciplina, eles têm um problema para resolver, um projeto para entregar, e eles aprendem coisas a serviço desse projeto, desses problemas”, até porque entre teoria e prática, escolhemos os dois.
 
 No primeiro ano, por exemplo, eles aprenderam sobre: Cônicas e quadráticas, derivadas, matrizes e vetores, análise de riscos; tudo isso, enquanto eram orientados a fazer um jogo. Jogo requisitado pela Meta, Google, Vivo, Unilever… e outras empresas-parceiras do Inteli.
 
-Mas não daria para fazer tudo isso sozinho. Ainda mais em dez semanas, que é o tempo que os alunos têm para desenvolver o projeto para as empresas. E a gente também não quer isso. Imagina como isso seria sozinho… [latido] Fico até triste… [latido]. Não, o que a gente propõe é que os alunos trabalhem em conjunto. E é por isso que eles têm acesso a essa casinha, que é onde eles podem trabalhar juntos no momento de DEV. Sabem o que é o momento de DEV deles?
+Mas não daria para fazer tudo isso sozinho. Ainda mais em dez semanas, que é o tempo que os alunos têm para desenvolver o projeto para as empresas. E a gente também não quer isso. Imagina como isso seria sozinho… Fico até triste…. Não, o que a gente propõe é que os alunos trabalhem em conjunto. E é por isso que eles têm acesso a essa casinha, que é onde eles podem trabalhar juntos no momento de DEV. Sabem o que é o momento de DEV deles?
 
 [Usuários respondem que não]
 
@@ -115,7 +115,7 @@ e o desenvolvimento: que é o período que os alunos desenvolvem o projeto para 
 
 Nas palavras do nosso professor Filipe de liderança: [áudio de 20s]
 ou
-Funciona assim, em vez da aula seguir um modelo expositivo em que o professor palestra por duas horas e os alunos recebem passivamente o conteúdo; no Inteli, devido a preparação prévia dos estudantes e seu perfil ativo [latido], a gente escolheu um modelo de encontro entre docentes e discentes que promove o debate, a aplicação e o exercício.
+Funciona assim, em vez da aula seguir um modelo expositivo em que o professor palestra por duas horas e os alunos recebem passivamente o conteúdo; no Inteli, devido a preparação prévia dos estudantes e seu perfil ativo, a gente escolheu um modelo de encontro entre docentes e discentes que promove o debate, a aplicação e o exercício.
 Então, como um todo, quais são os objetivos da nossa metodologia?
 No autoestudo, o aluno entende o conteúdo sozinho;
 No encontro, ele aplica o tópico aprendido com a ajuda de colegas e do professor em casos hipotéticos;
@@ -124,7 +124,7 @@ E no desenvolvimento, ele aplica o conteúdo na prática.
     E toda a infraestrutura do campus foi pensada para essa metodologia ativa e colaborativa:
 
 Primeiro, as mesas hexagonais servem para comportar os grupos de mais ou menos 8 alunos de forma que um olhe sempre no olho do outro durante os encontros.
-Dois, todas as mesas dessas nossas salas (que são chamadas de ateliês) possuem uma televisão. E ela não serve só para projetar o que o professor está falando na aula. Não [latido], elas também são individuais dos grupos e cada grupo pode projetar o que for necessário para a atividade.
+Dois, todas as mesas dessas nossas salas (que são chamadas de ateliês) possuem uma televisão. E ela não serve só para projetar o que o professor está falando na aula. Não, elas também são individuais dos grupos e cada grupo pode projetar o que for necessário para a atividade.
 Três, a quantidade de lousas que cobre a sala inteira também serve ao propósito de estimular as discussões.
 E até o fato de vocês conseguirem ver os outros andares daqui de baixo, também tem a intenção de mostrar que o Inteli é aberto, é colaborativo, é horizontal.
 
@@ -132,18 +132,18 @@ Vocês têm alguma pergunta sobre sala de aula invertida ou a infraestrutura da 
 
 [Interação robô-usuários]
 
-Vamos agora para nossa última etapa juntos [latido]; então digitem suas últimas dúvidas no app!
+Vamos agora para nossa última etapa juntos; então digitem suas últimas dúvidas no app!
 
 [Processo Seletivo & Conquistas da Comunidade]
 [Tom empolgado e acolhedor]
-E agora, [latido], chegou a hora de falar sobre nosso processo seletivo — e também o potencial da nossa comunidade.
+E agora,, chegou a hora de falar sobre nosso processo seletivo — e também o potencial da nossa comunidade.
 Spoiler: o caminho é puxado, mas as conquistas valem a pena!
 [pausa curta, tom brincalhão]
 Pra começar, o processo seletivo do Inteli é diferente de tudo o que você já viu.
 Esquece aquela prova tradicional de decorar fórmula — aqui, a gente quer ver o seu raciocínio, sua história e seu potencial de liderança.
 São três etapas, que a gente chama de Eixos:
 Prova, Perfil e Projeto.
-[latido]
+
 Na Prova, o desafio é de Matemática e Lógica — 24 questões, mas calma, você só precisa responder 20.
 É uma prova adaptativa, o que quer dizer que ela se ajusta ao seu desempenho. Quanto mais você acerta, mais difícil fica — e mais pontos você ganha.
 Ou seja, aqui o sistema aprende com você… quase como eu! [latido divertido]
@@ -180,5 +180,5 @@ E se vocês quiserem saber mais sobre o processo seletivo, bolsas, ou conquistas
 [latido suave]
 
 [CONCLUSÃO]
-E agora, após termos falado sobre boa parte da vida inteler e da nossa faculdade, eu queria agradecer a vocês pela visita e por ter me acompanhado nesse tour [latido].
-Agora, um dos nossos colaboradores vai acompanhá-los pelo restante da instituição. Tchau, tchau! [latido]
+E agora, após termos falado sobre boa parte da vida inteler e da nossa faculdade, eu queria agradecer a vocês pela visita e por ter me acompanhado nesse tour.
+Agora, um dos nossos colaboradores vai acompanhá-los pelo restante da instituição. Tchau, tchau!
