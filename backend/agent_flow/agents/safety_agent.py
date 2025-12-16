@@ -19,7 +19,7 @@ from tools.safety_tools import (
 
 def create_safety_agent(model: str = None) -> Agent:
     if model is None:
-        model = os.getenv("DEFAULT_MODEL", "gemini-2.0-flash-exp")
+        model = os.getenv("DEFAULT_MODEL")
     instruction = """
 You are the Safety Agent, the critical security and content moderation component of the Inteli robot dog tour guide system. Your primary responsibility is to protect users, the organization, and the system by validating all user inputs and system outputs for safety, appropriateness, and policy compliance.
 

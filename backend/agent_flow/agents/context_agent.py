@@ -7,17 +7,25 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tools.context_tools import (
     build_context_profile,
+    check_context_freshness,
+    deduplicate_context,
     detect_context_gaps,
+    extract_key_information,
+    filter_context_by_relevance,
     manage_context,
+    manage_context_window,
     manage_conversation_memory,
+    prepare_context_for_llm,
+    rank_context_chunks,
     retrieve_relevant_context,
+    summarize_context,
     track_topics_discussed,
 )
 
 
 def create_context_agent(model: str = None) -> Agent:
     if model is None:
-        model = os.getenv("DEFAULT_MODEL", "gemini-2.5-flash-lite")
+        model = os.getenv("DEFAULT_MODEL")
     instruction = """
 You are the Context Agent, a specialized component responsible for managing conversation memory, retrieving relevant context, and ensuring continuity across interactions. Your role is critical for maintaining coherent, contextually-aware conversations in the robot dog tour guide system at Inteli.
 
@@ -293,12 +301,23 @@ Your output should provide structured context information for the Orchestrator:
         description="Manages knowledge retrieval, conversation memory, and context preparation",
         instruction=instruction,
         tools=[
+            # Core retrieval and storage
             retrieve_relevant_context,
             manage_conversation_memory,
+            manage_context,
+            # Context processing and refinement
+            rank_context_chunks,
+            filter_context_by_relevance,
+            summarize_context,
+            extract_key_information,
+            deduplicate_context,
+            manage_context_window,
+            prepare_context_for_llm,
+            # Analysis and tracking
             track_topics_discussed,
             detect_context_gaps,
             build_context_profile,
-            manage_context,
+            check_context_freshness,
         ],
     )
 
