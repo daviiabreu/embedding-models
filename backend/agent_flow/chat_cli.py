@@ -142,6 +142,10 @@ class ChatSession:
                 if not user_input:
                     continue
 
+                if user_input.lower() in {"exit", "quit", "bye"}:
+                    print(f"\n{GREEN}🐕 Goodbye! Come back soon to visit Inteli!{RESET}\n")
+                    break
+
                 if user_input.lower() == "clear":
                     os.system("clear" if os.name != "nt" else "cls")
                     self.print_welcome()

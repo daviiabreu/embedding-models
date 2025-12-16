@@ -23,7 +23,7 @@ def _get_context_embedding_model(model_name: str = None):
 
         if model_name is None:
             model_name = os.getenv(
-                "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+                "EMBEDDINGS_MODEL", "paraphrase-multilingual-MiniLM-L12-v2"
             )
         _context_embedding_model_cache = SentenceTransformer(model_name)
     return _context_embedding_model_cache
@@ -132,7 +132,7 @@ def rank_context_chunks(
             from sentence_transformers import util
 
             model_name = os.getenv(
-                "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+                "EMBEDDINGS_MODEL", "paraphrase-multilingual-MiniLM-L12-v2"
             )
             model = _get_context_embedding_model(model_name)
 
@@ -185,7 +185,7 @@ def rank_context_chunks(
             from sentence_transformers import SentenceTransformer, util
 
             model_name = os.getenv(
-                "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+                "EMBEDDINGS_MODEL", "paraphrase-multilingual-MiniLM-L12-v2"
             )
             model = SentenceTransformer(model_name)
             query_embedding = model.encode(query, convert_to_tensor=True)
@@ -335,7 +335,7 @@ def filter_context_by_relevance(
             filtered_chunks = score_filtered
         else:
             model_name = os.getenv(
-                "EMBEDDINGS_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+                "EMBEDDINGS_MODEL", "paraphrase-multilingual-MiniLM-L12-v2"
             )
             model = SentenceTransformer(model_name)
             query_embedding = model.encode(query, convert_to_tensor=True)
