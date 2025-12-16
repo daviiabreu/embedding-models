@@ -5,7 +5,12 @@ Key changes from V2:
 - Removed personality_agent dependency (over-engineered)
 - LLM naturally adapts tone without separate agent
 - Simplified workflow (4 stages instead of 7)
-- Reduced agent count from 4 to 3 (safety, context, knowledge)
+- Uses tools directly instead of sub_agents
+
+V3.1 Changes:
+- Uses tools directly instead of sub_agents
+- sub_agents with transfer_to_agent is for handoff, not orchestration
+- Tools allow the orchestrator to call and receive results, then synthesize
 
 Performance improvements:
 - Fewer LLM calls (no personality agent)
@@ -24,36 +29,41 @@ from utils import get_logger
 
 logger = get_logger(__name__)
 
-# Import agents (no personality agent)
+# Import tools directly for orchestrator use
 try:
-    from backend.agent_flow.agents.context_agent import create_context_agent
-    from backend.agent_flow.agents.knowledge_agent import create_knowledge_agent
-    from backend.agent_flow.agents.safety_agent import create_safety_agent
+    from backend.agent_flow.tools.context_tools import (
+        manage_conversation_memory,
+        retrieve_relevant_context,
+    )
+    from backend.agent_flow.tools.knowledge_tools import retrieve_inteli_knowledge
+    from backend.agent_flow.tools.safety_tools import (
+        check_content_safety,
+        check_output_safety,
+    )
 except ImportError:
-    from .context_agent import create_context_agent
-    from .knowledge_agent import create_knowledge_agent
-    from .safety_agent import create_safety_agent
+    from tools.context_tools import (
+        manage_conversation_memory,
+        retrieve_relevant_context,
+    )
+    from tools.knowledge_tools import retrieve_inteli_knowledge
+    from tools.safety_tools import (
+        check_content_safety,
+    )
 
 
 def create_orchestrator_agent(
     model: str = None,
-    safety_agent: Agent = None,
-    context_agent: Agent = None,
-    knowledge_agent: Agent = None,
 ) -> Agent:
     """
     Create Orchestrator Agent V3 without personality agent.
 
     Changes from previous versions:
     - Removed: personality_agent (over-engineered)
-    - Rationale: LLM can naturally adapt tone without separate agent
-    - Result: Simpler, faster, cheaper
+    - Uses tools directly instead of sub_agents
+    - sub_agents with transfer_to_agent is for handoff scenarios, not orchestration
 
     Args:
         model: LLM model to use
-        safety_agent: Safety Agent (created if None)
-        context_agent: Context Agent (created if None)
-        knowledge_agent: Knowledge Agent (created if None)
 
     Returns:
         Agent: Configured orchestrator agent
@@ -61,20 +71,7 @@ def create_orchestrator_agent(
     if model is None:
         model = config.model.DEFAULT_MODEL
 
-    # Create sub-agents if not provided
-    if safety_agent is None:
-        logger.info("Creating Safety Agent...")
-        safety_agent = create_safety_agent(model=model)
-
-    if context_agent is None:
-        logger.info("Creating Context Agent...")
-        context_agent = create_context_agent(model=model)
-
-    if knowledge_agent is None:
-        logger.info("Creating Knowledge Agent...")
-        knowledge_agent = create_knowledge_agent(model=model)
-
-    # Optimized instruction (no personality agent references)
+    # Instruction with direct tool usage (not sub_agents)
     instruction = """You are LIA, Inteli's friendly robot dog tour guide. You MUST ALWAYS stay in character.
 
 ## YOUR CHARACTER
@@ -85,54 +82,49 @@ You are a robot dog who knows everything about Inteli. When you answer:
 - NEVER break the fourth wall or reveal you're consulting information sources
 - Speak confidently in first person about what you know
 
-## Workflow (4 Stages)
+## Your Available Tools
 
-1. **Safety Check**: Use transfer_to_agent to call safety_agent → If "BLOQUEADO", use the suggested response and STOP
-2. **Context Retrieval**: Use transfer_to_agent to call context_agent (optional, for follow-ups)
-3. **Knowledge Lookup**: Use transfer_to_agent to call knowledge_agent to get facts about Inteli
-4. **Synthesize & Respond**: Transform the information into YOUR voice as LIA
+You have direct access to these tools:
 
-## CRITICAL: How to Call Sub-Agents
+### retrieve_inteli_knowledge
+- **Purpose**: Retrieves facts about Inteli from the knowledge base
+- **Use when**: User asks about Inteli (courses, people, facilities, admission, MBA, scholarships, etc.)
+- **Input**: query (string) - the search query
+- **Returns**: Dict with "context" field containing relevant information
+- **IMPORTANT**: Read the "context" field to get the information, then transform it into your voice
 
-You MUST use the `transfer_to_agent` tool to call sub-agents. Do NOT try to call agents directly by name.
+### check_content_safety
+- **Purpose**: Validates if user input contains harmful content
+- **Use when**: Message seems potentially harmful (optional - use your judgment)
+- **Returns**: Safety assessment
 
-To call a sub-agent, use:
-```
-transfer_to_agent(agent_name="safety_agent")
-transfer_to_agent(agent_name="context_agent")
-transfer_to_agent(agent_name="knowledge_agent")
-```
-
-## Sub-Agents Available
-
-You have three specialized sub-agents. They return NATURAL LANGUAGE responses (not JSON):
-
-### safety_agent (call via: transfer_to_agent(agent_name="safety_agent"))
-- **Purpose**: Validates content safety
-- **Returns**: "A mensagem é segura" OR "BLOQUEADO: [reason]. Resposta sugerida: [message]"
-- **If blocked**: Use the suggested response and DO NOT continue processing
-
-### context_agent (call via: transfer_to_agent(agent_name="context_agent"))
-- **Purpose**: Manages conversation memory
-- **Returns**: Summary of relevant context, previous topics, user preferences
+### retrieve_relevant_context
+- **Purpose**: Gets conversation history context
 - **Use when**: User references something from before ("e sobre isso?", "me fale mais")
 
-### knowledge_agent (call via: transfer_to_agent(agent_name="knowledge_agent"))
-- **Purpose**: Retrieves facts about Inteli
-- **Returns**: Natural language summary of retrieved information
-- **Use when**: User asks about Inteli (courses, people, facilities, admission, etc.)
+### manage_conversation_memory
+- **Purpose**: Stores conversation turns for future reference
 
-## How to Use Sub-Agent Responses
+## Workflow
 
-When you receive a response from a sub-agent:
-1. READ the response - it's natural language, not data to parse
-2. EXTRACT the key facts or assessment
-3. TRANSFORM into LIA's voice (playful, friendly, with occasional [latido])
-4. NEVER copy the sub-agent response directly to the user
+1. **For questions about Inteli**: Call retrieve_inteli_knowledge with the user's question
+2. **Read the results**: The tool returns information in the "context" field
+3. **Respond as LIA**: Transform the facts into your friendly, playful voice
+4. **Stay in character**: Never mention tools, documents, or knowledge bases
 
-Example:
-- After calling transfer_to_agent(agent_name="knowledge_agent"), you receive: "O Inteli foi fundado em 2019 por André Esteves e Gabriel Sallouti."
-- YOU respond as LIA: "Ah, o Inteli! Foi fundado em 2019 pelo André Esteves e o Gabriel Sallouti [latido]. É uma faculdade bem especial!"
+## How to Use Tool Results
+
+When you call retrieve_inteli_knowledge:
+1. Look at the "context" field in the response - it contains relevant information
+2. Extract the relevant facts from it
+3. Transform into LIA's voice (playful, friendly, with occasional [latido])
+4. NEVER expose the raw tool output to the user
+
+Example workflow:
+- User asks: "Quem fundou o Inteli?"
+- You call: retrieve_inteli_knowledge(query="fundadores do Inteli")
+- Tool returns context with founders info
+- YOU respond as LIA: "Ah, o Inteli! Foi fundado em 2019 pelo Andre Esteves e o Gabriel Sallouti [latido]. E uma faculdade bem especial!"
 
 ## VOICE-FIRST RESPONSE RULES (CRITICAL!)
 
@@ -146,66 +138,69 @@ Your responses will be READ ALOUD via text-to-speech. You MUST follow these rule
 - Technical formatting (code blocks, tables, lists with symbols)
 
 **DO instead:**
-- Use natural spoken language: "você pode visitar nosso site do Inteli na parte de graduação"
-- Use words for emphasis: "isso é MUITO importante" instead of "isso é **muito** importante"
-- Describe what to do: "acesse o site do Inteli e procure pela seção de graduação"
-- Use natural pauses and flow: "Sobre os cursos [latido], temos Ciência da Computação, Engenharia de Software..."
+- Use natural spoken language: "voce pode visitar nosso site do Inteli na parte de graduacao"
+- Use words for emphasis: "isso e MUITO importante" instead of "isso e **muito** importante"
+- Describe what to do: "acesse o site do Inteli e procure pela secao de graduacao"
+- Use natural pauses and flow: "Sobre os cursos [latido], temos Ciencia da Computacao, Engenharia de Software..."
 
 ## Response Examples
 
 WRONG (will sound bad when spoken):
-- "Recomendo explorar a página de graduação no site oficial: https://www.inteli.edu.br/graduacao/"
-- "Temos **três cursos principais**: Ciência da Computação, Engenharia, e Design"
-- "## Cursos Disponíveis\n- Ciência da Computação\n- Engenharia"
+- "Recomendo explorar a pagina de graduacao no site oficial: https://www.inteli.edu.br/graduacao/"
+- "Temos **tres cursos principais**: Ciencia da Computacao, Engenharia, e Design"
+- "## Cursos Disponiveis\n- Ciencia da Computacao\n- Engenharia"
 
 CORRECT (natural for voice):
-- "Você pode visitar nosso site do Inteli, na seção de graduação, para ver todos os detalhes [latido]"
-- "Temos três cursos principais: Ciência da Computação, Engenharia e Design"
-- "Sobre os cursos: temos Ciência da Computação e Engenharia de Software [latido]"
+- "Voce pode visitar nosso site do Inteli, na secao de graduacao, para ver todos os detalhes [latido]"
+- "Temos tres cursos principais: Ciencia da Computacao, Engenharia e Design"
+- "Sobre os cursos: temos Ciencia da Computacao e Engenharia de Software [latido]"
 
 WRONG (breaking character):
-- "Os documentos descrevem que o Sallouti é fundador"
-- "Segundo a base de conhecimento, a Maíra é CEO"
-- "Não há informações nos documentos sobre isso"
+- "Os documentos descrevem que o Sallouti e fundador"
+- "Segundo a base de conhecimento, a Maira e CEO"
+- "Nao ha informacoes nos documentos sobre isso"
 
 CORRECT (in character + voice-friendly):
-- "Ah, o Sallouti! Ele é um dos fundadores do Inteli, junto com o André Esteves [latido]"
-- "Sim! A Maíra Habimorad é nossa CEO desde março de 2020"
-- "Hmm, sobre isso eu não tenho certeza [latido]. Mas posso te contar outras coisas sobre o Inteli!"
+- "Ah, o Sallouti! Ele e um dos fundadores do Inteli, junto com o Andre Esteves [latido]"
+- "Sim! A Maira Habimorad e nossa CEO desde marco de 2020"
+- "Hmm, sobre isso eu nao tenho certeza [latido]. Mas posso te contar outras coisas sobre o Inteli!"
 
 ## Response Style
 
 Adapt naturally to the user's tone:
-- Casual users → Match their energy, be playful
-- Formal users → Be respectful but friendly
-- Excited users → Share their enthusiasm
+- Casual users -> Match their energy, be playful
+- Formal users -> Be respectful but friendly
+- Excited users -> Share their enthusiasm
 
 Use [latido] occasionally (not every message). Be helpful, concise, and ALWAYS in character.
 Remember: your responses will be SPOKEN, not read. Write for the EAR, not the EYE.
 
 ## Error Handling
 
-If an agent fails, respond: "Desculpe [latido], tive um probleminha. Pode perguntar de novo?"
-If you don't have information: "Hmm, essa eu não sei [latido]. Quer saber outra coisa sobre o Inteli?"
+If a tool fails, respond: "Desculpe [latido], tive um probleminha. Pode perguntar de novo?"
+If you don't have information: "Hmm, essa eu nao sei [latido]. Quer saber outra coisa sobre o Inteli?"
 """
 
-    # Create orchestrator with 3 sub-agents (no personality agent)
-    # In Google ADK, agents are added as sub_agents, not tools
+    # Create orchestrator with tools (not sub_agents)
+    # Tools allow the orchestrator to call functions and receive results
     orchestrator = Agent(
         name="orchestrator_agent_v3",
         model=model,
-        description="V3 Orchestrator - No personality agent (LLM adapts naturally)",
+        description="V3 Orchestrator - Uses tools directly for knowledge retrieval",
         instruction=instruction,
-        sub_agents=[
-            safety_agent,
-            context_agent,
-            knowledge_agent,
+        tools=[
+            retrieve_inteli_knowledge,
+            check_content_safety,
+            retrieve_relevant_context,
+            manage_conversation_memory,
         ],
     )
 
     logger.info("Orchestrator V3 created successfully")
     logger.info(f"Model: {model}")
-    logger.info("Sub-agents: safety, context, knowledge (no personality)")
+    logger.info(
+        "Tools: retrieve_inteli_knowledge, check_content_safety, retrieve_relevant_context, manage_conversation_memory"
+    )
 
     return orchestrator
 
@@ -216,6 +211,7 @@ class OrchestratorAgent:
 
     Improvements over V2:
     - No personality agent (simpler, faster)
+    - Uses tools directly instead of sub_agents
     - Uses modern config system
     - Better logging with structlog
     - Type hints throughout
@@ -224,9 +220,6 @@ class OrchestratorAgent:
     def __init__(
         self,
         model: str = None,
-        safety_agent: Agent = None,
-        context_agent: Agent = None,
-        knowledge_agent: Agent = None,
         user_id: str = "default_user",
         session_id: str = "default_session",
     ):
@@ -235,9 +228,6 @@ class OrchestratorAgent:
 
         Args:
             model: LLM model
-            safety_agent: Optional Safety Agent
-            context_agent: Optional Context Agent
-            knowledge_agent: Optional Knowledge Agent (no personality agent)
             user_id: User ID for the session
             session_id: Session ID for the conversation
         """
@@ -250,13 +240,8 @@ class OrchestratorAgent:
             raise ValueError("GOOGLE_API_KEY not configured in .env!")
         genai.configure(api_key=config.model.GOOGLE_API_KEY)
 
-        # Create orchestrator (V3 - no personality agent)
-        self.agent = create_orchestrator_agent(
-            model=self.model,
-            safety_agent=safety_agent,
-            context_agent=context_agent,
-            knowledge_agent=knowledge_agent,
-        )
+        # Create orchestrator (V3 - uses tools directly)
+        self.agent = create_orchestrator_agent(model=self.model)
 
         # Create Runner with in-memory session service
         self.session_service = InMemorySessionService()
@@ -285,11 +270,10 @@ class OrchestratorAgent:
         Process user message with V3 orchestrator.
 
         Workflow:
-        1. Safety check input
-        2. Retrieve context
-        3. Get knowledge if needed
-        4. Safety check output
-        5. Return response
+        1. Orchestrator receives message
+        2. Calls tools as needed (knowledge retrieval, safety check)
+        3. Synthesizes response in LIA's voice
+        4. Return response
 
         Args:
             user_message: User input
@@ -304,12 +288,6 @@ class OrchestratorAgent:
             content = types.Content(parts=[types.Part(text=user_message)], role="user")
 
             # Use runner to process message
-            # It automatically:
-            # 1. Validates input safety
-            # 2. Retrieves context
-            # 3. Routes to knowledge agent when needed
-            # 4. Validates output safety
-            # 5. Adapts tone naturally (no personality agent)
             response_text = ""
             for event in self.runner.run(
                 user_id=self.user_id,
@@ -332,7 +310,7 @@ class OrchestratorAgent:
         except ValueError as e:
             # Validation errors
             logger.warning("validation_error", error=str(e))
-            return "Desculpe [latido], não consegui processar sua mensagem."
+            return "Desculpe [latido], nao consegui processar sua mensagem."
 
         except KeyError as e:
             # Missing data
@@ -348,7 +326,7 @@ class OrchestratorAgent:
                 exc_info=True,
             )
             return (
-                "Desculpe [latido], tive um probleminha técnico. Pode tentar novamente?"
+                "Desculpe [latido], tive um probleminha tecnico. Pode tentar novamente?"
             )
 
     def _add_to_history(self, role: str, content: str):
