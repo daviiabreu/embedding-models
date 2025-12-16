@@ -1,5 +1,7 @@
 import base64
+
 import whisper
+
 
 class STTService:
     def __init__(self):

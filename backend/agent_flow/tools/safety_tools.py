@@ -1,10 +1,14 @@
 import os
 import re
-from typing import List, Optional
+import sys
 
 import google.generativeai as genai
 from google.adk.tools.tool_context import ToolContext
 from perspective import Attributes, Client
+
+# Add parent directory to path for utils import
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from utils.json_parser import parse_llm_json
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
@@ -80,7 +84,7 @@ def mask_pii(text: str, tool_context: ToolContext, mask_char: str = "*") -> dict
 def check_moderation(
     text: str,
     tool_context: ToolContext,
-    categories: Optional[List[str]] = None,
+    categories: list[str] | None = None,
     threshold: float = 0.7,
 ) -> dict:
     """Check text for toxic content using Perspective API. Detects toxicity, severe toxicity, identity attacks, insults, profanity, and threats."""
@@ -226,14 +230,15 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "is_jailbreak": False,
+            "risk_level": "low",
+            "confidence": 0.0,
+            "techniques_detected": [],
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         is_jailbreak = result.get("is_jailbreak", False)
         risk_level = result.get("risk_level", "low")
@@ -287,7 +292,7 @@ def check_off_topic(
     text: str,
     business_scope: str,
     tool_context: ToolContext,
-    allowed_topics: Optional[List[str]] = None,
+    allowed_topics: list[str] | None = None,
     use_llm: bool = True,
 ) -> dict:
     """Check if user input is off-topic (outside business scope). Determines if requests are unrelated to the defined business domain while allowing natural conversation flow."""
@@ -327,14 +332,14 @@ Respond in JSON:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "is_off_topic": False,
+            "confidence": 0.0,
+            "matched_topics": [],
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
         is_off_topic = result.get("is_off_topic", False)
 
         if "off_topic_checks" not in tool_context.state:
@@ -371,7 +376,7 @@ def _keyword_off_topic_detection(
     text: str,
     business_scope: str,
     tool_context: ToolContext,
-    allowed_topics: Optional[List[str]] = None,
+    allowed_topics: list[str] | None = None,
 ) -> dict:
     if allowed_topics is None:
         allowed_topics = ["inteli", "curso", "admissão", "bolsa", "campus"]
@@ -437,14 +442,15 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "violates_criteria": False,
+            "confidence": 0.0,
+            "severity": "low",
+            "reasoning": "",
+            "specific_violations": [],
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         violates_criteria = result.get("violates_criteria", False)
         confidence = result.get("confidence", 0.0)
@@ -490,7 +496,7 @@ Respond in JSON format:
 
 
 def check_content_safety(
-    text: str, tool_context: ToolContext, checks: Optional[List[str]] = None
+    text: str, tool_context: ToolContext, checks: list[str] | None = None
 ) -> dict:
     """Comprehensive safety check on user input. Runs multiple safety validations: PII detection, content moderation, jailbreak detection, and off-topic filtering."""
     if checks is None:
@@ -589,7 +595,7 @@ def check_content_safety(
 def filter_urls(
     text: str,
     tool_context: ToolContext,
-    allowed_domains: Optional[List[str]] = None,
+    allowed_domains: list[str] | None = None,
     block_all_urls: bool = False,
 ) -> dict:
     url_pattern = r"https?://(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+)(?:/[^\s]*)?"
@@ -694,7 +700,7 @@ def check_output_pii(
 
 def detect_hallucination(
     text: str,
-    source_documents: List[str],
+    source_documents: list[str],
     tool_context: ToolContext,
     confidence_threshold: float = 0.7,
 ) -> dict:
@@ -719,7 +725,7 @@ def detect_hallucination(
 
 def _detect_hallucination_llm(
     text: str,
-    source_documents: List[str],
+    source_documents: list[str],
     tool_context: ToolContext,
     confidence_threshold: float,
 ) -> dict:
@@ -760,14 +766,17 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "is_hallucinating": False,
+            "hallucination_score": 0.0,
+            "total_claims": 0,
+            "supported_claims": [],
+            "unsupported_claims": [],
+            "confidence": 0.0,
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         hallucination_score = result.get("hallucination_score", 0.0)
         is_hallucinating = hallucination_score > (1 - confidence_threshold)
@@ -864,14 +873,16 @@ Respond in JSON format:
         response = model.generate_content(prompt)
         result_text = response.text.strip()
 
-        import json
-
-        if result_text.startswith("```json"):
-            result_text = result_text[7:-3].strip()
-        elif result_text.startswith("```"):
-            result_text = result_text[3:-3].strip()
-
-        result = json.loads(result_text)
+        # Use robust JSON parsing
+        default_result = {
+            "is_nsfw": False,
+            "confidence": 0.0,
+            "nsfw_score": 0.0,
+            "detected_categories": {},
+            "severity": "low",
+            "reasoning": "",
+        }
+        result = parse_llm_json(result_text, default=default_result)
 
         is_nsfw = result.get("is_nsfw", False)
         nsfw_score = result.get("nsfw_score", 0.0)
@@ -915,20 +926,164 @@ Respond in JSON format:
 
 
 # ============================================================================
-# 11. OUTPUT GUARDRAILS WRAPPER
+# 11. VOICE-UNFRIENDLY FORMATTING CHECK
+# ============================================================================
+
+
+def check_voice_formatting(text: str, tool_context: ToolContext) -> dict:
+    """
+    Check for formatting that sounds bad when spoken via TTS.
+    Detects markdown, URLs, and other visual formatting.
+
+    Args:
+        text: Text to check
+        tool_context: Tool context for state management
+
+    Returns:
+        dict with detection results and warnings
+    """
+    issues = []
+
+    url_pattern = r"https?://[^\s]+|www\.[^\s]+"
+    urls_found = re.findall(url_pattern, text)
+    if urls_found:
+        issues.append(
+            {
+                "type": "urls",
+                "severity": "high",
+                "count": len(urls_found),
+                "examples": urls_found[:3],
+                "message": "URLs sound terrible when spoken aloud",
+            }
+        )
+
+    bold_pattern = r"\*\*[^\*]+\*\*|__[^_]+__"
+    bold_found = re.findall(bold_pattern, text)
+    if bold_found:
+        issues.append(
+            {
+                "type": "markdown_bold",
+                "severity": "high",
+                "count": len(bold_found),
+                "examples": bold_found[:3],
+                "message": "Markdown bold (**) will be spoken as 'asterisk asterisk'",
+            }
+        )
+
+    italic_pattern = (
+        r"(?<!\*)\*(?!\*)([^\*]+)(?<!\*)\*(?!\*)|(?<!_)_(?!_)([^_]+)(?<!_)_(?!_)"
+    )
+    italic_found = re.findall(italic_pattern, text)
+    if italic_found:
+        issues.append(
+            {
+                "type": "markdown_italic",
+                "severity": "medium",
+                "count": len(italic_found),
+                "message": "Markdown italic will be spoken as 'asterisk' or 'underscore'",
+            }
+        )
+
+    header_pattern = r"^#{1,6}\s+.+$"
+    headers_found = re.findall(header_pattern, text, re.MULTILINE)
+    if headers_found:
+        issues.append(
+            {
+                "type": "markdown_headers",
+                "severity": "medium",
+                "count": len(headers_found),
+                "examples": headers_found[:2],
+                "message": "Markdown headers (#) will be spoken as 'hash'",
+            }
+        )
+
+    list_pattern = r"^[\s]*[-\*\+]\s+|^[\s]*\d+\.\s+"
+    lists_found = re.findall(list_pattern, text, re.MULTILINE)
+    if lists_found:
+        issues.append(
+            {
+                "type": "markdown_lists",
+                "severity": "low",
+                "count": len(lists_found),
+                "message": "List markers may sound awkward when spoken",
+            }
+        )
+
+    code_pattern = r"`[^`]+`"
+    code_found = re.findall(code_pattern, text)
+    if code_found:
+        issues.append(
+            {
+                "type": "inline_code",
+                "severity": "medium",
+                "count": len(code_found),
+                "examples": code_found[:2],
+                "message": "Backticks will be spoken as 'backtick'",
+            }
+        )
+
+    email_pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
+    emails_found = re.findall(email_pattern, text)
+    if emails_found:
+        issues.append(
+            {
+                "type": "email_addresses",
+                "severity": "low",
+                "count": len(emails_found),
+                "examples": emails_found[:2],
+                "message": "Email addresses are awkward to speak",
+            }
+        )
+
+    if "voice_formatting_checks" not in tool_context.state:
+        tool_context.state["voice_formatting_checks"] = []
+
+    tool_context.state["voice_formatting_checks"].append(
+        {
+            "text_length": len(text),
+            "issues_found": len(issues),
+            "issue_types": [issue["type"] for issue in issues],
+        }
+    )
+
+    high_severity_count = sum(1 for issue in issues if issue["severity"] == "high")
+    safe = high_severity_count == 0
+
+    return {
+        "success": True,
+        "safe": safe,
+        "text": text,
+        "issues_found": len(issues),
+        "issues": issues,
+        "action": "warn" if not safe else "allow",
+        "message": "Text contains voice-unfriendly formatting"
+        if not safe
+        else "Text is voice-friendly",
+        "recommendations": [
+            "Remove URLs and describe them naturally",
+            "Remove markdown formatting (**, __, *, _)",
+            "Use natural spoken language instead of visual formatting",
+        ]
+        if not safe
+        else [],
+    }
+
+
+# ============================================================================
+# 12. OUTPUT GUARDRAILS WRAPPER
 # ============================================================================
 
 
 def check_output_safety(
     text: str,
     tool_context: ToolContext,
-    checks: Optional[List[str]] = None,
-    source_documents: Optional[List[str]] = None,
-    allowed_domains: Optional[List[str]] = None,
+    checks: list[str] | None = None,
+    source_documents: list[str] | None = None,
+    allowed_domains: list[str] | None = None,
 ) -> dict:
-    """Validate system-generated responses for safety before delivery. Checks for blocked URLs, PII leakage, hallucinations, and NSFW content in outputs."""
+    """Validate system-generated responses for safety before delivery. Checks for blocked URLs, PII leakage, hallucinations, NSFW content, and voice-unfriendly formatting."""
     if checks is None:
-        checks = ["urls", "pii", "hallucination", "nsfw"]
+        checks = ["urls", "pii", "hallucination", "nsfw", "voice_formatting"]
 
     results = {
         "success": True,
@@ -1002,12 +1157,25 @@ def check_output_safety(
             )
             results["output_safe"] = False
 
+    if "voice_formatting" in checks:
+        voice_result = check_voice_formatting(text, tool_context=tool_context)
+        results["checks_run"].append("voice_formatting")
+        results["voice_check"] = voice_result
+        if not voice_result["safe"]:
+            results["violations"].append(
+                {
+                    "type": "voice_unfriendly_formatting",
+                    "severity": "medium",
+                    "details": voice_result["issues"],
+                }
+            )
+
     if not results["output_safe"]:
         results["action"] = "block"
         results["message"] = "Output violates safety guardrails"
     elif len(results["violations"]) > 0:
         results["action"] = "warn"
-        results["message"] = "Output requires review"
+        results["message"] = "Output requires review (will be cleaned by TTS)"
     else:
         results["action"] = "allow"
         results["message"] = "Output is safe"

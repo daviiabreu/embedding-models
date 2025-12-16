@@ -10,6 +10,7 @@ from backend.tts.tts_service import TTSService
 class Prompt(BaseModel):
     message: str
 
+
 # setup do STT
 stt = STTService()
 stt.setup_model()
