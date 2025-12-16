@@ -26,7 +26,6 @@ from backend.agent_flow.utils.retry import retry
 logger = logging.getLogger(__name__)
 
 
-
 AGENT_FLOW_DIR = Path(__file__).resolve().parents[1]
 load_dotenv(AGENT_FLOW_DIR / ".env", override=False)
 

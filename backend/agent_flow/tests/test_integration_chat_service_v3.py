@@ -247,9 +247,7 @@ class TestChatServiceV3WithRealOrchestrator:
         ):
             # Setup mock
             mock_orchestrator = Mock()
-            mock_orchestrator.process_message.return_value = (
-                "Olá! Como posso ajudar?"
-            )
+            mock_orchestrator.process_message.return_value = "Olá! Como posso ajudar?"
             mock_orch_class.return_value = mock_orchestrator
 
             # Create service

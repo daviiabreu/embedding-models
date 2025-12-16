@@ -143,7 +143,9 @@ class ChatSession:
                     continue
 
                 if user_input.lower() in {"exit", "quit", "bye"}:
-                    print(f"\n{GREEN}🐕 Goodbye! Come back soon to visit Inteli!{RESET}\n")
+                    print(
+                        f"\n{GREEN}🐕 Goodbye! Come back soon to visit Inteli!{RESET}\n"
+                    )
                     break
 
                 if user_input.lower() == "clear":

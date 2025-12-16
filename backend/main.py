@@ -47,7 +47,10 @@ async def chat_w_bot(prompt: Prompt):
         response_llm = chat.give_response(prompt.message)
         if response_llm:
             return {"status": 200, "response": str(response_llm)}
-        return {"status": 200, "response": "Desculpe. Não consegui entender sua pergunta. Pode perguntar novamente"}
+        return {
+            "status": 200,
+            "response": "Desculpe. Não consegui entender sua pergunta. Pode perguntar novamente",
+        }
     else:
         return {"status": 500, "erro": "Modelo de Transcrição não carregou."}
 

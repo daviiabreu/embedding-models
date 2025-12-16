@@ -7,8 +7,7 @@ class AgentFlowError(Exception):
     def __init__(self, message: str, user_message: str = None):
         self.message = message
         self.user_message = (
-            user_message
-            or "Desculpe, tive um probleminha. Pode tentar de novo?"
+            user_message or "Desculpe, tive um probleminha. Pode tentar de novo?"
         )
         super().__init__(self.message)
 

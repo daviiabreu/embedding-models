@@ -3,23 +3,20 @@ import logging
 import os
 import re
 import uuid
+from collections import OrderedDict, defaultdict
 from json import JSONDecodeError
 from pathlib import Path
-from collections import OrderedDict
 from typing import Any, Dict, List, Set
 
 import docx2txt
+import tiktoken
 from dotenv import load_dotenv
+from fastembed import SparseTextEmbedding
 from langchain_community.document_loaders import PyPDFLoader
 from PyPDF2 import PdfReader
-
-from fastembed import SparseTextEmbedding
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as qdrant_models
 from sentence_transformers import SentenceTransformer
-import tiktoken
-from collections import defaultdict
-
 
 load_dotenv()
 
@@ -223,6 +220,7 @@ def extract_section_info(element: Dict[str, Any]) -> str:
         clean = re.sub(r"^(\d+(\.\d+)*\.?)\s*", "", text)
         return clean if len(clean) > 2 else text
     return "general"
+
 
 # ================= EXTRAÇÃO INTELIGENTE =================
 
@@ -473,7 +471,9 @@ def create_smart_chunks(
     # Garantir overlap de 300 tokens por padrão, mesmo que argumentos não sejam ajustados
     chunk_size_tokens = max(1, chunk_size)
     overlap_tokens = max(0, chunk_overlap)
-    overlap_tokens = min(overlap_tokens, chunk_size_tokens - 1) if chunk_size_tokens > 1 else 0
+    overlap_tokens = (
+        min(overlap_tokens, chunk_size_tokens - 1) if chunk_size_tokens > 1 else 0
+    )
 
     # Agrupa mantendo a ordem de primeira ocorrência por seção
     section_groups: "OrderedDict[Any, Dict[str, Any]]" = OrderedDict()
@@ -573,7 +573,9 @@ def create_smart_chunks(
                     }
                 )
                 meta["preview"] = content[:200]
-                section_chunks.append({"id": chunk_id, "content": content, "metadata": meta})
+                section_chunks.append(
+                    {"id": chunk_id, "content": content, "metadata": meta}
+                )
                 chunk_counter += 1
 
                 overlap_lines = build_overlap_lines(current_lines)
@@ -594,7 +596,9 @@ def create_smart_chunks(
                 }
             )
             meta["preview"] = content[:200]
-            section_chunks.append({"id": chunk_id, "content": content, "metadata": meta})
+            section_chunks.append(
+                {"id": chunk_id, "content": content, "metadata": meta}
+            )
 
         total_section_chunks = len(section_chunks)
         for chunk in section_chunks:
