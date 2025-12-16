@@ -4,16 +4,15 @@
 
 ```bash
 
-docker build -t stt_tss:latest .
+docker build -t stt_tts:latest .
 
 ```
 
 &emsp; Então, para rodar a aplicação e alterar os arquivos, use:
 
-
 ```bash
 
-docker run -it --rm -v $(pwd):/usr/src/stt_tts stt_tts:latest /bin/bash 
+docker run -it --rm -v $(pwd):/usr/src/stt_tts stt_tts:latest /bin/bash
 
 ```
 
@@ -28,4 +27,3 @@ exit
 ```
 
 &emsp; E commite.
-
