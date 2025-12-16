@@ -114,8 +114,10 @@ class ChatService:
             raw_response = self.orchestrator.process_message(validated_prompt)
 
             # 5. Clean response for voice output (remove URLs, markdown, etc.)
+            logger.debug("raw_response_before_cleaning", raw=repr(raw_response))
             cleaning_result = clean_for_voice(raw_response)
             response = cleaning_result.text
+            logger.debug("response_after_cleaning", cleaned=repr(response))
 
             # Log if cleaning made changes
             if cleaning_result.changes_made:
