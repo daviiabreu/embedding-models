@@ -141,7 +141,9 @@ def clean_for_voice(text: str, aggressive: bool = False) -> CleaningResult:
             text = re.sub(email_pattern, "o email de contato", text)
             changes.append(f"Replaced {len(emails_found)} email address(es)")
 
-    # 11. Remove excessive whitespace
+    # 11. Convert literal \n to actual newlines, then clean excessive whitespace
+    # This handles cases where the model outputs escaped newlines as text
+    text = text.replace("\\n", " ")  # Replace literal \n with space for voice
     text = re.sub(r"\n{3,}", "\n\n", text)
     text = re.sub(r"[ \t]{2,}", " ", text)
     text = text.strip()
@@ -217,6 +219,10 @@ def validate_voice_friendly(text: str) -> tuple[bool, list[str]]:
     # Check for markdown links
     if re.search(r"\[([^\]]+)\]\([^)]+\)", text):
         issues.append("Contains markdown links")
+
+    # Check for literal \n (escaped newlines as text)
+    if "\\n" in text:
+        issues.append("Contains literal \\n characters")
 
     return len(issues) == 0, issues
 
