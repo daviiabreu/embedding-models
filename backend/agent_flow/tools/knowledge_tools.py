@@ -327,6 +327,14 @@ def retrieval_from_qdrant(
                 # Skip this chunk - wrong year or null
                 logger.debug(f"Skipping chunk with academic_year='{chunk_year}' (wanted '{strict_year_filter}')")
                 continue
+            
+            # EXTRA FILTER FOR 4º ANO: Skip chunks mentioning numbered projects
+            if strict_year_filter == "4º ano":
+                import re
+                # Check if content mentions "Projeto X" where X is a number
+                if re.search(r'[Pp]rojeto\s+\d+', content):
+                    logger.debug(f"Skipping 4º ano chunk that mentions numbered project (belongs to years 1-3)")
+                    continue
         
         raw_id = getattr(point, "id", None)
         if raw_id is None and isinstance(point, dict):
