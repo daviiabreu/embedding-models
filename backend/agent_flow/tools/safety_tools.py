@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+from typing import Optional, List
 
 import google.generativeai as genai
 from google.adk.tools.tool_context import ToolContext
@@ -8,7 +9,7 @@ from perspective import Attributes, Client
 
 # Add parent directory to path for utils import
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.json_parser import parse_llm_json
+from backend.agent_flow.utils.json_parser import parse_llm_json
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
@@ -496,7 +497,7 @@ Respond in JSON format:
 
 
 def check_content_safety(
-    text: str, tool_context: ToolContext, checks: list[str] | None = None
+    text: str, tool_context: ToolContext, checks: Optional[List[str]] = None
 ) -> dict:
     """Comprehensive safety check on user input. Runs multiple safety validations: PII detection, content moderation, jailbreak detection, and off-topic filtering."""
     if checks is None:
