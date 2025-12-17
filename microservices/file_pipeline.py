@@ -392,7 +392,10 @@ def extract_file_elements(file_path_str: str, use_unstructured: bool = True) -> 
                         "page_number": 1,
                         # NOVOS METADADOS CRÍTICOS
                         "project": block.get('project'),
-                        "academic_year": block.get('academic_year')
+                        "academic_year": block.get('academic_year'),
+                        # METADADOS PARA BUSCA DE PROFESSORES E CURSOS
+                        "professor_name": block.get('professor_name'),
+                        "course": block.get('course')
                     },
                     "element_id": f"web_{idx}"
                 })
@@ -544,6 +547,9 @@ def create_smart_chunks(
     """
     Chunking com agrupamento por contexto e prefixo semântico.
     Otimizado para Gemini (chunks maiores).
+    
+    SPECIAL HANDLING: professor_info blocks are kept as individual chunks
+    to preserve professor_name metadata.
     """
     logger.info(f"✂️ Chunking inteligente (size={chunk_size}, overlap={chunk_overlap})")
     
@@ -554,10 +560,51 @@ def create_smart_chunks(
         add_start_index=True
     )
     
-    # Agrupa por arquivo + seção + projeto + ano
-    grouped_text = {}
+    chunk_dicts = []
+    
+    # STEP 1: Extract professor_info blocks for individual processing
+    professor_elements = []
+    other_elements = []
     
     for el in processed_elements:
+        element_type = el.get('type', '')
+        if element_type == 'professor_info' or el['metadata'].get('professor_name'):
+            professor_elements.append(el)
+        else:
+            other_elements.append(el)
+    
+    logger.info(f"👨‍🏫 Professor blocks (individual chunks): {len(professor_elements)}")
+    logger.info(f"📄 Other elements (grouped chunks): {len(other_elements)}")
+    
+    # STEP 2: Process professor_info blocks as individual chunks (NO GROUPING)
+    for el in professor_elements:
+        prof_name = el['metadata'].get('professor_name', 'unknown')
+        safe_prof = re.sub(r'[^a-zA-Z0-9]', '_', prof_name)
+        chunk_id = f"professor_{safe_prof}_{uuid.uuid4().hex[:8]}"
+        
+        # Build context prefix for professor
+        context_prefix = ""
+        if el['metadata'].get('page_title'):
+            context_prefix += f"[Página: {el['metadata']['page_title']}]\n"
+        if el['metadata'].get('context_section'):
+            context_prefix += f"[Seção: {el['metadata']['context_section']}]\n"
+        if el['metadata'].get('context_header'):
+            context_prefix += f"[Subseção: {el['metadata']['context_header']}]\n"
+        if el['metadata'].get('professor_name'):
+            context_prefix += f"[Professor: {el['metadata']['professor_name']}]\n"
+        
+        contextualized_text = context_prefix + el['text']
+        
+        chunk_dicts.append({
+            "id": chunk_id,
+            "content": contextualized_text,
+            "metadata": el['metadata']  # PRESERVES professor_name!
+        })
+    
+    # STEP 3: Process other elements with grouping (original logic)
+    grouped_text = {}
+    
+    for el in other_elements:
         source = el['metadata'].get('source', 'unknown')
         section = el['metadata'].get('context_section', 'general')
         project = el['metadata'].get('project', 'no_project')
@@ -571,8 +618,6 @@ def create_smart_chunks(
             }
         
         grouped_text[key]["text"].append(el["text"])
-
-    chunk_dicts = []
     
     for key, data in grouped_text.items():
         full_text = "\n".join(data["text"])
@@ -763,7 +808,10 @@ def ingest_hybrid_embeddings(
                 "hierarchy": item["metadata"].get("hierarchy_level", "body"),
                 # METADADOS CRÍTICOS PARA GRADE CURRICULAR
                 "project": item["metadata"].get("project"),
-                "academic_year": item["metadata"].get("academic_year")
+                "academic_year": item["metadata"].get("academic_year"),
+                # METADADOS PARA BUSCA DE PROFESSORES E CURSOS
+                "professor_name": item["metadata"].get("professor_name"),
+                "course": item["metadata"].get("course")
             }
         ))
 
