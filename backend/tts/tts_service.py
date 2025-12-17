@@ -23,7 +23,7 @@ class TTSService:
             model_name="gemini-2.5-pro-tts"
         )
 
-        self.audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.MP3, speaking_rate=1.15)
+        self.audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.MP3, speaking_rate=1.10)
 
     def clean_text_for_speech(self, text: str) -> str:
         """

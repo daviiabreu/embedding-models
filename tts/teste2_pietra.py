@@ -95,14 +95,14 @@ if __name__ == "__main__":
         { "id": "16_piada_ec", "emotion": "[whispering, conspiratorial, laughing]", "text": "Engenharia de Computação cria soluções inovadoras. E adivinhem só... os alunos desse são os mais legais de todos! Até porque foram eles que me programaram, então não posso ser imparcial!" },
 
         # BLOCO 5: CLUBES
-        { "id": "19_intro_clubes", "emotion": "[mysterious, storytelling]", "text": "Agora… se vocês acham que a vida de um inteler se resume a cálculos e derivadas, deixa eu contar um segredo… É nos clubes estudantis que a mágica acontece!" },
-        { "id": "20_quantidade_clubes", "emotion": "[energetic, fast-paced]", "text": "Aqui no Inteli tem clube pra tudo — e quando eu digo tudo, é TU-DO mesmo. São mais de vinte grupos diferentes, todos criados e liderados pelos próprios alunos." },
-        { "id": "20_lista_clubes", "emotion": "[energetic, fast-paced]", "text": "Tem a Tantera, nossa atlética que faz o campus todo vibrar nos jogos. A Inteli Júnior, a empresa júnior que entrega projetos reais pra clientes de verdade. A LEI, liga de empreendedorismo, onde o pessoal respira inovação e sonha com o próximo unicórnio brasileiro. E se vocês acham que é só isso, segura aí:" },
-        { "id": "20_lista2_clubes", "emotion": "[energetic, fast-paced]", "text": "A AgroTec, que leva tecnologia pro campo. O Game Lab, que desenvolve jogos incríveis. O Inteli Blockchain, que ganha hackathon atrás de hackathon com projetos de Web3. E a Inteli Academy, focada em IA... o pessoal que cria mentes tipo a minha." },
-        { "id": "21_diversidade", "emotion": "[respectful, gentle]", "text": "Além desses, tem grupos que tornam o Inteli um lugar diverso e acolhedor: O Coletivo Feminino Grace Hopper, o Coletivo Negro Benedito Caravelas e o Coletivo LGBTQIAPN+ Turing. Eles garantem representatividade e respeito." },
-        { "id": "22_wave", "emotion": "[warm]", "text": "Ah, e não posso esquecer da Wave, a comunidade que ajuda candidatos a entrarem no Inteli com mentorias e simulados." },    
-        { "id": "24_fim_clube", "emotion": "[warm]", "text": "No fim, o que torna o Inteli tão especial é isso: Aqui, a aprendizagem vai muito além da sala de aula. Os clubes são pequenos laboratórios onde os alunos aprendem habilidades que vão levar pra vida toda — liderança, trabalho em equipe, comunicação e propósito." },
-        { "id": "23_qa_clubes", "emotion": "[helpful]", "text": "Bom, esse foi um pouquinho sobre os cursos e clubes daqui. Se vocês quiserem saber mais sobre algum clube, fiquem à vontade pra perguntar agora!" },
+        { "id": "19_intro_clubes", "emotion": "[playful, storytelling]", "text": "Agora… se vocês acham que a vida de um intéler se resume a cálculos e derivadas... Errado! É nos clubes estudantis que a mágica acontece!", "speed": 1.23 },
+        { "id": "20_quantidade_clubes", "emotion": "[energetic, dramatic]", "text": "Aqui no Inteli tem clube pra tudo — e quando eu digo tudo, é TU-DO mesmo. São mais de vinte grupos diferentes, todos criados e liderados pelos próprios alunos." },
+        { "id": "21_lista_clubes", "emotion": "[energetic, fast-paced]", "text": "Tem a Tantéra, nossa atlética que faz o campus todo vibrar nos jogos. A Intéli Júnior, a empresa júnior que entrega projetos reais pra clientes de verdade. A LEI, liga de empreendedorismo, onde o pessoal respira inovação e sonha com o próximo unicórnio brasileiro. E se vocês acham que é só isso, segura aí...", "speed": 1.19 },
+        { "id": "22_lista2_clubes", "emotion": "[energetic, passionate]", "text": "Temos ainda... a AgroTec, que leva tecnologia pro campo. O Game Lab, que desenvolve jogos incríveis. O Intéli Blockchain, que ganha hackathon atrás de hackathon com projetos de Web3. E a Inteli Academy, focada em IA: o pessoal que cria mentes tipo a minha a", "speed": 1.20 },
+        { "id": "24_wave", "emotion": "[excited, remembering]", "text": "Ah, e não posso esquecer da Wave, a comunidade que ajuda candidatos a entrarem no Inteli com mentorias e simulados." },    
+        { "id": "23_diversidade", "emotion": "[respectful, gentle]", "text": "Além dos clubes, temos grupos que tornam o Inteli um lugar diverso e acolhedor: O Coletivo Feminino Grace Hopper, o Coletivo Negro Benedito Caravelas e o Coletivo LGBTQIAPN+ Turing. Eles garantem representatividade e respeito." },
+        { "id": "25_fim_clube", "emotion": "[super excited, fast-paced]", "text": "No fim, o que torna o Intéli tão especial é isso: Aqui, a aprendizagem vai muito além da sala de aula. Os clubes são pequenos laboratórios onde os alunos aprendem habilidades que vão levar pra vida toda — liderança, trabalho em equipe, comunicação e propósito." },
+        { "id": "26_qa_clubes", "emotion": "[helpful]", "text": "e esse foi só um pouquinho sobre os cursos e clubes daqui. Se vocês quiserem saber mais sobre algum clube, fiquem à vontade pra perguntar agora!" },
 
         # BLOCO 6: PBL E ROTINA 
         { "id": "24_sem_materias", "emotion": "[shocked, dramatic]", "text": "E agora, preparem-se para um espanto: O Inteli não tem matérias!" },
@@ -120,7 +120,7 @@ if __name__ == "__main__":
     # CONTROLE DE EXECUÇÃO
     
     # OPÇÃO 1: Gerar TODOS os áudios
-    SEGMENTS_TO_RUN = "14_intro_cursos"
+    SEGMENTS_TO_RUN = "26_qa_clubes"
 
     # OPÇÃO 2: Gerar apenas áudios específicos (Descomente abaixo para usar)
     # Copie o "id" exato que está na lista acima.
