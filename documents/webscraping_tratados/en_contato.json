@@ -1,0 +1,102 @@
+{
+  "source_file": "en_contato.html",
+  "metadata": {
+    "url": "en_contato",
+    "title": "Contact - Inteli - Institute of Technology and Leadership",
+    "description": "",
+    "keywords": [],
+    "page_type": "contato"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Contact us through the following service channels:",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Partnerships with companies",
+      "section": null,
+      "subsection": "Partnerships with companies"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tainah Shiratsu parcerias@inteli.edu.br",
+      "section": null,
+      "subsection": "Partnerships with companies",
+      "original_count": 2
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Relations with schools",
+      "section": null,
+      "subsection": "Relations with schools"
+    },
+    {
+      "type": "paragraph",
+      "text": "Iasmin Costa escolas@inteli.edu.br",
+      "section": null,
+      "subsection": "Relations with schools",
+      "original_count": 2
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Selection process",
+      "section": null,
+      "subsection": "Selection process"
+    },
+    {
+      "type": "paragraph",
+      "text": "Admissions Team inteli@inteli.edu.br",
+      "section": null,
+      "subsection": "Selection process",
+      "original_count": 2
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Press Office",
+      "section": null,
+      "subsection": "Press Office"
+    },
+    {
+      "type": "paragraph",
+      "text": "Natan Novelli natan@ovocom.com.br",
+      "section": null,
+      "subsection": "Press Office",
+      "original_count": 2
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Work at Inteli",
+      "section": null,
+      "subsection": "Work at Inteli"
+    },
+    {
+      "type": "paragraph",
+      "text": "People Team inteli.gupy.io An innovation ecosystem in São Paulo's university city.",
+      "section": null,
+      "subsection": "Work at Inteli",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "Our campus is located 30 minutes from CPTM's Cidade Universitária station and 5 bus lines take you to various parts of the city. Av. Professor Almeida Prado, 520 - Butantã neighborhood. City: São Paulo/SP",
+      "section": null,
+      "subsection": "Work at Inteli",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 12,
+    "paragraphs": 14,
+    "headings": 5,
+    "list_items": 0,
+    "tables": 0
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "source_file": "producao-academica.html",
+  "metadata": {
+    "url": "producao-academica",
+    "title": "Produção Acadêmica - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "Valorizamos a produção acadêmica como uma ferramenta fundamental para impulsionar inovações tecnológicas e para o desenvolvimento econômico.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Produção Acadêmica",
+      "section": "Produção Acadêmica",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Valorizamos a pesquisa acadêmica como uma ferramenta fundamental para impulsionar inovações tecnológicas e contribuir significativamente para o desenvolvimento econômico e social.",
+      "section": "Produção Acadêmica",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "A pesquisa no Inteli é predominantemente de natureza tecnológica. Nosso modelo pedagógico é desenhado para que cada módulo de curso funcione como um projeto de desenvolvimento tecnológico, começando com uma demanda real do mercado e seguindo com um aprofundamento teórico robusto.",
+      "section": "Produção Acadêmica",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Os estudantes são incentivados a explorar e a aplicar o conhecimento adquirido para desenvolver soluções inovadoras, cujos resultados são documentados em relatórios técnicos.",
+      "section": "Produção Acadêmica",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Tanto alunos quanto professores do Inteli estão ativamente envolvidos na realização de pesquisas acadêmicas, resultando na publicação de artigos científicos em periódicos e congressos renomados. Essas pesquisas contribuem para o avanço do conhecimento em nossas áreas de atuação e reforçam o compromisso do Inteli com a excelência acadêmica e a inovação. Tipo de publicação Data de publicação Com alunos",
+      "section": "Produção Acadêmica",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "O Ensino Superior de Computação Baseado em Projetos: o Inteli no caminho da inovação.",
+      "section": "Produção Acadêmica",
+      "subsection": "O Ensino Superior de Computação Baseado em Projetos: o Inteli no caminho da inovação."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Revista Brasileira de Informática em Educação.",
+      "section": "Produção Acadêmica",
+      "subsection": "Revista Brasileira de Informática em Educação."
+    },
+    {
+      "type": "paragraph",
+      "text": "Periódico Nacional",
+      "section": "Produção Acadêmica",
+      "subsection": "Revista Brasileira de Informática em Educação."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Using PBL and Agile to Teach Artificial Intelligence to Undergraduate Computing Students.",
+      "section": "Produção Acadêmica",
+      "subsection": "Using PBL and Agile to Teach Artificial Intelligence to Undergraduate Computing Students."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "IEEE Access, vol. 11, 77737-77749",
+      "section": "Produção Acadêmica",
+      "subsection": "IEEE Access, vol. 11, 77737-77749"
+    },
+    {
+      "type": "paragraph",
+      "text": "Periódico Internacional",
+      "section": "Produção Acadêmica",
+      "subsection": "IEEE Access, vol. 11, 77737-77749"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "PBL Student Assessment: Consistency of Different Evaluation Methods in a Computing Faculty",
+      "section": "Produção Acadêmica",
+      "subsection": "PBL Student Assessment: Consistency of Different Evaluation Methods in a Computing Faculty"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "IEEE Transactions on Education, pp. 1-10",
+      "section": "Produção Acadêmica",
+      "subsection": "IEEE Transactions on Education, pp. 1-10"
+    },
+    {
+      "type": "paragraph",
+      "text": "Periódico Internacional",
+      "section": "Produção Acadêmica",
+      "subsection": "IEEE Transactions on Education, pp. 1-10"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Educational Computer Games for Burn Prevention and First Aid Awareness",
+      "section": "Produção Acadêmica",
+      "subsection": "Educational Computer Games for Burn Prevention and First Aid Awareness"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Entertainment Computing, Vol 52",
+      "section": "Produção Acadêmica",
+      "subsection": "Entertainment Computing, Vol 52"
+    },
+    {
+      "type": "paragraph",
+      "text": "Periódico Internacional",
+      "section": "Produção Acadêmica",
+      "subsection": "Entertainment Computing, Vol 52"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Effects of a Collaborative Gamification on Learning and Engagement of Children with Autism",
+      "section": "Produção Acadêmica",
+      "subsection": "Effects of a Collaborative Gamification on Learning and Engagement of Children with Autism"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Universal Access in the Information Society, p. 1-22.",
+      "section": "Produção Acadêmica",
+      "subsection": "Universal Access in the Information Society, p. 1-22."
+    },
+    {
+      "type": "paragraph",
+      "text": "Periódico Internacional",
+      "section": "Produção Acadêmica",
+      "subsection": "Universal Access in the Information Society, p. 1-22."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Use of Feedback in Intelligent Tutoring Systems: a Systematic Literature Review.",
+      "section": "Produção Acadêmica",
+      "subsection": "Use of Feedback in Intelligent Tutoring Systems: a Systematic Literature Review."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Interactive Learning Environments",
+      "section": "Produção Acadêmica",
+      "subsection": "Interactive Learning Environments"
+    },
+    {
+      "type": "paragraph",
+      "text": "Periódico Internacional",
+      "section": "Produção Acadêmica",
+      "subsection": "Interactive Learning Environments"
+    }
+  ],
+  "statistics": {
+    "total_blocks": 23,
+    "paragraphs": 13,
+    "headings": 13,
+    "list_items": 0,
+    "tables": 0
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "source_file": "en_prototipos-entregues.html",
+  "metadata": {
+    "url": "en_prototipos-entregues",
+    "title": "Prototypes delivered - Inteli - Institute of Technology and Leadership",
+    "description": "Our Call for Projects (Prototypes) is the way we let the market know which projects are available for the next semester.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Prototypes delivered",
+      "section": "Prototypes delivered",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "OurCall for Projectsis the way we let the market know whichprojects are available for the next semester. During this period we receive applications for initiatives from companies, NGOs and government institutions with their business challenges.",
+      "section": "Prototypes delivered",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Contributing to society is a fundamental pillar of our model. That's why we make available the prototypes developed by our students over the years.",
+      "section": "Prototypes delivered",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Our project-based learning model develops computer skills, business skills and socio-emotional skills through solutions to real market problems.",
+      "section": "Prototypes delivered",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "We hope that other companies, non-governmental organizations (NGOs) or government entities will find here a comprehensive repository of innovative and alternative solutions to meet their challenges.The prototypes can be freely downloaded, customized and adapted to meet similar problems, and we believe that these prototypes have the potential to be widely used throughout the technology community, promoting collaboration and innovation on a large scale. Integrated business system G2 Technology. Improve business productivity and process controls. Objective: Implement an ERP system (SAP Business One) at a pilot customer with real processes. Operations and IT team. Prediction with Deep Learning Quickly identify potential fraud in ARTs. Objective: Predictive model for detecting fraud, non-compliance, and ART volume. Technology team. NLP automation (text, video, voice) Improve and support the process of continuous improvement of the service provided by the company. Objective:",
+      "section": "Prototypes delivered",
+      "subsection": null,
+      "original_count": 15
+    },
+    {
+      "type": "paragraph",
+      "text": "Artificial intelligence solution to support the customer service team in continuous improvement and quality standards. Operations team. Edge computing system Create a solution to support wildlife monitoring. Objective: Affordable GPS telemetry solution for intelligent wildlife monitoring. Operations team. Predictive maintenance Itubombas. Prevent downtime due to equipment failure and service interruptions. Objective: Artificial intelligence for predicting failures in the company's motor pump operations. Product team. Structure and governance for data analysis Improve the strategic vision of the business. Objective:",
+      "section": "Prototypes delivered",
+      "subsection": null,
+      "original_count": 16
+    },
+    {
+      "type": "paragraph",
+      "text": "Development of a solution for sanitizing, organizing, and visualizing data on the management of soybean production areas. Product team. Distributed systems Meet the demand for online ticket purchasing services. Objective:",
+      "section": "Prototypes delivered",
+      "subsection": null,
+      "original_count": 5
+    },
+    {
+      "type": "paragraph",
+      "text": "Develop a new architecture based on microservices, containers (Docker), orchestration with Kubernetes, and cloud computing. Technology team. Natural language with generative AI Curadobia. Optimize customer service. Objective: Automated customer service agent with a human touch: fashion recommendations, tips, and curation. Operations and IT team.",
+      "section": "Prototypes delivered",
+      "subsection": null,
+      "original_count": 8
+    }
+  ],
+  "statistics": {
+    "total_blocks": 8,
+    "paragraphs": 47,
+    "headings": 1,
+    "list_items": 0,
+    "tables": 0
+  }
+}

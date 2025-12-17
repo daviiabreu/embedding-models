@@ -1,0 +1,67 @@
+{
+  "source_file": "en_campus.html",
+  "metadata": {
+    "url": "en_campus",
+    "title": "Campus - Inteli - Institute of Technology and Leadership",
+    "description": "",
+    "keywords": [],
+    "page_type": "infraestrutura"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Get to know our campus",
+      "section": "Get to know our campus",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "An oasis for our students' learning",
+      "section": "Get to know our campus",
+      "subsection": "An oasis for our students' learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "10,000m2 oftotal area 14 living areas Learning, well-being and coexistence. Classrooms for Active Methodologies (Workshops) Laboratory Auditorium Individual study spaces Rooms for group meetings Career Center Health and wellness center Cafeteria and healthy eating Social room (yoga, music, etc.) Psycho-emotional support center Games area Administrative and academic support room",
+      "section": "Get to know our campus",
+      "subsection": "An oasis for our students' learning",
+      "original_count": 15
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "An innovation ecosystem in the city of São Paulo",
+      "section": "Get to know our campus",
+      "subsection": "An innovation ecosystem in the city of São Paulo"
+    },
+    {
+      "type": "paragraph",
+      "text": "Located on Avenida Professor Almeida Prado, number 520, in Butantã, within the University City. The shed where we built our entire structure dates from 1902, one of the IPT's oldest, and was of immense importance to Brazilian industry in the first half of the 20th century.",
+      "section": "Get to know our campus",
+      "subsection": "An innovation ecosystem in the city of São Paulo"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Why are we on the USP campus?",
+      "section": "Get to know our campus",
+      "subsection": "Why are we on the USP campus?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Created by the São Paulo State Government, IPT Open is part of IPT, one of the country's largest research and technology centers, located on the USP campus. The aim is to create a true innovation district in Latin America, making São Paulo a global benchmark in science, technology and innovation. Inteli is proud to be part of this ecosystem. An innovation ecosystem in the city of São Paulo Our campus is located in the Butantã neighborhood, within the University City. Av. Professor Almeida Prado, 520 - Butantã, 05508-901 - São Paulo/SP | Brazil.",
+      "section": "Get to know our campus",
+      "subsection": "Why are we on the USP campus?",
+      "original_count": 4
+    }
+  ],
+  "statistics": {
+    "total_blocks": 7,
+    "paragraphs": 20,
+    "headings": 4,
+    "list_items": 0,
+    "tables": 0
+  }
+}

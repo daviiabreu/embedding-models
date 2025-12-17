@@ -1,0 +1,173 @@
+{
+  "source_file": "aula-aberta-pos-graduacao.html",
+  "metadata": {
+    "url": "aula-aberta-pos-graduacao",
+    "title": "Aula aberta pós graduação - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "",
+    "keywords": [],
+    "page_type": "curso"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Venha vivenciar a experiência do curso antes mesmo de se tornar aluno!",
+      "section": "Venha vivenciar a experiência do curso antes mesmo de se tornar aluno!",
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Experimente a Aula Aberta",
+      "section": "Experimente a Aula Aberta",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Proteja o Futuro com a Pós-Graduação em CyberSecurity do InteliNo curso de Pós-Graduação em Cyber Security do Inteli, você se torna um especialista em segurança, pronto para enfrentar os desafios mais complexos do setor. Nosso programa combina teoria de ponta com prática avançada, preparando você para mitigar ameaças e liderar projetos de segurança cibernética.",
+      "section": "Experimente a Aula Aberta",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Experimente a Aula Aberta",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Experimente a Aula Aberta"
+    },
+    {
+      "type": "paragraph",
+      "text": "Venha vivenciar a experiência do curso antes mesmo de se tornar aluno(a). Durante essas aulas, descubra como é estudar com os melhores profissionais e participe de dinâmicas que exploram técnicas e estratégias de proteção digital. A Aula Aberta é sua oportunidade de conhecer nossa metodologia inovadora, interagir com professores e tirar dúvidas sobre o programa.",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Experimente a Aula Aberta"
+    },
+    {
+      "type": "paragraph",
+      "text": "Transforme-se no especialista que o mercado precisa. Inscreva-se agora e seja parte da elite da cibersegurança.",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Experimente a Aula Aberta"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Datas das aulas",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "paragraph",
+      "text": "19/11 | terça-feira Modalidade: Aula Online de 19h às 21h",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas",
+      "original_count": 4
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Business Drivers, Requisitos e Visões Arquiteturais",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nesta primeira Aula Aberta, iremos abordar como um bom entendimento do domínio do Negócio direciona decisões arquiteturais, e quais fatores devemos levar em consideração para fazer uma arquitetura que atenda aos requisitos tanto funcionais quanto não-funcionais (segurança está inclusa nesta última categoria), também considerando a criticidade dos requisitos sob a perspectiva do Negócio. Um destaque é mostrar como as visões arquiteturais podem ser usadas para destacar os ativos de software e uma possível segregação, visando abordagens de controle e proteção dos patrimônios lógicos e físicos de negócio. 21/11 | quinta-feira Modalidade: Aula Online de 19h às 21h",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas",
+      "original_count": 5
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Táticas Arquiteturais e Avaliação",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nesta segunda Aula Aberta, apresentaremos táticas arquiteturais para suportar os requisitos não funcionais (disponibilidade, segurança, escalabilidade) com o detalhamento de alguns estudos de caso. As táticas devem conectar as decisões de arquitetura em termos de regras de negócios, dados, transações e camadas de infraestrutura envolvendo redes de comunicação, servidores e sistemas operacionais. Também serão abordados métodos de avaliação e monitoramento de sistemas para suportar uma melhoria contínua do sistema. 23/11 | sábado Modalidade: Aula Presencial de 8h às 13h",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas",
+      "original_count": 5
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Atividades Práticas de Redes",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nessa instrução, teremos atividades 100% hands-on, focando em práticas de redes que garantam estabilidade na comunicação de sistemas, evitando brechas de ataques, como engenharia social de um falso técnico. Dentre as atividades, veremos:",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "list_block",
+      "text": "Nessa instrução, teremos atividades 100% hands-on, focando em práticas de redes que garantam estabilidade na comunicação de sistemas, evitando brechas de ataques, como engenharia social de um falso técnico. Dentre as atividades, veremos:\n\n- Crimpagem de cabo UTP-CAT com foco na segurança da informação e qualidade da crimpagem, discutindo boas práticas para construir uma rede LAN segura;",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "Crimpagem de cabo UTP-CAT com foco na segurança da informação e qualidade da crimpagem, discutindo boas práticas para construir uma rede LAN segura;",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "list_block",
+      "text": "Nessa instrução, teremos atividades 100% hands-on, focando em práticas de redes que garantam estabilidade na comunicação de sistemas, evitando brechas de ataques, como engenharia social de um falso técnico. Dentre as atividades, veremos:\n\n- Cálculo da potência do sinal de Rádio Frequência em dBm, com análise da qualidade do sinal e estudo de possíveis ataques quando do surgimento de bloqueadores de sinais;",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "Cálculo da potência do sinal de Rádio Frequência em dBm, com análise da qualidade do sinal e estudo de possíveis ataques quando do surgimento de bloqueadores de sinais;",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "list_block",
+      "text": "Nessa instrução, teremos atividades 100% hands-on, focando em práticas de redes que garantam estabilidade na comunicação de sistemas, evitando brechas de ataques, como engenharia social de um falso técnico. Dentre as atividades, veremos:\n\n- Alinhamento de antena via satélite utilizando o cálculo realizado na atividade anterior. Discutiremos a qualidade do sinal e traremos dicas importantes de comunicação via satélite para se obter um sinal robusto e mitigar falhas de sistema contra possíveis vulnerabilidades em segurança.",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "Alinhamento de antena via satélite utilizando o cálculo realizado na atividade anterior. Discutiremos a qualidade do sinal e traremos dicas importantes de comunicação via satélite para se obter um sinal robusto e mitigar falhas de sistema contra possíveis vulnerabilidades em segurança. 13/12 | sexta-feira Modalidade: Aula Presencial de 13h às 17h",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas",
+      "original_count": 5
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Montagem de uma Rede LAN e Simulação de DoS",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Neste encontro, vamos calcular o mapeamento de rede IP com CIDR para os notebooks locais e depois da rede LAN, vamos incorporar um ESP32 na rede WiFi e simular ataques DoS e DDoS em um ESP32. Além disso, vamos simular um ataque utilizando phishing em um site hospedado no ESP32.",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Datas das aulas"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Inscreva-se",
+      "section": "Experimente a Aula Aberta",
+      "subsection": "Inscreva-se"
+    }
+  ],
+  "statistics": {
+    "total_blocks": 23,
+    "paragraphs": 26,
+    "headings": 9,
+    "list_items": 3,
+    "tables": 0
+  }
+}

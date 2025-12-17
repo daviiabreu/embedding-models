@@ -1,0 +1,167 @@
+{
+  "source_file": "en_o-mundo-conectado-comeca-aqui-projetos-reais-com-internet-das-coisas.html",
+  "metadata": {
+    "url": "en_o-mundo-conectado-comeca-aqui-projetos-reais-com-internet-das-coisas",
+    "title": "The connected world starts here: real projects with the Internet of Things - Inteli - Institute of Technology and Leadership",
+    "description": "Discover how Inteli students create real IoT solutions, bringing together technology, data and purpose in projects with social and corporate impact.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduation>The connected world starts here: real projects with the Internet of Things",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "The connected world starts here: real projects with the Internet of Things",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduation>The connected world starts here: real projects with the Internet of Things\n\n- Bruna Mayer\n- 13 Oct 2025\n- Bruna Mayer\n- 13 Oct 2025",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "We know that our technologies don't work in isolated boxes. The parts need to exchange data, things need to talk to each other and the pieces need to fit together, establishing communication consistently and at the necessary times.",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "At Inteli, this logic goes beyond technology. Ourmethodologycrosses disciplinary barriers and connects computing, mathematics, business, leadership and design, forming a learning ecosystem in which technical excellence goes hand in hand with a systemic and practically applied vision.",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "IoT solutions developed by students",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "paragraph",
+      "text": "In the last module of the 1st year, students developIoT (Internet of Things) solutions, creating complete systems for our project partners: from understanding the company, its people, processes and context to prototyping hardware, embedded software, databases and web screens for operating the devices.",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Partnership with PRODESP",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "paragraph",
+      "text": "WithPRODESP(a São Paulo government technology company), the challenge posed to the students was to track around 170,000 assets distributed across 250 sites, including Poupatempo units. To do this, the groups developed solutions using ESP32 microcontrollers (Wi-Fi + BLE), RFID modules and communication via MQTT, as well as databases (SQL) and web interfaces (JavaScript).",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "paragraph",
+      "text": "The electronic prototypes featured LEDs, buzzers and LCD displays, housed in cases produced by 3D printing and laser cutting. The final MVPs enabled the location and management of large-scale assets, including screens and usability logic that allowed multiple users to access and operate the system simply and reliably.",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Partnership with Instituto Apontar",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "paragraph",
+      "text": "With theInstituto Apontar(an NGO that supports gifted young people), the challenge was to eliminate manual access control to the building, which created logistical problems and security vulnerabilities.",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "paragraph",
+      "text": "To do this, the students developed ESP32-based systems, with fingerprint authentication, RFID and matrix keypads, capable of activating electric locks and offering immediate feedback on LEDs, buzzers and LCD displays.",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "paragraph",
+      "text": "Real-time communication via MQTT integrated the records with web applications connected to Google Workspace (Sheets API) and displayed the data on the system interface, making it possible to monitor and operate access, record student attendance and generate automatic attendance reports, as well as sending notifications to parents about their children's arrival at the institute.",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "paragraph",
+      "text": "This project also paid special attention to the LGPD, with the adoption of biometric data encryption, fault tolerance mechanisms and offline storage, guaranteeing the integrity of records even in situations of network instability.",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "paragraph",
+      "text": "These experiences show that, by the end of the first year, our students here at Inteli not only know hardware, software and mathematical analysis concepts, but they also know how to apply them to systems design, connecting technology, people and purposes in robust and responsible solutions. \"Here, our students don't talk about the future. They build it.\"",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students",
+      "original_count": 2
+    },
+    {
+      "type": "list_block",
+      "text": "See also:\n\n- Graduation,Selection Process,Academic Team",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "What is the difference between Computer Engineering and Software Engineering?",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "list_block",
+      "text": "What is the difference between Computer Engineering and Software Engineering?\n\n- Renato Penha\n- 30/09/2025\n- Tech Market",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "The start of the professional journey",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "list_block",
+      "text": "The start of the professional journey\n\n- Inteli Team\n- 08/02/2024\n- Academic Team",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "From the club to the bit: the epic of technologies to computing",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students"
+    },
+    {
+      "type": "list_block",
+      "text": "From the club to the bit: the epic of technologies to computing\n\n- Mauricio Garcia\n- 01/11/2023",
+      "section": "The connected world starts here: real projects with the Internet of Things",
+      "subsection": "IoT solutions developed by students",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 23,
+    "paragraphs": 15,
+    "headings": 4,
+    "list_items": 13,
+    "tables": 0
+  }
+}

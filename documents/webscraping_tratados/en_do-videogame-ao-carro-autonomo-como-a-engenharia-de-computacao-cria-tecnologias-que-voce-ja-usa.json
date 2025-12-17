@@ -1,0 +1,293 @@
+{
+  "source_file": "en_do-videogame-ao-carro-autonomo-como-a-engenharia-de-computacao-cria-tecnologias-que-voce-ja-usa.html",
+  "metadata": {
+    "url": "en_do-videogame-ao-carro-autonomo-como-a-engenharia-de-computacao-cria-tecnologias-que-voce-ja-usa",
+    "title": "From video games to autonomous cars: how Computer Engineering creates technologies you already use - Inteli - Institute of Technology and Leadership",
+    "description": "Find out how the Playstation 3, the Intel 8086 processor and the IBM PC connect to Computer Engineering and what this history teaches us about innovation.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduation>From video games to autonomous cars: how Computer Engineering creates technologies you already use",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduation>From video games to autonomous cars: how Computer Engineering creates technologies you already use\n\n- Rodrigo Nicola\n- 5 Oct 2025\n- Rodrigo Nicola\n- 5 Oct 2025",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "In 2007,Gabe Newell, founder ofValve, the company responsible for the legendary Half Life and Portal series and which today dominates the online games market with the Steam platform, called thePlaystation 3\"a waste of time for everyone involved\" - and this has everything to do with Computer Engineering. Want to understand it better? Then read on.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "The origin: the IBM PC and the birth of personal computing",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The origin: the IBM PC and the birth of personal computing"
+    },
+    {
+      "type": "paragraph",
+      "text": "Let's go back in time a little. The year is 1981 and Sony is completely focused on the revolutionary Walkman - and there isn't even an embryo of what would become the Playstation division. But the focus of our trip back in time is not the Japanese Sony, but the Americans IBM and Intel.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The origin: the IBM PC and the birth of personal computing"
+    },
+    {
+      "type": "paragraph",
+      "text": "These two companies were working together on a launch that would change the history of computing forever: the Model 5150, popularly known as theIBM Personal Computer.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The origin: the IBM PC and the birth of personal computing"
+    },
+    {
+      "type": "paragraph",
+      "text": "Today, the name of the machine launched by IBM has practically become a synonym for almost every type of computer we interact with.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The origin: the IBM PC and the birth of personal computing"
+    },
+    {
+      "type": "paragraph",
+      "text": "If that's not enough evidence of the importance of this launch, here's another: in 1982,Timededicmagazine awarded its \"Person of the Year\" prize to an inanimate object for the first time in history. Yes, the person of the year in 1982 was the personal computer.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The origin: the IBM PC and the birth of personal computing"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "The link between Intel, Gabe Newell, the Playstation 3 and Computer Engineering",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The link between Intel, Gabe Newell, the Playstation 3 and Computer Engineering"
+    },
+    {
+      "type": "paragraph",
+      "text": "The answer lies in theCentral Processing Unit, or CPU for short. The brain of the 5150 model was theIntel 8088, a variant of the8086processor.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The link between Intel, Gabe Newell, the Playstation 3 and Computer Engineering"
+    },
+    {
+      "type": "paragraph",
+      "text": "Not familiar with the 8086? That's okay, not everyone is perfect. It's the most influential processor in history.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The link between Intel, Gabe Newell, the Playstation 3 and Computer Engineering"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Why the 8086 was so important",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "Why the 8086 was so important"
+    },
+    {
+      "type": "paragraph",
+      "text": "The 8086 was one of the first 16-bit processors and introduced very important concepts for computing, such assegmented memory, which increased the amount of memory addressable by the CPU.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "Why the 8086 was so important"
+    },
+    {
+      "type": "paragraph",
+      "text": "Other innovations of the 8086 included the ability to integrate it withcoprocessors, which made it possible to divide the processing load - these coprocessors are the ancestors of today's famous GPU.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "Why the 8086 was so important"
+    },
+    {
+      "type": "paragraph",
+      "text": "In addition, the 8086 had aprogrammer-friendly instruction setandpipeliningtechniques that optimized instruction execution. These innovations made the 8086 extremely influential, and the use of its 8088 variant in the IBM PC crowned this influence.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "Why the 8086 was so important"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "The influence that lasts",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The influence that lasts"
+    },
+    {
+      "type": "paragraph",
+      "text": "Have you ever noticed an executable file with a suffix like x86_64.exe? This indicates that the executable was compiled for a 64-bitx86 architecture, the most common among personal computers and servers.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The influence that lasts"
+    },
+    {
+      "type": "paragraph",
+      "text": "In other words, the 8086 defined the processor architecture standard that still dominates much of the computing market.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The influence that lasts"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "The Playstation 3 case: when technical innovation meets practical barriers",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The Playstation 3 case: when technical innovation meets practical barriers"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is where thePlaystation 3comes in. At the time of its launch, it was still common for console manufacturers to participate in the creation of processors made especially for their products.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The Playstation 3 case: when technical innovation meets practical barriers"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nintendo and Microsoft chose a relatively common architecture calledPowerPC(used in the Wii and Xbox 360). Sony, on the other hand, took a high-risk gamble and developed theCell, a single-architecture processor - still a matter of debate today.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The Playstation 3 case: when technical innovation meets practical barriers"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "The Cell processor: innovation and complexity",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The Cell processor: innovation and complexity"
+    },
+    {
+      "type": "paragraph",
+      "text": "The main idea behind Cell was the division between a main general-purpose core(Power Processor Unit) and several secondary cores for massively parallel processing(Synergistic Processor Units).",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The Cell processor: innovation and complexity"
+    },
+    {
+      "type": "paragraph",
+      "text": "This architecture was an innovation ahead of its time and perfectly aligned with the graphic challenges of video games.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The Cell processor: innovation and complexity"
+    },
+    {
+      "type": "paragraph",
+      "text": "On the other hand, programming Cell \"involved an inhuman effort\", according to developers at the time. In addition to Gabe Newell, other companies such as Ubisoft, Naughty Dog, Bethesda and Epic Games declared their dissatisfaction with the difficulty of working with Sony's hardware.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The Cell processor: innovation and complexity"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "The impact on the market and lessons learned",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The impact on the market and lessons learned"
+    },
+    {
+      "type": "paragraph",
+      "text": "The developers' pain translated into business problems: the PS3 had performance difficulties and ran worse games than the competing Xbox 360, even with superior hardware.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The impact on the market and lessons learned"
+    },
+    {
+      "type": "paragraph",
+      "text": "This was one of the reasons why Sony failed to repeat the success of the PS2. The lesson:technological innovation without considering added value and user experience can lead to disappointing results.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The impact on the market and lessons learned"
+    },
+    {
+      "type": "paragraph",
+      "text": "In the following generation, both the Xbox One and Playstation 4 migrated tox86architecture, simplifying development - a pattern that continues today with the Xbox Series X/S and Playstation 5.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The impact on the market and lessons learned"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Where does Computer Engineering come in?",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "Where does Computer Engineering come in?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Computer engineersare professionals who understand both hardware and software. They are able to analyze the impact of architectural decisions, such as Sony's, and integrate complex systems using cloud computing and artificial intelligence.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "Where does Computer Engineering come in?"
+    },
+    {
+      "type": "paragraph",
+      "text": "In the case of the PS3, the engineers showed technical competence in trying to solve a real challenge - but ignored thedeveloper's experience, generating business impact and leadership failures.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "Where does Computer Engineering come in?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "The role of training in Inteli",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli"
+    },
+    {
+      "type": "paragraph",
+      "text": "AtInteli, theComputer Engineeringgoes beyond technical training. It prepares students to also consider the design and business implications of their solutions.",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli"
+    },
+    {
+      "type": "paragraph",
+      "text": "The curriculum includesleadership training, ensuring that future professionals create solutions with real value for society - all in a model 100% based onreal projectsdeveloped with market partners. Interested? How about applying to ourselection process?",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli",
+      "original_count": 2
+    },
+    {
+      "type": "list_block",
+      "text": "See also:\n\n- Graduation,Tech Market,Selection Process,Academic Team",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "The connected world starts here: real projects with the Internet of Things",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli"
+    },
+    {
+      "type": "list_block",
+      "text": "The connected world starts here: real projects with the Internet of Things\n\n- Bruna Mayer\n- 13/10/2025\n- Graduation,Selection Process,Academic Team",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "What is the difference between Computer Engineering and Software Engineering?",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli"
+    },
+    {
+      "type": "list_block",
+      "text": "What is the difference between Computer Engineering and Software Engineering?\n\n- Renato Penha\n- 30/09/2025\n- Tech Market",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "The start of the professional journey",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli"
+    },
+    {
+      "type": "list_block",
+      "text": "The start of the professional journey\n\n- Inteli Team\n- 08/02/2024",
+      "section": "From video games to autonomous cars: how computer engineering creates technologies you already use",
+      "subsection": "The role of training in Inteli",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 43,
+    "paragraphs": 29,
+    "headings": 10,
+    "list_items": 13,
+    "tables": 0
+  }
+}

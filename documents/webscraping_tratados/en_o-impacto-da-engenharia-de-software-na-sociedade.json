@@ -1,0 +1,228 @@
+{
+  "source_file": "en_o-impacto-da-engenharia-de-software-na-sociedade.html",
+  "metadata": {
+    "url": "en_o-impacto-da-engenharia-de-software-na-sociedade",
+    "title": "The impact of Software Engineering on society - Inteli - Institute of Technology and Leadership",
+    "description": "Software Engineering goes beyond programming: at Inteli, students create solutions that have an impact on services, education, the environment and security.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduation>The impact of Software Engineering on society",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "The impact of software engineering on society",
+      "section": "The impact of software engineering on society",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduation>The impact of Software Engineering on society\n\n- Hermano Peixoto\n- 22 Sep 2025\n- Hermano Peixoto\n- 22 Sep 2025",
+      "section": "The impact of software engineering on society",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "When we talk aboutsoftware development, many people think only of creating applications or websites. But I realize in the classroom that the impact goes far beyond that:software transforms lives.",
+      "section": "The impact of software engineering on society",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "At Inteli, I see our students developing solutions that connect technology and purpose, with real results for companies, communities and society as a whole.",
+      "section": "The impact of software engineering on society",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "The most inspiring thing is to realize that, even while they are still undergraduates, students are taking part insocial impact projects in areas such as services, education, the environment and security.",
+      "section": "The impact of software engineering on society",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "This shows that choosingSoftware Engineeringyou're not just learning to program - you're learning tochange the world.",
+      "section": "The impact of software engineering on society",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Services: technology that guarantees efficiency and quality",
+      "section": "The impact of software engineering on society",
+      "subsection": "Services: technology that guarantees efficiency and quality"
+    },
+    {
+      "type": "paragraph",
+      "text": "In one of the modules, the students worked withRappito develop aninnovativeautomated quality controlsolutionintegrated with the delivery app. The project transformed business specifications, requirements and integrations into code capable of continuously measuring the system's resilience and reliability.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Services: technology that guarantees efficiency and quality"
+    },
+    {
+      "type": "paragraph",
+      "text": "As a result, the company now hasgreater test coverage, a reduction in recurring failures and a more robust integration process, strengthening the delivery experience and operational efficiency",
+      "section": "The impact of software engineering on society",
+      "subsection": "Services: technology that guarantees efficiency and quality"
+    },
+    {
+      "type": "paragraph",
+      "text": "This type of project shows howSoftware Engineering goes far beyond programming: it's about designing services that guaranteeefficiency,scalabilityandqualityin complex environments. And to get there, students learn to tackle challenges such as multi-layer integration, test automation and continuous monitoring - essential skills that are increasingly valued by the market.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Services: technology that guarantees efficiency and quality"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Education: personalizing learning",
+      "section": "The impact of software engineering on society",
+      "subsection": "Education: personalizing learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "In another module, the students developed acloud applicationfor thePaula Souza Centre's Inclusion Office, with the aim of organizing and recording student assistance. The solution makes it possible to integrate data from different academic systems via an API, keep a history of assistance, register assistive technologies and link support professionals.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Education: personalizing learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "The project has brought clear benefits:fasterprocessing of requests, better monitoring of students and the generation of useful statistics for educational management",
+      "section": "The impact of software engineering on society",
+      "subsection": "Education: personalizing learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "In the classroom, I notice that these projects awaken asense of purpose in our students. They understand that technology canreduce inequalitiesandopen up opportunitiesfor millions of people.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Education: personalizing learning"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Environment: data in favor of sustainability",
+      "section": "The impact of software engineering on society",
+      "subsection": "Environment: data in favor of sustainability"
+    },
+    {
+      "type": "paragraph",
+      "text": "Thesocial impact of the softwareis also evident when we talk about the environment. In one of the projects, the students developed an interactivedashboardfor monitoring soybean yields per hectare, using anonymized data provided byCESB.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Environment: data in favor of sustainability"
+    },
+    {
+      "type": "paragraph",
+      "text": "With it, it was possible to cross-reference information on management, use of inputs and environmental impact, helping producers to make more sustainable and efficient decisions.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Environment: data in favor of sustainability"
+    },
+    {
+      "type": "paragraph",
+      "text": "These solutions show that software and data science go hand in hand when it comes to sustainability - and this trend will only grow.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Environment: data in favor of sustainability"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Security: data protection and risk prevention",
+      "section": "The impact of software engineering on society",
+      "subsection": "Security: data protection and risk prevention"
+    },
+    {
+      "type": "paragraph",
+      "text": "Another recent example was the development of a regulatoryanalysis systemfor a partner bank, integrating anAPI with artificial intelligencecapable of interpreting how different regulations affect the business. The solution helped the partner anticipate risks, adjust processes and ensure compliance with legislation.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Security: data protection and risk prevention"
+    },
+    {
+      "type": "paragraph",
+      "text": "This project required quick decisions, prioritization of critical functionalities and constant review of the backlog - essential learning for those who want to work in sensitive sectors such as finance and digital security.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Security: data protection and risk prevention"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Trends and the market",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market"
+    },
+    {
+      "type": "paragraph",
+      "text": "According to theWorld Economic Forum's Future of Jobs Report 2023, collaborative work, complex problem solving and adaptability are among the most in-demand skills for the coming years. By participating in real projects from the start of the course, our students develop exactly these skills, combining technical knowledge and strategic vision.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market"
+    },
+    {
+      "type": "paragraph",
+      "text": "At Inteli, we believe that Software Engineering is much more than learning to program. It's about creating solutions that generate real impact and can transform people's lives.",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market"
+    },
+    {
+      "type": "paragraph",
+      "text": "If you want to combine technology, purpose and social impact, come and see Inteli's Software Engineering course. How about imagining the solution to a problem in your day-to-day life and starting to build it while you're still an undergraduate?",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market"
+    },
+    {
+      "type": "list_block",
+      "text": "See also:\n\n- Graduation,Tech Market,Selection Process,Academic Team",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "The connected world starts here: real projects with the Internet of Things",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market"
+    },
+    {
+      "type": "list_block",
+      "text": "The connected world starts here: real projects with the Internet of Things\n\n- Bruna Mayer\n- 13/10/2025\n- Graduation,Selection Process,Academic Team",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "What is the difference between Computer Engineering and Software Engineering?",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market"
+    },
+    {
+      "type": "list_block",
+      "text": "What is the difference between Computer Engineering and Software Engineering?\n\n- Renato Penha\n- 30/09/2025\n- Tech Market",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "The start of the professional journey",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market"
+    },
+    {
+      "type": "list_block",
+      "text": "The start of the professional journey\n\n- Inteli Team\n- 08/02/2024",
+      "section": "The impact of software engineering on society",
+      "subsection": "Trends and the market",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 33,
+    "paragraphs": 22,
+    "headings": 6,
+    "list_items": 13,
+    "tables": 0
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "source_file": "solucoes-para-sua-empresa.html",
+  "metadata": {
+    "url": "solucoes-para-sua-empresa",
+    "title": "Soluções para sua empresa - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Potencialize a performance da sua empresa com as nossas soluções educacionais",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli Exec capacita líderes com as habilidades em tecnologia e negócios necessárias para moldar o futuro.",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Programas customizados para a sua organização",
+      "section": null,
+      "subsection": "Programas customizados para a sua organização"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Diagnóstico de necessidade",
+      "section": null,
+      "subsection": "Diagnóstico de necessidade"
+    },
+    {
+      "type": "list_block",
+      "text": "Diagnóstico de necessidade\n\n- Análise de contexto e especificidade das áreas de negócio\n- Entendimento de demandas da organização\n- Avaliação de competências técnicas",
+      "section": null,
+      "subsection": "Diagnóstico de necessidade",
+      "original_count": 3
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Design de ferramentas de aprendizagem",
+      "section": null,
+      "subsection": "Design de ferramentas de aprendizagem"
+    },
+    {
+      "type": "list_block",
+      "text": "Design de ferramentas de aprendizagem\n\n- Cursos e programas no local ou no Inteli\n- Programas imersivos\n- Duração conforme necessidade (curta, média ou pós-graduações)",
+      "section": null,
+      "subsection": "Design de ferramentas de aprendizagem",
+      "original_count": 3
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Workshops e masterclasses",
+      "section": null,
+      "subsection": "Workshops e masterclasses"
+    },
+    {
+      "type": "list_block",
+      "text": "Workshops e masterclasses\n\n- Traga temas estratégicos para a empresa\n- Tecnologias emergentes e tendências de mercado",
+      "section": null,
+      "subsection": "Workshops e masterclasses",
+      "original_count": 2
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Formatos conforme senioridade",
+      "section": null,
+      "subsection": "Formatos conforme senioridade"
+    },
+    {
+      "type": "list_block",
+      "text": "Formatos conforme senioridade\n\n- Niovas ferramentas e tecnologias para analistas\n- Projetos e tomada de decisão para gestores\n- Programas estratégicos para C-levels e alta liderança",
+      "section": null,
+      "subsection": "Formatos conforme senioridade",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "Empresas de destaque que confiam no Inteli Exec:",
+      "section": null,
+      "subsection": "Formatos conforme senioridade"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Soluções personalizadas para Impulsionar inovação e alta performance",
+      "section": null,
+      "subsection": "Soluções personalizadas para Impulsionar inovação e alta performance"
+    },
+    {
+      "type": "paragraph",
+      "text": "Adaptamos programas para atender às necessidades específicas da sua organização, focando em áreas estratégicas que impulsionam resultados.",
+      "section": null,
+      "subsection": "Soluções personalizadas para Impulsionar inovação e alta performance"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Metodologias de ensino eficazes e adaptadas para a necessidade da sua empresa",
+      "section": null,
+      "subsection": "Metodologias de ensino eficazes e adaptadas para a necessidade da sua empresa"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Project-based learning",
+      "section": null,
+      "subsection": "Project-based learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "Desenvolvimento de projetos reais, com base nas necessidades atuais da organização",
+      "section": null,
+      "subsection": "Project-based learning"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Problem-based learning",
+      "section": null,
+      "subsection": "Problem-based learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "Debates promovidos através decase studies, selecionados para trazerinsightse gerar valor para o negócio",
+      "section": null,
+      "subsection": "Problem-based learning"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Lectures e frameworks",
+      "section": null,
+      "subsection": "Lectures e frameworks"
+    },
+    {
+      "type": "paragraph",
+      "text": "Palestras e aulas de especialistas do mercado, com vasta experiência em tecnologia, liderança e negócios",
+      "section": null,
+      "subsection": "Lectures e frameworks"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Por que Escolher o InteliExec?",
+      "section": null,
+      "subsection": "Por que Escolher o InteliExec?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Conteúdo atualizado",
+      "section": null,
+      "subsection": "Conteúdo atualizado"
+    },
+    {
+      "type": "paragraph",
+      "text": "Cursos executivos que unemteoria e prática, com aplicação imediata no dia a dia corporativo.",
+      "section": null,
+      "subsection": "Conteúdo atualizado"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Foco em inovação e tecnologia",
+      "section": null,
+      "subsection": "Foco em inovação e tecnologia"
+    },
+    {
+      "type": "paragraph",
+      "text": "Temas estratégicos comoIA, Data Science e Tecnologias Emergentesalinhados às demandas do mercado.",
+      "section": null,
+      "subsection": "Foco em inovação e tecnologia"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Professores com experiência de mercado",
+      "section": null,
+      "subsection": "Professores com experiência de mercado"
+    },
+    {
+      "type": "paragraph",
+      "text": "Especialistas que atuam nas maiores empresas e trazemcases reais e metodologias",
+      "section": null,
+      "subsection": "Professores com experiência de mercado"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Flexibilidade para empresas",
+      "section": null,
+      "subsection": "Flexibilidade para empresas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Modelos adaptáveis: treinamentosin company, híbridos ou presenciais no Inteli.",
+      "section": null,
+      "subsection": "Flexibilidade para empresas"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Capacite a sua equipe com as habilidades mais relevantes em tecnologia e negócios para liderar a inovação no mercado.",
+      "section": null,
+      "subsection": "Capacite a sua equipe com as habilidades mais relevantes em tecnologia e negócios para liderar a inovação no mercado."
+    },
+    {
+      "type": "paragraph",
+      "text": "No mundo atual, toda empresa é, em essência, uma empresa de tecnologia. Garanta que sua liderança esteja pronta para os desafios do futuro.",
+      "section": null,
+      "subsection": "Capacite a sua equipe com as habilidades mais relevantes em tecnologia e negócios para liderar a inovação no mercado."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Depoimentos de clientes:",
+      "section": null,
+      "subsection": "Depoimentos de clientes:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Gostei muito! Conteúdos de alta aplicabilidade e realmente cumpriu a promessa do curso.Tivemos professores que lidam com o dia a dia e implantam essas iniciativas em grandes instituições. Então todos os temas mesmo quando teóricosforam abordados de maneira muito prática. Aluno do Curso Data Science for Decision Makers",
+      "section": null,
+      "subsection": "Depoimentos de clientes:",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "Acredito que as aulas foram muito claras e geraram muitos insights de como podemos usar IA para melhorar nosso trabalho. Parabéns pela iniciativa. Curso fundamental para entendermos como AI poderia ser aplicada no banco. Aluno do Curso AI for Business",
+      "section": null,
+      "subsection": "Depoimentos de clientes:",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 35,
+    "paragraphs": 16,
+    "headings": 17,
+    "list_items": 11,
+    "tables": 0
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "source_file": "quando-a-moda-encontra-a-ia-alunos-criam-o-novo-assistente-virtual-do-curadobia.html",
+  "metadata": {
+    "url": "quando-a-moda-encontra-a-ia-alunos-criam-o-novo-assistente-virtual-do-curadobia",
+    "title": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "Desenvolvendo um assistente virtual com IA generativa: alunos de Ciência da Computação do Inteli criam soluções reais para o Curadobia, aplicando NLP, PBL e modelos de IA em um desafio de mercado.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduação>Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduação>Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia\n\n- Time Inteli\n- 4 dez 2025\n- Time Inteli\n- 4 dez 2025",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Autores: Tomaz Mikio Sasaki Jefferson Oliveira,professores do Inteli",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Curadobiaé um marketplace de moda onde os clientes encontram roupas e acessórios selecionados cuidadosamente por suas consultoras. O grande diferencial do Curadobia é justamente esta curadoria que se reflete em vários pontos de contato e busca dar ao cliente uma experiência semelhante a ter contato direto com a consultora: os produtos têm nomes próprios e descrições acessíveis; a organização do site é feita em categorias para o dia-a-dia e não se resume a estações e tendências; o atendimento é próximo e pessoal, com dicas para escolher, combinar, usar e cuidar das peças.",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "O Curadobia trouxe para os alunos deCiência da Computaçãodo Inteli o desafio de desenvolver um assistente virtual para o atendimento via chat do marketplace, mantendo as características de um atendimento diferenciado, próximo e pessoal.",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Abordagem e desenvolvimento da solução",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Abordagem e desenvolvimento da solução"
+    },
+    {
+      "type": "paragraph",
+      "text": "Os alunos de Ciência da Computação, durante o módulo chamado de “Sistema de processamento de linguagem natural com IA generativa”, trabalharam no desenvolvimento de uma solução para o Curadobia.",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Abordagem e desenvolvimento da solução"
+    },
+    {
+      "type": "paragraph",
+      "text": "Seguindo o Learning Backlog do módulo, os alunos estudaram os tópicos relacionados ao Processamento de Linguagem Natural e à IA Generativa e, sob a orientação dos professores do módulo, exploraram o dataset, elaboraram a taxonomia de intenções e os fluxos conversacionais, treinaram modelos de classificação de intenções, implementaram um sistema de respostas contextuais com fallbacks, fizeram o fine-tuning dos modelos e muitas outras atividades.",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Abordagem e desenvolvimento da solução"
+    },
+    {
+      "type": "paragraph",
+      "text": "O desenvolvimento destas atividades foi marcado por muitas interações entre os alunos e o Curadobia, com apresentação de propostas, coleta de dados adicionais e obtenção de feedbacks, tanto em relação às funcionalidades do assistente quanto aos aspectos visuais do chat inserido no site do Curadobia.",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Abordagem e desenvolvimento da solução"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Resultado e impacto",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Resultado e impacto"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ao final do módulo, cada um dos 4 grupos de alunos apresentou sua solução para o assistente virtual do Curadobia. Foram feitas demonstrações com o assistente recomendando produtos para ocasiões específicas (festa, trabalho), lembrando de conversas anteriores com o mesmo cliente, respondendo a dúvidas sobre os preços e tamanhos disponíveis, sugerindo produtos similares e descrevendo os produtos com termos acessíveis que caracterizam o jeito Curadobia de falar.Cada um dos 4 MVPs (Minimum Viable Product) desenvolvidos pelos grupos foi diferente do outro sob alguns aspectos. Por exemplo: cada um utilizou um modelo diferente para identificar as intenções e gerar as respostas; um deles apresentou respostas rápidas e simples; outro apresentou respostas mais elaboradas, mas um pouco mais demoradas.",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Resultado e impacto"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Reflexões sobre o aprendizado",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Curadobia trouxe o problema, os dados e muita disposição para colaborar com o aprendizado dos alunos. Um projeto concreto como este é essencial dentro da metodologia PBL (Project Based Learning) utilizada no Inteli, e com ele os alunos puderam aplicar os conceitos estudados sobre Processamento de Linguagem Natural e IA Generativa, além de interagir ativamente com as pessoas que conduzem a empresa, buscando entender suas dores e o que pode trazer valor para seu negócio.",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Curadobia recebeu 4 MVPs que serão o ponto de partida para o seu assistente virtual e aprendeu características e desafios relacionados ao seu desenvolvimento.",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Depoimentos",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado"
+    },
+    {
+      "type": "paragraph",
+      "text": "Quero agradecer em nome de todo mundo da sala. Obrigado pelo projeto, pelos feedback e principalmente pela presença nas sprints. (aluno da turma, na apresentação final)",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado"
+    },
+    {
+      "type": "paragraph",
+      "text": "Foi um grande prazer e muito aprendizado pra gente. Para mim, especialmente, que sou uma pessoa muito de humanas, entrar neste universo tão exato e técnico foi uma oportunidade de muito aprendizado. (Bia do Curadobia, na apresentação final) Compartilhe: Veja também:",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado",
+      "original_count": 3
+    },
+    {
+      "type": "list_block",
+      "text": "Veja também:\n\n- Graduação,Mercado Tech,Processo Seletivo,Time Acadêmico",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado"
+    },
+    {
+      "type": "list_block",
+      "text": "O mundo conectado começa aqui: projetos reais com Internet das Coisas\n\n- Bruna Mayer\n- 13/10/2025\n- Graduação,Processo Seletivo,Time Acadêmico",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "Qual a diferença entre Engenharia de Computação e Engenharia de Software?",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado"
+    },
+    {
+      "type": "list_block",
+      "text": "Qual a diferença entre Engenharia de Computação e Engenharia de Software?\n\n- Renato Penha\n- 30/09/2025\n- Mercado Tech",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "O início da jornada profissional",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado"
+    },
+    {
+      "type": "list_block",
+      "text": "O início da jornada profissional\n\n- Time Inteli\n- 08/02/2024",
+      "section": "Quando a moda encontra a IA: alunos criam o novo Assistente Virtual do Curadobia",
+      "subsection": "Reflexões sobre o aprendizado",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 25,
+    "paragraphs": 17,
+    "headings": 5,
+    "list_items": 13,
+    "tables": 0
+  }
+}

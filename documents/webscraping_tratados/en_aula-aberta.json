@@ -1,0 +1,87 @@
+{
+  "source_file": "en_aula-aberta.html",
+  "metadata": {
+    "url": "en_aula-aberta",
+    "title": "Open class - Inteli - Institute of Technology and Leadership",
+    "description": "",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Open Class",
+      "section": "Open Class",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Experience studying with innovation!",
+      "section": "Open Class",
+      "subsection": "Experience studying with innovation!"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Attend an open class and discover how our students learn in practice!",
+      "section": "Open Class",
+      "subsection": "Attend an open class and discover how our students learn in practice!"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "At Inteli, you don't just learn the theory - here, you learn by developing solutions to real problems from day one. Our methodology is based on projects, and now you can experience this up close!",
+      "section": "Open Class",
+      "subsection": "At Inteli, you don't just learn the theory - here, you learn by developing solutions to real problems from day one. Our methodology is based on projects, and now you can experience this up close!"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "What you will experience in the Open Classroom",
+      "section": "Open Class",
+      "subsection": "What you will experience in the Open Classroom"
+    },
+    {
+      "type": "paragraph",
+      "text": "Inteli Methodology: follow a Sprint and see how students develop projects and structure their deliveries for teachers and partner companies. Campus tour: explore laboratories, our state-of-the-art infrastructure and innovation environments",
+      "section": "Open Class",
+      "subsection": "What you will experience in the Open Classroom",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "Chat with students and teachers: ask all your questions about the courses and what it's like to be an Inteli student Date and time: 05/12/2025 e 19/12/2025 9am to 11am or 2pm to 4pm",
+      "section": "Open Class",
+      "subsection": "What you will experience in the Open Classroom",
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Avenida Professor Almeida Prado, 520 - Butantã neighborhood. São Paulo/SP. The Inteli campus is located within the University City.",
+      "section": "Open Class",
+      "subsection": "What you will experience in the Open Classroom"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Confirm your presence!",
+      "section": "Open Class",
+      "subsection": "Confirm your presence!"
+    },
+    {
+      "type": "paragraph",
+      "text": "#SouInteli #AulaAberta #2025 #Let'sBora",
+      "section": "Open Class",
+      "subsection": "Confirm your presence!"
+    }
+  ],
+  "statistics": {
+    "total_blocks": 10,
+    "paragraphs": 8,
+    "headings": 6,
+    "list_items": 0,
+    "tables": 0
+  }
+}

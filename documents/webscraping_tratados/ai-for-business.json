@@ -1,0 +1,180 @@
+{
+  "source_file": "ai-for-business.html",
+  "metadata": {
+    "url": "ai-for-business",
+    "title": "Curso: AI for Business",
+    "description": "O programa executivo AI for Business foi desenvolvido com o objetivo de capacitar profissionais a utilizarem, individualmente ou com seus times, conhecimento de fronteira em Inteligência Artificial para aumento de produtividade e automatização de processos, nos mais diversos setores.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Lidere negócios com Inteligência Artificial",
+      "section": "Lidere negócios com Inteligência Artificial",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "AI for Business é uma formação intensiva para executivos que querem aplicar AI de forma estratégica, acelerar resultados e conquistar protagonismo na era da inovação.Próxima turma:31 de janeiro de 2026.Presencial no campus do Inteli.",
+      "section": "Lidere negócios com Inteligência Artificial",
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Por que fazer essa formação?",
+      "section": "Por que fazer essa formação?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "A Inteligência Artificial já está redefinindo os negócios,  e apenas líderes preparados terão vantagem. Com72% das empresas adotando IA e GenAIsubstituindo habilidades em áreas como marketing e finanças, ficar parado não é opção.",
+      "section": "Por que fazer essa formação?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "No Inteli, você integra um ecossistema detecnologia, inovação e liderança,aprendendo com especialistas que lideram as transformações do mercado, em um ambiente onde teoria e prática se conectam para gerar resultados e impulsionar mudanças.",
+      "section": "Por que fazer essa formação?",
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Para quem é esse curso?",
+      "section": "Para quem é esse curso?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Para gerentes, especialistas e diretoresque desejam compreender o potencial da Inteligência Artificial e aplicá-la deforma prática e estratégica.",
+      "section": "Para quem é esse curso?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Antes de se inscrever, faça umassessment rápidoe descubra seu nível de maturidade em IA. Em poucos minutos, você entende se já está pronto para extrair o máximo do curso ou o que precisa evoluir para chegar lá.",
+      "section": "Para quem é esse curso?",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Antes de se inscrever, faça umassessment rápidoe descubra seu nível de maturidade em IA. Em poucos minutos, você entende se já está pronto para extrair o máximo do curso ou o que precisa evoluir para chegar lá.\n\n- Leva poucos minutos\n- Traz insights práticos para decisões profissionais\n- Mostra se o AI for Business é o próximo passo ideal para você",
+      "section": "Para quem é esse curso?",
+      "subsection": null,
+      "original_count": 3
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "O que você vai aprender na prática?",
+      "section": "Para quem é esse curso?",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "O que você vai aprender na prática?\n\n- Prototipar agentes inteligentes para resolver desafios reais de negócio.\n- Aplicar IA em análise e integração de dados, ampliando visão estratégica e poder de decisão.\n- Aumentar produtividade e acelerar equipes, reduzindo gargalos operacionais com IA.\n- Definir critérios claros para usar IA com segurança, eficiência e responsabilidade.\n- Compreender os impactos e limites da IA, incluindo aspectos éticos e regulatórios.\n- Assumir a liderança em um cenário de transformação digital contínua.",
+      "section": "Para quem é esse curso?",
+      "subsection": null,
+      "original_count": 6
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Grade Curricular",
+      "section": "Para quem é esse curso?",
+      "subsection": "Grade Curricular"
+    },
+    {
+      "type": "curriculum_block",
+      "text": "Grade Curricular\n\n- Tarefas x habilidades\n- Impacto de IA na carreira: displaced, augmented e builder\n- Categorias de IA: Vertical AI, Agentic AI e Embedded AI\n- Agentes e Multiagentes: definições e exemplos\n- É possível não ter FOMO quando o assunto é IA?\n- Apresentação de casos reais utilizando IA: desafios encontrados, estratégias utilizadas e resultados obtidos\n- IA como agente transformador dos negócios: Finanças, Marketing, RH, Operações e Produtos\n- Quando devemos usar IA para alavancar os negócios?\n- Conceitos básicos: tokens, GPT, memória interna e aprendizado profundo\n- Frameworks de prompt engineering\n- Princípios, tipos e estratégias de prompt engineering: tradução, role playing, chain-of-thought, expansão, preenchimento, sumarização, n-shot prompt, auto prompt\n- Modelo de maturidade de data analytics\n- CRISP-DM: Um framework para mineração de dados\n- Ferramentas de mercado: explorando o potencial de cada uma\n- Soluções de código versus soluções no / low code\n- Tipos de dados e preparação com GenAI\n- Prompts e técnicas de exploração de dados com GenAI\n- Privacidade\n- Proteção e tratamento de dados\n- Princípios da Lei Geral de Proteção de Dados: origens e referências\n- Regulação da Inteligência Artificial (AI Act)\n- Sistemas proibidos, de alto risco e de baixo risco\n- Regulação da Inteligência Artificial no Brasil\n- A terceira onda de IA\n- Agentes: tipos, requisitos necessários e custo de implementação\n- Arquitetura de um Agente de IA\n- Soluções No Code / Low Code\n- Criando o primeiro Agente de IA\n- Apresentação do problema\n- Definição de objetivo\n- Apresentação dos dados\n- Aplicação de técnicas de engenharia de prompt, RAG e fine tuning\n- Desenvolvimento de Agentes de IA\n- Teste e preparação",
+      "section": "Para quem é esse curso?",
+      "subsection": "Grade Curricular",
+      "original_count": 1
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Quem vai guiar seu aprendizado?",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Maurício Garcia",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Cesar Almiñana",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Wescley Trajano",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Vinicius Padrão",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sócio na Rennó, Penteado & Sampaio Advogados. Especialista em Direito Digital e Regulação em IA.",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Ao concluir a formação, você será capaz de:",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "list_block",
+      "text": "Ao concluir a formação, você será capaz de:\n\n- Ampliar sua eficiência usando IA para otimizar o dia a dia.\n- Criar prompts inteligentes e automatizar tarefas repetitivas.\n- Identificar oportunidades estratégicas dentro das organizações.\n- Impulsionar a performance de equipes com aplicações práticas de IA.\n- Gerar impacto financeiro com produtos e soluções baseadas em agentes de IA.",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?",
+      "original_count": 5
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Investimento e estrutura do curso:",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "paragraph",
+      "text": "As vagas sãolimitadaspara garantir interação real entre os participantes.",
+      "section": "Para quem é esse curso?",
+      "subsection": "Quem vai guiar seu aprendizado?"
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Não perca a chance de transformar sua liderança com IA.",
+      "section": "Não perca a chance de transformar sua liderança com IA.",
+      "subsection": null
+    }
+  ],
+  "statistics": {
+    "total_blocks": 24,
+    "paragraphs": 7,
+    "headings": 13,
+    "list_items": 48,
+    "tables": 0
+  }
+}

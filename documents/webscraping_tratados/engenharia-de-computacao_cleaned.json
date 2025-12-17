@@ -1,0 +1,396 @@
+{
+  "source_file": "engenharia-de-computacao.html",
+  "metadata": {
+    "url": "engenharia-de-computacao",
+    "title": "Inteli - Engenharia de Computação",
+    "description": "Estude Engenharia de Computação no Inteli e participe de projetos como simulação de robôs e protótipos de veículos autônomos, conectando-se ao mercado.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "project_block",
+      "text": "Jogo Digital –Um jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas\n\nComputação\n\nMatemática/Física\n\nNegócios:\n- Análise SWOT\n- Análise de Riscos\n\nLiderança:\n- Apresentações em público\n\nNegócios:\n- Canvas de Proposta de Valor\n\nMatemática/Física:\n- Cinemática\n\nDesign:\n- Concept Art\n- Design Thinking\n- Game Design\n\nComputação:\n- Introdução à Programação (Javascript)\n\nDesign:\n- Level Design\n\nNegócios:\n- Mercado de Games\n\nMatemática/Física:\n- Momento Linear e Colisões\n\nComputação:\n- Máquinas de Estado\n\nDesign:\n- Narrativas\n\nLiderança:\n- Objetivos Individuais e de Grupo\n\nNegócios:\n- Pitch e Pitch Deck\n\nComputação:\n- Programação Orientada a Objetos\n- Qualidade de Software\n\nLiderança:\n- Representatividade e Diversidade\n\nDesign:\n- Sound Design",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 1",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Aplicação Web –Um sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas\n\nComputação\n\nMatemática/Física\n\nNegócios:\n- 4 P’s do Marketing\n\nDesign:\n- Acessibilidade\n\nComputação:\n- Bancos de Dados\n\nNegócios:\n- Ciclo de Vida do Produto\n- Design Thinking\n\nDesign:\n- Design de Interfaces\n\nMatemática/Física:\n- Estatística Descritiva\n\nComputação:\n- Fundamentos de Rede\n- Fundamentos de Redes\n\nMatemática/Física:\n- Grafos, Árvores\n\nComputação:\n- HTML, CSS, Javascript\n\nMatemática/Física:\n- Integral Definida\n- Integral Indefinida\n- Integração Numérica\n\nLiderança:\n- Liderança em situações de conflito\n\nMatemática/Física:\n- Lógica Proposicional\n\nNegócios:\n- PMI, PMBok, Agile\n\nComputação:\n- Padrão MVC\n\nDesign:\n- Prototipação\n\nComputação:\n- Testes Unitários\n\nDesign:\n- Testes com Usuários\n- Usabilidade\n\nLiderança:\n- Vieses Cognitivos",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 2",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Lógica para predição com Inteligência Artificial –Uso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.\n\nLógica para predição com Inteligência Artificial-Uso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.\n\nComputação\n\nMatemática/Física\n\nComputação:\n- Aprendizado Supervisionado e Não Supervisionado\n\nNegócios:\n- Cultura e Design Organizacional\n\nMatemática/Física:\n- Derivadas Parciais\n- Estatística Indutiva\n\nComputação:\n- Explicabilidade\n- Feature Engineering\n\nMatemática/Física:\n- Funções de várias variáveis\n\nNegócios:\n- Governança Corporativa\n- Governança de Dados\n\nMatemática/Física:\n- Integral Múltipla\n\nDesign:\n- Jornada do Usuário\n\nComputação:\n- Linguagem Python, Pandas, Numpy\n\nMatemática/Física:\n- Probabilidade\n\nComputação:\n- Pré-Processamento\n\nDesign:\n- Storytelling com Dados\n\nMatemática/Física:\n- Transformações Lineares\n\nDesign:\n- Visualização de Dados\n\nLiderança:\n- Vulnerabilidade",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 3",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Solução para IoT –Dispositivos com sensores e atuadores, que coletam dados e enviam para a nuvem, auxiliando monitoramentos e automatização.\n\nSolução para IoT-Dispositivos com sensores e atuadores, que coletam dados e enviam para a nuvem, auxiliando monitoramentos e automatização.\n\nComputação\n\nMatemática/Física\n- Campo Elétrico\n- Campos vetoriais, Gradiente\n\nNegócios:\n- Ciclo de funding de startups\n\nComputação:\n- Comunicação à Distância\n- Dashboards\n\nMatemática/Física:\n- Derivada Direcional\n\nDesign:\n- Design de Interação\n\nMatemática/Física:\n- Eletromagnetismo\n\nComputação:\n- Eletrônica Básica\n\nDesign:\n- Fabricação Digital\n\nLiderança:\n- Impactos Ambientais das Tecnologias\n\nNegócios:\n- Indicadores financeiros\n- Indústria 4.0\n\nDesign:\n- Interusabilidade\n\nNegócios:\n- Juros e Fluxo de Caixa\n\nComputação:\n- Microcontroladores\n\nMatemática/Física:\n- Resistores / Capacitores\n\nLiderança:\n- Segurança Psicológica\n\nComputação:\n- Sensores e Atuadores\n\nDesign:\n- Storyboard\n\nMatemática/Física:\n- Séries de Potência\n\nLiderança:\n- Técnicas de Feedback",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 4",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Automação de processos e sistemas –Desenvolvimento de um sistema de automação, abordando eletrônica analógica e digital, tecnologias embarcadas e robótica, integrando sensoriamento e instrumentação.\n\nComputação\n\nMatemática/Física\n- Cinemática rotacional\n\nLiderança:\n- Construção de valores\n\nMatemática/Física:\n- Dinâmica rotacional\n\nLiderança:\n- Diversidade\n\nComputação:\n- Eletrônica analógica e digital\n\nLiderança:\n- Embasamento em dados\n\nMatemática/Física:\n- Equações diferenciais de primeira e segunda ordem\n\nUX:\n- Identidade visual\n\nNegócios:\n- Indicadores de inflação e atividade econômica\n\nComputação:\n- Integração TI – Tecnologia da Informação e TA – Tecnologia da Automação\n\nUX:\n- Mapas de fluxo\n\nNegócios:\n- Mercado de automação\n- Políticas monetárias e econômicas\n\nMatemática/Física:\n- Problemas de valor inicial para EDOs lineares de primeira e segunda ordem\n\nNegócios:\n- Produtos financeiros e mercados de capitais\n\nLiderança:\n- Storytelling\n\nUX:\n- Testes de usuários e de usabilidade\n- UX research",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 5",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Robótica móvel e visão computacional –Desenvolvimento de um sistema integrando robôs móveis e visão computacional, aplicando simulação de sistemas eletromecânicos, controle e redes neurais.\n\nComputação\n\nMatemática/Física\n\nLiderança:\n- Argumentação\n\nUX:\n- Aspectos socioculturais e vieses ferramentais\n\nLiderança:\n- Conhecimento\n\nMatemática/Física:\n- Convolução de funções\n\nComputação:\n- Estrutura de dados\n\nUX:\n- Framework PACT\n\nMatemática/Física:\n- Função degrau unitário\n- Função impulso unitário\n\nNegócios:\n- Gerenciamento de funil de leads\n\nUX:\n- Linguagem compartilhada\n\nNegócios:\n- Mercados de AVGs\n- Modelos de mercado\n\nComputação:\n- Redes neurais convolucionais\n\nNegócios:\n- Satisfação, reputação e fidelidade\n\nComputação:\n- Sistema operacional robótico\n\nMatemática/Física:\n- Transformada de Laplace\n\nLiderança:\n- Técnicas de negociação.\n\nComputação:\n- Visão computacional",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 6",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática/Física\n\nSistema de manutenção preditiva com IA e arquitetura em nuvem –Desenvolvimento de sistemas de manutenção preditiva utilizando inteligência artificial e arquitetura em nuvem, com foco em análise de dados e machine learning.\n\nComputação:\n- Arquitetura de soluções de IA\n\nNegócios:\n- Balanço patrimonial\n\nComputação:\n- Cloud computing\n\nNegócios:\n- Contabilidade de custos\n\nLiderança:\n- Cultura de feedback\n\nNegócios:\n- Custo-benefício e impacto da manutenção preditiva\n\nUX:\n- Design e consumo\n\nMatemática/Física:\n- Distribuições discreta e contínuas de probabilidade\n\nUX:\n- Economia circular\n\nMatemática/Física:\n- Estatística descritiva\n- Estatística inferencial\n\nLiderança:\n- Experiência\n\nComputação:\n- Machine learning\n\nUX:\n- Pesquisa qualitativa\n\nComputação:\n- Redes neurais recorrentes\n\nNegócios:\n- Rentabilidade, ROI e EBITDA\n\nLiderança:\n- Segurança psicológica\n- Sustentabilidade\n\nMatemática/Física:\n- Séries temporais\n\nUX:\n- Visualização e storytelling",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 7",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática/Física\n\nRobô de serviço autônomo com IA generativa –Desenvolvimento de um robô de serviço autônomo utilizando IA generativa, com foco em interação homem-máquina, automação de tarefas e navegação autônoma.\n\nUX:\n- Acessibilidade e usabilidade\n\nComputação:\n- Algoritmos de mapeamento\n\nUX:\n- Análise heurística e testes de campo\n\nMatemática/Física:\n- Cálculo com variáveis complexas\n\nUX:\n- Design de produto\n\nNegócios:\n- Economia da inovação\n\nComputação:\n- IA generativa\n\nLiderança:\n- Leitura de contexto\n\nNegócios:\n- Mercado de robôs autônomos\n\nMatemática/Física:\n- Mudança de base em um espaço vetorial\n\nComputação:\n- Navegação autônoma\n\nLiderança:\n- Networking\n\nMatemática/Física:\n- Números complexos\n\nComputação:\n- Processamento de linguagem natural\n\nUX:\n- Prototipação\n\nMatemática/Física:\n- Quatérnions\n\nLiderança:\n- Teambuilding\n- Tomada de decisão\n\nNegócios:\n- Transformação digital e inovação aberta",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 8",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nHiperconectividade para Cidades Inteligentes –Desenvolvimento de sistemas avançados para cidades inteligentes, focando em modelos de comunicação em redes, segurança da informação e BI – Business Intelligence.\n\nUX:\n- A transformação do espaço urbano pela tecnologia\n\nComputação:\n- Bancos de dados\n\nNegócios:\n- Desenvolvimento de talentos\n\nLiderança:\n- Direitos Humanos\n\nNegócios:\n- Direitos e deveres trabalhistas\n\nLiderança:\n- Discursos engajadores\n\nNegócios:\n- Gestão da mudança\n\nUX:\n- Hiperconectividade e experiência do usuário\n- Interface de dados e dashboard\n\nNegócios:\n- IoT e o futuro das cidades inteligentes\n\nLiderança:\n- Proatividade\n\nComputação:\n- Qualidade de serviço\n\nUX:\n- Urbanismo centrado no usuário\n- Usabilidade e acessibilidade\n\nComputação:\n- Visualiação de dados",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 9",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Aplicações Hiperescaláveis –Desenvolvimento de aplicativos móveis e plataforma de suporte que lida com grandes demandas de acesso, medindo seu desempenho por meio de ferramentas de teste de carga e implementando observabilidade.\n\nComputação\n\nComputação:\n- Aplicativos híbridos\n- Arquitetura de soluções móveis\n\nUX:\n- Avaliação heurística e testes de usabilidade\n\nLiderança:\n- Contexto ético\n- Decisões coletivas\n\nUX:\n- Design system\n\nNegócios:\n- Estruturas corporativas e acordos de acionistas\n\nUX:\n- Human Interface Guidelines\n\nNegócios:\n- Impostos e planejamento tributário\n\nUX:\n- Material design\n\nLiderança:\n- Modelos mentais\n\nComputação:\n- Monitoramento\n- Padrões de projeto\n\nNegócios:\n- Plano de negócios e negócios escaláveis\n- Produtividade\n\nUX:\n- Prototipação mobile\n\nComputação:\n- Serviços escaláveis\n- Teste de carga\n\nLiderança:\n- Táticas de influência",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 10",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nDesenvolvimento de sistemas de inteligência artificial com processamento na borda (edge computing), reduzindo drasticamente a latência, aumentando a confiabilidade e otimizando o uso de recursos de nuvem.\n\nSistema em edge computing\n\nSistema em edge computing –Desenvolvimento de sistemas de inteligência artificial com processamento na borda (edge computing), reduzindo drasticamente a latência, aumentando a confiabilidade e otimizando o uso de recursos de nuvem.\n\nUX:\n- Aplicações, registros e tabulações de testes\n\nComputação:\n- Concorrência e paralelismo\n\nUX:\n- Condições de implementação\n- Conhecimento do usuário\n\nLiderança:\n- Cultura de feedback\n\nUX:\n- Dashboard de monitoramento\n\nComputação:\n- Edge computing\n\nNegócios:\n- Frameworks para implementação da estratégia\n- Gestão ambiental\n\nLiderança:\n- Impacto positivo\n\nUX:\n- Modelos para testes e definição de testes\n\nNegócios:\n- Poluição e ecotoxicologia\n\nComputação:\n- Processamento distribuído\n- Programação baixo nível\n\nLiderança:\n- Prototipagem de soluções\n\nComputação:\n- Sistemas operacionais\n\nNegócios:\n- Sustentabilidade\n\nComputação:\n- Visão computacional embarcada",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 11",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Desenvolvimento de Sistemas e Arquitetura de Software. 27 anos de experiência\n\nEngenheiro e pesquisador, trabalho na área de indústria e processos de qualidade utilizando IA e arquitetura de software.\n\nTrilha de Empreendedorismo\n\n4000 horas\n\nAfonso Cesar Lelis Brandão\n\nAna Cristina do Santos\n\nAndré Godoi\n\nArtista Multimídia, Designer e Professora. Pesquisa as relações entre Arte, Ciência e Tecnologia.\n\nAtividades complementares\n\nAutomação Industrial, Sistemas Embarcados, IA e desenvolvimento Full Stack. 11 anos de experiência na academia e mercado.\n\nBruna Mayer Costa\n\nBryan Kano\n\nCarga Horária:  400 horas\n\nCarga horária total\n\nCesar Almiñana\n\nCibersegurança. Proteção de Dados e Privacidade.  Inteligência Artificial. Professor, consultor  e empreendedor.\n\nCiência da Computação. 4 anos de experiência no mercado e 2 anos e meio na academia.\n\nClaudio André\n\nComputação. 44 anos de experiência em todas as áreas ligadas à computação.\n\nCoordenador de Curso do Ciclo Básico (1º ano)\n\nCoordenador do curso(4º ano)\n\nCoordenadora do curso(2º e 3º ano)\n\nCristiano Da Silva Benites\n\nCristina Gramani\n\nCurricular\n\nDesign, Produção Cultural e Gamificação. 20 anos de experiência na área de games e 16 anos de experiência acadêmica.\n\nDiogo Martins Gonçalves De Moraes\n\nDiretora acadêmica:\n\nDocente há 23 anos, sendo 15 anos no Ensino Superior nas disciplinas de  Matemática e Física. Experiência de 10 anos na indústria.\n\nDoutora e Mestra em Engenharia de Sistemas e Computação pela COPPE – Universidade Federal do Rio de Janeiro (UFRJ).\n\nEgon F Daxbacher\n\nEngenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.\n\nEngenheiro elétrico. Mais de 15 anos de experiência como docente universitário nas disciplinas relacionadas à matemática.\n\nEngenheiro, diretor de projetos e professor de negócios e Inteligência Artificial\n\nEste módulo aborda as atualizações mais recentes e as tendências tecnológicas emergentes, proporcionando uma compreensão profunda e prática das inovações. O módulo é dividido em duas partes. A primeira parte, o “Balanço Técnico”, é guiada por meio de aprendizado contínuo e validação da aprendizagem. A segunda parte, o “Projeto Especial”, oferece cursos como Fundamentos de Segurança e Criptografia Pós-Quântica, Gestão de Risco em Cybersecurity, Experiências Imersivas e Jogo de Negócios, de tendências tecnológicas, permitindo a exploração de novos conceitos tecnológicos e aplicações de práticas inovadoras, incluindo Libras – Língua Brasileira de Sinais.\n\nExperiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.\n\nFernando Pizzo Ribeiro\n\nFilipe Gonçalves\n\nFillipe Resina\n\nFlávia Santoro\n\nFrancisco Escobar\n\nGeraldo Vasconcelos\n\nGestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado\n\nGraduação em Engenharia Eletrônica pela Escola Politécnica da Universidade Federal do Rio de Janeiro (UFRJ).\n\nGuilherme Cestari\n\nHenrique Mohallem Paiva\n\nHermano Peixoto de Oliveira Junior\n\nInovação, Tecnologia e Negócios Digitais, 40 anos de experiência acadêmica e profissional.\n\nInternet of Things e Sistemas Embarcados. 19 anos de experiência no Ensino e Mercado.\n\nJefferson De Oliveira Silva\n\nJosé Romualdo Costa\n\nJulia Stateri\n\nLaíza Ribeiro Silva\n\nLuciano Galdino\n\nMarcelo Gonçalves\n\nMatemática, Pesquisa Operacional e Business Analytics. 21 anos de experiência na academia e em consultoria.\n\nMauricio Garcia\n\nMichele Bazana\n\nMurilo Zanini De Carvalho\n\nOvidio Lopes da Cruz Netto\n\nPossui mais de 250 publicações com diversos resultados práticos.\n\nProfessor Doutor em Engenharia de Computação e Sistemas Digitais pela USP. Linha de pesquisa – Aplicação industrial de Arquitetura com IoT e Digital Twin\n\nProfessor Especialista em Pensamento Computacional, pesquisador na área de lA para soluções na área da saúde e educação inclusiva, 18 anos experiência mercado e docência.\n\nProfessor de Estatística e Matemática aplicada nas Engenharias e Administração.\n\nProfessor de paixão e profissão, há 12 anos lidera experiências educativas transformadoras em instituições de ensino e organizações.\n\nProfessor dos cursos de Engenharia de Software, com foco em transformação digital, adoção de nuvem e agilidade.\n\nProfessor e Pesquisador em Ciência da Computação, Engenharia de Software e Inteligência Artificial.\n\nProfessor e pesquisador de Design/UX nas áreas de Computação, Design e Jogos Digitais, especializado em Semiótica.\n\nProfessor na área de Física, Matemática e Estatística com 10 anos de experiência no Ensino Superior.\n\nProfessor na área de Programação. Mais de 20 anos de experiência no mercado e na docência.\n\nProfessora Orientadora do Curso de Engenharia de Software. Fundadora da empresa SE7Ti – tecnologia e Informação que atua em consultoria e treinamento em Arquitetura Corporativa.\n\nProfessora, gestora Acadêmica e Educação Corporativa e 28 anos de experiência docente e gestão\n\nProfissional de Tecnologia da Informação e professor universitário na área de computação e engenharia elétrica\n\nReginaldo Arakaki\n\nRenato Penha\n\nRobótica, Automação, Sistemas Embarcados e IA. 6 anos de experiência na academia e mercado.\n\nRodolfo Goya\n\nRodrigo Nicola\n\nSabáticos na Université Pierre et Marie Curie, França (2004-2005) e Queensland University of Technology, Austrália.\n\nSergio Venâncio\n\nSimulações Computacionais, Sistemas de Controle Automático, 20 anos de experiência em pesquisa e desenvolvimento tecnológico.\n\nSistemas de Informação, Estratégia e gestão de Negócios Online, Educação Empreendedora Digital. 3o anos de experiência acadêmica e mercado corporativo.\n\nSistemas de Informação, Gestão de Negócios, 24 anos de experiência.\n\nSistemas de Informação. 25 anos de experiência no mercado de Tecnologia da Informação e 12 anos de experiência na academia.\n\nSistemas de Informação. 38 anos de experiência no mercado de Tecnologia da Informação e 18 anos de experiência na academia.\n\nSérgio Venâncio\n\nTecnologias Educacionais, Gamificação, Interação Humano-Computador, 5 anos de experiência na academia.\n\nTendências e Atualizações\n\nTendências e Atualizações –Este módulo aborda as atualizações mais recentes e as tendências tecnológicas emergentes, proporcionando uma compreensão profunda e prática das inovações. O módulo é dividido em duas partes. A primeira parte, o “Balanço Técnico”, é guiada por meio de aprendizado contínuo e validação da aprendizagem. A segunda parte, o “Projeto Especial”, oferece cursos como Fundamentos de Segurança e Criptografia Pós-Quântica, Gestão de Risco em Cybersecurity, Experiências Imersivas e Jogo de Negócios, de tendências tecnológicas, permitindo a exploração de novos conceitos tecnológicos e aplicações de práticas inovadoras, incluindo Libras – Língua Brasileira de Sinais.\n\nTomaz Sasaki\n\nTrabalha há 20 anos como professora, coordenadora de cursos e pesquisadora em Sistemas de Informação e Ciência da Computação, com foco em Gestão de Processos de Negócios, Processos Intensivos em Conhecimento, Gestão do Conhecimento e Sistemas Colaborativos e Aprendizagem Baseada em Projetos.\n\nTrilha Acadêmica\n\nTrilha Corporativa\n\nUX Designer, Game Designer, Filósofo, 20 anos de experiência como professor e desenvolvedor.\n\nVanessa Tavares Nunes\n\nTrilha de Empreendedorismo:\n- Conexão com mentores e investidores de venture capital\n\nTrilha Acadêmica:\n- Construção de projetos de pesquisa\n\nCorpo Docente\n\nTrilha de Empreendedorismo:\n- Criação e aceleração de startups\n\nTrilha Acadêmica:\n- Elaboração de artigos científicos\n\nTrilha Corporativa:\n- Imersões empresariais\n\nTrilha de Empreendedorismo:\n- Imersões no ecossistema empreendedor\n\nTrilha Acadêmica:\n- Preparação para ingresso em cursos de mestrado e doutorado\n\nTrilha Corporativa:\n- Preparação para processos seletivos e de trainee em grandes empresas\n- Projetos de consultoria para corporações",
+      "section": "Engenharia de Computação",
+      "subsection": "Grade Curricular - Engenharia de Computação",
+      "project": "Projeto 12",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Engenharia de Computação",
+      "section": "Engenharia de Computação",
+      "subsection": null,
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Integre robôs e computação para resolver problemas do mercado e da sociedade. Desafie-se em projetos de automação, integração de robôs, protótipos de veículos autônomos, visão computacional e inteligência artificial.",
+      "section": "Engenharia de Computação",
+      "subsection": "Integre robôs e computação para resolver problemas do mercado e da sociedade. Desafie-se em projetos de automação, integração de robôs, protótipos de veículos autônomos, visão computacional e inteligência artificial.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Seja o Engenheiro,\nnão o robô",
+      "section": "Engenharia de Computação",
+      "subsection": "Seja o Engenheiro,\nnão o robô",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Nosso objetivo é formar engenheiras e engenheiros capazes de utilizar conhecimentos científicos e tecnológicos da computação (hardware e software) no desenvolvimento de soluções com impactos econômicos, ambientais, sociais e éticos no mercado e na vida das pessoas.",
+      "section": "Engenharia de Computação",
+      "subsection": "Seja o Engenheiro,\nnão o robô",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Habilidades e Competências",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Participar e gerenciar projetos pertinentes à Engenharia de Computação, resolvendo problemas que envolvam perspectivas interdisciplinares;",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Analisar e avaliar arquiteturas de computadores, incluindo plataformas paralelas e distribuídas, como também desenvolver e otimizar software para elas;",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Compreender, implementar e gerenciar a segurança de sistemas de computação;",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Analisar, avaliar, selecionar e configurar plataformas de hardware para o desenvolvimento e implementação de aplicações de software e serviços;",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Reconhecer seu papel na sociedade por meio de pensamento crítico, promovendo inovações nas áreas de atuação do Engenheiro(a) de Computação;",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Demonstrar habilidade de autoaprendizagem, colaboração e comunicação.",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo comum de todos os cursos",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo específico do curso escolhido",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "A partir do segundo ano você desenvolverá projetos específicos do curso que escolheu",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo em tempo parcial",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "No terceiro ano você pode iniciar os estágios em meio período",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Aceleração de carreira",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "No quarto ano você escolhe em qual trilha realizar seus projetos: empreendedora, acadêmica ou corporativa.",
+      "section": "Engenharia de Computação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Nossos alunos estagiam nas melhores empresas",
+      "section": "Engenharia de Computação",
+      "subsection": "Nossos alunos estagiam nas melhores empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "O que você precisa saber",
+      "section": "Engenharia de Computação",
+      "subsection": "O que você precisa saber",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Bacharelado em Engenharia de Computação",
+      "section": "Engenharia de Computação",
+      "subsection": "Bacharelado em Engenharia de Computação",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Carga Horária:",
+      "section": "Engenharia de Computação",
+      "subsection": "Carga Horária:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "4000 Horas",
+      "section": "Engenharia de Computação",
+      "subsection": "4000 Horas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Modalidade:",
+      "section": "Engenharia de Computação",
+      "subsection": "Modalidade:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Presencial",
+      "section": "Engenharia de Computação",
+      "subsection": "Presencial",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Investimento :",
+      "section": "Engenharia de Computação",
+      "subsection": "Investimento :",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "R$7.780,00",
+      "section": "Engenharia de Computação",
+      "subsection": "R$7.780,00",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "(Janeiro de 2026)",
+      "section": "Engenharia de Computação",
+      "subsection": "(Janeiro de 2026)",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "60 vagas anuais",
+      "section": "Engenharia de Computação",
+      "subsection": "60 vagas anuais",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Conceito Nota 5 no MEC*",
+      "section": "Engenharia de Computação",
+      "subsection": "Conceito Nota 5 no MEC*",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Programa de Bolsas de Estudos",
+      "section": "Engenharia de Computação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "*Portaria nº 1124, de 05/10/2021, publicada no D.O.U. nº 190, de 06/10/2021, Seção 1, página 204.",
+      "section": "Engenharia de Computação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Curricular",
+      "section": "Engenharia de Computação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    }
+  ],
+  "statistics": {
+    "total_blocks": 640,
+    "paragraphs": 185,
+    "headings": 18,
+    "list_items": 437,
+    "tables": 0
+  }
+}

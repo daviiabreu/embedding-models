@@ -1,0 +1,392 @@
+{
+  "source_file": "ciencia-da-computacao.html",
+  "metadata": {
+    "url": "ciencia-da-computacao",
+    "title": "Inteli - Ciência da Computação",
+    "description": "Estude Ciência da Computação no Inteli e domine a criação de modelos matemáticos e soluções tecnológicas avançadas com conexão direta ao mercado de trabalho.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "project_block",
+      "text": "Jogo Digital –Um jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas\n\nComputação\n\nMatemática\n\nMatemática/Física\n\nNegócios:\n- Análise SWOT\n- Análise de Riscos\n\nLiderança:\n- Apresentações em público\n\nNegócios:\n- Canvas de Proposta de Valor\n\nMatemática:\n- Cinemática\n\nMatemática/Física:\n- Cinemática\n\nDesign:\n- Concept Art\n- Design Thinking\n- Game Design\n\nComputação:\n- Introdução à Programação (Javascript)\n\nDesign:\n- Level Design\n\nNegócios:\n- Mercado de Games\n\nMatemática:\n- Momento Linear e Colisões\n\nMatemática/Física:\n- Momento Linear e Colisões\n\nComputação:\n- Máquinas de Estado\n\nDesign:\n- Narrativas\n\nLiderança:\n- Objetivos Individuais e de Grupo\n\nNegócios:\n- Pitch e Pitch Deck\n\nComputação:\n- Programação Orientada a Objetos\n- Qualidade de Software\n\nLiderança:\n- Representatividade e Diversidade\n\nDesign:\n- Sound Design",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 1",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Aplicação Web –Um sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas\n\nComputação\n\nMatemática\n\nMatemática/Física\n\nNegócios:\n- 4 P’s do Marketing\n\nDesign:\n- Acessibilidade\n\nComputação:\n- Bancos de Dados\n\nNegócios:\n- Ciclo de Vida do Produto\n- Design Thinking\n\nDesign:\n- Design de Interfaces\n\nMatemática:\n- Estatística Descritiva\n\nMatemática/Física:\n- Estatística Descritiva\n\nComputação:\n- Fundamentos de Rede\n- Fundamentos de Redes\n\nMatemática:\n- Grafos, Árvores\n\nMatemática/Física:\n- Grafos, Árvores\n\nComputação:\n- HTML, CSS, Javascript\n\nMatemática:\n- Integral Definida\n\nMatemática/Física:\n- Integral Definida\n\nMatemática:\n- Integral Indefinida\n\nMatemática/Física:\n- Integral Indefinida\n\nMatemática:\n- Integração Numérica\n\nMatemática/Física:\n- Integração Numérica\n\nLiderança:\n- Liderança em situações de conflito\n\nMatemática:\n- Lógica Proposicional\n\nMatemática/Física:\n- Lógica Proposicional\n\nNegócios:\n- PMI, PMBok, Agile\n\nComputação:\n- Padrão MVC\n\nDesign:\n- Prototipação\n\nComputação:\n- Testes Unitários\n\nDesign:\n- Testes com Usuários\n- Usabilidade\n\nLiderança:\n- Vieses Cognitivos",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 2",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Lógica para predição com Inteligência Artificial –Uso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.\n\nComputação\n\nMatemática\n\nMatemática/Física\n\nComputação:\n- Aprendizado Supervisionado e Não Supervisionado\n\nNegócios:\n- Cultura e Design Organizacional\n\nMatemática:\n- Derivadas Parciais\n\nMatemática/Física:\n- Derivadas Parciais\n\nMatemática:\n- Estatística Indutiva\n\nMatemática/Física:\n- Estatística Indutiva\n\nComputação:\n- Explicabilidade\n- Feature Engineering\n\nMatemática:\n- Funções de várias variáveis\n\nMatemática/Física:\n- Funções de várias variáveis\n\nNegócios:\n- Governança Corporativa\n- Governança de Dados\n\nMatemática:\n- Integral Múltipla\n\nMatemática/Física:\n- Integral Múltipla\n\nDesign:\n- Jornada do Usuário\n\nComputação:\n- Linguagem Python, Pandas, Numpy\n\nMatemática:\n- Probabilidade\n\nMatemática/Física:\n- Probabilidade\n\nComputação:\n- Pré-Processamento\n\nDesign:\n- Storytelling com Dados\n\nMatemática:\n- Transformações Lineares\n\nMatemática/Física:\n- Transformações Lineares\n\nDesign:\n- Visualização de Dados\n\nLiderança:\n- Vulnerabilidade",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 3",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Solução para IoT –Dispositivos com sensores e atuadores, que coletam dados e enviam para a nuvem, auxiliando monitoramentos e automatização.\n\nComputação\n\nMatemática\n\nMatemática/Física\n\nMatemática:\n- Campo Elétrico\n\nMatemática/Física:\n- Campo Elétrico\n\nMatemática:\n- Campos vetoriais, Gradiente\n\nMatemática/Física:\n- Campos vetoriais, Gradiente\n\nNegócios:\n- Ciclo de funding de startups\n\nComputação:\n- Comunicação à Distância\n- Dashboards\n\nMatemática:\n- Derivada Direcional\n\nMatemática/Física:\n- Derivada Direcional\n\nDesign:\n- Design de Interação\n\nMatemática:\n- Eletromagnetismo\n\nMatemática/Física:\n- Eletromagnetismo\n\nComputação:\n- Eletrônica Básica\n\nDesign:\n- Fabricação Digital\n\nLiderança:\n- Impactos Ambientais das Tecnologias\n\nNegócios:\n- Indicadores financeiros\n- Indústria 4.0\n\nDesign:\n- Interusabilidade\n\nNegócios:\n- Juros e Fluxo de Caixa\n\nComputação:\n- Microcontroladores\n\nMatemática:\n- Resistores / Capacitores\n\nMatemática/Física:\n- Resistores / Capacitores\n\nLiderança:\n- Segurança Psicológica\n\nComputação:\n- Sensores e Atuadores\n\nDesign:\n- Storyboard\n\nMatemática:\n- Séries de Potência\n\nMatemática/Física:\n- Séries de Potência\n\nLiderança:\n- Técnicas de Feedback",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 4",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática\n\nSolução de alto desempenho usando grafos –Solução que utiliza estruturas e técnicas em grafos para melhorar a tomada de decisões e otimização em cenários do mundo real.\n\nComputação:\n- Algoritmos em grafos\n\nUX e IHC:\n- Animação e interatividade\n\nComputação:\n- Análise de algoritmos\n\nNegócios:\n- Aplicações inovadoras em supply chain\n\nComputação:\n- Caminhos mínimos\n\nLiderança:\n- Construção de times colaborativos e diversos\n\nMatemática:\n- Demonstração de correção\n\nComputação:\n- Estrutura de dados\n\nUX e IHC:\n- Ferramentas para visualização de grafos\n\nMatemática:\n- Indução matemática\n- Lógica formal\n\nNegócios:\n- Mercados e tendências em supply chain\n\nComputação:\n- Ordenação topológica\n\nNegócios:\n- Políticas econômicas\n- Produtos financeiros e mercado de capitais\n\nMatemática:\n- Redes de fluxo\n\nUX e IHC:\n- Representação de dados\n\nLiderança:\n- Storytelling na liderança\n\nMatemática:\n- Teoria dos Grafos\n\nUX e IHC:\n- Testes de usabilidade\n\nComputação:\n- Tipos abstratos de dados\n\nLiderança:\n- Valores, fatos e opiniões\n\nComputação:\n- Árvore geradora mínima",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 5",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática\n\nOtimização combinatória e pesquisa operacional –Aplicação de algoritmos de programação linear e inteira para resolver problemas de otimização em empresas a fim de maximizar lucros (ou reduzir custos) ou tornar ótimo o uso de recursos escassos.\n\nComputação:\n- Algoritmos de programação linear e inteira e mista\n- Algoritmos gulosos\n\nLiderança:\n- Argumentação, falácias e correlações espúrias\n\nComputação:\n- Busca local e Backtracking\n\nMatemática:\n- Dualidade e análise de sensibilidade\n\nNegócios:\n- Gerenciamento de funil de leads\n\nMatemática:\n- Modelagem de problemas de otimização\n- Método simplex\n\nLiderança:\n- Negociação: eu e o outro\n\nComputação:\n- Programação dinâmica\n\nMatemática:\n- Programação linear\n\nUX e IHC:\n- Representação geométrica e animação gráfica\n- Representação gráfica 3D\n\nNegócios:\n- Satisfação, reputação e fidelidade\n\nComputação:\n- Scheduling, Routing, Decomposition Techniques\n\nNegócios:\n- Supply chain global, geopolítica e o Global Supply  Chain Pressure Index\n\nComputação:\n- Teoria da computação\n\nMatemática:\n- Teoria das filas\n\nLiderança:\n- Ética e gestão do conhecimento",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 6",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação:\n- Arquitetura de Software\n\nAplicação escalável em sistemas distribuídos –Sistema com alta escalabilidade, disponibilidade, distribuído e baseado em microsserviços para resolver problemas reais.\n\nMatemática\n\nLiderança:\n- Agenda 2030 e ODS\n\nUX e IHC:\n- Arquitetura da informação: fundamentos e métodos\n- Arquitetura de Informação: do diagrama de contexto ao design de interface\n\nNegócios:\n- Balanço patrimonial\n\nComputação:\n- Computação em nuvem\n\nNegócios:\n- Contabilidade gerencial e de custos\n\nComputação:\n- Desenvolvimento servless\n- Engenharia de Requisitos\n\nNegócios:\n- Gestão de escalabilidade de negócios digitais\n\nLiderança:\n- Human-Centered Design como abordagem de gestão\n\nComputação:\n- Infraestrutura como código\n- Modelagem de banco de dados\n\nMatemática:\n- Métricas de escalabilidade\n- Métricas de  confiabilidade\n\nNegócios:\n- Proposta de valor do uso de plataformas em nuvem\n\nComputação:\n- Redes de computadores\n\nLiderança:\n- Segurança Psicológica\n- Técnicas de Experimentação\n\nUX e IHC:\n- User Research",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 7",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nIDE para acessibilidade em dispositivos sensoriais –IDE (Integrated Development Environment) cuja interface permite a programação de terapias ou atividades assistidas utilizando sensores apropriados.\n\nMatemática\n\nComputação:\n- Arquitetura de computadores\n- Compiladores\n\nMatemática:\n- Criptografia de chave pública e RSA\n- Criptografia simétrica\n\nNegócios:\n- Economia da inovação\n\nUX e IHC:\n- Ergonomia, acessibilidade e Design de Interação em IDE\n\nLiderança:\n- Gestão do conhecimento\n\nUX e IHC:\n- IHC e Design Inclusivo em IDEs para embarcados\n\nNegócios:\n- Inovação radical e disruptiva\n\nUX e IHC:\n- Integração de IDEs na Potencialização das AVDs\n\nComputação:\n- Linguagens formais e autômatos\n- Máquina de Turing\n\nNegócios:\n- Negócios sociais\n\nLiderança:\n- Networking: como criar redes de relacionamento profissional.\n\nNegócios:\n- Reflexões sobre o terceiro setor\n\nLiderança:\n- Relações e hierarquias impactam a tomada de decisões?\n\nMatemática:\n- Secure Hash Algorithms (SHA)\n\nComputação:\n- Sistemas operacionais\n\nMatemática:\n- Teoria dos números e aritmética modular\n\nNegócios:\n- Transformação digital e inovação aberta",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 8",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática\n\nSistema de deep learning aplicado à visão computacional –Criação de modelos que utilizem Redes Neurais Convolucionais (CNNs) e Transfer Learning para resolver desafios em Visão Computacional a fim de aprimorar a precisão e a eficiência na análise de imagens.\n\nLiderança:\n- Alinhamento Organizacional e entrega de valor\n\nNegócios:\n- Análise e Avaliação de Desempenho – Analytics\n\nComputação:\n- Data augmentation\n\nMatemática:\n- Derivadas Parciais\n\nNegócios:\n- Desenvolvimento de Talentos\n\nComputação:\n- Detecção de objetos\n\nLiderança:\n- Direitos Humanos e as relações organizacionais\n\nNegócios:\n- Direitos e Deveres Trabalhistas\n\nLiderança:\n- Discursos engajadores\n\nMatemática:\n- Funções de várias variáveis\n\nNegócios:\n- Gestão da Mudança\n\nMatemática:\n- Gradiente descendente\n\nNegócios:\n- Organizações Orientadas por Dados\n\nComputação:\n- Otimização e Regularização de Modelos\n\nMatemática:\n- Perceptron multicamadas\n\nComputação:\n- Pose estimation\n- Processamento de Imagens\n- Redes Neurais Convolucionais (CNNs)\n\nMatemática:\n- Regra da cadeia\n\nComputação:\n- Segmentação de imagens\n- Transfer Learning",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 9",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Aplicação de redes neurais em aprendizado por reforço\n\nAplicação de redes neurais em aprendizado por reforço –Desenvolvimento de agentes que otimizam ações sequenciais em ambientes incertos, com aprendizado por reforço para resolver problemas complexos de tomada de decisões.\n\nComputação\n\nMatemática\n\nComputação:\n- Computação paralela.\n\nMatemática:\n- Estatística Bayesiana\n- Estatística e Probabilidade\n\nNegócios:\n- Estratégias de Negócios com IA\n- Estruturas corporativas e acordos de acionistas\n\nComputação:\n- Exploração e Explotação.\n\nNegócios:\n- Fusões e aquisições em tempos de IA\n\nLiderança:\n- Influência e design de experiência\n\nComputação:\n- Métodos de Monte Carlo\n- Métodos de diferença temporal\n\nMatemática:\n- Otimização\n\nComputação:\n- Políticas e estratégias  em aprendizado por reforço\n- Processos de Decisão de Markov\n\nNegócios:\n- Produtividade\n\nComputação:\n- Programação em GPU.\n\nMatemática:\n- Teoria da Informação\n\nLiderança:\n- Técnicas de influência e argumentação\n- Ética organizacional e os limites das ações individuais",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 10",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática\n\nSistema de processamento de linguagem natural com IA generativa –Solução em NLP e IA generativa para compreender, interpretar e gerar linguagem humana em aplicações organizacionais.\n\nMatemática:\n- Análise de Agrupamento: medidas de proximidade\n- Análise de Séries Temporais\n\nLiderança:\n- Como líderes desenvolvem e monitoram experimentos\n\nComputação:\n- Computação paralela em cluster\n\nLiderança:\n- Desvendando o Poder do Hábito\n\nNegócios:\n- Frameworks para implementação da estratégias de negócios\n\nMatemática:\n- Ganho de Informação e Entropia no contexto do aprendizado de máquina\n\nNegócios:\n- Gestão ambiental\n- Impacto de IA generativa nas empresas\n\nComputação:\n- Large Language Models (LLMs)\n\nLiderança:\n- O impacto positivo que os líderes podem buscar\n\nComputação:\n- Paradigmas e linguagens de programação\n- Redes Neurais Recorrentes (RNNs)\n\nNegócios:\n- Sustentabilidade\n\nComputação:\n- Transfer learning\n\nMatemática:\n- Álgebra linear em word embeddings",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 11",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Desenvolvimento de Sistemas e Arquitetura de Software. 27 anos de experiência\n\nEngenheiro e pesquisador, trabalho na área de indústria e processos de qualidade utilizando IA e arquitetura de software.\n\nTrilha de Empreendedorismo\n\n4000 horas\n\nAfonso Cesar Lelis Brandão\n\nAna Cristina do Santos\n\nAndré Godoi\n\nArtista Multimídia, Designer e Professora. Pesquisa as relações entre Arte, Ciência e Tecnologia.\n\nAtividades complementares\n\nAutomação Industrial, Sistemas Embarcados, IA e desenvolvimento Full Stack. 11 anos de experiência na academia e mercado.\n\nBruna Mayer Costa\n\nBryan Kano\n\nCarga Horária: 400 horas\n\nCarga horária total\n\nCarga horária: 400 horas\n\nCesar Almiñana\n\nCibersegurança. Proteção de Dados e Privacidade.  Inteligência Artificial. Professor, consultor  e empreendedor.\n\nCiência da Computação. 4 anos de experiência no mercado e 2 anos e meio na academia.\n\nClaudio André\n\nComputação. 44 anos de experiência em todas as áreas ligadas à computação.\n\nCoordenador de Curso do Ciclo Básico (1º ano)\n\nCoordenador do curso(4º ano)\n\nCoordenadora do curso(2º e 3º ano)\n\nCristiano Da Silva Benites\n\nCristina Gramani\n\nCurricular\n\nDesign, Produção Cultural e Gamificação. 20 anos de experiência na área de games e 16 anos de experiência acadêmica.\n\nDiogo Martins Gonçalves De Moraes\n\nDiretora acadêmica:\n\nDocente há 23 anos, sendo 15 anos no Ensino Superior nas disciplinas de  Matemática e Física. Experiência de 10 anos na indústria.\n\nDoutora e Mestra em Engenharia de Sistemas e Computação pela COPPE – Universidade Federal do Rio de Janeiro (UFRJ).\n\nEgon F Daxbacher\n\nEngenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.\n\nEngenheiro elétrico. Mais de 15 anos de experiência como docente universitário nas disciplinas relacionadas à matemática.\n\nEngenheiro, diretor de projetos e professor de negócios e Inteligência Artificial\n\nEste módulo aborda as atualizações mais recentes e as tendências tecnológicas emergentes, proporcionando uma compreensão profunda e prática das inovações. O módulo é dividido em duas partes. A primeira parte, o “Balanço Técnico”, é guiada por meio de aprendizado contínuo e validação da aprendizagem. A segunda parte, o “Projeto Especial”, oferece cursos como Fundamentos de Segurança e Criptografia Pós-Quântica, Gestão de Risco em Cybersecurity, Experiências Imersivas e Jogo de Negócios, de tendências tecnológicas, permitindo a exploração de novos conceitos tecnológicos e aplicações de práticas inovadoras, incluindo Libras – Língua Brasileira de Sinais.\n\nExperiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.\n\nFernando Pizzo Ribeiro\n\nFilipe Gonçalves\n\nFillipe Resina\n\nFlávia Santoro\n\nFrancisco Escobar\n\nGeraldo Vasconcelos\n\nGestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado\n\nGraduação em Engenharia Eletrônica pela Escola Politécnica da Universidade Federal do Rio de Janeiro (UFRJ).\n\nGuilherme Cestari\n\nHenrique Mohallem Paiva\n\nHermano Peixoto de Oliveira Junior\n\nInovação, Tecnologia e Negócios Digitais, 40 anos de experiência acadêmica e profissional.\n\nInternet of Things e Sistemas Embarcados. 19 anos de experiência no Ensino e Mercado.\n\nJefferson De Oliveira Silva\n\nJosé Romualdo Costa\n\nJulia Stateri\n\nLaíza Ribeiro Silva\n\nLuciano Galdino\n\nMarcelo Gonçalves\n\nMatemática, Pesquisa Operacional e Business Analytics. 21 anos de experiência na academia e em consultoria.\n\nMauricio Garcia\n\nMichele Bazana\n\nMurilo Zanini De Carvalho\n\nOvidio Lopes da Cruz Netto\n\nPossui mais de 250 publicações com diversos resultados práticos.\n\nProfessor Doutor em Engenharia de Computação e Sistemas Digitais pela USP. Linha de pesquisa – Aplicação industrial de Arquitetura com IoT e Digital Twin\n\nProfessor Especialista em Pensamento Computacional, pesquisador na área de lA para soluções na área da saúde e educação inclusiva, 18 anos experiência mercado e docência.\n\nProfessor de Estatística e Matemática aplicada nas Engenharias e Administração.\n\nProfessor de paixão e profissão, há 12 anos lidera experiências educativas transformadoras em instituições de ensino e organizações.\n\nProfessor dos cursos de Engenharia de Software, com foco em transformação digital, adoção de nuvem e agilidade.\n\nProfessor e Pesquisador em Ciência da Computação, Engenharia de Software e Inteligência Artificial.\n\nProfessor e pesquisador de Design/UX nas áreas de Computação, Design e Jogos Digitais, especializado em Semiótica.\n\nProfessor na área de Física, Matemática e Estatística com 10 anos de experiência no Ensino Superior.\n\nProfessor na área de Programação. Mais de 20 anos de experiência no mercado e na docência.\n\nProfessora Orientadora do Curso de Engenharia de Software. Fundadora da empresa SE7Ti – tecnologia e Informação que atua em consultoria e treinamento em Arquitetura Corporativa.\n\nProfessora, gestora Acadêmica e Educação Corporativa e 28 anos de experiência docente e gestão\n\nProfissional de Tecnologia da Informação e professor universitário na área de computação e engenharia elétrica\n\nReginaldo Arakaki\n\nRenato Penha\n\nRobótica, Automação, Sistemas Embarcados e IA. 6 anos de experiência na academia e mercado.\n\nRodolfo Goya\n\nRodrigo Nicola\n\nSabáticos na Université Pierre et Marie Curie, França (2004-2005) e Queensland University of Technology, Austrália.\n\nSergio Venâncio\n\nSimulações Computacionais, Sistemas de Controle Automático, 20 anos de experiência em pesquisa e desenvolvimento tecnológico.\n\nSistemas de Informação, Estratégia e gestão de Negócios Online, Educação Empreendedora Digital. 3o anos de experiência acadêmica e mercado corporativo.\n\nSistemas de Informação, Gestão de Negócios, 24 anos de experiência.\n\nSistemas de Informação. 25 anos de experiência no mercado de Tecnologia da Informação e 12 anos de experiência na academia.\n\nSistemas de Informação. 38 anos de experiência no mercado de Tecnologia da Informação e 18 anos de experiência na academia.\n\nSérgio Venâncio\n\nTecnologias Educacionais, Gamificação, Interação Humano-Computador, 5 anos de experiência na academia.\n\nTendências e Atualizações\n\nTendências e Atualizações –Este módulo aborda as atualizações mais recentes e as tendências tecnológicas emergentes, proporcionando uma compreensão profunda e prática das inovações. O módulo é dividido em duas partes. A primeira parte, o “Balanço Técnico”, é guiada por meio de aprendizado contínuo e validação da aprendizagem. A segunda parte, o “Projeto Especial”, oferece cursos como Fundamentos de Segurança e Criptografia Pós-Quântica, Gestão de Risco em Cybersecurity, Experiências Imersivas e Jogo de Negócios, de tendências tecnológicas, permitindo a exploração de novos conceitos tecnológicos e aplicações de práticas inovadoras, incluindo Libras – Língua Brasileira de Sinais.\n\nTomaz Sasaki\n\nTrabalha há 20 anos como professora, coordenadora de cursos e pesquisadora em Sistemas de Informação e Ciência da Computação, com foco em Gestão de Processos de Negócios, Processos Intensivos em Conhecimento, Gestão do Conhecimento e Sistemas Colaborativos e Aprendizagem Baseada em Projetos.\n\nTrilha Acadêmica\n\nTrilha Corporativa\n\nUX Designer, Game Designer, Filósofo, 20 anos de experiência como professor e desenvolvedor.\n\nVanessa Tavares Nunes\n\nTrilha de Empreendedorismo:\n- Conexão com mentores e investidores de venture capital\n\nTrilha Acadêmica:\n- Construção de projetos de pesquisa\n\nCorpo Docente\n\nTrilha de Empreendedorismo:\n- Criação e aceleração de startups\n\nTrilha Acadêmica:\n- Elaboração de artigos científicos\n\nTrilha Corporativa:\n- Imersões empresariais\n\nTrilha de Empreendedorismo:\n- Imersões no ecossistema empreendedor\n\nTrilha Acadêmica:\n- Preparação para ingresso em cursos de mestrado e doutorado\n\nTrilha Corporativa:\n- Preparação para processos seletivos e de trainee em grandes empresas\n- Projetos de consultoria para corporações",
+      "section": "Ciência da Computação",
+      "subsection": "Grade Curricular - Ciência da Computação",
+      "project": "Projeto 12",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Ciência da Computação",
+      "section": "Ciência da Computação",
+      "subsection": null,
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Atue em projetos com modelagem matemática, algoritmos de otimização e IA. Desenvolva aplicações de linguagem natural, implante deep learning e explore IA generativa em ambientes de alto desempenho.",
+      "section": "Ciência da Computação",
+      "subsection": "Atue em projetos com modelagem matemática, algoritmos de otimização e IA. Desenvolva aplicações de linguagem natural, implante deep learning e explore IA generativa em ambientes de alto desempenho.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Nosso objetivo é formar Cientistas com uma sólida formação em Computação e Matemática, capacitados para construir soluções de propósito geral, construção de arquiteturas de software de última geração para sistemas de computação inteligentes, e gerar conhecimento científico-tecnológico e inovação. No Inteli, além das competências acadêmicas, incentivamos nossos alunos a estender suas habilidades à medida que a área avança, buscando sempre os melhores resultados com criatividade, senso crítico e ética.",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Habilidades e Competências",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "list_item",
+      "text": "Definir os conceitos fundamentais de Computação para o desenvolvimento de software, hardware e suas aplicações.",
+      "list_context": "Habilidades e Competências",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "list_item",
+      "text": "Especificar, projetar, implementar e avaliar sistemas de computação com qualidade em todas as etapas.",
+      "list_context": "Habilidades e Competências",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "list_item",
+      "text": "Gerenciar projetos de sistemas computacionais e resolver problemas de forma eficiente.",
+      "list_context": "Habilidades e Competências",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "list_item",
+      "text": "Desenvolver algoritmos e métodos para análise e avaliação, reconhecendo a importância do pensamento computacional em diversas áreas.",
+      "list_context": "Habilidades e Competências",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "list_item",
+      "text": "Demonstrar uma visão interdisciplinar e inovadora da Computação, além de habilidades em autoaprendizagem, colaboração e comunicação.",
+      "list_context": "Habilidades e Competências",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo comum de todos os cursos",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo específico do curso escolhido",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "A partir do segundo ano você desenvolverá projetos específicos do curso que escolheu",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo em tempo parcial",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "No terceiro ano você pode iniciar os estágios em meio período",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Aceleração de carreira",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "No quarto ano você escolhe em qual trilha realizar seus projetos: empreendedora, acadêmica ou corporativa.",
+      "section": "Ciência da Computação",
+      "subsection": "Saiba como usar técnicas avançadas de computação para resolver problemas complexos.",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Nossos alunos estagiam nas melhores empresas",
+      "section": "Ciência da Computação",
+      "subsection": "Nossos alunos estagiam nas melhores empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "O que você precisa saber",
+      "section": "Ciência da Computação",
+      "subsection": "O que você precisa saber",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Bacharelado em Ciência da Computação",
+      "section": "Ciência da Computação",
+      "subsection": "Bacharelado em Ciência da Computação",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Carga Horária:",
+      "section": "Ciência da Computação",
+      "subsection": "Carga Horária:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "4000 Horas",
+      "section": "Ciência da Computação",
+      "subsection": "4000 Horas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Modalidade:",
+      "section": "Ciência da Computação",
+      "subsection": "Modalidade:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Presencial",
+      "section": "Ciência da Computação",
+      "subsection": "Presencial",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Investimento :",
+      "section": "Ciência da Computação",
+      "subsection": "Investimento :",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "R$7.780,00",
+      "section": "Ciência da Computação",
+      "subsection": "R$7.780,00",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "(Janeiro de 2026)",
+      "section": "Ciência da Computação",
+      "subsection": "(Janeiro de 2026)",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "40 vagas anuais",
+      "section": "Ciência da Computação",
+      "subsection": "40 vagas anuais",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Conceito Nota 5 no MEC*",
+      "section": "Ciência da Computação",
+      "subsection": "Conceito Nota 5 no MEC*",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Programa de Bolsas de Estudos",
+      "section": "Ciência da Computação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "*Portaria nº 1124, de 05/10/2021, publicada no D.O.U. nº 190, de 06/10/2021, Seção 1, página 204.",
+      "section": "Ciência da Computação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Curricular",
+      "section": "Ciência da Computação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    }
+  ],
+  "statistics": {
+    "total_blocks": 665,
+    "paragraphs": 187,
+    "headings": 17,
+    "list_items": 461,
+    "tables": 0
+  }
+}

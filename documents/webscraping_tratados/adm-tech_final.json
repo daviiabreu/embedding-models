@@ -1,0 +1,856 @@
+{
+  "source_file": "adm-tech.html",
+  "metadata": {
+    "url": "adm-tech",
+    "title": "Inteli - Administração em Tecnologia",
+    "description": "Estude Adm Tech no Inteli e desenvolva habilidades para liderar transformações digitais, combinando administração e tecnologia com forte conexão ao mercado de trabalho.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "project_block",
+      "text": "Jogo Digital –Um jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas\n\nMatemática/ Física:\n- Cinemática\n- Momento Linear e Colisões\n\nComputação:\n- Introdução à Programação (Javascript)\n- Programação Orientada a Objetos\n- Máquinas de Estado\n- Qualidade de Software\n\nDesign:\n- Design Thinking\n- Game Design\n- Concept Art\n- Narrativas\n- Level Design\n- Sound Design\n\nNegócios:\n- Mercado de Games\n- Análise SWOT\n- Canvas de Proposta de Valor\n- Análise de Riscos\n- Pitch e Pitch Deck\n\nLiderança:\n- Representatividade e Diversidade\n- Objetivos Individuais e de Grupo\n- Apresentações em público",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 1",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Aplicação Web –Um sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas\n\nMatemática/ Física:\n- Integral Indefinida\n- Integral Definida\n- Integração Numérica\n- Lógica Proposicional\n- Grafos, Árvores\n- Estatística Descritiva\n\nComputação:\n- Bancos de Dados\n- Padrão MVC\n- HTML, CSS, Javascript\n- Testes Unitários\n- Fundamentos de Redes\n\nDesign:\n- Prototipação\n- Design de Interfaces\n- Usabilidade\n- Acessibilidade\n- Testes com Usuários\n\nNegócios:\n- Ciclo de Vida do Produto\n- Design Thinking\n- 4 P’s do Marketing\n- PMI, PMBok, Agile\n\nLiderança:\n- Liderança em situações de conflito\n- Vieses Cognitivos",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 2",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Lógica para predição com Inteligência Artificia –Uso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.\n\nMatemática/ Física:\n- Funções de várias variáveis\n- Derivadas Parciais\n- Integral Múltipla\n- Probabilidade\n- Estatística Indutiva\n- Transformações Lineares\n\nComputação:\n- Linguagem Python, Pandas, Numpy\n- Pré-Processamento\n- Feature Engineering\n- Aprendizado Supervisionado e Não Supervisionado\n- Explicabilidade\n\nDesign:\n- Jornada do Usuário\n- Visualização de Dados\n- Storytelling com Dados\n\nNegócios:\n- Governança de Dados\n- Governança Corporativa\n- Cultura e Design Organizacional\n\nLiderança:\n- Vulnerabilidade",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 3",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Solução para IoT –Dispositivos com sensores e atuadores, que coletam dados e enviam para a nuvem, auxiliando monitoramentos e automatização.\n\nMatemática/ Física:\n- Estatística Indutiva\n- Probabilidade\n- Programação linear\n- Modelagem de problemas de otimização\n\nComputação:\n- Sensores e Atuadores\n- Comunicação à Distância\n- Dashboards\n- Linguagem Python\n- Bancos de Dados\n\nDesign:\n- Storyboard\n- Design de Interação\n- Interusabilidade\n- Fabricação Digital\n\nNegócios:\n- Indústria 4.0\n- Juros e Fluxo de Caixa\n- Indicadores financeiros\n- Ciclo de funding de startups\n- Logístiica\n- Supply chain\n\nLiderança:\n- Impactos Ambientais das Tecnologias\n- Técnicas de Feedback\n- Segurança Psicológica",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 4",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Modelagem financeira e valuation –Modelagem financeira de uma empresa ou projeto e uma avaliação de seu valor de mercado (valuation)\n\nMatemática/ Física:\n- Matemática financeira\n- Simulação de Monte Carlo\n\nComputação:\n- Cálculo financeiro\n- Planilhas eletrônicas avançadas\n\nDesign:\n- Apresentação de dados financeiros\n\nNegócios:\n- Fluxo de caixa\n- Contabilidade\n- Análise de DRE\n- Valuation: FDC, múltiplos\n\nLiderança:\n- Construção de times colaborativos e diversos\n- Storytelling na liderança\n- Valores, fatos e opiniões",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 5",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Sistemas de Business Intelligence para tomada de decisão –Coleta, análise, processamento e visualização de dados para orientar a tomada de decisões nas organizações\n\nMatemática/ Física:\n- Estatística e probabilidades\n- Análises de séries temporais\n\nComputação:\n- Construção de dashboards\n- Integrações via API\n- Data Warehousing\n- Machine learning\n\nDesign:\n- Visualização de dados\n- Desenho de dashboards\n\nNegócios:\n- Problem framing\n- Análise, visualização e Governança de de dados\n- Processos de tomada de decisão\n\nLiderança:\n- Argumentação, falácias e correlações espúrias\n- Negociação: eu e o outro\n- Ética e gestão do conhecimento",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 6",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Blockchain, criptomoedas e tokenização de ativos –Criação de um projeto de tokenização de ativos utilizando tecnología blockchain\n\nMatemática/ Física:\n- Teoria dos Números\n- Criptografia\n\nComputação:\n- Algoritmos criptográficos\n- Estruturas de dados e funções hash\n- Programação em blockchain\n- Smart Contracts\n\nDesign:\n- Design de interfaces para transações financeiras\n- UX aplicada a smart contracts\n\nNegócios:\n- Macroeconomia\n- Microeconomia\n- Análise de volatilidade\n- Regulação de criptomoedas tokens\n- Tokenomics:Modelagem de negócios em blockchain\n\nLiderança:\n- Relações e hierarquias impactam a tomada de decisões?\n- Gestão do conhecimento\n- Networking: como criar redes de relacionamento profissional.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 7",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Imersão no mercado financeiro –Análise de dados econômicos e financeiros para avaliação de desempenho de portfólio de investimentos e gestão de ativos\n\nMatemática/ Física:\n- Matemática financeira avançada\n- Teoria dos Jogos\n\nComputação:\n- Python e bibliotecas de análise de dados\n- Análise estatística computacional com R\n- Integrações via API\n\nDesign:\n- Design de serviços\n\nNegócios:\n- Sistema financeiro nacional\n- Investment banking\n- Private equity\n- Wealth Management\n- Real State\n- Seguros e resseguros\n\nLiderança:\n- Segurança Psicológica\n- Técnicas de Experimentação\n- Human-Centered Design como abordagem de gestão\n- Agenda 2030 e ODS",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 8",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Automação e robotização de processos de negócios –Automatização e robotização de processos empresariais através do mapeamento, análise e aplicação de tecnologias de automação.\n\nMatemática/ Física:\n- Controle estatístico de processos\n- Análise multivariada (PCA e Cluster)\n\nComputação:\n- Programação em Python\n- Integrações avançadas via APIs\n- Desenvolvimento de sistemas de RPA\n- Inteligência Artificial\n- Ferramentas online de BPM\n\nUX e Design:\n- Pesquisa de Usuário\n- Design de interação\n\nNegócios:\n- Gestão de processos\n- Alinhamento estratégico\n- Inovação e competitividade\n- Mapeamento de processos (BPMN)\n- Ferramentas de automação\n- Análise de desempenho e KPIs\n\nLiderança:\n- Táticas de influência\n- Decisões coletivas\n- Modelos mentais\n- Contexto ético",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 10",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "People analytics e eficiência de gestão. –Soluções para gestão de pessoas através de coleta, processamento, visualização e análise de dados.\n\nMatemática/ Física:\n- Estatística\n\nComputação:\n- Sistemas ERP\n- Processos de ETL\n- Sistemas de RH e gestão de pessoas\n- Construção de dashboards avançados\n\nUX e Design:\n- Pesquisa com usuários de RH\n- Mapeamento de jornada do usuário\n- Design de experiência do colaborador\n\nNegócios:\n- Gestão de pessoas\n- Funções do RH\n- Gestão de Desempenho\n- Gestão de remuneração e benefícios\n- Engajamento e satisfação dos colaboradores\n- Diversidade e inclusão\n\nLiderança:\n- Impacto positivo\n- Cultura de feedback\n- Prototipagem de soluções",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 11",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Empreendedorismo: construa sua startup –Construção de um pitch deck para uma startups a partir de sua validação no mercado.\n\nMatemática/ Física:\n- Matemática financeira\n\nComputação:\n- Programação para aplicações\n- Desenvolvimento full-stack\n- Gestão de desempenho e infra-estrutura em nuvem\n\nUX e Design:\n- Design de MVPs\n\nNegócios:\n- Problem framing\n- Validação de hipóteses de negócio para startups\n- Validação de MVP\n- Venture Capital e levantamento de capital para startups\n- Métricas para startups\n\nLiderança:\n- Liderança empreendedora\n- Gestão de pessoas e times\n\nTrilha de Empreendedorismo:\n- Criação e aceleração de startups\n- Imersões no ecossistema empreendedor\n- Conexão com mentores e investidores de venture capital\n\nTrilha Corporativa:\n- Projetos de consultoria para corporações\n- Imersões empresariais\n- Preparação para processos seletivos e de trainee em grandes empresas\n\nTrilha Acadêmica:\n- Construção de projetos de pesquisa\n- Elaboração de artigos científicos\n- Preparação para ingresso em cursos de mestrado e doutorado",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 12",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Estratégias e soluções de growth marketing –Construção de soluções de marketing digital para gerar crescimento de vendas\n\nMatemática/ Física:\n- Estatística aplicada a Pesquisa de Mercado\n- Técnicas de coleta de dados\n- Estatística Descritiva\n\nComputação:\n- Ferramentas de marketing online\n- Integração de APIs\n\nUX e Design:\n- Pesquisa de usuário\n- Métodos de pesquisa de mercado\n- Branding e identidade visual\n- UX writing\n\nNegócios:\n- Teorias de Marketing\n- Segmentação, targeting e posicionamento\n- Marketing digital\n- Inbound, outbound, SEO\n- Métricas de desempenho\n\nLiderança:\n- Discursos engajadores\n- Proatividade\n- Direitos Humanos",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": "Projeto 9",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Todo negócio se tornou um negócio de tecnologia!",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": null,
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Acreditamos que a tecnologia é essencial para liderar em mercados globais competitivos.Por isso, criamos um curso de administração diferente de tudo o que você já viu.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Acreditamos que a tecnologia é essencial para liderar em mercados globais competitivos.Por isso, criamos um curso de administração diferente de tudo o que você já viu.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "O encontro entre tecnologia e negócios",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subject_block",
+      "text": "Só tem no Inteli::\n- Currículo com 60% negócios e liderança e 40% tecnologia.\n- Projetos reais para empresas e organizações renomadas.\n- Experiências internacionais nas melhores universidades.\n- Oportunidade de dupla titulação com os cursos de Computação.\n- Ecossistema sólido de empreendedorismo e tecnologia.\n- Escolha sua trilha de carreira: Empreendedorismo, Carreira Corporativa ou Acadêmica.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Currículo comum de todos os cursos",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "No primeiro ano você vai estudar com alunos dos cursos de tecnologia e desenvolver projetos em grupo pensando em soluções inovadoras unindo business e tech.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Currículo específico do curso de ADM Tech",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "A partir do segundo ano você vai estudar e desenvolver projetos reais para grandes empresas do mercado",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Currículo em tempo parcial",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "No terceiro ano você pode iniciar os estágios em meio período",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Aceleração de carreira",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "No quarto ano, ajudamos você a acelerar a sua carreira profissional, seja empreendendo ou para atuar em grandes empresas.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O encontro entre tecnologia e negócios",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "O que você irá aprender:",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O que você irá aprender:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subject_block",
+      "text": "O que você irá aprender::\n- Conhecer e aplicar conceitos de inteligência artificial (IA), blockchain e BI na gestão de projetos, pessoas e negócios.\n- Projetar e desenvolver software para automatizar processos.\n- Dominar a manipulação e processamento de dados e uso de IA para tomada de decisão.\n- Aprender Modelagem financeira, análises e predição de dados para empresas e ativos reais.\n- Realizar avaliação financeira do valor de empresas (valuation).\n- Fazer uma imersão no mercado financeiro, em parceria com o maior Banco de Investimentos da América Latina, o BTG Pactual.\n- Desenvolver soft skills necessárias para a vida profissional, como liderança, adaptabilidade e colaboração.\n- Gerir e executar projetos, pensados com metodologias práticas, como design thinking e métodos ágeis, em parceria com empresas renomadas e principais  startups do mercado.\n- Criar networking com o ecossistema de empreendedorismo brasileiro (empreendedores de sucesso, investidores VCs e agentes de fomento).",
+      "list_context": "O que você irá aprender:",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O que você irá aprender:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "“O Inteli é o ecossistema perfeito que une tecnologia e empreendedorismo em um mesmo lugar”",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O que você irá aprender:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Antonio Moraes",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O que você irá aprender:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Aluno do Inteli e empreendedor",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "O que você irá aprender:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Nossos alunos realizam projetos com as melhores empresas",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Nossos alunos realizam projetos com as melhores empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "O que você precisa saber",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Nossos alunos realizam projetos com as melhores empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Bacharelado em Administração de Empresas",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Carga horária:",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "4000 horas",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Modalidade:",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Presencial",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Mensalidade:",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "R$7.780,00",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "(Janeiro de 2026)",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "80 vagas anuais",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Conceito nota 5 no MEC",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Programa de Bolsas de Estudos",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Portaria nº 34, de 06/02/2024.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Bacharelado em Administração de Empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "GradeCurricular",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo comum a todos os estudantes",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Curricular",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subject_block",
+      "text": "Trilha de Empreendedorismo:\n- Criação e aceleração de startups\n- Imersões no ecossistema empreendedor\n- Conexão com mentores e investidores de venture capital",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "subject_block",
+      "text": "Trilha Corporativa:\n- Projetos de consultoria para corporações\n- Imersões empresariais\n- Preparação para processos seletivos e de trainee em grandes empresas",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "subject_block",
+      "text": "Trilha Acadêmica:\n- Construção de projetos de pesquisa\n- Elaboração de artigos científicos\n- Preparação para ingresso em cursos de mestrado e doutorado",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "Atividades complementares",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "4000 horas",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Grade Curricular - ADM Tech",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Aprendacom os melhores",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Coordenador de Curso do Ciclo Básico (1º ano)",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Sergio Venâncio",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Experiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Coordenador do curso(2º a 4º ano)",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "Egon F Daxbacher",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Gestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Diretora acadêmica:",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Flávia Santoro",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Graduação em Engenharia Eletrônica pela Escola Politécnica da Universidade Federal do Rio de Janeiro (UFRJ).",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Doutora e Mestra em Engenharia de Sistemas e Computação pela COPPE – Universidade Federal do Rio de Janeiro (UFRJ).",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Sabáticos na Université Pierre et Marie Curie, França (2004-2005) e Queensland University of Technology, Austrália.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Trabalha há 20 anos como professora, coordenadora de cursos e pesquisadora em Sistemas de Informação e Ciência da Computação, com foco em Gestão de Processos de Negócios, Processos Intensivos em Conhecimento, Gestão do Conhecimento e Sistemas Colaborativos e Aprendizagem Baseada em Projetos.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Possui mais de 250 publicações com diversos resultados práticos.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Aprendacom os melhores",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Corpo Docente",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Afonso Cesar Lelis Brandão - Engenheiro e pesquisador, trabalho na área de indústria e processos de qualidade utilizando IA e arquitetura de software.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Ana Cristina do Santos - Professora, gestora Acadêmica e Educação Corporativa e 28 anos de experiência docente e gestão",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "André Godoi - Internet of Things e Sistemas Embarcados. 19 anos de experiência no Ensino e Mercado.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Bruna Mayer Costa - Artista Multimídia, Designer e Professora. Pesquisa as relações entre Arte, Ciência e Tecnologia.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Bryan Kano - Cibersegurança. Proteção de Dados e Privacidade.  Inteligência Artificial. Professor, consultor  e empreendedor.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Cesar Almiñana - Engenheiro, diretor de projetos e professor de negócios e Inteligência Artificial",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Claudio André - Sistemas de Informação, Estratégia e gestão de Negócios Online, Educação Empreendedora Digital. 3o anos de experiência acadêmica e mercado corporativo.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Cristiano Da Silva Benites - Professor Especialista em Pensamento Computacional, pesquisador na área de lA para soluções na área da saúde e educação inclusiva, 18 anos experiência mercado e docência.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Cristina Gramani - Matemática, Pesquisa Operacional e Business Analytics. 21 anos de experiência na academia e em consultoria.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Diogo Martins Gonçalves De Moraes - Professor de Estatística e Matemática aplicada nas Engenharias e Administração.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Fernando Pizzo Ribeiro - Engenheiro elétrico. Mais de 15 anos de experiência como docente universitário nas disciplinas relacionadas à matemática.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Filipe Gonçalves - Professor de paixão e profissão, há 12 anos lidera experiências educativas transformadoras em instituições de ensino e organizações.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Fillipe Resina - Ciência da Computação. 4 anos de experiência no mercado e 2 anos e meio na academia.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Sistemas de Informação, Gestão de Negócios, 24 anos de experiência.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Francisco Escobar - UX Designer, Game Designer, Filósofo, 20 anos de experiência como professor e desenvolvedor.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Geraldo Vasconcelos - Professor na área de Física, Matemática e Estatística com 10 anos de experiência no Ensino Superior.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Guilherme Cestari - Professor e pesquisador de Design/UX nas áreas de Computação, Design e Jogos Digitais, especializado em Semiótica.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Henrique Mohallem Paiva - Simulações Computacionais, Sistemas de Controle Automático, 20 anos de experiência em pesquisa e desenvolvimento tecnológico.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Hermano Peixoto de Oliveira Junior - Profissional de Tecnologia da Informação e professor universitário na área de computação e engenharia elétrica",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Jefferson De Oliveira Silva - Professor e Pesquisador em Ciência da Computação, Engenharia de Software e Inteligência Artificial.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "José Romualdo Costa - Professor dos cursos de Engenharia de Software, com foco em transformação digital, adoção de nuvem e agilidade.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Julia Stateri - Design, Produção Cultural e Gamificação. 20 anos de experiência na área de games e 16 anos de experiência acadêmica.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Laíza Ribeiro Silva - Tecnologias Educacionais, Gamificação, Interação Humano-Computador, 5 anos de experiência na academia.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Luciano Galdino - Docente há 23 anos, sendo 15 anos no Ensino Superior nas disciplinas de  Matemática e Física. Experiência de 10 anos na indústria.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Marcelo Gonçalves - Sistemas de Informação. 38 anos de experiência no mercado de Tecnologia da Informação e 18 anos de experiência na academia.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Mauricio Garcia - Inovação, Tecnologia e Negócios Digitais, 40 anos de experiência acadêmica e profissional.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Michele Bazana - Engenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Murilo Zanini De Carvalho - Automação Industrial, Sistemas Embarcados, IA e desenvolvimento Full Stack. 11 anos de experiência na academia e mercado.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Ovidio Lopes da Cruz Netto - Professor na área de Programação. Mais de 20 anos de experiência no mercado e na docência.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Reginaldo Arakaki - Professor Doutor em Engenharia de Computação e Sistemas Digitais pela USP. Linha de pesquisa – Aplicação industrial de Arquitetura com IoT e Digital Twin",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Renato Penha - Sistemas de Informação. 25 anos de experiência no mercado de Tecnologia da Informação e 12 anos de experiência na academia.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Rodolfo Goya - Computação. 44 anos de experiência em todas as áreas ligadas à computação.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Rodrigo Nicola - Robótica, Automação, Sistemas Embarcados e IA. 6 anos de experiência na academia e mercado.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Sérgio Venâncio - Tomaz Sasaki",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Desenvolvimento de Sistemas e Arquitetura de Software. 27 anos de experiência",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Vanessa Tavares Nunes - Professora Orientadora do Curso de Engenharia de Software. Fundadora da empresa SE7Ti – tecnologia e Informação que atua em consultoria e treinamento em Arquitetura Corporativa.",
+      "section": "Todo negócio se tornou um negócio de tecnologia!",
+      "subsection": "Corpo Docente",
+      "project": null,
+      "academic_year": null
+    }
+  ],
+  "statistics": {
+    "total_blocks": 660,
+    "paragraphs": 197,
+    "headings": 20,
+    "list_items": 443,
+    "tables": 0
+  }
+}

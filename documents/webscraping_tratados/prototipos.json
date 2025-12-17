@@ -1,0 +1,79 @@
+{
+  "source_file": "prototipos.html",
+  "metadata": {
+    "url": "prototipos",
+    "title": "Protótipos entregues - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "Nosso Edital de Projetos (Protótipos) é a forma que comunicamos ao mercado quais os projetos disponíveis para o próximo semestre.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Protótipos entregues",
+      "section": "Protótipos entregues",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "NossoEdital de Projetosé a forma que comunicamos ao mercado quais osprojetos disponíveis para o próximo semestre. Nesse período recebemos as inscrições das iniciativas das empresas, ONGs e instituições governamentais com seus desafios de negócios.",
+      "section": "Protótipos entregues",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "A contribuição para a sociedade é um pilar fundamental do nosso modelo. Por isso, disponibilizamos os protótipos desenvolvidos pelos nossos alunos ao longo dos anos.",
+      "section": "Protótipos entregues",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "O nosso modelo de aprendizagem por projetos desenvolve competências computacionais, competências de negócios e habilidades socioemocionais através de soluções de problemas reais do mercado.",
+      "section": "Protótipos entregues",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Desejamos que outras empresas, organizações não governamentais (ONGs) ou entidades governamentais encontrem aqui um repositório abrangente de soluções inovadoras e alternativas para enfrentar seus desafios.Os protótipos podem ser baixados, customizados e adaptados livremente para atender a problemas similares, e acreditamos que esses protótipos têm o potencial de serem amplamente utilizados por toda a comunidade de tecnologia, promovendo colaboração e inovação em larga escala. Sistema empresarial integrado G2 Tecnologia. Melhorar a produtividade empresarial e seus controles de processos.",
+      "section": "Protótipos entregues",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Realizar a implantação de um sistema ERP (SAP Business One) em um cliente piloto com processos reais. Time de operações e TI. Predição com Deep Learning Identificar possibilidade de fraudes em ARTs de forma ágil. Modelo preditivo para detecção de fraudes, inconformidades e volumetria de ARTs. Time de tecnologia. Automação NLP (Texto, vídeo, voz) Melhorar e apoiar o processo de melhoria contínua do atendimento prestado pela cia.",
+      "section": "Protótipos entregues",
+      "subsection": null,
+      "original_count": 8
+    },
+    {
+      "type": "paragraph",
+      "text": "Solução com Inteligência artificial para apoiar o time de atendimento ao cliente, na melhoria continua e padrão de qualidade. Time de operações. Sistema em edge computing Criar uma solução para apoiar no monitoramento silvestre. Solução de GPS-telemetria acessível para monitoramento inteligente da fauna silvestre. Time de operações. Manutenção preditiva Itubombas. Prevenir a paralização por falha de equipamentos e interrupção dos serviços. Inteligência artificial para predição de falhas na operação de motobombas da empresa. Time de produtos. Estrutura e governança para análise de dados Melhorar a visão estratégica do negócio.",
+      "section": "Protótipos entregues",
+      "subsection": null,
+      "original_count": 13
+    },
+    {
+      "type": "paragraph",
+      "text": "Desenvolvimento de uma solução para a sanitização, a organização e a visualização de dados de manejo de áreas com produção de soja. Time de produtos. Sistemas distribuídos Atender a demanda de serviços de compra de tickets online.",
+      "section": "Protótipos entregues",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Desenvolver uma nova arquitetura baseada em microsserviços, containers (Docker), orquestração com Kubernetes e computação em nuvem. Time de tecnologia. Linguagem natural com IA generativa Curadobia. Otimizar o atendimento de clientes. Agente de atendimento automatizado com toque humano: recomendações de moda, dicas e curadoria. Time de operações e TI.",
+      "section": "Protótipos entregues",
+      "subsection": null,
+      "original_count": 7
+    }
+  ],
+  "statistics": {
+    "total_blocks": 9,
+    "paragraphs": 39,
+    "headings": 1,
+    "list_items": 0,
+    "tables": 0
+  }
+}

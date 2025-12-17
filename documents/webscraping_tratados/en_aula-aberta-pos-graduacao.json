@@ -1,0 +1,161 @@
+{
+  "source_file": "en_aula-aberta-pos-graduacao.html",
+  "metadata": {
+    "url": "en_aula-aberta-pos-graduacao",
+    "title": "Postgraduate open class - Inteli - Institute of Technology and Leadership",
+    "description": "",
+    "keywords": [],
+    "page_type": "curso"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Come and experience the course before you even become a student!",
+      "section": "Come and experience the course before you even become a student!",
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Try the Open Classroom",
+      "section": "Try the Open Classroom",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Protect the Future with Inteli's Postgraduate Diploma in CyberSecurityIn Inteli's Postgraduate Diploma in Cyber Security, you become a security expert, ready to tackle the industry's most complex challenges. Our program combines cutting-edge theory with advanced practice, preparing you to mitigate threats and lead cyber security projects.",
+      "section": "Try the Open Classroom",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Try the Open Classroom",
+      "section": "Try the Open Classroom",
+      "subsection": "Try the Open Classroom"
+    },
+    {
+      "type": "paragraph",
+      "text": "Come and experience the course before you even become a student. During these classes, find out what it's like to study with the best professionals and take part in dynamics that explore digital protection techniques and strategies. The Open Class is your opportunity to get to know our innovative methodology, interact with teachers and ask questions about the program. Become the expert the market needs. Sign up now and become part of the cybersecurity elite.",
+      "section": "Try the Open Classroom",
+      "subsection": "Try the Open Classroom",
+      "original_count": 2
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Class dates",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    },
+    {
+      "type": "paragraph",
+      "text": "19/11 | Tuesday Online Class from 7pm to 9pm",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates",
+      "original_count": 3
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Business Drivers, Requirements and Architectural Views",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    },
+    {
+      "type": "paragraph",
+      "text": "In this first Open Class, we'll cover how a good understanding of the Business domain drives architectural decisions, and what factors we should take into account to make an architecture that meets both functional and non-functional requirements (security is included in the latter category), also considering the criticality of the requirements from the Business perspective. One highlight is to show how architectural views can be used to highlight software assets and possible segregation, with a view to control and protection approaches for logical and physical business assets. 21/11 | Thursday Online Class from 7pm to 9pm",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates",
+      "original_count": 4
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Architectural Tactics and Evaluation",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    },
+    {
+      "type": "paragraph",
+      "text": "In this second Open Class, we will present architectural tactics to support non-functional requirements (availability, security, scalability) with the details of some case studies. The tactics should connect architectural decisions in terms of business rules, data, transactions and infrastructure layers involving communication networks, servers and operating systems. Methods of evaluating and monitoring systems to support continuous system improvement will also be covered. 23/11 | Saturday from 8 a.m. to 1 p.m.",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates",
+      "original_count": 3
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Practical Networking Activities",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    },
+    {
+      "type": "paragraph",
+      "text": "In this course, we will have 100% hands-on activities, focusing on network practices that guarantee stability in system communication, avoiding attack loopholes, such as social engineering by a fake technician. Among the activities we will see:",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    },
+    {
+      "type": "list_block",
+      "text": "In this course, we will have 100% hands-on activities, focusing on network practices that guarantee stability in system communication, avoiding attack loopholes, such as social engineering by a fake technician. Among the activities we will see:\n\n- UTP-CAT cable crimping with a focus on information security and crimping quality, discussing good practices for building a secure LAN;",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "UTP-CAT cable crimping with a focus on information security and crimping quality, discussing good practices for building a secure LAN;",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    },
+    {
+      "type": "list_block",
+      "text": "In this course, we will have 100% hands-on activities, focusing on network practices that guarantee stability in system communication, avoiding attack loopholes, such as social engineering by a fake technician. Among the activities we will see:\n\n- Calculation of Radio Frequency signal power in dBm, with analysis of signal quality and study of possible attacks when signal jammers appear;",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "Calculation of Radio Frequency signal power in dBm, with analysis of signal quality and study of possible attacks when signal jammers appear;",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    },
+    {
+      "type": "list_block",
+      "text": "In this course, we will have 100% hands-on activities, focusing on network practices that guarantee stability in system communication, avoiding attack loopholes, such as social engineering by a fake technician. Among the activities we will see:\n\n- Satellite antenna alignment using the calculation made in the previous activity. We will discuss signal quality and provide important satellite communication tips for obtaining a robust signal and mitigating system failures against possible security vulnerabilities.",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "Satellite antenna alignment using the calculation made in the previous activity. We will discuss signal quality and provide important satellite communication tips for obtaining a robust signal and mitigating system failures against possible security vulnerabilities. 13/12 | Friday from 1pm to 5pm",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates",
+      "original_count": 3
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Setting up a LAN Network and DoS Simulation",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    },
+    {
+      "type": "paragraph",
+      "text": "In this meeting, we will calculate the IP network mapping with CIDR for the local notebooks and then the LAN network, we will incorporate an ESP32 into the WiFi network and simulate DoS and DDoS attacks on an ESP32. In addition, we will simulate a phishing attack on a website hosted on the ESP32.",
+      "section": "Try the Open Classroom",
+      "subsection": "Class dates"
+    }
+  ],
+  "statistics": {
+    "total_blocks": 21,
+    "paragraphs": 20,
+    "headings": 8,
+    "list_items": 3,
+    "tables": 0
+  }
+}
