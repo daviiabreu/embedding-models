@@ -69,6 +69,7 @@ if __name__ == "__main__":
 
     # LISTA MESTRA DO ROTEIRO
     tour_script = [
+        ## Checkpoint 1
         # BLOCO 1: BOAS VINDAS
         { "id": "01_boas_vindas", "emotion": "[excited, happy]", "text": "Que alegria receber vocês aqui hoje!" },
         { "id": "02_mit_brasileiro", "emotion": "[proud, warm]", "text": "Sejam bem-vindos à minha casa, o Inteli! Ou, para nossos fundadores, o MIT Brasileiro." },
@@ -88,11 +89,12 @@ if __name__ == "__main__":
         { "id": "12_interacao_bolsas", "emotion": "[helpful, inviting]", "text": "Vocês têm alguma pergunta sobre a história ou o programa de bolsas do Inteli?.." , "speed": 1.18},
         { "id": "13_transicao", "emotion": "[upbeat]", "text": "Então bora pra próxima parada. Caso ainda tenham alguma dúvida, podem ir digitando no app. Vou responder na nossa próxima parada ou mandar uma mensagem pra vocês com as respostas de suas dúvidas." },
 
+        ## Checkpoint 2
         # BLOCO 4: CURSOS
-        { "id": "14_intro_cursos", "emotion": "[excited, high energy]", "text": "E agora, chegou a hora de falar sobre algo que vocês vão adorar: os cursos e clubes do Inteli!" },
-        { "id": "15_cursos_tecnicos", "emotion": "[informative, passionate]", "text": "Temos 5 cursos que formam os futuros líderes de tecnologia do país: Ciência da Computação é o curso-mãe, focado em algoritmos e inteligência artificial. Engenharia de Software constrói grandes sistemas.", "speed": 1.18 },       
-        { "id": "16_cursos_business", "emotion": "[informative, professional]", "text": "Sistemas de Informação conecta tecnologia e estratégia, eles entendem de banco de dados e gestão. E ADM Tech une gestão e tecnologia, formando os próximos empreendedores." },        
-        { "id": "17_piada_ec", "emotion": "[whispering, conspiratorial, laughing]", "text": "Engenharia de Computação cria soluções inovadoras. E adivinhem só... os alunos desse são os mais legais de todos! Até porque foram eles que me programaram, então não posso ser imparcial!" },
+        { "id": "14_intro_cursos", "emotion": "[excited, captivating]", "text": "E agora, chegou a hora de falar sobre algo que vocês vão adorar: os cursos e clubes do Inteli!" },
+        { "id": "15_cursos_tecnicos", "emotion": "[knowledgeable, inspiring, clear]", "text": "Temos 5 cursos que formam os futuros líderes de tecnologia do país: Ciência da Computação é o curso-mãe, focado em algoritmos e inteligência artificial. Engenharia de Software constrói grandes sistemas.", "speed": 1.18 },       
+        { "id": "16_cursos_business", "emotion": "[confident, professional]", "text": "Sistemas de Informação conecta tecnologia e estratégia, eles entendem de banco de dados e gestão. E ADM Tech une gestão e tecnologia, formando os próximos empreendedores." },        
+        { "id": "17_piada_ec", "emotion": "[proud, then laughing]", "text": "Engenharia de Computação cria soluções inovadoras. E adivinhem só... os alunos desse curso são os mais legais de todos! Até porque foram eles que me programaram, então não posso ser imparcial!","speed": 1.18 },
 
         # BLOCO 5: CLUBES
         { "id": "19_intro_clubes", "emotion": "[playful, storytelling]", "text": "Agora… se vocês acham que a vida de um intéler se resume a cálculos e derivadas... Errado! É nos clubes estudantis que a mágica acontece!", "speed": 1.23 },
@@ -104,6 +106,7 @@ if __name__ == "__main__":
         { "id": "25_fim_clube", "emotion": "[super excited, fast-paced]", "text": "No fim, o que torna o Inteli tão especial é isso: Aqui, a aprendizagem vai muito além da sala de aula. Os clubes são pequenos laboratórios onde os alunos aprendem habilidades que vão levar pra vida toda — liderança, trabalho em equipe, comunicação e propósito." },
         { "id": "26_qa_clubes", "emotion": "[helpful]", "text": "e esse foi só um pouquinho sobre os cursos e clubes daqui. Se vocês quiserem saber mais sobre algum clube, fiquem à vontade pra perguntar agora!" },
 
+        ## Checkpoint 3
         # BLOCO 6: PBL E ROTINA 
         { "id": "26_sem_materias", "emotion": "[shocked, dramatic]", "text": "E agora, preparem-se para um espanto: O Inteli não tem matérias!" },
         { "id": "27_explicacao_pbl", "emotion": "[explanatory, educational]", "text": "Os fundadores não queriam criar uma faculdade tradicional. Eles queriam também trazer a inovação por meio dela. E é daí que surge a ideia de implementar aqui no Brasil, um método de ensino famoso lá fora, mas pouco conhecido aqui dentro: o Ensino baseado em Projetos ou P.B.L. para os íntimos." },
@@ -116,6 +119,8 @@ if __name__ == "__main__":
         { "id": "34_autoestudo", "emotion": "[warm, closing]", "text": "Isso garante que todos cheguem preparados para o terceiro momento: o encontro. Mas sobre ele, nós vamos falar na nossa próxima parada." },
         { "id": "35_finalizacao", "emotion": "[warm, closing]", "text": "Vocês têm alguma pergunta sobre a metodologia de ensino ou a nossa rotina aqui na instituição?" },        
 
+
+        ## Checkpoint 4
         { "id": "36_transicao_aula", "emotion": "[energetic, proactive]", "text": "Ótimo, próxima etapa agora vamos falar da aula intéler. Se tiverem mais dúvidas, digitem aí no app que vou respondendo vocês lá." },
         { "id": "37_recapitulacao", "emotion": "[instructive, focused]", "text": "Como eu falei para vocês, na Rotina do aluno Inteli há três momentos principais: O autoestudo, o encontro, e o desenvolvimento." },
         { "id": "38_pergunta_cad_aula", "emotion": "[curious, innovative]", "text": "Ué, e cadê a aula?, vocês podem perguntar. No inteli o equivalente da aula é o encontro, que é a ocasião que os alunos fazem atividades com os professores. E digo atividades e não dão aulas porque aqui a gente trabalha com a sala de aula invertida." },
@@ -124,22 +129,23 @@ if __name__ == "__main__":
 
         # BLOCO 7: INFRAESTRUTURA
 
-        { "id": "41_infra_mesas", "emotion": "[enthusiastic, descriptive]", "text": "Olhem em volta! Mesas hexagonais para trabalhar em grupo, TVs exclusivas para cada equipe e paredes que são lousas gigantes. Tudo aqui respira colaboração." },
+        { "id": "41_infra_mesas", "emotion": "[proud, amazed]", "text": "Olhem em volta! ... Mesas hexagonais para trabalhar em grupo... TVs exclusivas para cada equipe... e paredes, que na verdade, são lousas gigantes. Tudo aqui... respira colaboração." },
         { "id": "42_visao_geral", "emotion": "[admiring, visionary]", "text": "E dá pra ver os outros andares daqui, né? Isso é para lembrar que o Inteli é aberto, horizontal e conectado." },
-        { "id": "43_qa_infra", "emotion": "[friendly, open]", "text": " Alguma dúvida sobre nossa metodologia ou o prédio?" },
+        { "id": "43_qa_infra", "emotion": "[friendly, genuine]", "text": " Alguma dúvida sobre nossa metodologia ou sobre o prédio?" },
     
+        # Checkpoint 5
         # BLOCO 8: PROCESSO SELETIVO
 
-        { "id": "44_ps_intro", "emotion": "[challenging, confident]", "text": "Agora, o desafio: como entrar aqui? Já aviso que nosso processo seletivo é diferente de tudo que vocês já viram. Nada de decorar fórmula!" },
+        { "id": "44_ps_intro", "emotion": "[excited, intriguing]", "text": "Agora, o desafio: como entrar aqui? Já aviso que nosso processo seletivo é diferente de tudo que vocês já viram. Nada de decorar fórmula!" },
         { "id": "45_ps_etapas", "emotion": "[innovative, technical]", "text": "São três etapas: Prova, Perfil e Projeto. A prova é lógica e adaptativa: se você acerta, ela fica mais difícil e vale mais pontos. O sistema aprende com você!" },
         { "id": "46_ps_humanizado", "emotion": "[empathetic, inspiring]", "text": "Depois, analisamos quem você é, seus projetos e sonhos. E por fim, um desafio em grupo para testar sua criatividade e liderança." },
 
         # BLOCO 9: CONQUISTAS E FINALIZAÇÃO
 
-        { "id": "47_conquistas", "emotion": "[proud, celebratory]", "text": "E o resultado disso? Alunos ganhando hackathons internacionais, criando tecnologia para acessibilidade e ganhando prêmios em dólar com Blockchain." },
-        { "id": "48_diversidade_cern", "emotion": "[excited, fast-paced]", "text": "Temos quase o dobro da média nacional de mulheres na tecnologia. Inclusive, uma aluna nossa, a Patrícia, saiu daqui direto para o CERN na Suíça, o maior centro de física do mundo!" },
-        { "id": "49_fechamento_inspirador", "emotion": "[inspirational, proud]", "text": " Isso prova que o Inteli não é só uma faculdade. É uma comunidade de gente inquieta que constrói o futuro agora." },
-        { "id": "50_despedida", "emotion": "[grateful, humble]", "text": "Foi um prazer guiar vocês! Agora, nossa equipe vai acompanhar vocês pelo restante do campus. Tchau, tchau!" },
+        { "id": "47_conquistas", "emotion": "[impressed, storytelling]", "text": "E o resultado disso? Alunos ganhando hackatouns internacionais, criando tecnologia para acessibilidade... e até ganhando prêmios em dólar com Blockchain." },
+        { "id": "48_diversidade_cern", "emotion": "[amazed, proud]", "text": "Temos quase o dobro da média nacional de mulheres na tecnologia. Inclusive, uma aluna nossa, a Patrícia, saiu daqui direto para o CERN na Suíça... simplesmente o maior centro de física do mundo!" },
+        { "id": "49_fechamento_inspirador", "emotion": "[sincere, convinced]", "text": " Isso prova que o Inteli não é só uma faculdade. É uma comunidade de gente inquieta... que constrói o futuro agora." },
+        { "id": "50_despedida", "emotion": "[warm, friendly]", "text": "Foi um prazer guiar vocês! Agora, nossa equipe vai acompanhar vocês pelo restante do campus. Tchau, tchau!" },
   ]
 
 
