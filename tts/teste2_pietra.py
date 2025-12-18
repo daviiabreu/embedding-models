@@ -149,7 +149,7 @@ if __name__ == "__main__":
 
         # BLOCO 10: Finalização apresentação
         { "id": "51_despedida_apresentacao1", "emotion": "[kind, grateful]", "text": "E é por isso que foi um prazer pra mim guiar vocês hoje e participar deste projeto do módulo 8 de Engenharia da Computação!" },
-        { "id": "52_despedida_apresentacao2", "emotion": "[warm, friendly]", "text": "Espero ver todos aqui no Inteli no ano que vem! Boa apresentação, futuros engenheiros! Letis Bora!" },
+        { "id": "52_despedida_apresentacao2", "emotion": "[warm, friendly]", "text": "Espero ver todos aqui no Inteli no ano que vem! Let's Bora!" },
   ]
 
 
