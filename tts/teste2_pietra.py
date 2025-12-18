@@ -146,6 +146,10 @@ if __name__ == "__main__":
         { "id": "48_diversidade_cern", "emotion": "[amazed, proud]", "text": "Temos quase o dobro da média nacional de mulheres na tecnologia. Inclusive, uma aluna nossa, a Patrícia, saiu daqui direto para o CERN na Suíça... simplesmente o maior centro de física do mundo!" },
         { "id": "49_fechamento_inspirador", "emotion": "[sincere, convinced]", "text": " Isso prova que o Inteli não é só uma faculdade. É uma comunidade de gente inquieta... que constrói o futuro agora." },
         { "id": "50_despedida", "emotion": "[warm, friendly]", "text": "Foi um prazer guiar vocês! Agora, nossa equipe vai acompanhar vocês pelo restante do campus. Tchau, tchau!" },
+
+        # BLOCO 10: Finalização apresentação
+        { "id": "51_despedida_apresentacao1", "emotion": "[kind, grateful]", "text": "E é por isso que foi um prazer pra mim guiar vocês hoje e participar deste projeto do módulo 8 de Engenharia da Computação!" },
+        { "id": "52_despedida_apresentacao2", "emotion": "[warm, friendly]", "text": "Espero ver todos aqui no Inteli no ano que vem! Boa apresentação, futuros engenheiros! Letis Bora!" },
   ]
 
 
@@ -158,7 +162,7 @@ if __name__ == "__main__":
     # CONTROLE DE EXECUÇÃO
     
     # OPÇÃO 1: Gerar TODOS os áudios
-    SEGMENTS_TO_RUN = ["38_pergunta_cad_aula"]  # Coloque "all" para gerar tudo
+    SEGMENTS_TO_RUN = ["52_despedida_apresentacao2"]  # Coloque "all" para gerar tudo
 
     # OPÇÃO 2: Gerar apenas áudios específicos (Descomente abaixo para usar)
     # Copie o "id" exato que está na lista acima.
