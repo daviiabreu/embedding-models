@@ -1,0 +1,239 @@
+{
+  "source_file": "en_ciencia-da-computacao-e-para-voce.html",
+  "metadata": {
+    "url": "en_ciencia-da-computacao-e-para-voce",
+    "title": "Is Computer Science for you? - Inteli - Institute of Technology and Leadership",
+    "description": "Understand what differentiates Computer Science from other courses in the area and find out if this is the ideal degree for your future in technology.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduation>Is Computer Science for you?",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Is Computer Science for you?",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduation>Is Computer Science for you?\n\n- Inteli Team\n- 13 Oct 2025\n- Inteli Team\n- 13 Oct 2025",
+      "section": "Is Computer Science for you?",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Authors: Rodolfo Goya and Tomaz Mikio Sasaki, professors at Inteli A search on an internship and job vacancy website brings up an ad that reads:",
+      "section": "Is Computer Science for you?",
+      "subsection": null,
+      "original_count": 2
+    },
+    {
+      "type": "table",
+      "text": "Vacancy: Full Systems AuditorRequirements: Full degree in Information Systems,Computer Science, Information Security, or related areas with a focus on technology.",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Another ad reads:",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "table",
+      "text": "Vacancy: Full Frontend DeveloperRequirements: University degree in IT (Computer Science / Computer Engineering) or similar.",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "And another:",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "table",
+      "text": "Vacancy:Senior Android EngineerRequirements:Bachelor's degree inComputer ScienceSoftware Engineering, or related fields.",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "In common, the ads require a degree inComputer Science, but they also mention other possible degrees (Information Systems, Computer Engineering, Software Engineering, etc.), which raises questions:",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "What is the difference between these various computer-related courses, since these vacancies can be filled by candidates from any of them?",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "There's an old fable about blindfolded people who don't know what an elephant is and try to describe it by touching one: one of them touches the trunk and says \"an elephant is like a mango tree\", another touches the leg and says \"an elephant is like a column\", a third touches the side and says \"an elephant is like a wall\", another touches the tail and so on.",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Computing is an elephant, it has many nuances: data, algorithms, infrastructure, user interface, development processes, etc. Different courses focus on different nuances. ChatGPT said:",
+      "section": "Is Computer Science for you?",
+      "subsection": null,
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "There is an overlap in the skills developed between these courses, since companies are looking for professionals with practical computer skills. For this reason, it is common for their curricula to coincide in areas such as programming logic, databases and operating systems. However, this doesn't mean that all courses are the same; each has a specific focus and approach.",
+      "section": "Is Computer Science for you?",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "What sets the Computer Science course apart from the rest?",
+      "section": "Is Computer Science for you?",
+      "subsection": "What sets the Computer Science course apart from the rest?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Historically, courses with the name \"Computer Science\" were the first dedicated to the area of computing to appear in Brazil in 1969, at Unicamp. It emerged a little earlier abroad, with the expansion in the number of courses from the 1960s onwards.Computer Science emerged to meet the growing need for professionals specializing in the theory, software development and fundamentals of computing.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What sets the Computer Science course apart from the rest?"
+    },
+    {
+      "type": "paragraph",
+      "text": "At that time, while Electronic Engineering taught how to develop the electrical and electronic circuits and devices of computer hardware, Computer Science dealt with the theory of computation and the development of algorithms for programs (which leads to the joke \"hardware is the part of the computer you kick, while software is the part you swear at\").",
+      "section": "Is Computer Science for you?",
+      "subsection": "What sets the Computer Science course apart from the rest?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Some well-known personalities have studied Computer Science:Linus Torvalds(creator of the Linux kernel and git),Mark Zuckerberg(founder of Facebook),Satya Nadella(CEO of Microsoft),Marc Andreessen(creator of Netscape, one of the first web browsers) andJames Gosling(creator of the Java language). At Inteli, one of its founders,André Esteves, has a degree in Computer Science.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What sets the Computer Science course apart from the rest?"
+    },
+    {
+      "type": "paragraph",
+      "text": "As the world of computing has expanded, new courses have become necessary to meet the specific demands of the market and industry.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What sets the Computer Science course apart from the rest?"
+    },
+    {
+      "type": "paragraph",
+      "text": "So, for example, what was initially a subject in the Computer Science course and dealt with the development, management and maintenance of software, later, with the growing complexity of systems and the need to apply engineering principles, became a specialization offered as a postgraduate course and, nowadays, Software Engineering has become an undergraduate course, going beyond these subjects in relation to what was studied in the first Computer Science courses.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What sets the Computer Science course apart from the rest?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Likewise, other courses emerged to meet the demands of the expanding market, so it can be said thatComputer Science was the basis for the creation of the other computer science courses.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What sets the Computer Science course apart from the rest?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "What's different about Computer Science?",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Computer Science course maintains its distinctiveness bydeveloping its students' skills in the theoretical and mathematical foundations of computing, such as algorithms, data structures, computer theory, applied mathematics,etc.allowing them to develop solutions to complex computational problems - problems such as describing complex relationship networks on Facebook, defining the best route on Waze or finding a website on Google's Search Engine - all important complex algorithms that have made a name for themselves in their businesses.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "paragraph",
+      "text": "While other courses focus on more applied aspects for the development of systems in various areas, the Computer Science course stands out fortraining professionals with more comprehensive knowledge:capable of developing new technologies that, in many cases, will be useful to those trained in other courses. Cutting-edge topics in infrastructure, artificial intelligence and quantum computing, among others, are subjects of interest within Computer Science.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "paragraph",
+      "text": "By studying Computer Science,you'll be able to fill the various vacancies that require the skills common to the various computersciencecourses(such as those vacancies mentioned at the beginning of this conversation) or use this training as a basis for working in research and technological innovation in specialized areas such as artificial intelligence, optimization/logistics, development of efficient algorithms and mathematical modeling. Going back to the job portal, maybe in 8, 9 or 10 years' time you'll be able to apply for jobs like this:",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "table",
+      "text": "Vacancy:Research ScientistRequirements:PhD or equivalent research experience in Computer Science, Machine Learning, Artificial Intelligence, or a related field",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is a very specific scenario that may only be pursued by a few Computer Science graduates. More broadly, you will be able to use the training you have obtained in the fundamentals of computing to advance along the path you have chosen or had the opportunity to enter.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Remember that if you studyComputer Science at Inteli, you'll get a lot of practice on projects, which will make your learning experience even more complete.",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "list_block",
+      "text": "See also:\n\n- Graduation,Tech Market,Selection Process,Academic Team",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "The connected world starts here: real projects with the Internet of Things",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "list_block",
+      "text": "The connected world starts here: real projects with the Internet of Things\n\n- Bruna Mayer\n- 13/10/2025\n- Graduation,Selection Process,Academic Team",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "What is the difference between Computer Engineering and Software Engineering?",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "list_block",
+      "text": "What is the difference between Computer Engineering and Software Engineering?\n\n- Renato Penha\n- 30/09/2025\n- Tech Market",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "The start of the professional journey",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?"
+    },
+    {
+      "type": "list_block",
+      "text": "The start of the professional journey\n\n- Inteli Team\n- 08/02/2024",
+      "section": "Is Computer Science for you?",
+      "subsection": "What's different about Computer Science?",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 35,
+    "paragraphs": 25,
+    "headings": 3,
+    "list_items": 13,
+    "tables": 4
+  }
+}

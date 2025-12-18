@@ -1,0 +1,179 @@
+{
+  "source_file": "en_quando-a-moda-encontra-a-ia-alunos-criam-o-novo-assistente-virtual-do-curadobia.html",
+  "metadata": {
+    "url": "en_quando-a-moda-encontra-a-ia-alunos-criam-o-novo-assistente-virtual-do-curadobia",
+    "title": "When fashion meets AI: students create Curadobia's new Virtual Assistant - Inteli - Institute of Technology and Leadership",
+    "description": "Developing a virtual assistant with generative AI: Inteli Computer Science students create real solutions for Curadobia, applying NLP, PBL, and AI models in a market challenge.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Undergraduate>When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Undergraduate>When fashion meets AI: students create Curadobia's new Virtual Assistant\n\n- Inteli Team\n- December 4, 2025\n- Inteli Team\n- December 4, 2025",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Authors: Tomaz Mikio Sasaki Jefferson Oliveira,teachers at Inteli",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Curadobiais a fashion marketplace where customers find clothing and accessories carefully selected by its consultants. Curadobia's unique selling point is precisely this curation, which is reflected in various points of contact and seeks to give customers an experience similar to having direct contact with a consultant: products have their own names and accessible descriptions; the website is organized into categories for everyday use and is not limited to seasons and trends; customer service is close and personal, with tips on how to choose, combine, wear, and care for the items.",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Curadobia challenged Inteli'sComputer Sciencestudents to develop a virtual assistant for marketplace chat support, maintaining the characteristics of differentiated, close, and personal service.",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Approach and solution development",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Approach and solution development"
+    },
+    {
+      "type": "paragraph",
+      "text": "During the module called \"Natural language processing system with generative AI,\" computer science students worked on developing a solution for Curadobia.",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Approach and solution development"
+    },
+    {
+      "type": "paragraph",
+      "text": "Following the module's Learning Backlog, students studied topics related to Natural Language Processing and Generative AI and, under the guidance of the module's teachers, explored the dataset, developed the taxonomy of intentions and conversational flows, trained intention classification models, implemented a contextual response system with fallbacks, fine-tuned the models, and many other activities.",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Approach and solution development"
+    },
+    {
+      "type": "paragraph",
+      "text": "The development of these activities was marked by many interactions between students and Curadobia, with the presentation of proposals, collection of additional data, and obtaining feedback, both in relation to the assistant's functionalities and the visual aspects of the chat inserted on the Curadobia website.",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Approach and solution development"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Outcome and impact",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Outcome and impact"
+    },
+    {
+      "type": "paragraph",
+      "text": "At the end of the module, each of the four groups of students presented their solution for the Curadobia virtual assistant. Demonstrations were made with the assistant recommending products for specific occasions (parties, work), recalling previous conversations with the same customer, answering questions about prices and available sizes, suggesting similar products, and describing the products in accessible terms that characterize Curadobia's way of speaking.Each of the four MVPs (Minimum Viable Products) developed by the groups was different from the others in some respects. For example, each used a different model to identify intentions and generate responses; one presented quick and simple responses; another presented more elaborate responses, but took a little longer.",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Outcome and impact"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Reflections on learning",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "Curadobia brought the problem, the data, and a great willingness to collaborate with the students' learning. A concrete project like this is essential within the PBL (Project-Based Learning) methodology used at Inteli, and with it, students were able to apply the concepts studied about Natural Language Processing and Generative AI, in addition to actively interacting with the people who run the company, seeking to understand their pain points and what can bring value to their business.",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "Curadobia received four MVPs that will serve as the starting point for its virtual assistant and learned about characteristics and challenges related to its development.",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Testimonials",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "I want to thank you on behalf of everyone in the room. Thank you for the project, for the feedback, and especially for your presence at the sprints. (student in the class, during the final presentation)",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "paragraph",
+      "text": "It was a great pleasure and a great learning experience for us. For me, especially, as I am a very humanities-oriented person, entering this very precise and technical universe was a great learning opportunity. (Bia from Curadobia, in the final presentation)",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "list_block",
+      "text": "See also:\n\n- Graduation,Tech Market,Selection Process,Academic Team",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "The connected world starts here: real projects with the Internet of Things",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "list_block",
+      "text": "The connected world starts here: real projects with the Internet of Things\n\n- Bruna Mayer\n- 13/10/2025\n- Graduation,Selection Process,Academic Team",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "What is the difference between Computer Engineering and Software Engineering?",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "list_block",
+      "text": "What is the difference between Computer Engineering and Software Engineering?\n\n- Renato Penha\n- 30/09/2025\n- Tech Market",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "The start of the professional journey",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning"
+    },
+    {
+      "type": "list_block",
+      "text": "The start of the professional journey\n\n- Inteli Team\n- 08/02/2024",
+      "section": "When fashion meets AI: students create Curadobia's new Virtual Assistant",
+      "subsection": "Reflections on learning",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 25,
+    "paragraphs": 15,
+    "headings": 5,
+    "list_items": 13,
+    "tables": 0
+  }
+}

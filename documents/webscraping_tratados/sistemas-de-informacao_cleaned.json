@@ -1,0 +1,428 @@
+{
+  "source_file": "sistemas-de-informacao.html",
+  "metadata": {
+    "url": "sistemas-de-informacao",
+    "title": "Inteli - Sistemas de Informação",
+    "description": "Aprenda a implementar sistemas computacionais eficientes no curso de Sistemas de Informação do Inteli, com foco em segurança e inovação, e conecte-se ao mercado de trabalho.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "project_block",
+      "text": "Jogo Digital –Um jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nUm jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas\n\nNegócios:\n- Análise SWOT\n- Análise de Riscos\n\nLiderança:\n- Apresentações em público\n\nNegócios:\n- Canvas de Proposta de Valor\n\nMatemática/ Física:\n- Cinemática\n\nMatemática/Física:\n- Cinemática\n\nDesign:\n- Concept Art\n- Design Thinking\n- Game Design\n\nComputação:\n- Introdução à Programação (Javascript)\n\nDesign:\n- Level Design\n\nNegócios:\n- Mercado de Games\n\nMatemática/ Física:\n- Momento Linear e Colisões\n\nMatemática/Física:\n- Momento Linear e Colisões\n\nComputação:\n- Máquinas de Estado\n\nDesign:\n- Narrativas\n\nLiderança:\n- Objetivos Individuais e de Grupo\n\nNegócios:\n- Pitch e Pitch Deck\n\nComputação:\n- Programação Orientada a Objetos\n- Qualidade de Software\n\nLiderança:\n- Representatividade e Diversidade\n\nDesign:\n- Sound Design",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 1",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Aplicação Web –Um sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nUm sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas\n\nNegócios:\n- 4 P’s do Marketing\n\nDesign:\n- Acessibilidade\n\nComputação:\n- Bancos de Dados\n\nNegócios:\n- Ciclo de Vida do Produto\n- Design Thinking\n\nDesign:\n- Design de Interfaces\n\nMatemática/ Física:\n- Estatística Descritiva\n\nMatemática/Física:\n- Estatística Descritiva\n\nComputação:\n- Fundamentos de Rede\n- Fundamentos de Redes\n\nMatemática/ Física:\n- Grafos, Árvores\n\nMatemática/Física:\n- Grafos, Árvores\n\nComputação:\n- HTML, CSS, Javascript\n\nMatemática/ Física:\n- Integral Definida\n\nMatemática/Física:\n- Integral Definida\n\nMatemática/ Física:\n- Integral Indefinida\n\nMatemática/Física:\n- Integral Indefinida\n\nMatemática/ Física:\n- Integração Numérica\n\nMatemática/Física:\n- Integração Numérica\n\nLiderança:\n- Liderança em situações de conflito\n\nMatemática/ Física:\n- Lógica Proposicional\n\nMatemática/Física:\n- Lógica Proposicional\n\nNegócios:\n- PMI, PMBok, Agile\n\nComputação:\n- Padrão MVC\n\nDesign:\n- Prototipação\n\nComputação:\n- Testes Unitários\n\nDesign:\n- Testes com Usuários\n- Usabilidade\n\nLiderança:\n- Vieses Cognitivos",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 2",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Lógica para predição com Inteligência Artificial\n\nLógica para predição com Inteligência Artificial –Uso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nUso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.\n\nComputação:\n- Aprendizado Supervisionado e Não Supervisionado\n\nNegócios:\n- Cultura e Design Organizacional\n\nMatemática/ Física:\n- Derivadas Parciais\n\nMatemática/Física:\n- Derivadas Parciais\n\nMatemática/ Física:\n- Estatística Indutiva\n\nMatemática/Física:\n- Estatística Indutiva\n\nComputação:\n- Explicabilidade\n- Feature Engineering\n\nMatemática/ Física:\n- Funções de várias variáveis\n\nMatemática/Física:\n- Funções de várias variáveis\n\nNegócios:\n- Governança Corporativa\n- Governança de Dados\n\nMatemática/ Física:\n- Integral Múltipla\n\nMatemática/Física:\n- Integral Múltipla\n\nDesign:\n- Jornada do Usuário\n\nComputação:\n- Linguagem Python, Pandas, Numpy\n\nMatemática/ Física:\n- Probabilidade\n\nMatemática/Física:\n- Probabilidade\n\nComputação:\n- Pré-Processamento\n\nDesign:\n- Storytelling com Dados\n\nMatemática/ Física:\n- Transformações Lineares\n\nMatemática/Física:\n- Transformações Lineares\n\nDesign:\n- Visualização de Dados\n\nLiderança:\n- Vulnerabilidade",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 3",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Solução para IoT –Dispositivos com sensores e atuadores, que coletam dados e enviam para a nuvem, auxiliando monitoramentos e automatização.\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nSolução para IoT\n\nMatemática/ Física:\n- Campo Elétrico\n\nMatemática/Física:\n- Campo Elétrico\n\nMatemática/ Física:\n- Campos vetoriais, Gradiente\n\nMatemática/Física:\n- Campos vetoriais, Gradiente\n\nNegócios:\n- Ciclo de funding de startups\n\nComputação:\n- Comunicação à Distância\n- Dashboards\n\nMatemática/ Física:\n- Derivada Direcional\n\nMatemática/Física:\n- Derivada Direcional\n\nDesign:\n- Design de Interação\n\nMatemática/ Física:\n- Eletromagnetismo\n\nMatemática/Física:\n- Eletromagnetismo\n\nComputação:\n- Eletrônica Básica\n\nDesign:\n- Fabricação Digital\n\nLiderança:\n- Impactos Ambientais das Tecnologias\n\nNegócios:\n- Indicadores financeiros\n- Indústria 4.0\n\nDesign:\n- Interusabilidade\n\nNegócios:\n- Juros e Fluxo de Caixa\n\nComputação:\n- Microcontroladores\n\nMatemática/ Física:\n- Resistores / Capacitores\n\nMatemática/Física:\n- Resistores / Capacitores\n\nLiderança:\n- Segurança Psicológica\n\nComputação:\n- Sensores e Atuadores\n\nDesign:\n- Storyboard\n\nMatemática/ Física:\n- Séries de Potência\n\nMatemática/Física:\n- Séries de Potência\n\nLiderança:\n- Técnicas de Feedback",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 4",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Desenvolvimento de aplicações descentralizadas e seguras baseadas em tecnologias blockchain\n\nSoftware descentralizado utilizando Blockchain\n\nSoftware descentralizado utilizando Blockchain –Desenvolvimento de aplicações descentralizadas e seguras baseadas em tecnologias blockchain\n\nComputação:\n- Blockchain\n\nMatemática\n\nMatemática/ Física\n\nLiderança:\n- Construção de valores\n\nNegócios:\n- Criptoativos\n\nComputação:\n- Criptografia\n\nLiderança:\n- Diversidade\n- Embasamento em dados\n\nMatemática/ Física:\n- Fatoração de nùmeros primos\n\nMatemática:\n- Fatoração de números primos\n\nNegócios:\n- Finanças Descentralizadas\n\nMatemática/ Física:\n- Funções de dispersão (Hash)\n\nMatemática:\n- Funções de dispersão (Hash)\n\nNegócios:\n- Macroeconomia\n\nComputação:\n- Protocolos de Consenso\n- Smart Contracts\n\nLiderança:\n- Storytelling\n\nNegócios:\n- Teoria Econômica\n\nUX:\n- Teste de Usabilidade\n\nMatemática/ Física:\n- Técnicas de indução\n\nMatemática:\n- Técnicas de indução\n\nUX:\n- UX Writing\n- User Research",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 5",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Aplicação baseada em Processamento em Linguagem Natural\n\nAplicação baseada em Processamento em Linguagem Natural –Desenvolvimento de algoritmos para análise de sentimentos em redes sociais utilizando PLN\n\nComputação\n\nMatemática\n\nMatemática/ Física\n\nNegócios:\n- 2 Sided Market\n\nComputação:\n- Análise de sentimentos\n\nLiderança:\n- Argumentação\n\nComputação:\n- Classificação Semântica\n\nLiderança:\n- Conhecimento\n\nNegócios:\n- Gestão de Leads\n- Gestão de Mídias Sociais\n\nMatemática/ Física:\n- Gradiente Descendente\n\nMatemática:\n- Gradiente Descendente\n\nComputação:\n- Linguagem Python\n- Machine Learning\n\nNegócios:\n- Marketing Digital\n\nMatemática/ Física:\n- Probabilidade\n\nMatemática:\n- Probabilidade\n\nUX:\n- Tensorboard\n\nMatemática/ Física:\n- Teorema de Bayes\n\nMatemática:\n- Teorema de Bayes\n\nLiderança:\n- Técnicas de negociação.\n\nMatemática/ Física:\n- Vetores e Matrizes\n\nMatemática:\n- Vetores e Matrizes\n\nUX:\n- Visualização de Dados",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 6",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nImplantação de  um sistema de gestão empresarial em um caso de negócios real\n\nMatemática\n\nMatemática/ Física\n\nSistemas de Gestão e Governança Empresarial\n\nSistemas de Gestão e Governança Empresarial –Implantação de  um sistema de gestão empresarial em um caso de negócios real\n\nNegócios:\n- Balanço Patrimonial\n- Contabilidade Empresarial\n- Contabilidade de Custos\n\nLiderança:\n- Cultura de feedback\n\nUX:\n- Design Organizacional\n- Design Systems\n\nComputação:\n- ERP – Enterprise Resource Planning\n\nLiderança:\n- Experiência\n\nComputação:\n- Governança de Dados\n- Mapeamento e Mineração de Processos\n\nMatemática/ Física:\n- Matemática Financeira\n\nMatemática:\n- Matemática Financeira\n\nMatemática/ Física:\n- Redes de Petri\n\nMatemática:\n- Redes de Petri\n\nLiderança:\n- Segurança psicológica\n- Sustentabilidade\n\nUX:\n- UX em ERPs",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 7",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nConstrução de  um pipeline de dados para análises e tomada de decisão em ambientes de grande volume de dados\n\nIntegração, Gerenciamento e Análise de Big Data\n\nMatemática\n\nMatemática/ Física\n\nComputação:\n- Arquitetura de Dados\n\nMatemática/ Física:\n- Clustering\n\nMatemática:\n- Clustering\n\nNegócios:\n- Consumidor Fígital\n\nUX:\n- Dashboards\n\nComputação:\n- Data Warehouse\n\nUX:\n- Design Ético\n- Design ètico\n\nMatemática/ Física:\n- Estatística Descritiva\n\nMatemática:\n- Estatística Descritiva\n\nComputação:\n- Gestão de Dados in Cloud\n\nMatemática/ Física:\n- Gráficos Estatísticos\n\nMatemática:\n- Gráficos Estatísticos\n\nUX:\n- Infográficos\n\nNegócios:\n- Inteligência de Mercado\n\nLiderança:\n- Leitura de contexto\n- Networking\n- Teambuilding\n\nMatemática/ Física:\n- Teste de Hipótese\n\nMatemática:\n- Teste de Hipótese\n\nLiderança:\n- Tomada de decisão\n\nNegócios:\n- Transformação DIgital\n- Transformação Digital",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 8",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nConstrução de Dashboards gerenciais para tomada de decisão\n\nMatemática\n\nRelatórios e Painéis de Controle de Dados Gerenciais\n\nRelatórios e Painéis de Controle de Dados Gerenciais  –Construção de Dashboards gerenciais para tomada de decisão.\n\nUX:\n- Análise Heurística\n\nComputação:\n- Banco de Dados com APIs\n- Deploy em Nuvem\n\nUX:\n- Design Sprint\n\nLiderança:\n- Direitos Humanos\n- Discursos engajadores\n\nNegócios:\n- Gestão da Mudança\n- Gestão de Carreira\n- Gestão de Desempenho\n\nUX:\n- Iteração e Acessibilidade\n\nMatemática:\n- Modelos ARIMA\n\nComputação:\n- Orientação a Objeto\n\nMatemática:\n- Previsão de Demanda\n\nLiderança:\n- Proatividade\n\nNegócios:\n- Recrutamento & Seleção\n\nMatemática:\n- Séries Temporais\n\nUX:\n- Wireframing",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 9",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Análise Comportamental de Usuários de Interface Digitais\n\nComputação\n\nDesenvolvimento e implantação de testes A/B em sites com base em  simulação de Monte Carlo\n\nMatemática\n\nMatemática:\n- Análise de Sensibilidade\n\nUX:\n- Bluprint de Serviço\n\nLiderança:\n- Contexto ético\n- Decisões coletivas\n\nNegócios:\n- Estruturas Corporativas\n\nUX:\n- Framework HEART\n\nNegócios:\n- Fusões & Aquisições\n\nLiderança:\n- Modelos mentais\n\nUX:\n- Métodos Mistos\n\nNegócios:\n- Plano de Negócios\n- Produtividade\n\nComputação:\n- Randomização\n\nMatemática:\n- Redução de Variância\n- Simulação de Monte Carlo\n\nLiderança:\n- Táticas de influência\n\nComputação:\n- Variáveis Confundidoras",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 10",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nDesenvolvimento de aplicações baseadas em Aprendizado Profundo de máquina para detecção de fraudes\n\nMatemática\n\nModelo Preditivo em aplicações de negócios utilizando Deep learning\n\nUX:\n- Acessibilidade\n\nMatemática:\n- Algoritmo de Back Propagation\n\nUX:\n- Anti Personas\n\nLiderança:\n- Cultura de feedback\n\nComputação:\n- Cyber Segurança\n- Deep Learning\n- Deployment de Modelos\n\nMatemática:\n- Estrutura de Redes Neurais\n\nUX:\n- Explicabilidade\n\nMatemática:\n- Funções de Ativação\n\nNegócios:\n- IA e consumo de energia\n\nLiderança:\n- Impacto positivo\n\nComputação:\n- Overfiting\n\nUX:\n- Privacy by Design\n\nLiderança:\n- Prototipagem de soluções\n\nComputação:\n- Redes Neurais\n\nNegócios:\n- Índice de Sustentabilidade Empresarial",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 11",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Desenvolvimento de Sistemas e Arquitetura de Software. 27 anos de experiência\n\nEngenheiro e pesquisador, trabalho na área de indústria e processos de qualidade utilizando IA e arquitetura de software.\n\nTrilha de Empreendedorismo\n\n4000 horas\n\nAfonso Cesar Lelis Brandão\n\nAna Cristina do Santos\n\nAndré Godoi\n\nArtista Multimídia, Designer e Professora. Pesquisa as relações entre Arte, Ciência e Tecnologia.\n\nAtividades complementares\n\nAutomação Industrial, Sistemas Embarcados, IA e desenvolvimento Full Stack. 11 anos de experiência na academia e mercado.\n\nBruna Mayer Costa\n\nBryan Kano\n\nCarga horária total\n\nCarga horária: 400 horas\n\nCesar Almiñana\n\nCibersegurança. Proteção de Dados e Privacidade.  Inteligência Artificial. Professor, consultor  e empreendedor.\n\nCiência da Computação. 4 anos de experiência no mercado e 2 anos e meio na academia.\n\nClaudio André\n\nComputação. 44 anos de experiência em todas as áreas ligadas à computação.\n\nCoordenador de Curso do Ciclo Básico (1º ano)\n\nCoordenador do curso(2º e 3º ano)\n\nCoordenador do curso(4º ano)\n\nCristiano Da Silva Benites\n\nCristina Gramani\n\nCurricular\n\nDesign, Produção Cultural e Gamificação. 20 anos de experiência na área de games e 16 anos de experiência acadêmica.\n\nDiogo Martins Gonçalves De Moraes\n\nDiretora Acadêmica:\n\nDocente há 23 anos, sendo 15 anos no Ensino Superior nas disciplinas de  Matemática e Física. Experiência de 10 anos na indústria.\n\nDoutora e Mestra em Engenharia de Sistemas e Computação pela COPPE – Universidade Federal do Rio de Janeiro (UFRJ).\n\nEgon F Daxbacher\n\nEngenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.\n\nEngenheiro elétrico. Mais de 15 anos de experiência como docente universitário nas disciplinas relacionadas à matemática.\n\nEngenheiro, diretor de projetos e professor de negócios e Inteligência Artificial\n\nEste módulo aborda as atualizações mais recentes e as tendências tecnológicas emergentes, proporcionando uma compreensão profunda e prática das inovações. O módulo é dividido em duas partes. A primeira parte, o “Balanço Técnico”, é guiada por meio de aprendizado contínuo e validação da aprendizagem. A segunda parte, o “Projeto Especial”, oferece exemplos de tendências tecnológicas, permitindo a exploração de novos conceitos tecnológicos e aplicações de práticas inovadoras.\n\nExperiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.\n\nFernando Pizzo Ribeiro\n\nFilipe Gonçalves\n\nFillipe Resina\n\nFlávia Santoro\n\nFrancisco Escobar\n\nGeraldo Vasconcelos\n\nGestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado\n\nGraduação em Engenharia Eletrônica pela Escola Politécnica da Universidade Federal do Rio de Janeiro (UFRJ).\n\nGuilherme Cestari\n\nHenrique Mohallem Paiva\n\nHermano Peixoto de Oliveira Junior\n\nInovação, Tecnologia e Negócios Digitais, 40 anos de experiência acadêmica e profissional.\n\nInternet of Things e Sistemas Embarcados. 19 anos de experiência no Ensino e Mercado.\n\nJefferson De Oliveira Silva\n\nJosé Romualdo Costa\n\nJulia Stateri\n\nLaíza Ribeiro Silva\n\nLuciano Galdino\n\nMarcelo Gonçalves\n\nMatemática, Pesquisa Operacional e Business Analytics. 21 anos de experiência na academia e em consultoria.\n\nMauricio Garcia\n\nMichele Bazana\n\nMurilo Zanini De Carvalho\n\nOvidio Lopes da Cruz Netto\n\nPossui mais de 250 publicações com diversos resultados práticos.\n\nProfessor Doutor em Engenharia de Computação e Sistemas Digitais pela USP. Linha de pesquisa – Aplicação industrial de Arquitetura com IoT e Digital Twin\n\nProfessor Especialista em Pensamento Computacional, pesquisador na área de lA para soluções na área da saúde e educação inclusiva, 18 anos experiência mercado e docência.\n\nProfessor de Estatística e Matemática aplicada nas Engenharias e Administração.\n\nProfessor de paixão e profissão, há 12 anos lidera experiências educativas transformadoras em instituições de ensino e organizações.\n\nProfessor dos cursos de Engenharia de Software, com foco em transformação digital, adoção de nuvem e agilidade.\n\nProfessor e Pesquisador em Ciência da Computação, Engenharia de Software e Inteligência Artificial.\n\nProfessor e pesquisador de Design/UX nas áreas de Computação, Design e Jogos Digitais, especializado em Semiótica.\n\nProfessor na área de Física, Matemática e Estatística com 10 anos de experiência no Ensino Superior.\n\nProfessor na área de Programação. Mais de 20 anos de experiência no mercado e na docência.\n\nProfessora Orientadora do Curso de Engenharia de Software. Fundadora da empresa SE7Ti – tecnologia e Informação que atua em consultoria e treinamento em Arquitetura Corporativa.\n\nProfessora, gestora Acadêmica e Educação Corporativa e 28 anos de experiência docente e gestão\n\nProfissional de Tecnologia da Informação e professor universitário na área de computação e engenharia elétrica\n\nReginaldo Arakaki\n\nRenato Penha\n\nRobótica, Automação, Sistemas Embarcados e IA. 6 anos de experiência na academia e mercado.\n\nRodolfo Goya\n\nRodrigo Nicola\n\nSabáticos na Université Pierre et Marie Curie, França (2004-2005) e Queensland University of Technology, Austrália.\n\nSergio Venâncio\n\nSimulações Computacionais, Sistemas de Controle Automático, 20 anos de experiência em pesquisa e desenvolvimento tecnológico.\n\nSistemas de Informação, Estratégia e gestão de Negócios Online, Educação Empreendedora Digital. 3o anos de experiência acadêmica e mercado corporativo.\n\nSistemas de Informação, Gestão de Negócios, 24 anos de experiência.\n\nSistemas de Informação. 25 anos de experiência no mercado de Tecnologia da Informação e 12 anos de experiência na academia.\n\nSistemas de Informação. 38 anos de experiência no mercado de Tecnologia da Informação e 18 anos de experiência na academia.\n\nSérgio Venâncio\n\nTecnologias Educacionais, Gamificação, Interação Humano-Computador, 5 anos de experiência na academia.\n\nTendências e Atualizações\n\nTomaz Sasaki\n\nTrabalha há 20 anos como professora, coordenadora de cursos e pesquisadora em Sistemas de Informação e Ciência da Computação, com foco em Gestão de Processos de Negócios, Processos Intensivos em Conhecimento, Gestão do Conhecimento e Sistemas Colaborativos e Aprendizagem Baseada em Projetos.\n\nTrilha Acadêmica\n\nTrilha Corporativa\n\nUX Designer, Game Designer, Filósofo, 20 anos de experiência como professor e desenvolvedor.\n\nVanessa Tavares Nunes\n\nTrilha de Empreendedorismo:\n- Conexão com mentores e investidores de venture capital\n\nTrilha Acadêmica:\n- Construção de projetos de pesquisa\n\nCorpo Docente\n\nTrilha de Empreendedorismo:\n- Criação e aceleração de startups\n\nTrilha Acadêmica:\n- Elaboração de artigos científicos\n\nTrilha Corporativa:\n- Imersões empresariais\n\nTrilha de Empreendedorismo:\n- Imersões no ecossistema empreendedor\n\nTrilha Acadêmica:\n- Preparação para ingresso em cursos de mestrado e doutorado\n\nTrilha Corporativa:\n- Preparação para processos seletivos e de trainee em grandes empresas\n- Projetos de consultoria para corporações",
+      "section": "Sistemas de Informação",
+      "subsection": "Grade Curricular - Sistemas de Informação",
+      "project": "Projeto 12",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Sistemas de Informação",
+      "section": "Sistemas de Informação",
+      "subsection": null,
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Crie e implemente soluções tecnológicas para a melhoria do resultado das empresas. Você vai trabalhar com tecnologia blockchain, processamento em linguagem natural, big data, sistemas ERP, dashboards, IA (machine e deep learning) e muito mais.",
+      "section": "Sistemas de Informação",
+      "subsection": "Crie e implemente soluções tecnológicas para a melhoria do resultado das empresas. Você vai trabalhar com tecnologia blockchain, processamento em linguagem natural, big data, sistemas ERP, dashboards, IA (machine e deep learning) e muito mais.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Crie soluções de tecnologia para uma gestão eficiente das empresas.",
+      "section": "Sistemas de Informação",
+      "subsection": "Crie soluções de tecnologia para uma gestão eficiente das empresas.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Nosso objetivo é formar profissionais de Sistemas de Informação capazes de propor, desenvolver e implantar soluções tecnológicas para otimizar o gerenciamento da informação e os processos de gestão dentro das empresas. Tudo isso sempre de forma empreendedora, criativa e ética.",
+      "section": "Sistemas de Informação",
+      "subsection": "Crie soluções de tecnologia para uma gestão eficiente das empresas.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Habilidades e Competências",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Administrar o fluxo de informação, planejar e organizar o processamento, o armazenamento e a recuperação de informações;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Selecionar, configurar, comparar soluções alternativas, integrar e gerenciar tecnologias da informação para problemas e demandas organizacionais;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Desenvolver e gerenciar recursos, serviços e metodologias da tecnologia da informação para uso em processos organizacionais;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Modelar e implementar soluções de Tecnologia de Informação em variados domínios de aplicação;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Propor soluções inovadoras envolvendo Sistemas de Informação e Tecnologia da Informação para problemas e demandas empresariais;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Demonstrar visão de negócios e da dinâmica organizacional;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Demonstrar uma visão interdisciplinar para buscar soluções computacionais complexas para problemas de outras áreas de conhecimento;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Acompanhar as evoluções teóricas e tecnológicas recentes de capacidades e limitações da computação para a aplicação em Sistemas de Informação;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Participar e gerenciar projetos pertinentes a Sistemas de Informação, aplicando conceitos, métodos, técnicas e ferramentas adequados;",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Demonstrar habilidade de autoaprendizagem, negociação, colaboração e comunicação.",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo comum de todos os cursos",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo específico do curso escolhido",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "A partir do segundo ano você desenvolverá projetos específicos do curso que escolheu",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo em tempo parcial",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "No terceiro ano você pode iniciar os estágios em meio período",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Aceleração de carreira",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "No quarto ano você escolhe em qual trilha realizar seus projetos: empreendedora, acadêmica ou corporativa.",
+      "section": "Sistemas de Informação",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Nossos alunos estagiam nas melhores empresas",
+      "section": "Sistemas de Informação",
+      "subsection": "Nossos alunos estagiam nas melhores empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "O que você precisa saber",
+      "section": "Sistemas de Informação",
+      "subsection": "Nossos alunos estagiam nas melhores empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Bacharelado em Sistemas de Informação",
+      "section": "Sistemas de Informação",
+      "subsection": "Bacharelado em Sistemas de Informação",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Carga Horária:",
+      "section": "Sistemas de Informação",
+      "subsection": "Carga Horária:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "4000 Horas",
+      "section": "Sistemas de Informação",
+      "subsection": "4000 Horas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Modalidade:",
+      "section": "Sistemas de Informação",
+      "subsection": "Modalidade:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Presencial",
+      "section": "Sistemas de Informação",
+      "subsection": "Presencial",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Investimento :",
+      "section": "Sistemas de Informação",
+      "subsection": "Investimento :",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "R$7.780,00",
+      "section": "Sistemas de Informação",
+      "subsection": "R$7.780,00",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "(Janeiro de 2026)",
+      "section": "Sistemas de Informação",
+      "subsection": "(Janeiro de 2026)",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "40 vagas anuais",
+      "section": "Sistemas de Informação",
+      "subsection": "40 vagas anuais",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Conceito Nota 5 no MEC*",
+      "section": "Sistemas de Informação",
+      "subsection": "Conceito Nota 5 no MEC*",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Programa de Bolsas de Estudos",
+      "section": "Sistemas de Informação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "*Portaria nº 1124, de 05/10/2021, publicada no D.O.U. nº 190, de 06/10/2021, Seção 1, página 204.",
+      "section": "Sistemas de Informação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Curricular",
+      "section": "Sistemas de Informação",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    }
+  ],
+  "statistics": {
+    "total_blocks": 643,
+    "paragraphs": 209,
+    "headings": 18,
+    "list_items": 416,
+    "tables": 0
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "source_file": "engenharia-de-software.html",
+  "metadata": {
+    "url": "engenharia-de-software",
+    "title": "Inteli - Engenharia de Software",
+    "description": "Torne-se um engenheiro de software no Inteli e desenvolva softwares inovadores com foco em ética e eficiência, conectando-se ao mercado de trabalho desde o primeiro dia.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "project_block",
+      "text": "Jogo Digital –Um jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nUm jogo digital com personagens, narrativa e mecânicas próprias, para ajudar instituições em seus treinamentos e ações educativas\n\nNegócios:\n- Análise SWOT\n- Análise de Riscos\n\nLiderança:\n- Apresentações em público\n\nNegócios:\n- Canvas de Proposta de Valor\n\nMatemática/ Física:\n- Cinemática\n\nMatemática/Física:\n- Cinemática\n\nDesign:\n- Concept Art\n- Design Thinking\n- Game Design\n\nComputação:\n- Introdução à Programação (Javascript)\n\nDesign:\n- Level Design\n\nNegócios:\n- Mercado de Games\n\nMatemática/ Física:\n- Momento Linear e Colisões\n\nMatemática/Física:\n- Momento Linear e Colisões\n\nComputação:\n- Máquinas de Estado\n\nDesign:\n- Narrativas\n\nLiderança:\n- Objetivos Individuais e de Grupo\n\nNegócios:\n- Pitch e Pitch Deck\n\nComputação:\n- Programação Orientada a Objetos\n- Qualidade de Software\n\nLiderança:\n- Representatividade e Diversidade\n\nDesign:\n- Sound Design",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 1",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Aplicação Web –Um sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nUm sistema web com back-end e front-end, focado em cadastro e recuperação de dados, para diversas aplicações corporativas\n\nNegócios:\n- 4 P’s do Marketing\n\nDesign:\n- Acessibilidade\n\nComputação:\n- Bancos de Dados\n\nNegócios:\n- Ciclo de Vida do Produto\n- Design Thinking\n\nDesign:\n- Design de Interfaces\n\nMatemática/ Física:\n- Estatística Descritiva\n\nMatemática/Física:\n- Estatística Descritiva\n\nComputação:\n- Fundamentos de Rede\n- Fundamentos de Redes\n\nMatemática/ Física:\n- Grafos, Árvores\n\nMatemática/Física:\n- Grafos, Árvores\n\nComputação:\n- HTML, CSS, Javascript\n\nMatemática/ Física:\n- Integral Definida\n\nMatemática/Física:\n- Integral Definida\n\nMatemática/ Física:\n- Integral Indefinida\n\nMatemática/Física:\n- Integral Indefinida\n\nMatemática/ Física:\n- Integração Numérica\n\nMatemática/Física:\n- Integração Numérica\n\nLiderança:\n- Liderança em situações de conflito\n\nMatemática/ Física:\n- Lógica Proposicional\n\nMatemática/Física:\n- Lógica Proposicional\n\nNegócios:\n- PMI, PMBok, Agile\n\nComputação:\n- Padrão MVC\n\nDesign:\n- Prototipação\n\nComputação:\n- Testes Unitários\n\nDesign:\n- Testes com Usuários\n- Usabilidade\n\nLiderança:\n- Vieses Cognitivos",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 2",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Lógica para predição com Inteligência Artificial\n\nComputação\n\nMatemática/Física\n\nUso de aprendizado de máquina sobre bases de dados para geração de modelos preditivos que auxiliam tomadas de decisão.\n\nComputação:\n- Aprendizado Supervisionado e Não Supervisionado\n\nNegócios:\n- Cultura e Design Organizacional\n\nMatemática/Física:\n- Derivadas Parciais\n- Estatística Indutiva\n\nComputação:\n- Explicabilidade\n- Feature Engineering\n\nMatemática/Física:\n- Funções de várias variáveis\n\nNegócios:\n- Governança Corporativa\n- Governança de Dados\n\nMatemática/Física:\n- Integral Múltipla\n\nDesign:\n- Jornada do Usuário\n\nComputação:\n- Linguagem Python, Pandas, Numpy\n\nMatemática/Física:\n- Probabilidade\n\nComputação:\n- Pré-Processamento\n\nDesign:\n- Storytelling com Dados\n\nMatemática/Física:\n- Transformações Lineares\n\nDesign:\n- Visualização de Dados\n\nLiderança:\n- Vulnerabilidade",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 3",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Solução para IoT –Dispositivos com sensores e atuadores, que coletam dados e enviam para a nuvem, auxiliando monitoramentos e automatização.\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nSolução para IoT\n\nMatemática/ Física:\n- Campo Elétrico\n\nMatemática/Física:\n- Campo Elétrico\n\nMatemática/ Física:\n- Campos vetoriais, Gradiente\n\nMatemática/Física:\n- Campos vetoriais, Gradiente\n\nNegócios:\n- Ciclo de funding de startups\n\nComputação:\n- Comunicação à Distância\n- Dashboards\n\nMatemática/ Física:\n- Derivada Direcional\n\nMatemática/Física:\n- Derivada Direcional\n\nDesign:\n- Design de Interação\n\nMatemática/ Física:\n- Eletromagnetismo\n\nMatemática/Física:\n- Eletromagnetismo\n\nComputação:\n- Eletrônica Básica\n\nDesign:\n- Fabricação Digital\n\nLiderança:\n- Impactos Ambientais das Tecnologias\n\nNegócios:\n- Indicadores financeiros\n- Indústria 4.0\n\nDesign:\n- Interusabilidade\n\nNegócios:\n- Juros e Fluxo de Caixa\n\nComputação:\n- Microcontroladores\n\nMatemática/ Física:\n- Resistores / Capacitores\n\nMatemática/Física:\n- Resistores / Capacitores\n\nLiderança:\n- Segurança Psicológica\n\nComputação:\n- Sensores e Atuadores\n\nDesign:\n- Storyboard\n\nMatemática/ Física:\n- Séries de Potência\n\nMatemática/Física:\n- Séries de Potência\n\nLiderança:\n- Técnicas de Feedback",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 4",
+      "academic_year": "1º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática/ Física\n\nMatemática/Física\n\nSistema digital de processamento distribuído– Análise e projeto de software para resolver problemas complexos utilizando arquitetura de sistemas em nuvem com foco na eficiência operacional e na confiabilidade, empregando testes de usuários e bancos de dados relacionais, dentro de um contexto digital global e interconectado.\n\nComputação:\n- Análise de complexidade de algoritmos\n- Arquitetura da informação\n- Arquitetura de dados em nuvem\n- Banco de dados\n\nLiderança:\n- Construção de times colaborativos e diversos\n\nMatemática/ Física:\n- Cálculo diferencial e integral\n\nMatemática/Física:\n- Cálculo diferencial e integral\n\nMatemática/ Física:\n- Derivação e suas aplicações\n\nMatemática/Física:\n- Derivação e suas aplicações\n\nUX:\n- Design System\n\nNegócios:\n- Estratégia e gestão de serviços de TI\n- Estratégia e inovação\n\nMatemática/ Física:\n- Funções de uma variável\n\nMatemática/Física:\n- Funções de uma variável\n\nMatemática/ Física:\n- Funções de várias variáveis\n\nMatemática/Física:\n- Funções de várias variáveis\n\nNegócios:\n- Gerenciamento financeiro\n- Papel das atividades econômicas na tecnologia em nuvem\n- Produtividade\n\nUX:\n- Prototipação\n\nLiderança:\n- Storytelling na liderança\n\nUX:\n- Usabilidade\n- User experience\n\nLiderança:\n- Valores, fatos e opiniões",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 5",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Plataforma digital baseada em arquitetura orientada a serviços –Desenvolvimento de soluções utilizando programação orientada a objetos e desenvolvimento dirigido por testes, fundamentados em padrões de design e qualidade de código, para explorar o universo de sistemas de recomendação para dispositivos móveis.\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nMatemática/ Física:\n- Algoritmo de k-means\n\nMatemática/Física:\n- Algoritmo de k-means\n\nLiderança:\n- Argumentação, falácias e correlações espúrias\n\nComputação:\n- Arquitetura Web\n- Arquitetura de sistemas distribuídos\n\nMatemática/ Física:\n- Autovalores e autovetores\n\nMatemática/Física:\n- Autovalores e autovetores\n\nUX:\n- Design thinking\n\nComputação:\n- Engenharia de requisitos\n\nMatemática/ Física:\n- Estatística e probabilidade\n\nMatemática/Física:\n- Estatística e probabilidade\n\nComputação:\n- Estrutura de dados\n\nNegócios:\n- Gerenciamento de funil de leads\n- Gestão de processos de negócios\n- Marketplace\n\nLiderança:\n- Negociação: eu e o outro\n\nComputação:\n- Projeto e arquitetura de sistemas\n\nUX:\n- Prototipação\n\nNegócios:\n- Relacionamento com clientes e CRM\n\nMatemática/ Física:\n- Retas e planos\n\nMatemática/Física:\n- Retas e planos\n\nMatemática/ Física:\n- Sistema lineares\n\nMatemática/Física:\n- Sistema lineares\n\nNegócios:\n- Ttwo sided market.\n\nUX:\n- Ubiquidade, acessibilidade, experiência do usuário e conectividade\n\nMatemática/ Física:\n- Álgebra vetorial euclidiana\n\nMatemática/Física:\n- Álgebra vetorial euclidiana\n\nLiderança:\n- Ética e gestão do conhecimento",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 6",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática/ Física\n\nMatemática/Física\n\nProcessamento de linguagens naturais em texto, vídeo e áudio– Análise de requisitos funcionais e não funcionais com foco na arquitetura de soluções que dão ênfase ao reuso de componentes abertos e proprietários para desenvolver e integrar aplicações que trabalham com reconhecimento de áudio, análise de sentimentos e processamento de linguagem natural, focando também na usabilidade e em novas formas de interação humano-computador\n\nNegócios:\n- Análises de cenário\n\nComputação:\n- Aprendizado de máquina\n\nMatemática/Física:\n- Aprendizado de máquina\n\nLiderança:\n- Aprendizagem pessoal e organizacional;\n\nComputação:\n- Arquitetura orientada a serviços;\n\nMatemática/Física:\n- Arquitetura orientada a serviços;\n\nComputação:\n- Design Patterns;\n\nMatemática/Física:\n- Design Patterns; Processamento de Linguagem Natural;\n\nMatemática/ Física:\n- Espaços vetoriais;\n\nComputação:\n- Espaços vetoriais;\n\nNegócios:\n- Estratégia e Inovação,\n\nMatemática/ Física:\n- Geometria análitica;\n\nComputação:\n- Geometria análitica;\n\nNegócios:\n- Gerenciamento Financeiro;\n- Gestão de Processos de negócios;\n\nUX:\n- Interface humano-computador;\n\nMatemática/ Física:\n- Linguagens formais\n\nComputação:\n- Linguagens formais\n\nMatemática/Física:\n- Modelagem de Sistemas;\n\nComputação:\n- Modelagem de Sistemas;Test-Driven Development;\n\nUX:\n- Modelagem de sistemas dinâmicos;\n\nNegócios:\n- Modelos de negociação;\n\nComputação:\n- Processamento de Linguagem Natural;\n\nMatemática/ Física:\n- Teoria de Grafos;\n\nComputação:\n- Teoria de Grafos;\n\nLiderança:\n- Teorias de Liderança,\n- Teorias de Poder;\n\nMatemática/Física:\n- Test-Driven Development;\n\nMatemática/ Física:\n- Álgebra linear;\n\nComputação:\n- Álgebra linear;",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 7",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Arquitetura digital segura e tolerante a falhas– Análise, projeto e simulação de arquiteturas de software aderentes a estruturas de organização, comportamento e interação de componentes de um sistema, abordando os principais aspectos como partes, responsabilidades e interfaces, além de considerar a escalabilidade, manutenibilidade, segurança e desempenho, com ênfase nas decisões de design que orientam a construção de sistemas.\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nLiderança:\n- Adaptabilidade e vulnerabilidades,\n\nComputação:\n- Algoritmos em grafos;\n\nMatemática/Física:\n- Algoritmos em grafos;\n\nMatemática/ Física:\n- Análise de complexidade de algoritmos de ordenação\n\nComputação:\n- Análise de complexidade de algoritmos de ordenação\n\nMatemática/ Física:\n- Arquitetura da Informação;\n\nComputação:\n- Arquitetura da Informação;\n\nMatemática/ Física:\n- Comunicação e sincronização de processos;\n\nComputação:\n- Comunicação e sincronização de processos;\n\nMatemática/ Física:\n- Estruturas de dados,\n\nComputação:\n- Estruturas de dados,\n\nNegócios:\n- Gestão de Conhecimento;\n- Gestão de Pessoas;\n- Governança Corporativa;\n\nLiderança:\n- Inteligência artificial e sociedade;\n\nUX:\n- Modelos e Protótipos de Design;\n\nLiderança:\n- Mudança organizacional;\n\nUX:\n- Organização da Informação, Storytelling de dados tabelados\n\nMatemática/ Física:\n- Programação funcional,\n\nComputação:\n- Programação funcional,\n- Recomendação de séries temporais\n\nMatemática/Física:\n- Recomendação de séries temporais\n\nLiderança:\n- Relações étnico-raciais\n\nMatemática/ Física:\n- Segurança e auditoria de sistemas;\n\nComputação:\n- Segurança e auditoria de sistemas;\n\nNegócios:\n- Sistemas de gestão empresarial",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 8",
+      "academic_year": "2º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nMatemática/ Física\n\nMatemática/Física\n\nSistema digital resiliente com qualidade como ativo de software– Uso de métodos e técnicas para o projeto e construção de testes automatizados, essenciais para o controle de qualidade de software e a detecção rápida de erros e falhas, visando garantir o comportamento esperado do sistema em simulações para diversos cenários.\n\nLiderança:\n- Alinhamento Organizacional e entrega de valor\n\nNegócios:\n- Análise de cenário para uso de SLA composto\n\nComputação:\n- Análise de sistemas de software e de complexidade de algoritmos\n\nMatemática/ Física:\n- Análise de variância\n\nMatemática/Física:\n- Análise de variância\n\nMatemática/ Física:\n- Conceito e distribuição de probabilidade.\n\nMatemática/Física:\n- Conceito e distribuição de probabilidade.\n\nUX:\n- Design Sprint\n- Design e avaliação de IHC\n\nLiderança:\n- Direitos Humanos e as relações organizacionais\n\nNegócios:\n- Direitos e deveres trabalhistas\n\nLiderança:\n- Discursos engajadores\n\nMatemática/ Física:\n- Distribuição de probabilidade\n\nMatemática/Física:\n- Distribuição de probabilidade\n\nComputação:\n- Engenharia de requisitos\n\nMatemática/ Física:\n- Estatística descritiva\n\nMatemática/Física:\n- Estatística descritiva\n\nMatemática/ Física:\n- Estimação pontual e intervalar\n\nMatemática/Física:\n- Estimação pontual e intervalar\n\nUX:\n- Framework PACT\n- Fundamentos avançados de UX\n\nNegócios:\n- Gestão de carreira (treinamento e desenvolvimento de habilidades)\n\nComputação:\n- Gestão de configuração\n\nMatemática/ Física:\n- Otimização discreta e em grafos\n\nMatemática/Física:\n- Otimização discreta e em grafos\n\nMatemática/ Física:\n- Pesquisa operacional\n\nMatemática/Física:\n- Pesquisa operacional\n\nComputação:\n- Qualidade de software\n\nNegócios:\n- Recrutamento e seleção de talentos\n\nMatemática/ Física:\n- Teoremas fundamentais\n\nMatemática/Física:\n- Teoremas fundamentais\n\nComputação:\n- Testes automatizados\n- Tolerância a falhas\n\nMatemática/ Física:\n- Variáveis aleatórias\n\nMatemática/Física:\n- Variáveis aleatórias",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 9",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Computação\n\nEsteira ágil de produção de software –Aplicação de técnicas de DevOps e táticas de engenharia de software relacionados à governança de TI com o objetivo de assegurar a qualidade do processo de desenvolvimento de software e a entrega contínua de valor ao negócio.\n\nMatemática/ Física\n\nMatemática/Física\n\nComputação:\n- Abordagens de testes de software\n- Clean code\n- Cobit, Itil\n\nMatemática/ Física:\n- Coloração de grafos\n\nMatemática/Física:\n- Coloração de grafos\n\nMatemática/ Física:\n- Conexidade\n\nMatemática/Física:\n- Conexidade\n\nNegócios:\n- Cultura Lean Six Sigma\n\nLiderança:\n- Cultura Lean Six Sigma\n\nUX:\n- Design de interação\n- DesignOps with REACH\n\nMatemática/ Física:\n- Emparelhamento de grafos\n\nMatemática/Física:\n- Emparelhamento de grafos\n\nComputação:\n- Esteiras de integração contínua\n\nNegócios:\n- Estruturas corporativas e acordos de acionistas\n\nLiderança:\n- Estruturas corporativas e acordos de acionistas\n\nComputação:\n- Gestão de mudanças\n\nMatemática/ Física:\n- Grafos eulerianos\n\nMatemática/Física:\n- Grafos eulerianos\n\nMatemática/ Física:\n- Grafos hamiltonianos\n\nMatemática/Física:\n- Grafos hamiltonianos\n\nNegócios:\n- Impostos e planejamento tributário\n\nLiderança:\n- Impostos e planejamento tributário\n- Influência e design de experiência\n\nUX:\n- Integração do DesignOps no CD\n\nMatemática/ Física:\n- Isoformismo\n\nMatemática/Física:\n- Isoformismo\n\nComputação:\n- Métricas de software\n\nNegócios:\n- Produtividade\n\nLiderança:\n- Produtividade\n\nComputação:\n- Rastreabilidade de requisitos\n\nUX:\n- Service Blue Print\n\nNegócios:\n- Sistemas de gestão empresarial\n\nLiderança:\n- Sistemas de gestão empresarial\n\nComputação:\n- Testes de interface por robô\n- Twelve factors\n\nLiderança:\n- Técnicas de influência e argumentação\n\nMatemática/ Física:\n- Árvores, caminhos e ciclos\n\nMatemática/Física:\n- Árvores, caminhos e ciclos\n\nLiderança:\n- Ética organizacional e os limites das ações individuais",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 10",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Arquitetura e governança de dados alinhada à estratégia corporativa– Aplicação de mecanismos e ferramentas de estruturação e análise e governança de dados, possibilitando a identificação de oportunidades de negócios, a otimização de processos e a conformidade regulatória, permitindo que as organizações obtenham insights confiáveis e tomem decisões informadas com base nos dados disponíveis.\n\nComputação\n\nMatemática/ Física\n\nMatemática/Física\n\nComputação:\n- Algoritmos de busca\n- Arquitetura TCP/IP\n\nNegócios:\n- Arquitetura de negócio\n\nComputação:\n- Arquitetura  e governança de dados\n\nNegócios:\n- Auditoria de dados\n\nLiderança:\n- Como líderes desenvolvem e monitoram experimentos\n\nMatemática/ Física:\n- Conceitos estatísticos\n\nMatemática/Física:\n- Conceitos estatísticos\n\nUX:\n- Dashboards de governança de dados\n\nComputação:\n- Design Patterns\n\nLiderança:\n- Desvendando o Poder do Hábito\n\nComputação:\n- ETL, Data lake e DW\n\nUX:\n- Entropia e informação\n\nNegócios:\n- Frameworks para implementação da estratégia\n\nComputação:\n- Gerenciamento e segurança de redes\n- Microserviços\n\nLiderança:\n- O impacto positivo que os líderes podem buscar\n\nComputação:\n- Padrões arquiteturais MVC, MVP e MVVM\n\nNegócios:\n- Precificação em nuvem\n\nComputação:\n- Predição em produção\n- Processamento em larga escala\n- Segurança e governança de dados\n- Sistemas de apoio à decisão\n\nNegócios:\n- Sustentabilidade e gestão ambiental\n\nUX:\n- Testes com usuários em Dashboards\n\nMatemática/ Física:\n- Técnicas de otimização\n\nMatemática/Física:\n- Técnicas de otimização\n\nUX:\n- Visualização da informação\n\nMatemática/ Física:\n- Álgebra relacional\n\nMatemática/Física:\n- Álgebra relacional",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 11",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "project_block",
+      "text": "Desenvolvimento de Sistemas e Arquitetura de Software. 27 anos de experiência\n\nEngenheiro e pesquisador, trabalho na área de indústria e processos de qualidade utilizando IA e arquitetura de software.\n\nTrilha de Empreendedorismo\n\n4000 horas\n\nAfonso Cesar Lelis Brandão\n\nAna Cristina do Santos\n\nAndré Godoi\n\nArtista Multimídia, Designer e Professora. Pesquisa as relações entre Arte, Ciência e Tecnologia.\n\nAtividades complementares\n\nAutomação Industrial, Sistemas Embarcados, IA e desenvolvimento Full Stack. 11 anos de experiência na academia e mercado.\n\nBruna Mayer Costa\n\nBryan Kano\n\nCarga Horária: 400 horas\n\nCarga horária total\n\nCesar Almiñana\n\nCibersegurança. Proteção de Dados e Privacidade.  Inteligência Artificial. Professor, consultor  e empreendedor.\n\nCiência da Computação. 4 anos de experiência no mercado e 2 anos e meio na academia.\n\nClaudio André\n\nComputação. 44 anos de experiência em todas as áreas ligadas à computação.\n\nCoordenador de Curso do Ciclo Básico (1º ano)\n\nCoordenador do curso(2º e 3º ano)\n\nCoordenador do curso(4º ano)\n\nCristiano Da Silva Benites\n\nCristina Gramani\n\nCurricular\n\nDesign, Produção Cultural e Gamificação. 20 anos de experiência na área de games e 16 anos de experiência acadêmica.\n\nDiogo Martins Gonçalves De Moraes\n\nDiretora acadêmica:\n\nDocente há 23 anos, sendo 15 anos no Ensino Superior nas disciplinas de  Matemática e Física. Experiência de 10 anos na indústria.\n\nDoutora e Mestra em Engenharia de Sistemas e Computação pela COPPE – Universidade Federal do Rio de Janeiro (UFRJ).\n\nEgon F Daxbacher\n\nEngenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.\n\nEngenheiro elétrico. Mais de 15 anos de experiência como docente universitário nas disciplinas relacionadas à matemática.\n\nEngenheiro, diretor de projetos e professor de negócios e Inteligência Artificial\n\nEste módulo aborda as atualizações mais recentes e as tendências tecnológicas emergentes, proporcionando uma compreensão profunda e prática das inovações. O módulo é dividido em duas partes. A primeira parte, o “Balanço Técnico”, é guiada por meio de aprendizado contínuo e validação da aprendizagem. A segunda parte, o “Projeto Especial”, oferece cursos como Fundamentos de Segurança e Criptografia Pós-Quântica, Gestão de Risco em Cybersecurity, Experiências Imersivas e Jogo de Negócios, de tendências tecnológicas, permitindo a exploração de novos conceitos tecnológicos e aplicações de práticas inovadoras, incluindo Libras – Língua Brasileira de Sinais.\n\nExperiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.\n\nFernando Pizzo Ribeiro\n\nFilipe Gonçalves\n\nFillipe Resina\n\nFlávia Santoro\n\nFrancisco Escobar\n\nGeraldo Vasconcelos\n\nGestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado\n\nGraduação em Engenharia Eletrônica pela Escola Politécnica da Universidade Federal do Rio de Janeiro (UFRJ).\n\nGuilherme Cestari\n\nHenrique Mohallem Paiva\n\nHermano Peixoto de Oliveira Junior\n\nInovação, Tecnologia e Negócios Digitais, 40 anos de experiência acadêmica e profissional.\n\nInternet of Things e Sistemas Embarcados. 19 anos de experiência no Ensino e Mercado.\n\nJefferson De Oliveira Silva\n\nJosé Romualdo Costa\n\nJulia Stateri\n\nLaíza Ribeiro Silva\n\nLuciano Galdino\n\nMarcelo Gonçalves\n\nMatemática, Pesquisa Operacional e Business Analytics. 21 anos de experiência na academia e em consultoria.\n\nMauricio Garcia\n\nMichele Bazana\n\nMurilo Zanini De Carvalho\n\nOvidio Lopes da Cruz Netto\n\nPossui mais de 250 publicações com diversos resultados práticos.\n\nProfessor Doutor em Engenharia de Computação e Sistemas Digitais pela USP. Linha de pesquisa – Aplicação industrial de Arquitetura com IoT e Digital Twin\n\nProfessor Especialista em Pensamento Computacional, pesquisador na área de lA para soluções na área da saúde e educação inclusiva, 18 anos experiência mercado e docência.\n\nProfessor de Estatística e Matemática aplicada nas Engenharias e Administração.\n\nProfessor de paixão e profissão, há 12 anos lidera experiências educativas transformadoras em instituições de ensino e organizações.\n\nProfessor dos cursos de Engenharia de Software, com foco em transformação digital, adoção de nuvem e agilidade.\n\nProfessor e Pesquisador em Ciência da Computação, Engenharia de Software e Inteligência Artificial.\n\nProfessor e pesquisador de Design/UX nas áreas de Computação, Design e Jogos Digitais, especializado em Semiótica.\n\nProfessor na área de Física, Matemática e Estatística com 10 anos de experiência no Ensino Superior.\n\nProfessor na área de Programação. Mais de 20 anos de experiência no mercado e na docência.\n\nProfessora Orientadora do Curso de Engenharia de Software. Fundadora da empresa SE7Ti – tecnologia e Informação que atua em consultoria e treinamento em Arquitetura Corporativa.\n\nProfessora, gestora Acadêmica e Educação Corporativa e 28 anos de experiência docente e gestão\n\nProfissional de Tecnologia da Informação e professor universitário na área de computação e engenharia elétrica\n\nReginaldo Arakaki\n\nRenato Penha\n\nRobótica, Automação, Sistemas Embarcados e IA. 6 anos de experiência na academia e mercado.\n\nRodolfo Goya\n\nRodrigo Nicola\n\nSabáticos na Université Pierre et Marie Curie, França (2004-2005) e Queensland University of Technology, Austrália.\n\nSergio Venâncio\n\nSimulações Computacionais, Sistemas de Controle Automático, 20 anos de experiência em pesquisa e desenvolvimento tecnológico.\n\nSistemas de Informação, Estratégia e gestão de Negócios Online, Educação Empreendedora Digital. 3o anos de experiência acadêmica e mercado corporativo.\n\nSistemas de Informação, Gestão de Negócios, 24 anos de experiência.\n\nSistemas de Informação. 25 anos de experiência no mercado de Tecnologia da Informação e 12 anos de experiência na academia.\n\nSistemas de Informação. 38 anos de experiência no mercado de Tecnologia da Informação e 18 anos de experiência na academia.\n\nSérgio Venâncio\n\nTecnologias Educacionais, Gamificação, Interação Humano-Computador, 5 anos de experiência na academia.\n\nTendências e Atualizações\n\nTomaz Sasaki\n\nTrabalha há 20 anos como professora, coordenadora de cursos e pesquisadora em Sistemas de Informação e Ciência da Computação, com foco em Gestão de Processos de Negócios, Processos Intensivos em Conhecimento, Gestão do Conhecimento e Sistemas Colaborativos e Aprendizagem Baseada em Projetos.\n\nTrilha Acadêmica\n\nTrilha Corporativa\n\nUX Designer, Game Designer, Filósofo, 20 anos de experiência como professor e desenvolvedor.\n\nVanessa Tavares Nunes\n\nTrilha de Empreendedorismo:\n- Conexão com mentores e investidores de venture capital\n\nTrilha Acadêmica:\n- Construção de projetos de pesquisa\n\nCorpo Docente\n\nTrilha de Empreendedorismo:\n- Criação e aceleração de startups\n\nTrilha Acadêmica:\n- Elaboração de artigos científicos\n\nTrilha Corporativa:\n- Imersões empresariais\n\nTrilha de Empreendedorismo:\n- Imersões no ecossistema empreendedor\n\nTrilha Acadêmica:\n- Preparação para ingresso em cursos de mestrado e doutorado\n\nTrilha Corporativa:\n- Preparação para processos seletivos e de trainee em grandes empresas\n- Projetos de consultoria para corporações",
+      "section": "Engenharia de Software",
+      "subsection": "Grade Curricular - Engenharia de Software",
+      "project": "Projeto 12",
+      "academic_year": "3º ano"
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Engenharia de Software",
+      "section": "Engenharia de Software",
+      "subsection": null,
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Projete e gerencie softwares com ciência, técnica e ética. Domine a análise de requisitos, o design de sistemas, testes e manutenção. Utilize metodologias ágeis e técnicas de qualidade para criar soluções inovadoras, como cloud computing, aplicativos móveis, automação por voz, e DevOps.",
+      "section": "Engenharia de Software",
+      "subsection": "Projete e gerencie softwares com ciência, técnica e ética. Domine a análise de requisitos, o design de sistemas, testes e manutenção. Utilize metodologias ágeis e técnicas de qualidade para criar soluções inovadoras, como cloud computing, aplicativos móveis, automação por voz, e DevOps.",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Seja o Engenheiro, não o robô",
+      "section": "Engenharia de Software",
+      "subsection": "Seja o Engenheiro, não o robô",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Nosso objetivo é formar engenheiros aptos a aplicar técnicas de engenharia de software em empreendimentos destinados a mercados locais e globais. Com uma base sólida em fundamentos científicos, técnicos e éticos, nossos alunos são preparados para intervir positivamente em todas as etapas de desenvolvimento nas empresas produtoras de software.",
+      "section": "Engenharia de Software",
+      "subsection": "Seja o Engenheiro, não o robô",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Habilidades e Competências",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Utilizar fundamentos matemáticos, computacionais e de produção para a criação de sistemas de software de qualidade;",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Compreender e aplicar processos, técnicas e procedimentos de construção, evolução, avaliação, integração e manutenção de software;",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Analisar e selecionar tecnologias adequadas para a construção de software;",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Investigar, compreender e estruturar as características de domínios de aplicação em diversos contextos, que levem em consideração questões éticas, sociais, legais e econômicas, individualmente e/ou em equipe;",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Conceber, aplicar e validar princípios, padrões, boas práticas e modelos no desenvolvimento de software;",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Participar e gerenciar projetos pertinentes à Engenharia de Software, conciliando objetivos conflitantes, com limitações de custos, tempo e com análise de riscos;",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Identificar novas oportunidades de negócios e inovar nas áreas de atuação da Engenharia de Software;",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Demonstrar habilidade de autoaprendizagem, colaboração e comunicação.",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo comum de todos os cursos",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo específico do curso escolhido",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "A partir do segundo ano você desenvolverá projetos específicos do curso que escolheu",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Currículo em tempo parcial",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "No terceiro ano você pode iniciar os estágios em meio período",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Aceleração de carreira",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "paragraph",
+      "text": "No quarto ano você escolhe em qual trilha realizar seus projetos: empreendedora, acadêmica ou corporativa.",
+      "section": "Engenharia de Software",
+      "subsection": "Habilidades e Competências",
+      "project": null,
+      "academic_year": "4º ano"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Nossos alunos estagiam nas melhores empresas",
+      "section": "Engenharia de Software",
+      "subsection": "Nossos alunos estagiam nas melhores empresas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "O que você precisa saber",
+      "section": "Engenharia de Software",
+      "subsection": "O que você precisa saber",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Bacharelado em Engenharia de Software",
+      "section": "Engenharia de Software",
+      "subsection": "Bacharelado em Engenharia de Software",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Carga Horária:",
+      "section": "Engenharia de Software",
+      "subsection": "Carga Horária:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "4000 Horas",
+      "section": "Engenharia de Software",
+      "subsection": "4000 Horas",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Modalidade:",
+      "section": "Engenharia de Software",
+      "subsection": "Modalidade:",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Presencial",
+      "section": "Engenharia de Software",
+      "subsection": "Presencial",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Investimento :",
+      "section": "Engenharia de Software",
+      "subsection": "Investimento :",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "R$7.780,00",
+      "section": "Engenharia de Software",
+      "subsection": "R$7.780,00",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "(Janeiro de 2026)",
+      "section": "Engenharia de Software",
+      "subsection": "(Janeiro de 2026)",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "40 vagas anuais",
+      "section": "Engenharia de Software",
+      "subsection": "40 vagas anuais",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Conceito Nota 5 no MEC*",
+      "section": "Engenharia de Software",
+      "subsection": "Conceito Nota 5 no MEC*",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Programa de Bolsas de Estudos",
+      "section": "Engenharia de Software",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "*Portaria nº 1124, de 05/10/2021, publicada no D.O.U. nº 190, de 06/10/2021, Seção 1, página 204.",
+      "section": "Engenharia de Software",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Curricular",
+      "section": "Engenharia de Software",
+      "subsection": "Programa de Bolsas de Estudos",
+      "project": null,
+      "academic_year": null
+    }
+  ],
+  "statistics": {
+    "total_blocks": 721,
+    "paragraphs": 199,
+    "headings": 18,
+    "list_items": 504,
+    "tables": 0
+  }
+}

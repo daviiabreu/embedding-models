@@ -1,0 +1,171 @@
+{
+  "source_file": "en_producao-academica.html",
+  "metadata": {
+    "url": "en_producao-academica",
+    "title": "Academic Production - Inteli - Institute of Technology and Leadership",
+    "description": "We value academic production as a fundamental tool for driving technological innovation and economic development.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Academic Production",
+      "section": "Academic Production",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "We value academic research as a fundamental tool for driving technological innovation and making a significant contribution to economic and social development.",
+      "section": "Academic Production",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Research at Inteli is predominantly technological in nature. Our pedagogical model is designed so that each course module functions as a technological development project, starting with a real market demand and continuing with a robust theoretical study.",
+      "section": "Academic Production",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Students are encouraged to explore and apply the knowledge acquired to develop innovative solutions, the results of which are documented in technical reports.",
+      "section": "Academic Production",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Both students and professors at Inteli are actively involved in conducting academic research, resulting in the publication of scientific articles in renowned journals and conferences. This research contributes to advancing knowledge in our fields of expertise and reinforces Inteli's commitment to academic excellence and innovation. Type of publication Date of publication With students",
+      "section": "Academic Production",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Project-Based Higher Education in Computing: Inteli on the road to innovation.",
+      "section": "Academic Production",
+      "subsection": "Project-Based Higher Education in Computing: Inteli on the road to innovation."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Brazilian Journal of Informatics in Education.",
+      "section": "Academic Production",
+      "subsection": "Brazilian Journal of Informatics in Education."
+    },
+    {
+      "type": "paragraph",
+      "text": "National Journal",
+      "section": "Academic Production",
+      "subsection": "Brazilian Journal of Informatics in Education."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Using PBL and Agile to Teach Artificial Intelligence to Undergraduate Computing Students.",
+      "section": "Academic Production",
+      "subsection": "Using PBL and Agile to Teach Artificial Intelligence to Undergraduate Computing Students."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "IEEE Access, vol. 11, 77737-77749",
+      "section": "Academic Production",
+      "subsection": "IEEE Access, vol. 11, 77737-77749"
+    },
+    {
+      "type": "paragraph",
+      "text": "International Journal",
+      "section": "Academic Production",
+      "subsection": "IEEE Access, vol. 11, 77737-77749"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "PBL Student Assessment: Consistency of Different Evaluation Methods in a Computing Faculty",
+      "section": "Academic Production",
+      "subsection": "PBL Student Assessment: Consistency of Different Evaluation Methods in a Computing Faculty"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "IEEE Transactions on Education, pp. 1-10",
+      "section": "Academic Production",
+      "subsection": "IEEE Transactions on Education, pp. 1-10"
+    },
+    {
+      "type": "paragraph",
+      "text": "International Journal",
+      "section": "Academic Production",
+      "subsection": "IEEE Transactions on Education, pp. 1-10"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Educational Computer Games for Burn Prevention and First Aid Awareness",
+      "section": "Academic Production",
+      "subsection": "Educational Computer Games for Burn Prevention and First Aid Awareness"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Entertainment Computing, Vol 52",
+      "section": "Academic Production",
+      "subsection": "Entertainment Computing, Vol 52"
+    },
+    {
+      "type": "paragraph",
+      "text": "International Journal",
+      "section": "Academic Production",
+      "subsection": "Entertainment Computing, Vol 52"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Effects of a Collaborative Gamification on Learning and Engagement of Children with Autism",
+      "section": "Academic Production",
+      "subsection": "Effects of a Collaborative Gamification on Learning and Engagement of Children with Autism"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Universal Access in the Information Society, p. 1-22.",
+      "section": "Academic Production",
+      "subsection": "Universal Access in the Information Society, p. 1-22."
+    },
+    {
+      "type": "paragraph",
+      "text": "International Journal",
+      "section": "Academic Production",
+      "subsection": "Universal Access in the Information Society, p. 1-22."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Use of Feedback in Intelligent Tutoring Systems: a Systematic Literature Review.",
+      "section": "Academic Production",
+      "subsection": "Use of Feedback in Intelligent Tutoring Systems: a Systematic Literature Review."
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Interactive Learning Environments",
+      "section": "Academic Production",
+      "subsection": "Interactive Learning Environments"
+    },
+    {
+      "type": "paragraph",
+      "text": "International Journal",
+      "section": "Academic Production",
+      "subsection": "Interactive Learning Environments"
+    }
+  ],
+  "statistics": {
+    "total_blocks": 23,
+    "paragraphs": 13,
+    "headings": 13,
+    "list_items": 0,
+    "tables": 0
+  }
+}

@@ -18,14 +18,31 @@ Performance improvements:
 - Lower token costs
 """
 
+import os
+import sys
+
+# Add parent directories to path for imports to work from any location
+current_dir = os.path.dirname(os.path.abspath(__file__))
+agent_flow_dir = os.path.dirname(current_dir)
+backend_dir = os.path.dirname(agent_flow_dir)
+root_dir = os.path.dirname(backend_dir)
+
+sys.path.insert(0, root_dir)
+sys.path.insert(0, backend_dir)
+sys.path.insert(0, agent_flow_dir)
+
 import google.generativeai as genai
 from google.adk import Runner
 from google.adk.agents import Agent
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
-from backend.agent_flow.config import config
-from backend.agent_flow.utils import get_logger
+try:
+    from backend.agent_flow.config import config
+    from backend.agent_flow.utils import get_logger
+except ImportError:
+    from config import config
+    from utils import get_logger
 
 logger = get_logger(__name__)
 
@@ -48,6 +65,7 @@ except ImportError:
     from tools.knowledge_tools import retrieve_inteli_knowledge
     from tools.safety_tools import (
         check_content_safety,
+        check_output_safety,
     )
 
 

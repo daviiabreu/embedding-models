@@ -433,34 +433,33 @@ def extract_file_elements(
                 # Prefixo de metadados
                 if metadata_base.get("title"):
                     context_parts.insert(0, f"[Página: {metadata_base['title']}]")
-
-                contextualized_text = (
-                    "\n".join(context_parts) + "\n" + text if context_parts else text
-                )
-
-                elements_data.append(
-                    {
-                        "text": contextualized_text,
-                        "type": block.get("type", "WebContent"),
-                        "section": block.get("section"),
-                        "subsection": block.get("subsection"),
-                        "level": block.get("level", 0),
-                        "metadata": {
-                            "source": file_path.name,  # Usa nome do JSON processado
-                            "source_html": data.get("source_file"),  # HTML original
-                            "category": metadata_base.get("page_type", "web_scraping"),
-                            "page_title": metadata_base.get("title", ""),
-                            "url": metadata_base.get("url", ""),
-                            "description": metadata_base.get("description", ""),
-                            "page_number": 1,
-                            # NOVOS METADADOS CRÍTICOS
-                            "project": block.get("project"),
-                            "academic_year": block.get("academic_year"),
-                        },
-                        "element_id": f"web_{idx}",
-                    }
-                )
-
+                
+                contextualized_text = "\n".join(context_parts) + "\n" + text if context_parts else text
+                
+                elements_data.append({
+                    "text": contextualized_text,
+                    "type": block.get('type', 'WebContent'),
+                    "section": block.get('section'),
+                    "subsection": block.get('subsection'),
+                    "level": block.get('level', 0),
+                    "metadata": {
+                        "source": file_path.name,  # Usa nome do JSON processado
+                        "source_html": data.get('source_file'),  # HTML original
+                        "category": metadata_base.get('page_type', 'web_scraping'),
+                        "page_title": metadata_base.get('title', ''),
+                        "url": metadata_base.get('url', ''),
+                        "description": metadata_base.get('description', ''),
+                        "page_number": 1,
+                        # NOVOS METADADOS CRÍTICOS
+                        "project": block.get('project'),
+                        "academic_year": block.get('academic_year'),
+                        # METADADOS PARA BUSCA DE PROFESSORES E CURSOS
+                        "professor_name": block.get('professor_name'),
+                        "course": block.get('course')
+                    },
+                    "element_id": f"web_{idx}"
+                })
+            
             logger.info(f"✅ {len(elements_data)} blocos estruturados extraídos")
 
         # Formato de lista (JSON genérico)
@@ -621,6 +620,9 @@ def create_smart_chunks(
     """
     Chunking com agrupamento por contexto e prefixo semântico.
     Otimizado para Gemini (chunks maiores).
+    
+    SPECIAL HANDLING: professor_info blocks are kept as individual chunks
+    to preserve professor_name metadata.
     """
     logger.info(f"✂️ Chunking inteligente (size={chunk_size}, overlap={chunk_overlap})")
 
@@ -630,24 +632,63 @@ def create_smart_chunks(
         separators=["\n\n", "\n", ". ", " ", ""],
         add_start_index=True,
     )
-
-    # Agrupa por arquivo + seção + projeto + ano
-    grouped_text = {}
-
+    
+    chunk_dicts = []
+    
+    # STEP 1: Extract professor_info blocks for individual processing
+    professor_elements = []
+    other_elements = []
+    
     for el in processed_elements:
-        source = el["metadata"].get("source", "unknown")
-        section = el["metadata"].get("context_section", "general")
-        project = el["metadata"].get("project", "no_project")
-        year = el["metadata"].get("academic_year", "no_year")
+        element_type = el.get('type', '')
+        if element_type == 'professor_info' or el['metadata'].get('professor_name'):
+            professor_elements.append(el)
+        else:
+            other_elements.append(el)
+    
+    logger.info(f"👨‍🏫 Professor blocks (individual chunks): {len(professor_elements)}")
+    logger.info(f"📄 Other elements (grouped chunks): {len(other_elements)}")
+    
+    # STEP 2: Process professor_info blocks as individual chunks (NO GROUPING)
+    for el in professor_elements:
+        prof_name = el['metadata'].get('professor_name', 'unknown')
+        safe_prof = re.sub(r'[^a-zA-Z0-9]', '_', prof_name)
+        chunk_id = f"professor_{safe_prof}_{uuid.uuid4().hex[:8]}"
+        
+        # Build context prefix for professor
+        context_prefix = ""
+        if el['metadata'].get('page_title'):
+            context_prefix += f"[Página: {el['metadata']['page_title']}]\n"
+        if el['metadata'].get('context_section'):
+            context_prefix += f"[Seção: {el['metadata']['context_section']}]\n"
+        if el['metadata'].get('context_header'):
+            context_prefix += f"[Subseção: {el['metadata']['context_header']}]\n"
+        if el['metadata'].get('professor_name'):
+            context_prefix += f"[Professor: {el['metadata']['professor_name']}]\n"
+        
+        contextualized_text = context_prefix + el['text']
+        
+        chunk_dicts.append({
+            "id": chunk_id,
+            "content": contextualized_text,
+            "metadata": el['metadata']  # PRESERVES professor_name!
+        })
+    
+    # STEP 3: Process other elements with grouping (original logic)
+    grouped_text = {}
+    
+    for el in other_elements:
+        source = el['metadata'].get('source', 'unknown')
+        section = el['metadata'].get('context_section', 'general')
+        project = el['metadata'].get('project', 'no_project')
+        year = el['metadata'].get('academic_year', 'no_year')
         key = f"{source}|{section}|{project}|{year}"
 
         if key not in grouped_text:
             grouped_text[key] = {"text": [], "meta_sample": el["metadata"]}
 
         grouped_text[key]["text"].append(el["text"])
-
-    chunk_dicts = []
-
+    
     for key, data in grouped_text.items():
         full_text = "\n".join(data["text"])
         base_meta = data["meta_sample"]
@@ -825,26 +866,30 @@ def ingest_hybrid_embeddings(
         else:
             sparse_vector = sparse_raw
 
-        points.append(
-            qdrant_models.PointStruct(
-                id=u_id,
-                vector={"dense": item["dense_vector"], "sparse": sparse_vector},
-                payload={
-                    "chunk_id": item["id"],
-                    "content": item["content"],
-                    "metadata": item["metadata"],
-                    "category": item["metadata"].get("category", "geral"),
-                    "source": item["metadata"].get("source", "unknown"),
-                    "page_title": item["metadata"].get("page_title", ""),
-                    "url": item["metadata"].get("url", ""),
-                    "context": item["metadata"].get("context_header", ""),
-                    "hierarchy": item["metadata"].get("hierarchy_level", "body"),
-                    # METADADOS CRÍTICOS PARA GRADE CURRICULAR
-                    "project": item["metadata"].get("project"),
-                    "academic_year": item["metadata"].get("academic_year"),
-                },
-            )
-        )
+        points.append(qdrant_models.PointStruct(
+            id=u_id,
+            vector={
+                "dense": item["dense_vector"], 
+                "sparse": sparse_vector
+            },
+            payload={
+                "chunk_id": item["id"],
+                "content": item["content"],
+                "metadata": item["metadata"],
+                "category": item["metadata"].get("category", "geral"),
+                "source": item["metadata"].get("source", "unknown"),
+                "page_title": item["metadata"].get("page_title", ""),
+                "url": item["metadata"].get("url", ""),
+                "context": item["metadata"].get("context_header", ""),
+                "hierarchy": item["metadata"].get("hierarchy_level", "body"),
+                # METADADOS CRÍTICOS PARA GRADE CURRICULAR
+                "project": item["metadata"].get("project"),
+                "academic_year": item["metadata"].get("academic_year"),
+                # METADADOS PARA BUSCA DE PROFESSORES E CURSOS
+                "professor_name": item["metadata"].get("professor_name"),
+                "course": item["metadata"].get("course")
+            }
+        ))
 
     batch_size = 64
     for i in range(0, len(points), batch_size):

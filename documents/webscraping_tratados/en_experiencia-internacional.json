@@ -1,0 +1,52 @@
+{
+  "source_file": "en_experiencia-internacional.html",
+  "metadata": {
+    "url": "en_experiencia-internacional",
+    "title": "International Experience - Inteli - Institute of Technology and Leadership",
+    "description": "",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Your International Experience starts here",
+      "section": "Your International Experience starts here",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "We value the international mobility of our students as another fundamental strategy in the formation of leaders prepared to face the challenges of the globalized world.",
+      "section": "Your International Experience starts here",
+      "subsection": "We value the international mobility of our students as another fundamental strategy in the formation of leaders prepared to face the challenges of the globalized world."
+    },
+    {
+      "type": "paragraph",
+      "text": "An international experience contributes to a new understanding and perspective of the world, improves local language skills, broadens networking and develops socio-emotional skills such as adaptability and resilience.",
+      "section": "Your International Experience starts here",
+      "subsection": "We value the international mobility of our students as another fundamental strategy in the formation of leaders prepared to face the challenges of the globalized world."
+    },
+    {
+      "type": "paragraph",
+      "text": "Inteli's International Office is responsible for drawing up international agreements, providing guidance on academic mobility, creating courses in partnership with foreign institutions, and even welcoming students and lecturers from other nationalities.",
+      "section": "Your International Experience starts here",
+      "subsection": "We value the international mobility of our students as another fundamental strategy in the formation of leaders prepared to face the challenges of the globalized world."
+    },
+    {
+      "type": "list_block",
+      "text": "Location\n\n- Academic Regular\n- Academic Regular\n- Special Conditions\n- Academic Regular\n- Short Duration\n- Short Duration\n- Academic Regular\n- Short Duration\n- Short Duration\n- Academic Regular\n- Academic Regular\n- Academic Regular\n- Academic Regular\n- Academic Regular\n- Academic Regular",
+      "section": "Your International Experience starts here",
+      "subsection": "We value the international mobility of our students as another fundamental strategy in the formation of leaders prepared to face the challenges of the globalized world.",
+      "original_count": 15
+    }
+  ],
+  "statistics": {
+    "total_blocks": 5,
+    "paragraphs": 2,
+    "headings": 2,
+    "list_items": 15,
+    "tables": 0
+  }
+}

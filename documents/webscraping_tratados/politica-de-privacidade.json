@@ -1,0 +1,777 @@
+{
+  "source_file": "politica-de-privacidade.html",
+  "metadata": {
+    "url": "politica-de-privacidade",
+    "title": "Política de Privacidade - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Política de Privacidade",
+      "section": "Política de Privacidade",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli elaborou a Política de Privacidade que resume as condições de utilização deste site, suas plataformas e aplicativos móveis. Leia atentamente e, em caso de dúvidas, entre em contato através do e-mail:lgpd@inteli.edu.br.",
+      "section": "Política de Privacidade",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli está dedicado a proteger a privacidade e resguarda os dados pessoais de seus usuários e, por isso, detalhamos para o titular de dados como os tratamos.",
+      "section": "Política de Privacidade",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "1. Mudanças na Política de Privacidade",
+      "section": "Política de Privacidade",
+      "subsection": "1. Mudanças na Política de Privacidade"
+    },
+    {
+      "type": "paragraph",
+      "text": "Esta Política de Privacidade pode ser atualizada para refletir melhorias e mudanças legislativas. Recomendamos a visita periódica desta página para se manter informado sobre as modificações. Última atualização:18 de Dezembro de 2024.",
+      "section": "Política de Privacidade",
+      "subsection": "1. Mudanças na Política de Privacidade",
+      "original_count": 2
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "2. O que é necessário saber para compreender esta política?",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Consentimento",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "É a hipótese em que o próprio titular do dado autoriza o tratamento de dados pessoais através de manifestação livre, informada e inequívoca, concordando com o tratamento de seus dados pessoais para uma finalidade específica e informada pelo Inteli. Dado Pessoal",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "É o dado relativo a uma pessoa física, que seja capaz de identificá-la ou torná-la identificável dentro de determinado contexto. Podem ser citados como alguns exemplos de dados pessoais: Nome, CPF, RG, endereço, telefone celular, e-mail, endereço IP e etc. Dado Sensível",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "É qualquer informação sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa física.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "É a instituição de ensino superior controlador dos seus dados pessoais: Mantida pelo Instituto Brasileiro de Tecnologia e Ciências da Computação – IBTCC, instituição sem fins lucrativos com sede na Avenida Professor Almeida Prado, 532, Prédio 5, Butantã, na cidade de São Paulo, Estado de São Paulo, inscrito no CNPJ sob o nº35.078.331/0001-29. Leis ou normativas de privacidade",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "Enquanto instituição de ensino superior, o Inteli está sujeito a regulações específicas do setor e, portanto, às obrigações por elas impostas, além das leis de privacidade e proteção de dados aplicáveis conforme a localidade. Ambas trazem novas regras e princípios mais protetivos para as empresas tratarem as informações de pessoas físicas, incluindo o titular de dados. O objetivo é que os titulares de dados tenham mais privacidade, liberdade, transparência e controle em relação aos seus dados pessoais. Opt-in/Opt-out",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "É a concessão ou revogação do consentimento pelo Titular. O opt-in é solicitado quando há uma alteração na finalidade para o tratamento de dados. O opt-out está disponível ao Titular em determinadas circunstâncias, respeitadas as bases legais. Plataforma ou Plataformas São os sites e os aplicativos de titularidade do Inteli. É esta Política de Privacidade do Inteli. Produtos e Serviços",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?",
+      "original_count": 5
+    },
+    {
+      "type": "paragraph",
+      "text": "São todos os serviços e produtos oferecidos pelo Inteli, com foco educacional, incluindo Cursos de Graduação, Pós-graduação, Cursos Executivos e outros. Titular dos Dados",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "A pessoa física a quem os dados pessoais pertencem e se referem, podendo ser interessado, aluno, professor, colaborador, parceiro, candidato, doador identificado como usuário em nossas plataformas. Tratamento",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "São as operações que o Inteli faz ou pode fazer dos dados pessoais, incluindo, mas não se limitando às seguintes atividades: coleta, armazenamento, consulta, uso, compartilhamento, classificação, reprodução, processamento e avaliação destes dados.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Consentimento",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "É a hipótese em que o próprio titular do dado autoriza o tratamento de dados pessoais através de manifestação livre, informada e inequívoca, concordando com o tratamento de seus dados pessoais para uma finalidade específica e informada pelo Inteli.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Dado Pessoal",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "É o dado relativo a uma pessoa física, que seja capaz de identificá-la ou torná-la identificável dentro de determinado contexto. Podem ser citados como alguns exemplos de dados pessoais: Nome, CPF, RG, endereço, telefone celular, e-mail, endereço IP e etc.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Dado Sensível",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "É qualquer informação sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa física.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "É a instituição de ensino superior controlador dos seus dados pessoais: Mantida pelo Instituto Brasileiro de Tecnologia e Ciências da Computação – IBTCC, instituição sem fins lucrativos com sede na Avenida Professor Almeida Prado, 532, Prédio 5, Butantã, na cidade de São Paulo, Estado de São Paulo, inscrito no CNPJ sob o nº35.078.331/0001-29.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Leis ou normativas de privacidade",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Enquanto instituição de ensino superior, o Inteli está sujeito a regulações específicas do setor e, portanto, às obrigações por elas impostas, além das leis de privacidade e proteção de dados aplicáveis conforme a localidade. Ambas trazem novas regras e princípios mais protetivos para as empresas tratarem as informações de pessoas físicas, incluindo o titular de dados. O objetivo é que os titulares de dados tenham mais privacidade, liberdade, transparência e controle em relação aos seus dados pessoais.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Opt-in/Opt-out",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "É a concessão ou revogação do consentimento pelo Titular. O opt-in é solicitado quando há uma alteração na finalidade para o tratamento de dados. O opt-out está disponível ao Titular em determinadas circunstâncias, respeitadas as bases legais.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Plataforma ou Plataformas",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "São os sites e os aplicativos de titularidade do Inteli. É esta Política de Privacidade do Inteli.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?",
+      "original_count": 2
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Produtos e Serviços",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "São todos os serviços e produtos oferecidos pelo Inteli, com foco educacional, incluindo Cursos de Graduação, Pós-graduação, Cursos Executivos e outros.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Titular dos Dados",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "A pessoa física a quem os dados pessoais pertencem e se referem, podendo ser interessado, aluno, professor, colaborador, parceiro, candidato, doador identificado como usuário em nossas plataformas.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Tratamento",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "São as operações que o Inteli faz ou pode fazer dos dados pessoais, incluindo, mas não se limitando às seguintes atividades: coleta, armazenamento, consulta, uso, compartilhamento, classificação, reprodução, processamento e avaliação destes dados.",
+      "section": "Política de Privacidade",
+      "subsection": "2. O que é necessário saber para compreender esta política?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "3. A quem se aplica esta política?",
+      "section": "Política de Privacidade",
+      "subsection": "3. A quem se aplica esta política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Esta política abrange os dados pessoais dos visitantes, parceiros, doadores, candidatos, alunos e colaboradores do Inteli, denominado titular do dado.",
+      "section": "Política de Privacidade",
+      "subsection": "3. A quem se aplica esta política?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "4. Qual a finalidade dessa política?",
+      "section": "Política de Privacidade",
+      "subsection": "4. Qual a finalidade dessa política?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Esta política visa demonstrar o compromisso do Inteli em respeitar a confidencialidade, a legitimidade da informação e a privacidade dos dados pessoais de seus usuários. Além disso, orienta sobre como conhecer e gerenciar a utilização de seus dados pessoais ao interagirem com os produtos e serviços educacionais oferecidos pelo Inteli. A Política de Privacidade contém informações sobre coleta, uso, armazenamento, tratamento e proteção dos dados pessoais dos usuários, promovendo transparência e esclarecendo como os usuários podem gerenciar suas informações pessoais.",
+      "section": "Política de Privacidade",
+      "subsection": "4. Qual a finalidade dessa política?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "5. Por que o Inteli trata meus dados pessoais?",
+      "section": "Política de Privacidade",
+      "subsection": "5. Por que o Inteli trata meus dados pessoais?"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli compromete-se a oferecer sempre os melhores serviços educacionais, respeitando o direito de escolha do usuário. A proteção de dados pessoais envolve:",
+      "section": "Política de Privacidade",
+      "subsection": "5. Por que o Inteli trata meus dados pessoais?"
+    },
+    {
+      "type": "list_block",
+      "text": "O Inteli compromete-se a oferecer sempre os melhores serviços educacionais, respeitando o direito de escolha do usuário. A proteção de dados pessoais envolve:\n\n- Segurança dos Dados: Compromisso com a segurança dos dados e respeito à privacidade.\n- Controle do Titular: Garantir que o titular esteja no controle de seus dados pessoais.",
+      "section": "Política de Privacidade",
+      "subsection": "5. Por que o Inteli trata meus dados pessoais?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "As informações pessoais dos usuários são coletadas para prestar os serviços contratados, como matrículas em cursos, atividades acadêmicas e interações com a instituição. Os dados são coletados durante o cadastro nas plataformas do Inteli, participação em eventos e interações por meio dos nossos produtos ou canais de contato, limitando-se apenas aos dados essenciais para as atividades realizadas.",
+      "section": "Política de Privacidade",
+      "subsection": "5. Por que o Inteli trata meus dados pessoais?"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli minimiza a quantidade de informações pessoais coletadas e tratadas sempre que possível, utilizando bases legais apropriadas para fundamentar o tratamento realizado. Em caso de dúvidas, os canais de comunicação indicados nesta Política podem ser acionados. Canal de contato:",
+      "section": "Política de Privacidade",
+      "subsection": "5. Por que o Inteli trata meus dados pessoais?",
+      "original_count": 2
+    },
+    {
+      "type": "list_block",
+      "text": "Canal de contato:\n\n- Encarregado: Guilherme van de Velde\n- E-mail:lgpd@inteli.edu.br\n- Endereço para correspondência: Avenida Professor Almeida Prado, 532, Prédio 5, Butantã, São Paulo – SP. CEP: 05508-901",
+      "section": "Política de Privacidade",
+      "subsection": "5. Por que o Inteli trata meus dados pessoais?",
+      "original_count": 3
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "paragraph",
+      "text": "A coleta de dados pessoais pelo Inteli depende da forma como o usuário interage conosco. Os dados coletados variam conforme o objetivo, seja para inscrição em cursos, candidaturas a vagas ou parcerias institucionais. Coleta de dados: Coletamos seus dados pessoais nas seguintes situações:",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 3
+    },
+    {
+      "type": "list_block",
+      "text": "Coletamos seus dados pessoais nas seguintes situações:\n\n- Ao se inscrever e participar dos processos seletivos e cursos.\n- Ao se inscrever para receber novidades e informações sobre cursos.\n- Ao entrar em contato com nosso atendimento.\n- Ao procurar atendimento via Chat ou Whatsapp.\n- Ao visitar o nosso campus.\n- Ao se candidatar a vagas no Inteli.\n- Ao enviar dados pessoais por meio de qualquer mensagem ou canal do Inteli.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 7
+    },
+    {
+      "type": "paragraph",
+      "text": "Categorias de Dados Coletados:",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Tipo de Dados Coletados",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Finalidade",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Base Legal",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Aplicação Mobile",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Aplicação Mobile\n\n- Credenciais de acesso: nome de usuário, senha, email.\n- Informações do dispositivo: modelo, sistema operacional, identificador único, resolução de tela, operadora.\n- Informações de segurança e logon: endereço IP, geolocalização aproximada.\n- Autenticação segura para acesso à aplicação.\n- Identificação e prevenção de fraudes e acessos não autorizados.\n- Melhoria da segurança da informação e proteção dos dados dos usuários\n- Execução de contrato.\n- Legítimo interesse e consentimento.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 8
+    },
+    {
+      "type": "paragraph",
+      "text": "Navegação em Plataformas",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Navegação em Plataformas\n\n- Dados de navegação: IP, data e hora de acesso, localização geográfica, tipo de navegador, duração da visita, páginas visitadas.\n- Dados sobre o dispositivo: modelo, fabricante, sistema operacional, identificador único, operadora de telefonia, resolução da tela, velocidade da conexão.\n- Funcionamento correto do website e aplicação mobile.\n- Geração de estatísticas para aperfeiçoamento da plataforma.\n- Publicidade personalizada.\n- Cumprimento de obrigação legal.\n- Legítimo interesse",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 7
+    },
+    {
+      "type": "paragraph",
+      "text": "Uso da Plataforma",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Uso da Plataforma\n\n- Dados cadastrais: nome, e-mail, gênero, estado, área de interesse, telefone.\n- Dados adicionais em situações específicas, incluindo Dados Sensíveis (com consentimento específico dos pais ou responsáveis, se aplicável).\n- Permitir registro e utilização de serviços.\n- Prestação de contas a autoridades públicas.\n- Garantir a segurança do usuário.\n- Execução de contrato.\n- Cumprimento de obrigação legal.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 7
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Aplicação Mobile",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Tipo de dados coletados",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Tipo de dados coletados\n\n- Credenciais de acesso: nome de usuário, senha, email.\n- Informações do dispositivo: modelo, sistema operacional, identificador único, resolução de tela, operadora.\n- Informações de segurança e logon: endereço IP, geolocalização aproximada.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 3
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Finalidade",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Finalidade\n\n- Autenticação segura para acesso à aplicação.\n- Identificação e prevenção de fraudes e acessos não autorizados. – Melhoria da segurança da informação e proteção dos dados dos usuários",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 2
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Base legal",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Base legal\n\n- Execução de contrato.\n- Legítimo interesse e consentimento.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 2
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Navegação em Plataformas",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Tipo de dados coletados",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Tipo de dados coletados\n\n- Dados de navegação: IP, data e hora de acesso, localização geográfica, tipo de navegador, duração da visita, páginas visitadas.\n- Dados sobre o dispositivo: modelo, fabricante, sistema operacional, identificador único, operadora de telefonia, resolução da tela, velocidade da conexão.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 2
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Finalidade",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Finalidade\n\n- Funcionamento correto do website e aplicação mobile.\n- Geração de estatísticas para aperfeiçoamento da plataforma.\n- Publicidade personalizada.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 3
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Base legal",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Base legal\n\n- Cumprimento de obrigação legal.\n- Legítimo interesse",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 2
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Uso da Plataforma",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Tipo de dados coletados",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Tipo de dados coletados\n\n- Dados cadastrais: nome, e-mail, gênero, estado, área de interesse, telefone.\n- Dados adicionais em situações específicas, incluindo Dados Sensíveis (com consentimento específico dos pais ou responsáveis, se aplicável).",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 2
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Finalidade",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Finalidade\n\n- Permitir registro e utilização de serviços.\n- Prestação de contas a autoridades públicas.\n- Garantir a segurança do usuário.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 3
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Base legal",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Base legal\n\n- Execução de contrato.\n- Cumprimento de obrigação legal.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "Os dados pessoais coletados são utilizados para:",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "list_block",
+      "text": "Os dados pessoais coletados são utilizados para:\n\n- Fornecimento de serviços, processamento de transações e atendimento a solicitações de usuários.\n- Autenticação segura de usuários nas plataformas e aplicação móvel do Inteli para acesso administrativo e acadêmico.\n- Identificação e proteção contra acessos não autorizados.\n- Melhorias em produtos, personalização de experiências e comunicação de marketing, desde que com o consentimento do usuário.\n- Análises internas, visando melhorias de segurança e conformidade.\n- Cumprimento de obrigações legais e regulatórias.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?",
+      "original_count": 6
+    },
+    {
+      "type": "paragraph",
+      "text": "Tratamento de Dados Sensíveis:",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Em situações específicas, poderão ser coletadas informações adicionais, incluindo Dados Sensíveis, para oferecer produtos e serviços educacionais personalizados e acessíveis, conforme autorizado pelo titular e conforme as hipóteses legais previstas nas leis brasileiras.",
+      "section": "Política de Privacidade",
+      "subsection": "6. Como o Inteli coleta seus dados pessoais e que tipos de dados são coletados?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "7. Cookies: O que são e como o Inteli os utiliza?",
+      "section": "Política de Privacidade",
+      "subsection": "7. Cookies: O que são e como o Inteli os utiliza?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Cookies são pequenos arquivos de texto armazenados no navegador ou dispositivo do usuário, permitindo reconhecer preferências para adaptar o website às necessidades dos visitantes. O Inteli utiliza os seguintes tipos de cookies:",
+      "section": "Política de Privacidade",
+      "subsection": "7. Cookies: O que são e como o Inteli os utiliza?"
+    },
+    {
+      "type": "list_block",
+      "text": "Cookies são pequenos arquivos de texto armazenados no navegador ou dispositivo do usuário, permitindo reconhecer preferências para adaptar o website às necessidades dos visitantes. O Inteli utiliza os seguintes tipos de cookies:\n\n- Cookies Estritamente Necessários: Funcionamento correto do site, autenticação de logins.\n- Cookies de Desempenho: Melhorar conteúdo e experiência do usuário através da coleta de dados de uso.\n- Cookies de Publicidade: Disponibilizar ofertas de produtos e serviços de acordo com os interesses do usuário.",
+      "section": "Política de Privacidade",
+      "subsection": "7. Cookies: O que são e como o Inteli os utiliza?",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "Detalhes sobre Cookies:",
+      "section": "Política de Privacidade",
+      "subsection": "7. Cookies: O que são e como o Inteli os utiliza?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Utilizamos cookies para armazenar informações como preferências pessoais, interações em popups, cliques em links e outros comportamentos no site. Além disso, utilizamos serviços de terceiros, como o Google, que podem coletar dados pessoais por meio de cookies, como endereço IP, tipo de navegador, tempo de visita e páginas acessadas. Gestão de Cookies:",
+      "section": "Política de Privacidade",
+      "subsection": "7. Cookies: O que são e como o Inteli os utiliza?",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "O usuário pode remover ou gerenciar cookies através das configurações do navegador ou de ferramentas de programas antivírus. No entanto, algumas funcionalidades do site podem se tornar indisponíveis após a exclusão de certos cookies.",
+      "section": "Política de Privacidade",
+      "subsection": "7. Cookies: O que são e como o Inteli os utiliza?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "8. Com quem o Inteli compartilha os seus dados pessoais?",
+      "section": "Política de Privacidade",
+      "subsection": "8. Com quem o Inteli compartilha os seus dados pessoais?"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli poderá compartilhar dados pessoais com terceiros nas seguintes situações:",
+      "section": "Política de Privacidade",
+      "subsection": "8. Com quem o Inteli compartilha os seus dados pessoais?"
+    },
+    {
+      "type": "list_block",
+      "text": "O Inteli poderá compartilhar dados pessoais com terceiros nas seguintes situações:\n\n- Fornecedores: O Inteli conta com a ajuda de fornecedores que podem tratar dados pessoais que são coletados. O Inteli busca avaliar cuidadosamente os fornecedores e estabelece obrigações contratuais de proteção de dados pessoais e segurança da informação, com o objetivo de minimizar riscos para os Titulares dos Dados. Dependendo da atividade por eles realizada, por exemplo, empresas contratadas para hospedagem de bases de dados, auditorias, suporte técnico, segurança, entre outros, com obrigações contratuais de proteção de dados.\n- Parceiros: Parceiros de serviço que atuam sob contrato de confidencialidade e proteção de dados, conforme as normas estabelecidas pela Política de NDA (Nao Divulgação).\n- Analytics: Os dados armazenados pelo Inteli podem ser utilizados para fins estatísticos (analytics), para compreender quem são os visitantes do site e consumidores dos Produtos e Serviços. Estes dados são anonimizados e não buscam identificar ou tornar identificáveis os Titulares dos dados pessoais, mas tão somente compreender melhor como é o seu acesso nas Plataformas Digitais do Inteli, a fim de melhorar a prestação de serviços e customizar produtos mais direcionados aos seus interesses.\n- Autoridades Públicas: Compartilhamento de dados conforme exigido por autoridades competentes (MEC, INEP, etc.) para cumprimento de obrigações legais ou proteger direitos do Inteli, colaboradores e usuários.\n- Parceiros de Seleção e Contratação: Empresas especializadas em recrutamento que auxiliam na contratação de professores ou funcionários, mediante autorização prévia.\n- Instituições Financeiras: Empresas como bancos para processos financeiros e envio/recebimento de documentos.",
+      "section": "Política de Privacidade",
+      "subsection": "8. Com quem o Inteli compartilha os seus dados pessoais?",
+      "original_count": 6
+    },
+    {
+      "type": "paragraph",
+      "text": "Em todos os casos, o compartilhamento de dados é realizado em conformidade com a LGPD, garantindo a proteção e confidencialidade das informações.",
+      "section": "Política de Privacidade",
+      "subsection": "8. Com quem o Inteli compartilha os seus dados pessoais?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "9. O Inteli transfere dados pessoais para outros países?",
+      "section": "Política de Privacidade",
+      "subsection": "9. O Inteli transfere dados pessoais para outros países?"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli poderá transferir dados pessoais de seus usuários para fora do Brasil, desde que estes países ou organizações garantam um nível de proteção de dados equivalente ao da LGPD. As transferências são realizadas para:",
+      "section": "Política de Privacidade",
+      "subsection": "9. O Inteli transfere dados pessoais para outros países?"
+    },
+    {
+      "type": "list_block",
+      "text": "O Inteli poderá transferir dados pessoais de seus usuários para fora do Brasil, desde que estes países ou organizações garantam um nível de proteção de dados equivalente ao da LGPD. As transferências são realizadas para:\n\n- Prestação de Serviços: Hospedagem de bases de dados, suporte técnico, segurança, entre outros.",
+      "section": "Política de Privacidade",
+      "subsection": "9. O Inteli transfere dados pessoais para outros países?",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "Todas as transferências internacionais obedecem às bases legais previstas na LGPD e são realizadas mediante contratos que asseguram a proteção dos dados pessoais.",
+      "section": "Política de Privacidade",
+      "subsection": "9. O Inteli transfere dados pessoais para outros países?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "10. Quais são os seus direitos como titular de dados pessoais?",
+      "section": "Política de Privacidade",
+      "subsection": "10. Quais são os seus direitos como titular de dados pessoais?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Conforme a LGPD, os titulares de dados pessoais possuem os seguintes direitos:",
+      "section": "Política de Privacidade",
+      "subsection": "10. Quais são os seus direitos como titular de dados pessoais?"
+    },
+    {
+      "type": "list_block",
+      "text": "Conforme a LGPD, os titulares de dados pessoais possuem os seguintes direitos:\n\n- Confirmação e Acesso: Verificar o tratamento de seus dados e obter uma cópia dos mesmos.\n- Correção: Solicitar a correção de dados incompletos, inexatos ou desatualizados.\n- Anonimização, Bloqueio ou Eliminação: Pedir a anonimização, bloqueio temporário ou eliminação de seus dados.\n- Portabilidade: Solicitar a transferência de seus dados para outro fornecedor de serviço ou produto.\n- Informação sobre Compartilhamento: Saber com quais entidades públicas e privadas os dados são compartilhados.\n- Informação sobre a Possibilidade de Não Consentir: Receber informações claras sobre a possibilidade de não consentir com o tratamento de dados e as consequências.\n- Revogação do Consentimento: Revogar o consentimento dado para o tratamento de dados, sem afetar a legalidade do tratamento anterior.\n- Revisão de Decisões Automatizadas: Solicitar a revisão de decisões automatizadas que possam afetar seus interesses.",
+      "section": "Política de Privacidade",
+      "subsection": "10. Quais são os seus direitos como titular de dados pessoais?",
+      "original_count": 8
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli tem o compromisso de atender às solicitações dos titulares de dados, observados os limites da regulamentação aplicável.",
+      "section": "Política de Privacidade",
+      "subsection": "10. Quais são os seus direitos como titular de dados pessoais?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Caso o titular de dados tenha alguma dúvida sobre essas questões ou sobre como pode exercer esses direitos, solicitamos que entre em contato através dos canais informados nesta Política.",
+      "section": "Política de Privacidade",
+      "subsection": "10. Quais são os seus direitos como titular de dados pessoais?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "11. Por quanto tempo os dados pessoais serão armazenados?",
+      "section": "Política de Privacidade",
+      "subsection": "11. Por quanto tempo os dados pessoais serão armazenados?"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli armazena e mantém suas informações:",
+      "section": "Política de Privacidade",
+      "subsection": "11. Por quanto tempo os dados pessoais serão armazenados?"
+    },
+    {
+      "type": "paragraph",
+      "text": "(i) pelo tempo exigido por lei;(ii) até o término do tratamento de dados pessoais, conforme mencionado abaixo; ou(iii) pelo tempo necessário a preservar o legítimo interesse do Inteli. Assim, os dados serão tratados, por exemplo, durante os prazos prescricionais aplicáveis ou enquanto necessário para cumprimento de obrigação legal ou regulatória. O término do tratamento de dados pessoais ocorrerá nos seguintes casos:",
+      "section": "Política de Privacidade",
+      "subsection": "11. Por quanto tempo os dados pessoais serão armazenados?",
+      "original_count": 2
+    },
+    {
+      "type": "list_block",
+      "text": "O término do tratamento de dados pessoais ocorrerá nos seguintes casos:\n\n- Quando a finalidade pela qual os dados pessoais do Titular foram coletados for alcançada e/ou os dados pessoais coletados deixarem de ser necessários ou pertinentes ao alcance de tal finalidade;\n- Quando o Titular estiver em seu direito de solicitar o término do tratamento e a exclusão de seus dados pessoais e o fizer; e\n- Quando houver uma determinação legal neste sentido.",
+      "section": "Política de Privacidade",
+      "subsection": "11. Por quanto tempo os dados pessoais serão armazenados?",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "Nesses casos de término de tratamento de dados pessoais, ressalvadas as hipóteses estabelecidas pela legislação aplicável ou pela presente Política de Privacidade, os dados pessoais serão eliminados.",
+      "section": "Política de Privacidade",
+      "subsection": "11. Por quanto tempo os dados pessoais serão armazenados?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "12. Quais são as responsabilidades do Inteli e como os dados pessoais são protegidos?",
+      "section": "Política de Privacidade",
+      "subsection": "12. Quais são as responsabilidades do Inteli e como os dados pessoais são protegidos?"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli é responsável por cuidar dos dados pessoais coletados e utilizá-los para finalidades lícitas, conforme descrito nesta Política. E para garantir a privacidade e a proteção dos seus dados pessoais, o Inteli adota as práticas de segurança adequadas para o seu mercado, entre as quais:",
+      "section": "Política de Privacidade",
+      "subsection": "12. Quais são as responsabilidades do Inteli e como os dados pessoais são protegidos?"
+    },
+    {
+      "type": "list_block",
+      "text": "O Inteli é responsável por cuidar dos dados pessoais coletados e utilizá-los para finalidades lícitas, conforme descrito nesta Política. E para garantir a privacidade e a proteção dos seus dados pessoais, o Inteli adota as práticas de segurança adequadas para o seu mercado, entre as quais:\n\n- Criptografia e sistemas de dupla autenticação.\n- Treinamentos e políticas de conscientização para colaboradores sobre como evitar riscos ao Titular dos Dados e identificar ameaças e atividades maliciosas;.\n- Controles e privilégios de acesso a dados pessoais, de modo que cada colaborador somente pode acessar os dados estritamente necessários para o desempenho de suas funções;\n- Controle e monitoramento preventivo de incidentes de segurança, incluindo vazamento de dados, realizado pelo nosso time de Segurança da Informação e por ferramentas automatizadas de segurança reconhecidas pelo mercado;\n- elaboração e execução de plano de auditoria interna, que considera tanto as auditorias de risco quanto regulatórias; e\n- estabelecimento de medidas disciplinares em caso de violação da privacidade dos dados conforme necessário, incluindo desligamento.",
+      "section": "Política de Privacidade",
+      "subsection": "12. Quais são as responsabilidades do Inteli e como os dados pessoais são protegidos?",
+      "original_count": 6
+    },
+    {
+      "type": "paragraph",
+      "text": "O Inteli trabalha para proteger seus dados pessoais e a que tem acesso. Entrada ou uso não autorizado de terceiros em sua conta, falha de hardware ou software que não esteja sob controle do Inteli e outros fatores podem comprometer a segurança dos seus dados pessoais. Por isso, a atuação do titular do dado é fundamental para a manutenção de um ambiente seguro para todos. O titular de dados pode ajudar adotando boas práticas de segurança em relação aos seus dados (como, por exemplo, não compartilhar senhas com terceiros), e caso o titular de dados identifique ou tome conhecimento de algo que comprometa a segurança dos seus dados, por favor entre em contato com o Inteli por meio do Encarregado, cujos canais de contato se encontram nesta política.",
+      "section": "Política de Privacidade",
+      "subsection": "12. Quais são as responsabilidades do Inteli e como os dados pessoais são protegidos?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "13. Como falar sobre dados pessoais com o Inteli?",
+      "section": "Política de Privacidade",
+      "subsection": "13. Como falar sobre dados pessoais com o Inteli?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Se o titular de dados acredita que seus dados pessoais foram usados de maneira incompatível com esta Política de Privacidade ou com as suas escolhas enquanto Titular destes dados pessoais, ou, ainda, se o titular de dados tiver dúvidas, comentários ou sugestões relacionadas a esta Política, entre em contato a partir do canal indicado abaixo.",
+      "section": "Política de Privacidade",
+      "subsection": "13. Como falar sobre dados pessoais com o Inteli?"
+    },
+    {
+      "type": "list_block",
+      "text": "Se o titular de dados acredita que seus dados pessoais foram usados de maneira incompatível com esta Política de Privacidade ou com as suas escolhas enquanto Titular destes dados pessoais, ou, ainda, se o titular de dados tiver dúvidas, comentários ou sugestões relacionadas a esta Política, entre em contato a partir do canal indicado abaixo.\n\n- Encarregado: Guilherme van de Velde\n- E-mail:lgpd@inteli.edu.br\n- Endereço para correspondência: Avenida Professor Almeida Prado, 532, Prédio 5, Butantã, São Paulo – SP. CEP: 05508-901",
+      "section": "Política de Privacidade",
+      "subsection": "13. Como falar sobre dados pessoais com o Inteli?",
+      "original_count": 3
+    }
+  ],
+  "statistics": {
+    "total_blocks": 114,
+    "paragraphs": 70,
+    "headings": 38,
+    "list_items": 91,
+    "tables": 0
+  }
+}

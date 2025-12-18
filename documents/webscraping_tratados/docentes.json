@@ -1,0 +1,353 @@
+{
+  "source_file": "docentes.html",
+  "metadata": {
+    "url": "docentes",
+    "title": "Docentes - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "",
+    "keywords": [],
+    "page_type": "equipe"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Conheça nosso Corpo Docente",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "A metodologia de ensino baseada em projetos (PBL) nos permite ter um grupo de professores diversificado, com especialidades múltiplas e complementares, para melhor orientar os alunos durante os projetos. Os nossos docentes trabalham em 'teaching teams', cujas formações abrangem as áreas de computação, negócios e liderança, além de especializações amplas, como inteligência artificial, cibersegurança, UX, matemática, finanças, marketing, comunicação, entre outras. Todo o nosso corpo docente é composto por Mestres e Doutores, o que combina experiência acadêmica e de mercado, permitindo uma constante troca de conhecimento e enriquecendo a experiência dos alunos.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Professores Orientadores",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "paragraph",
+      "text": "Acompanham os alunos durante todo o projeto, fazem os rituais de planejamento e de apresentação para o parceiro de mercado.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Ana Cristina do Santos",
+      "text": "Ana Cristina do Santos: Professora, gestora Acadêmica e Educação Corporativa e 28 anos de experiência docente e gestão",
+      "description": "Professora, gestora Acadêmica e Educação Corporativa e 28 anos de experiência docente e gestão",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Bryan Kano",
+      "text": "Bryan Kano: Cibersegurança. Proteção de Dados e Privacidade. Inteligência Artificial. Professor, consultor e empreendedor.",
+      "description": "Cibersegurança. Proteção de Dados e Privacidade. Inteligência Artificial. Professor, consultor e empreendedor.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Cesar Almiñana",
+      "text": "Cesar Almiñana: Engenheiro, diretor de projetos e professor de negócios e Inteligência Artificial",
+      "description": "Engenheiro, diretor de projetos e professor de negócios e Inteligência Artificial",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Claudio André",
+      "text": "Claudio André: Sistemas de Informação, Estratégia e gestão de Negócios Online, Educação Empreendedora Digital. 30 anos de experiência acadêmica e mercado corporativo.",
+      "description": "Sistemas de Informação, Estratégia e gestão de Negócios Online, Educação Empreendedora Digital. 30 anos de experiência acadêmica e mercado corporativo.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Egon F Daxbacher",
+      "text": "Egon F Daxbacher: Gestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado",
+      "description": "Gestão de projetos, Estratégia e Inovação, 14 anos de experiência acadêmica e 25 anos de mercado",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Hermano Peixoto de Oliveira Junior",
+      "text": "Hermano Peixoto de Oliveira Junior: Profissional de Tecnologia da Informação e professor universitário na área de computação e engenharia elétrica",
+      "description": "Profissional de Tecnologia da Informação e professor universitário na área de computação e engenharia elétrica",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "José Romualdo Costa",
+      "text": "José Romualdo Costa: Professor dos cursos de Engenharia de Software, com foco em transformação digital, adoção de nuvem e agilidade.",
+      "description": "Professor dos cursos de Engenharia de Software, com foco em transformação digital, adoção de nuvem e agilidade.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Julia Stateri",
+      "text": "Julia Stateri: Design, Produção Cultural e Gamificação. 20 anos de experiência na área de games e 16 anos de experiência acadêmica.",
+      "description": "Design, Produção Cultural e Gamificação. 20 anos de experiência na área de games e 16 anos de experiência acadêmica.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Laíza Ribeiro Silva",
+      "text": "Laíza Ribeiro Silva: Tecnologias Educacionais, Gamificação, Interação Humano-Computador, 5 anos de experiência na academia.",
+      "description": "Tecnologias Educacionais, Gamificação, Interação Humano-Computador, 5 anos de experiência na academia.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Luciano Galdino",
+      "text": "Luciano Galdino: Docente há 23 anos, sendo 15 anos no Ensino Superior nas disciplinas de Matemática e Física. Experiência de 10 anos na indústria.",
+      "description": "Docente há 23 anos, sendo 15 anos no Ensino Superior nas disciplinas de Matemática e Física. Experiência de 10 anos na indústria.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Marcelo Gonçalves",
+      "text": "Marcelo Gonçalves: Sistemas de Informação. 38 anos de experiência no mercado de Tecnologia da Informação e 18 anos de experiência na academia.",
+      "description": "Sistemas de Informação. 38 anos de experiência no mercado de Tecnologia da Informação e 18 anos de experiência na academia.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Ovidio Lopes da Cruz Netto",
+      "text": "Ovidio Lopes da Cruz Netto: Professor na área de Programação. Mais de 20 anos de experiência no mercado e na docência.",
+      "description": "Professor na área de Programação. Mais de 20 anos de experiência no mercado e na docência.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Reginaldo Arakaki",
+      "text": "Reginaldo Arakaki: Professor Doutor em Engenharia de Computação e Sistemas Digitais pela USP. Linha de pesquisa – Aplicação industrial de Arquitetura com IoT e Digital Twin",
+      "description": "Professor Doutor em Engenharia de Computação e Sistemas Digitais pela USP. Linha de pesquisa – Aplicação industrial de Arquitetura com IoT e Digital Twin",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Renato Penha",
+      "text": "Renato Penha: Sistemas de Informação. 25 anos de experiência no mercado de Tecnologia da Informação e 12 anos de experiência na academia.",
+      "description": "Sistemas de Informação. 25 anos de experiência no mercado de Tecnologia da Informação e 12 anos de experiência na academia.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Rodolfo Goya",
+      "text": "Rodolfo Goya: Computação. 44 anos de experiência em todas as áreas ligadas à computação.",
+      "description": "Computação. 44 anos de experiência em todas as áreas ligadas à computação.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Rodrigo Nicola",
+      "text": "Rodrigo Nicola: Robótica, Automação, Sistemas Embarcados e IA. 6 anos de experiência na academia e mercado.",
+      "description": "Robótica, Automação, Sistemas Embarcados e IA. 6 anos de experiência na academia e mercado.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Sérgio Venâncio",
+      "text": "Sérgio Venâncio: Experiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.",
+      "description": "Experiência do Usuário, Design de Interação, Artes e Novas Tecnologias e 13 anos de experiência no mercado, 7 anos como professor e pesquisador.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Tomaz Sasaki",
+      "text": "Tomaz Sasaki: Desenvolvimento de Sistemas e Arquitetura de Software. 27 anos de experiência",
+      "description": "Desenvolvimento de Sistemas e Arquitetura de Software. 27 anos de experiência",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Vanessa Tavares Nunes",
+      "text": "Vanessa Tavares Nunes: Professora Orientadora do Curso de Engenharia de Software. Fundadora da empresa SE7Ti – tecnologia e Informação que atua em consultoria e treinamento em Arquitetura Corporativa.",
+      "description": "Professora Orientadora do Curso de Engenharia de Software. Fundadora da empresa SE7Ti – tecnologia e Informação que atua em consultoria e treinamento em Arquitetura Corporativa.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Orientadores"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Professores Especialistas",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Super especialistas do conhecimento, responsáveis pela facilitação da aprendizagem dos conteúdos técnicos para a condução dos projetos.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Afonso Cesar Lelis Brandão",
+      "text": "Afonso Cesar Lelis Brandão: Engenheiro e pesquisador, trabalho na área de indústria e processos de qualidade utilizando IA e arquitetura de software.",
+      "description": "Engenheiro e pesquisador, trabalho na área de indústria e processos de qualidade utilizando IA e arquitetura de software.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "André Godoi",
+      "text": "André Godoi: Internet of Things e Sistemas Embarcados. 19 anos de experiência no Ensino e Mercado.",
+      "description": "Internet of Things e Sistemas Embarcados. 19 anos de experiência no Ensino e Mercado.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Bruna Mayer Costa",
+      "text": "Bruna Mayer Costa: Artista Multimídia, Designer e Professora. Pesquisa as relações entre Arte, Ciência e Tecnologia.",
+      "description": "Artista Multimídia, Designer e Professora. Pesquisa as relações entre Arte, Ciência e Tecnologia.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Cristiano Da Silva Benites",
+      "text": "Cristiano Da Silva Benites: Professor Especialista em Pensamento Computacional, pesquisador na área de IA para soluções na área da saúde e educação inclusiva, 18 anos experiência mercado e docência.",
+      "description": "Professor Especialista em Pensamento Computacional, pesquisador na área de IA para soluções na área da saúde e educação inclusiva, 18 anos experiência mercado e docência.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Cristina Gramani",
+      "text": "Cristina Gramani: Matemática, Pesquisa Operacional e Business Analytics. 21 anos de experiência na academia e em consultoria.",
+      "description": "Matemática, Pesquisa Operacional e Business Analytics. 21 anos de experiência na academia e em consultoria.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Diogo Martins Gonçalves De Moraes",
+      "text": "Diogo Martins Gonçalves De Moraes: Professor de Estatística e Matemática aplicada nas Engenharias e Administração.",
+      "description": "Professor de Estatística e Matemática aplicada nas Engenharias e Administração.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Fernando Pizzo Ribeiro",
+      "text": "Fernando Pizzo Ribeiro: Engenheiro elétrico. Mais de 15 anos de experiência como docente universitário nas disciplinas relacionadas à matemática.",
+      "description": "Engenheiro elétrico. Mais de 15 anos de experiência como docente universitário nas disciplinas relacionadas à matemática.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Filipe Gonçalves",
+      "text": "Filipe Gonçalves: Professor de paixão e profissão, há 12 anos lidera experiências educativas transformadoras em instituições de ensino e organizações.",
+      "description": "Professor de paixão e profissão, há 12 anos lidera experiências educativas transformadoras em instituições de ensino e organizações.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Fillipe Resina",
+      "text": "Fillipe Resina: Ciência da Computação. 4 anos de experiência no mercado e 2 anos e meio na academia.",
+      "description": "Ciência da Computação. 4 anos de experiência no mercado e 2 anos e meio na academia.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Flávia Santoro",
+      "text": "Flávia Santoro: Sistemas de Informação, Gestão de Negócios, 24 anos de experiência.",
+      "description": "Sistemas de Informação, Gestão de Negócios, 24 anos de experiência.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Francisco Escobar",
+      "text": "Francisco Escobar: UX Designer, Game Designer, Filósofo, 20 anos de experiência como professor e desenvolvedor.",
+      "description": "UX Designer, Game Designer, Filósofo, 20 anos de experiência como professor e desenvolvedor.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Geraldo Vasconcelos",
+      "text": "Geraldo Vasconcelos: Professor na área de Física, Matemática e Estatística com 10 anos de experiência no Ensino Superior.",
+      "description": "Professor na área de Física, Matemática e Estatística com 10 anos de experiência no Ensino Superior.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Guilherme Cestari",
+      "text": "Guilherme Cestari: Professor e pesquisador de Design/UX nas áreas de Computação, Design e Jogos Digitais, especializado em Semiótica.",
+      "description": "Professor e pesquisador de Design/UX nas áreas de Computação, Design e Jogos Digitais, especializado em Semiótica.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Henrique Mohallem Paiva",
+      "text": "Henrique Mohallem Paiva: Simulações Computacionais, Sistemas de Controle Automático, 20 anos de experiência em pesquisa e desenvolvimento tecnológico.",
+      "description": "Simulações Computacionais, Sistemas de Controle Automático, 20 anos de experiência em pesquisa e desenvolvimento tecnológico.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Jefferson De Oliveira Silva",
+      "text": "Jefferson De Oliveira Silva: Professor e Pesquisador em Ciência da Computação, Engenharia de Software e Inteligência Artificial.",
+      "description": "Professor e Pesquisador em Ciência da Computação, Engenharia de Software e Inteligência Artificial.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Mauricio Garcia",
+      "text": "Mauricio Garcia: Inovação, Tecnologia e Negócios Digitais, 40 anos de experiência acadêmica e profissional.",
+      "description": "Inovação, Tecnologia e Negócios Digitais, 40 anos de experiência acadêmica e profissional.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Michele Bazana",
+      "text": "Michele Bazana: Engenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.",
+      "description": "Engenharia de Computação e Engenharia Mecatrônica. 18 anos de experiência acadêmica na área de engenharia.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    },
+    {
+      "type": "professor_info",
+      "professor_name": "Murilo Zanini De Carvalho",
+      "text": "Murilo Zanini De Carvalho: Automação Industrial, Sistemas Embarcados, IA e desenvolvimento Full Stack. 11 anos de experiência na academia e mercado.",
+      "description": "Automação Industrial, Sistemas Embarcados, IA e desenvolvimento Full Stack. 11 anos de experiência na academia e mercado.",
+      "section": "Conheça nosso Corpo Docente",
+      "subsection": "Professores Especialistas"
+    }
+  ],
+  "statistics": {
+    "total_blocks": 43,
+    "professors_orientadores": 19,
+    "professors_especialistas": 18,
+    "total_professors": 37
+  }
+}

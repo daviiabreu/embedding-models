@@ -1,0 +1,167 @@
+{
+  "source_file": "o-mundo-conectado-comeca-aqui-projetos-reais-com-internet-das-coisas.html",
+  "metadata": {
+    "url": "o-mundo-conectado-comeca-aqui-projetos-reais-com-internet-das-coisas",
+    "title": "O mundo conectado começa aqui: projetos reais com Internet das Coisas - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "Descubra como alunos do Inteli criam soluções reais em IoT, unindo tecnologia, dados e propósito em projetos com impacto social e corporativo.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduação>O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduação>O mundo conectado começa aqui: projetos reais com Internet das Coisas\n\n- Bruna Mayer\n- 13 out 2025\n- Bruna Mayer\n- 13 out 2025",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Sabemos que as nossas tecnologias não funcionam em caixas isoladas. É preciso que as partes troquem dados, que as coisas conversem e que as peças se encaixem, estabelecendo comunicação de forma consistente e nos momentos necessários.",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "No Inteli, essa lógica vai além da tecnologia. Nossametodologiaatravessa barreiras disciplinares e conecta computação, matemática, negócios, liderança e design, formando um ecossistema de aprendizagem em que a excelência técnica anda junto com uma visão sistêmica e aplicada na prática.",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Soluções IoT desenvolvidas pelos alunos",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "No último módulo do 1º ano, os alunos desenvolvemsoluções de IoT (Internet of Things), criando sistemas completos para nossos parceiros de projeto: do entendimento da empresa, suas pessoas, processos e contexto à prototipagem de hardware, software embarcado, bancos de dados e telas web para operação dos dispositivos.",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Parceria com a PRODESP",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Com aPRODESP(empresa de tecnologia do Governo de São Paulo), o desafio proposto aos alunos foi rastrear cerca de 170 mil ativos distribuídos em 250 locais, incluindo unidades do Poupatempo. Para isso, os grupos desenvolveram soluções com microcontroladores ESP32 (Wi-Fi + BLE), módulos RFID e comunicação via MQTT, além de bancos de dados (SQL) e interfaces web (JavaScript).",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Os protótipos eletrônicos contaram com LEDs, buzzers e displays LCD, abrigados em cases produzidos por impressão 3D e corte a laser. Os MVPs finais viabilizaram a localização e o gerenciamento de ativos em larga escala, incluindo telas e lógicas de usabilidade que permitiam que múltiplos usuários acessassem e operassem o sistema de forma simples e confiável.",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Parceria com o Instituto Apontar",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Já com oInstituto Apontar(ONG que apoia jovens superdotados), o desafio era eliminar o controle manual de acessos ao prédio, que gerava problemas logísticos e vulnerabilidades de segurança.",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Para isso, os alunos desenvolveram sistemas baseados em ESP32, com autenticação por impressão digital, RFID e teclados matriciais, capazes de acionar fechaduras elétricas e oferecer feedback imediato em LEDs, buzzer e display LCD.",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "A comunicação em tempo real via MQTT integrava os registros a aplicações web conectadas ao Google Workspace (Sheets API) e exibia os dados na interface do sistema, permitindo monitorar e operar acessos, registrar a presença dos alunos e gerar relatórios automáticos de frequência, além de enviar notificações aos pais sobre a chegada dos filhos no instituto.",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nesse projeto houve ainda atenção especial à LGPD, com a adoção de criptografia de dados biométricos, mecanismos de tolerância a falhas e armazenamento offline, garantindo a integridade dos registros mesmo em situações de instabilidade de rede.",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Essas experiências mostram que, já ao final do primeiro ano, nossos alunos aqui no Inteli não apenas conhecem conceitos de hardware, software e análise matemática, mas sabem aplicá-los no design de sistemas, conectando tecnologia, pessoas e propósitos em soluções robustas e responsáveis. “Aqui, nossos alunos não falam de futuro. Eles constroem.” Compartilhe: Veja também:",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos",
+      "original_count": 4
+    },
+    {
+      "type": "list_block",
+      "text": "Veja também:\n\n- Graduação,Processo Seletivo,Time Acadêmico",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "Qual a diferença entre Engenharia de Computação e Engenharia de Software?",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "list_block",
+      "text": "Qual a diferença entre Engenharia de Computação e Engenharia de Software?\n\n- Renato Penha\n- 30/09/2025\n- Mercado Tech",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "O início da jornada profissional",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "list_block",
+      "text": "O início da jornada profissional\n\n- Time Inteli\n- 08/02/2024\n- Time Acadêmico",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "Da clava ao bit: a epopeia das tecnologias até a computação",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos"
+    },
+    {
+      "type": "list_block",
+      "text": "Da clava ao bit: a epopeia das tecnologias até a computação\n\n- Mauricio Garcia\n- 01/11/2023",
+      "section": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "subsection": "Soluções IoT desenvolvidas pelos alunos",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 23,
+    "paragraphs": 17,
+    "headings": 4,
+    "list_items": 13,
+    "tables": 0
+  }
+}

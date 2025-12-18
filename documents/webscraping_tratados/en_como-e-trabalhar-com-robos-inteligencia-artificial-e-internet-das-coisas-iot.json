@@ -1,0 +1,198 @@
+{
+  "source_file": "en_como-e-trabalhar-com-robos-inteligencia-artificial-e-internet-das-coisas-iot.html",
+  "metadata": {
+    "url": "en_como-e-trabalhar-com-robos-inteligencia-artificial-e-internet-das-coisas-iot",
+    "title": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT) - Inteli - Institute of Technology and Leadership",
+    "description": "Discover how robots, artificial intelligence and IoT are already part of the present and how Inteli students apply these technologies in real projects.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduation>What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduation>What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)\n\n- Inteli Team\n- 2 Oct 2025\n- Inteli Team\n- 2 Oct 2025",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "by Victor Hayashi and Murilo Zanini (Inteli professors) and Luiza Rubim (Inteli student)",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "What would it be like ifrobotscould perform tasks such as picking things up, assembling sets of elements and interacting with us during the process? Better still, imagine if we could measure and check the status of many things at the same time!? Think about the possibilities:",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": null,
+      "original_count": 2
+    },
+    {
+      "type": "list_block",
+      "text": "Think about the possibilities:\n\n- Refrigerators that inform the manufacturer when a product has come in a larger quantity than necessary.\n- Appliances that help people who live alone, reducing accidents.\n- Invisible technologies, such as cellular networks, which change generation without us noticing.",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": null,
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "Now think that this world is nothing more than our world. And not only is it our world, it's alsoour present time.",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Robots are already present in many areas",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "Robots are already present in many areas"
+    },
+    {
+      "type": "paragraph",
+      "text": "It may seem far-fetched to imagine robots carrying out everyday tasks, but they are already part of our routine.",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "Robots are already present in many areas"
+    },
+    {
+      "type": "list_block",
+      "text": "It may seem far-fetched to imagine robots carrying out everyday tasks, but they are already part of our routine.\n\n- In distribution centers, they help online purchases arrive faster.\n- In hospitals, they support healthcare professionals in sorting medicines.",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "Robots are already present in many areas",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "All of this is built on processes that humanity has evolved over the years.",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "Robots are already present in many areas"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "What does this have to do with Inteli?",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "What does this have to do with Inteli?"
+    },
+    {
+      "type": "paragraph",
+      "text": "InInteli's courses, we work withprojects and partnersthat allow us to design and architect solutions that use robots and sensors to solve real problems. Some examples of solutions developed here:",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "What does this have to do with Inteli?",
+      "original_count": 2
+    },
+    {
+      "type": "list_block",
+      "text": "Some examples of solutions developed here:\n\n- Separation of medicines\n- Aircraft condition monitoring\n- Checking fluid transfer systems",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "What does this have to do with Inteli?",
+      "original_count": 3
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Do I need to know anything beforehand to work with these systems?",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "Do I need to know anything beforehand to work with these systems?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Great question!",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "Do I need to know anything beforehand to work with these systems?"
+    },
+    {
+      "type": "paragraph",
+      "text": "These systems bring something widely used in computing to the physical world:abstraction.Withabstraction, we can represent actions (such as picking up an object or making a robot move) without needing to know the full complexity of the process.",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "Do I need to know anything beforehand to work with these systems?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "The importance of building in layers",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers"
+    },
+    {
+      "type": "paragraph",
+      "text": "This doesn't mean that you don't need specific knowledge. Quite the opposite. What happens is that, with abstraction, this knowledge can be built up inlayers:",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers",
+      "original_count": 2
+    },
+    {
+      "type": "list_block",
+      "text": "What happens is that, with abstraction, this knowledge can be built up inlayers:\n\n- Every layer you conquer represents more learning.\n- This cycle brings the student closer to understanding how the elements work in their entirety.\n- Working with these applied systems gives meaning to learning, in what we callmeaningful learning.",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers",
+      "original_count": 3
+    },
+    {
+      "type": "list_block",
+      "text": "See also:\n\n- Graduation,Tech Market,Selection Process,Academic Team",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "The connected world starts here: real projects with the Internet of Things",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers"
+    },
+    {
+      "type": "list_block",
+      "text": "The connected world starts here: real projects with the Internet of Things\n\n- Bruna Mayer\n- 13/10/2025\n- Graduation,Selection Process,Academic Team",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "What is the difference between Computer Engineering and Software Engineering?",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers"
+    },
+    {
+      "type": "list_block",
+      "text": "What is the difference between Computer Engineering and Software Engineering?\n\n- Renato Penha\n- 30/09/2025\n- Tech Market",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "The start of the professional journey",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers"
+    },
+    {
+      "type": "list_block",
+      "text": "The start of the professional journey\n\n- Inteli Team\n- 08/02/2024",
+      "section": "What it's like to work with robots, artificial intelligence and the Internet of Things (IoT)",
+      "subsection": "The importance of building in layers",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 27,
+    "paragraphs": 16,
+    "headings": 5,
+    "list_items": 24,
+    "tables": 0
+  }
+}

@@ -8,6 +8,7 @@ from google.adk.tools.tool_context import ToolContext
 # Add parent directory to path for utils import
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from backend.agent_flow.utils.json_parser import parse_llm_json
+from typing import Optional, List, Dict, Any
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
@@ -39,7 +40,7 @@ def retrieve_relevant_context(
     tool_context: ToolContext,
     top_k: int = 5,
     similarity_threshold: float = 0.7,
-    sources: list[str] | None = None,
+    sources: Optional[List[str]] = None,
 ) -> dict:
     """Retrieve relevant context from conversation history ONLY.
 
@@ -849,7 +850,7 @@ def extract_key_information(
     context: str,
     query: str,
     tool_context: ToolContext,
-    info_types: list[str] | None = None,
+    info_types: Optional[List[str]] = None,
 ) -> dict:
     """Extract key facts and entities from context. Identifies entities (people, places, organizations), dates, numbers, and other important information types."""
     if not os.getenv("GOOGLE_API_KEY"):
@@ -1671,7 +1672,7 @@ def manage_context(
     query: str,
     conversation_history: list[str],
     tool_context: ToolContext,
-    operations: list[str] | None = None,
+    operations: Optional[List[str]] = None,
     max_tokens: int = 8000,
 ) -> dict:
     """Comprehensive context management wrapper. Orchestrates retrieve, rank, filter, deduplicate, optimize, and format operations for complete context handling."""

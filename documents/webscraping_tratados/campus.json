@@ -1,0 +1,67 @@
+{
+  "source_file": "campus.html",
+  "metadata": {
+    "url": "campus",
+    "title": "Campus - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "",
+    "keywords": [],
+    "page_type": "infraestrutura"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Conheça nosso campus",
+      "section": "Conheça nosso campus",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Um oásis para o aprendizado dos nossos  alunos",
+      "section": "Conheça nosso campus",
+      "subsection": "Um oásis para o aprendizado dos nossos  alunos"
+    },
+    {
+      "type": "paragraph",
+      "text": "10.000 m2de área total 14 áreas de convivência Aprendizagem, Bem-estar e Convivência. Salas de aula para Metodologias Ativas (Ateliês) Laboratório Espaços de estudo individual Salas para reuniões em grupo Centro de Carreiras Centro de saúde e bem-estar Biblioteca Academia aberta Refeitório e alimentação saudável Sala de convivência (ioga, música, etc) Centro de apoio psicoemocional Espaço de jogos Sala administrativa e apoio acadêmico",
+      "section": "Conheça nosso campus",
+      "subsection": "Um oásis para o aprendizado dos nossos  alunos",
+      "original_count": 16
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Um ecossistema de inovação na cidade de São Paulo",
+      "section": "Conheça nosso campus",
+      "subsection": "Um ecossistema de inovação na cidade de São Paulo"
+    },
+    {
+      "type": "paragraph",
+      "text": "Localizado na Avenida Professor Almeida Prado, número 520, no Butantã, dentro da Cidade Universitária. O galpão onde construímos toda a nossa estrutura é de 1902, um dos mais antigos do IPT, e teve uma importância imensa para a indústria brasileira na primeira metade do século XX.",
+      "section": "Conheça nosso campus",
+      "subsection": "Um ecossistema de inovação na cidade de São Paulo"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Por que estamos dentro do campus da USP?",
+      "section": "Conheça nosso campus",
+      "subsection": "Por que estamos dentro do campus da USP?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Criado pelo Governo do Estado de São Paulo, o IPT Open faz parte do IPT, um dos maiores centros de pesquisa e tecnologia do país, localizado dentro do campus da USP. O objetivo é criar um verdadeiro distrito de inovação na América Latina, tornando São Paulo uma referência global em ciência, tecnologia e inovação. O Inteli tem orgulho de fazer parte deste ecossistema. Um ecossistema de inovação na cidade de São Paulo Nosso campus está localizado no bairro do Butantã, dentro da Cidade Universitária. Av. Professor Almeida Prado, 520 – Butantã, 05508-901 – São Paulo/SP | Brasil.",
+      "section": "Conheça nosso campus",
+      "subsection": "Por que estamos dentro do campus da USP?",
+      "original_count": 4
+    }
+  ],
+  "statistics": {
+    "total_blocks": 7,
+    "paragraphs": 21,
+    "headings": 4,
+    "list_items": 0,
+    "tables": 0
+  }
+}

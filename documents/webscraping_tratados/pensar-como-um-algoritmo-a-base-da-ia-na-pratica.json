@@ -1,0 +1,200 @@
+{
+  "source_file": "pensar-como-um-algoritmo-a-base-da-ia-na-pratica.html",
+  "metadata": {
+    "url": "pensar-como-um-algoritmo-a-base-da-ia-na-pratica",
+    "title": "Pensar Como um Algoritmo: a Base da IA na Prática - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "O sucesso da IA vai além de dados: exige imersão no negócio, preparação estratégica e aplicação crítica. Veja como o Inteli forma profissionais completos.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduação>Pensar Como um Algoritmo: a Base da IA na Prática",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduação>Pensar Como um Algoritmo: a Base da IA na Prática\n\n- Thais Neubauer\n- 20 set 2025\n- Thais Neubauer\n- 20 set 2025",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Thais Neubauer – professora do Inteli",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "O sucesso de uma aplicação comInteligência Artificialvai muito além de dados e poder computacional. A clareza e a profundidade do raciocínio que antecedem os modelos exercem um papel igualmente, senão mais, importante. O primeiro passo, e talvez o mais crítico, é uma imersão completa no contexto donegócio.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Antes de qualquer análise, é preciso entender os objetivos, os processos e as dores que a solução com IA pretende resolver, para que então os dados possam ser compreendidos e preparados de forma adequada.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Imersão no negócio já gera valor",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Imersão no negócio já gera valor"
+    },
+    {
+      "type": "paragraph",
+      "text": "Essaimersãono negócio é tão poderosa que, por si só, já gera valor. Com a exploração inicial dosdadosguiada por um profundo entendimento de negócio, muitas perguntas relevantes para a tomada de decisão já podem ser respondidas.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Imersão no negócio já gera valor"
+    },
+    {
+      "type": "paragraph",
+      "text": "Por vezes, percebemos que umproblema complexopode ser resolvido sem IA, com análises estatísticas básicas. Quando aplicadas de forma alinhada aos objetivos, essas soluções mais simples superam modelos complexos por exigirem um investimento de recursos muito menor.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Imersão no negócio já gera valor"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Preparação dos dados como desafio intelectual",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Preparação dos dados como desafio intelectual"
+    },
+    {
+      "type": "paragraph",
+      "text": "Quando a IA é o caminho, a preparação dos dados se torna um desafio intelectual de tradução. É aqui que informações qualitativas e subjetivas do negócio são convertidas em representações estruturadas que os algoritmos conseguem processar. Decisões sobre como tratar ruídos, outliers ou valores faltantes dependem diretamente do contexto. O que parece um dado faltante pode ser, na verdade, um padrão de preenchimento do sistema que o entendimento do negócio nos permite decifrar.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Preparação dos dados como desafio intelectual"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Relevância da informação conforme o problema",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Relevância da informação conforme o problema"
+    },
+    {
+      "type": "paragraph",
+      "text": "A relevância de uma informação também muda conforme a modelagem do problema. Por exemplo, para um modelo que busca prever se um cliente abandonará um serviço (churn), o histórico de reclamações e a frequência de uso são dados essenciais.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Relevância da informação conforme o problema"
+    },
+    {
+      "type": "paragraph",
+      "text": "Já para um modelo que visa recomendar um novo produto para este mesmo cliente, seu histórico de navegação recente e compras passadas se tornam muito mais importantes que o número de reclamações. A decisão de como apresentar os dados ao algoritmo é, portanto, uma escolha estratégica.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Relevância da informação conforme o problema"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Negócio e conhecimento técnico como diferencial",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Negócio e conhecimento técnico como diferencial"
+    },
+    {
+      "type": "paragraph",
+      "text": "É nesse ponto que o entendimento do negócio e o conhecimento técnico aprofundado se unem como um grande diferencial. NoMódulo 3 do primeiro ano do Inteli, os alunos mergulham nos detalhes matemáticos eestatísticosque governam o funcionamento dosalgoritmos. Eles não aprendem apenas a usar uma biblioteca, mas a entender as premissas e os cenários ideais para cada técnica.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Negócio e conhecimento técnico como diferencial"
+    },
+    {
+      "type": "paragraph",
+      "text": "A escolha da ferramenta deixa de ser uma aplicação cega, guiada por hype, e se transforma em umadecisão de engenharia: estratégica, defensável e consciente de suas implicações.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Negócio e conhecimento técnico como diferencial"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Da base analítica à prática em projetos",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Da base analítica à prática em projetos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Com essa base analítica consolidada, a aplicação prática em projetos se torna o campo de provas para um raciocínio bem estruturado. Cada modelo construído e cada teste realizado é o resultado de uma hipótese clara e de uma análise criteriosa. O processo de iterar, falhar e refinar solidifica a conexão entre a teoria e o impacto tangível da solução, preparando o aluno para os desafios do mundo real.",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Da base analítica à prática em projetos"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Formação de profissionais completos",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Este método forma profissionais completos, que dialogam com a tecnologia em vez de apenas aplicá-la. Eles unem o conteúdo teórico aprofundado ao contexto de negócio para construir soluções, sabendo interpretar seus resultados de forma responsável. Este é o desenvolvimento de um framework mental que estabelece uma forma de trabalhar mais crítica, eficiente e verdadeiramente inovadora. Compartilhe: Veja também:",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos",
+      "original_count": 3
+    },
+    {
+      "type": "list_block",
+      "text": "Veja também:\n\n- Graduação,Mercado Tech,Processo Seletivo,Time Acadêmico",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "O mundo conectado começa aqui: projetos reais com Internet das Coisas",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos"
+    },
+    {
+      "type": "list_block",
+      "text": "O mundo conectado começa aqui: projetos reais com Internet das Coisas\n\n- Bruna Mayer\n- 13/10/2025\n- Graduação,Processo Seletivo,Time Acadêmico",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "Qual a diferença entre Engenharia de Computação e Engenharia de Software?",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos"
+    },
+    {
+      "type": "list_block",
+      "text": "Qual a diferença entre Engenharia de Computação e Engenharia de Software?\n\n- Renato Penha\n- 30/09/2025\n- Mercado Tech",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "O início da jornada profissional",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos"
+    },
+    {
+      "type": "list_block",
+      "text": "O início da jornada profissional\n\n- Time Inteli\n- 08/02/2024",
+      "section": "Pensar Como um Algoritmo: a Base da IA na Prática",
+      "subsection": "Formação de profissionais completos",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 28,
+    "paragraphs": 18,
+    "headings": 7,
+    "list_items": 13,
+    "tables": 0
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "source_file": "inteli-camp.html",
+  "metadata": {
+    "url": "inteli-camp",
+    "title": "Inteli Camp - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "Descubra o Inteli Camp, o programa de férias do Inteli para estudantes do 9º ano e Ensino Médio. Explore o mundo digital, aprenda programação, UX, IA e empreendedorismo, e construa projetos relevantes. Inscreva-se já!",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Uma imersão de 5 dias para estudantes do 9º ao 3º ano do ensino médio desenvolverem soluções integrando tecnologia e negócios.",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "O que é o Inteli Camp?",
+      "section": null,
+      "subsection": "O que é o Inteli Camp?"
+    },
+    {
+      "type": "paragraph",
+      "text": "No Inteli Camp, os estudantes têm a oportunidade de viver uma experiência transformadora: construir projetos reais em tecnologia, trabalhando em grupo e enfrentando desafios que desenvolvem habilidades e impulsionam a criação de soluções para o futuro.",
+      "section": null,
+      "subsection": "O que é o Inteli Camp?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Trilha de Tecnologia",
+      "section": null,
+      "subsection": "Trilha de Tecnologia"
+    },
+    {
+      "type": "paragraph",
+      "text": "Descubra como usar ferramentas de inteligência artificial para entender o que as pessoas estão sentindo nas redes sociais. Aprenda a encontrar padrões, interpretar informações de um jeito simples e transformar tudo isso em soluções criativas. Você ainda vai dar os primeiros passos em programação e aprender a criar gráficos que contam histórias!",
+      "section": null,
+      "subsection": "Trilha de Tecnologia"
+    },
+    {
+      "type": "list_block",
+      "text": "Descubra como usar ferramentas de inteligência artificial para entender o que as pessoas estão sentindo nas redes sociais. Aprenda a encontrar padrões, interpretar informações de um jeito simples e transformar tudo isso em soluções criativas. Você ainda vai dar os primeiros passos em programação e aprender a criar gráficos que contam histórias!\n\n- Análise de sentimentos em conteúdos sociais\n- Extração de dados e padrões emocionais\n- Visualização e interpretação de resultados",
+      "section": null,
+      "subsection": "Trilha de Tecnologia",
+      "original_count": 3
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Utilize ferramentas modernas para extrair insights valiosos",
+      "section": null,
+      "subsection": "Utilize ferramentas modernas para extrair insights valiosos"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Desenvolva projetos em equipes multidisciplinares",
+      "section": null,
+      "subsection": "Desenvolva projetos em equipes multidisciplinares"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Trilha de Empreendedorismo",
+      "section": null,
+      "subsection": "Trilha de Empreendedorismo"
+    },
+    {
+      "type": "paragraph",
+      "text": "Descubra oportunidades de negócio a partir das emoções do público nas redes sociais. Aprenda a interpretar relatórios, transformar percepções em modelos de negócios e criar propostas de valor. Desenvolva estratégias para impulsionar o crescimento de marcas usando suas próprias análises.",
+      "section": null,
+      "subsection": "Trilha de Empreendedorismo"
+    },
+    {
+      "type": "list_block",
+      "text": "Descubra oportunidades de negócio a partir das emoções do público nas redes sociais. Aprenda a interpretar relatórios, transformar percepções em modelos de negócios e criar propostas de valor. Desenvolva estratégias para impulsionar o crescimento de marcas usando suas próprias análises.\n\n- Identificação de oportunidades de mercado\n- Desenvolvimento de estratégias orientadas por dados\n- Criação e apresentação de propostas de valor",
+      "section": null,
+      "subsection": "Trilha de Empreendedorismo",
+      "original_count": 3
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Por que participar?",
+      "section": null,
+      "subsection": "Por que participar?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Aplicação de Ferramentas de IA",
+      "section": null,
+      "subsection": "Aplicação de Ferramentas de IA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Aprenda a utilizar ferramentas de inteligência artificial para entender o que as pessoas sentem nas redes sociais",
+      "section": null,
+      "subsection": "Aplicação de Ferramentas de IA"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Interpretação de Dados",
+      "section": null,
+      "subsection": "Interpretação de Dados"
+    },
+    {
+      "type": "paragraph",
+      "text": "Desenvolva a capacidade de extrair insights valiosos a partir de grandes volumes de informações",
+      "section": null,
+      "subsection": "Interpretação de Dados"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Estratégias de Negócios",
+      "section": null,
+      "subsection": "Estratégias de Negócios"
+    },
+    {
+      "type": "paragraph",
+      "text": "Transforme sentimentos e tendências em estratégias que fazem marcas crescerem de verdade",
+      "section": null,
+      "subsection": "Estratégias de Negócios"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Trabalho em Equipe",
+      "section": null,
+      "subsection": "Trabalho em Equipe"
+    },
+    {
+      "type": "paragraph",
+      "text": "Desenvolva habilidades de colaboração e comunicação em equipes multidisciplinares",
+      "section": null,
+      "subsection": "Trabalho em Equipe"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Pensamento Inovador",
+      "section": null,
+      "subsection": "Pensamento Inovador"
+    },
+    {
+      "type": "paragraph",
+      "text": "Estimule sua criatividade e capacidade de resolver problemas através de tecnologia",
+      "section": null,
+      "subsection": "Pensamento Inovador"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Comunicação Eficaz",
+      "section": null,
+      "subsection": "Comunicação Eficaz"
+    },
+    {
+      "type": "paragraph",
+      "text": "Aprenda a apresentar ideias e resultados de forma clara e persuasiva",
+      "section": null,
+      "subsection": "Comunicação Eficaz"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Depoimentos",
+      "section": null,
+      "subsection": "Depoimentos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Conheça as experiências dos participantes da edição anterior do Inteli Camp",
+      "section": null,
+      "subsection": "Depoimentos"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Yan Kruziski",
+      "section": null,
+      "subsection": "Yan Kruziski"
+    },
+    {
+      "type": "paragraph",
+      "text": "“Que experiência enriquecedora! Além de ter feito amigos que levarei para a vida toda, as conversas com o centro de desenvolvimento e liderança foram cruciais para me dar um direcionamento sobre minha vida profissional. As habilidades práticas que adquiri foram fundamentais para o desenvolvimento dos meus projetos individuais e, para minha surpresa, acabaram me trazendo um reconhecimento nas aulas da universidade.”",
+      "section": null,
+      "subsection": "Yan Kruziski"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Sara Sbardelotto",
+      "section": null,
+      "subsection": "Sara Sbardelotto"
+    },
+    {
+      "type": "paragraph",
+      "text": "“Me permitiu vivenciar a metodologia de projetos na prática e a ter meu primeiro contato com programação, ajudando inclusive na minha decisão de cursar Engenharia da Computação no Inteli posteriormente.”",
+      "section": null,
+      "subsection": "Sara Sbardelotto"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Felipe Lisak",
+      "section": null,
+      "subsection": "Felipe Lisak"
+    },
+    {
+      "type": "paragraph",
+      "text": "“Participar da trilha de empreendedorismo no Inteli Camp 2024 foi transformador: aprendi mais em uma semana do que em meses de teoria.”",
+      "section": null,
+      "subsection": "Felipe Lisak"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Veja agora como foi a edição de 2024!",
+      "section": null,
+      "subsection": "Veja agora como foi a edição de 2024!"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Quem pode participar?",
+      "section": null,
+      "subsection": "Quem pode participar?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Estudantes do 9º ano ao 3º ano do Ensino Médio",
+      "section": null,
+      "subsection": "Estudantes do 9º ano ao 3º ano do Ensino Médio"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Sem experiência prévia necessária",
+      "section": null,
+      "subsection": "Sem experiência prévia necessária"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Mentes curiosas e interessadas em inovação",
+      "section": null,
+      "subsection": "Mentes curiosas e interessadas em inovação"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Estrutura do Programa",
+      "section": null,
+      "subsection": "Estrutura do Programa"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "5 dias de imersão total",
+      "section": null,
+      "subsection": "5 dias de imersão total"
+    },
+    {
+      "type": "paragraph",
+      "text": "7 a 11 de Julho de 2025",
+      "section": null,
+      "subsection": "5 dias de imersão total"
+    },
+    {
+      "type": "paragraph",
+      "text": "Apresentação do desafio, formação das equipes e introdução nos conceitos de análise de redes sociais.",
+      "section": null,
+      "subsection": "5 dias de imersão total"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Atividades principais:",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "list_block",
+      "text": "Atividades principais:\n\n- Apresentação do desafio\n- Formação das equipes\n- Introdução à análise de dados\n- Primeiras ideias e brainstorming",
+      "section": null,
+      "subsection": "Atividades principais:",
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Aprofundamento nas ferramentas de análise e desenvolvimento das primeiras estratégias.",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Atividades principais:",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "list_block",
+      "text": "Atividades principais:\n\n- Workshops sobre as ferramentas usadas\n- Identificação de oportunidades\n- Primeiras análises dos dados colhidos\n- Criação do conceito da solução",
+      "section": null,
+      "subsection": "Atividades principais:",
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Início da construção do MVP (Produto Mínimo Viável) e fazendo os primeiros testes.",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Atividades principais:",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "list_block",
+      "text": "Atividades principais:\n\n- Construção do MVP (Produto Mínimo Viável)\n- Validação inicial\n- Implementação das ferramentas\n- Ajustes baseados em feedbacks",
+      "section": null,
+      "subsection": "Atividades principais:",
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Ajustando o MVP e início da preparação para a apresentação final.",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Atividades principais:",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "list_block",
+      "text": "Atividades principais:\n\n- Ajustando a solução desenvolvida\n- Preparação da apresentação\n- Testes e ajustes finais\n- Ensaios da apresentação",
+      "section": null,
+      "subsection": "Atividades principais:",
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Apresentação dos projetos para uma banca avaliadora, feedback e premiação para as melhores equipes.",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Atividades principais:",
+      "section": null,
+      "subsection": "Atividades principais:"
+    },
+    {
+      "type": "list_block",
+      "text": "Atividades principais:\n\n- Últimos ajustes da apresentação\n- Feedback com especialistas\n- Apresentação para a banca avaliadora\n- Premiação e encerramento",
+      "section": null,
+      "subsection": "Atividades principais:",
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Investimento para a sua evolução:",
+      "section": null,
+      "subsection": "Investimento para a sua evolução:"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "R$2.490,00 à vista",
+      "section": null,
+      "subsection": "R$2.490,00 à vista"
+    },
+    {
+      "type": "paragraph",
+      "text": "ou em até 4x sem juros",
+      "section": null,
+      "subsection": "R$2.490,00 à vista"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Você é de fora de São Paulo?",
+      "section": null,
+      "subsection": "Você é de fora de São Paulo?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Não se preocupe! Pensando na sua comodidade, separamos algumas indicações de hospedagem próximas ao Inteli para facilitar sua participação noInteli Camp 2025. Confira:",
+      "section": null,
+      "subsection": "Você é de fora de São Paulo?"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Charlie Panorama Butantã",
+      "section": null,
+      "subsection": "Charlie Panorama Butantã"
+    },
+    {
+      "type": "paragraph",
+      "text": "Endereço: Av. Vital Brasil, 400 – Butantã, São Paulo – SP Distância até o Inteli: 1,4 km (aprox. 15 min a pé) Melhor forma de chegar: Caminhada ou carro de app Site oficial",
+      "section": null,
+      "subsection": "Charlie Panorama Butantã",
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Share Student Living – Unidade Butantã",
+      "section": null,
+      "subsection": "Share Student Living – Unidade Butantã"
+    },
+    {
+      "type": "paragraph",
+      "text": "Endereço: Rua Sapetuba, 55 – Butantã, São Paulo – SP Distância até o Inteli: 1,2 km (aprox. 13 min a pé) Melhor forma de chegar: Caminhada Site oficial",
+      "section": null,
+      "subsection": "Share Student Living – Unidade Butantã",
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "WZ Hotel Jardins",
+      "section": null,
+      "subsection": "WZ Hotel Jardins"
+    },
+    {
+      "type": "paragraph",
+      "text": "Endereço: Av. Rebouças, 955 – Jardins, São Paulo – SP Distância até o Inteli: 6,5 km (aprox. 20 min de carro) Melhor forma de chegar: Carro de app ou transporte público (metrô até estação Butantã) Site oficial Quem somos Nossa História Programa de Bolsas Produção acadêmica Pós-Graduação Educação Executiva Processo Seletivo Institucional Perguntas Frequentes Política de Privacidade Código de Ética Ouvidoria e Canal de Denúncia Comissão Própria de Avaliação Redes Sociais Acesse já! Localização Um ecossistema de inovação e tecnologia localizado em São Paulo, dentro da cidade universitária.",
+      "section": null,
+      "subsection": "WZ Hotel Jardins",
+      "original_count": 21
+    }
+  ],
+  "statistics": {
+    "total_blocks": 66,
+    "paragraphs": 51,
+    "headings": 34,
+    "list_items": 26,
+    "tables": 0
+  }
+}

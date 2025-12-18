@@ -1,0 +1,199 @@
+{
+  "source_file": "en_pensar-como-um-algoritmo-a-base-da-ia-na-pratica.html",
+  "metadata": {
+    "url": "en_pensar-como-um-algoritmo-a-base-da-ia-na-pratica",
+    "title": "Think Like an Algorithm: the Basis of AI in Practice - Inteli - Institute of Technology and Leadership",
+    "description": "The success of AI goes beyond data: it requires immersion in the business, strategic preparation and critical application. See how Inteli trains complete professionals.",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "paragraph",
+      "text": "Inteli>Graduation>Think Like an Algorithm: the Basis of AI in Practice",
+      "section": null,
+      "subsection": null
+    },
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": null
+    },
+    {
+      "type": "list_block",
+      "text": "Inteli>Graduation>Think Like an Algorithm: the Basis of AI in Practice\n\n- Thais Neubauer\n- 20 Sep 2025\n- Thais Neubauer\n- 20 Sep 2025",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "paragraph",
+      "text": "Thais Neubauer - Inteli professor",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "The success of anArtificial Intelligenceapplication goes far beyond data and computing power. The clarity and depth of the reasoning behind the models play an equally, if not more, important role. The first and perhaps most critical step is complete immersion in thebusinesscontext.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Before any analysis, it is necessary to understand the objectives, processes and pains that the AI solution aims to solve, so that the data can then be understood and prepared appropriately.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": null
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Immersion in the business already generates value",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Immersion in the business already generates value"
+    },
+    {
+      "type": "paragraph",
+      "text": "Thisimmersionin the business is so powerful that it generates value in itself. With the initial exploration of thedataguided by a deep understanding of the business, many questions relevant to decision-making can already be answered.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Immersion in the business already generates value"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sometimes we realize that acomplex problemcan be solved without AI, with basic statistical analysis. When applied in a way that is aligned with the objectives, these simpler solutions outperform complex models because they require a much smaller investment of resources.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Immersion in the business already generates value"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Data preparation as an intellectual challenge",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Data preparation as an intellectual challenge"
+    },
+    {
+      "type": "paragraph",
+      "text": "When AI is the way forward, data preparation becomes an intellectual translation challenge. This is where qualitative and subjective business information is converted into structured representations that algorithms can process. Decisions about how to treat noise, outliers or missing values depend directly on the context. What looks like missing data may in fact be a pattern of filling in the system that understanding the business allows us to decipher.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Data preparation as an intellectual challenge"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Relevance of the information according to the problem",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Relevance of the information according to the problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "The relevance of information also changes depending on how the problem is modeled. For example, for a model that seeks to predict whether a customer will abandon a service(churn), the history of complaints and frequency of use are essential data.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Relevance of the information according to the problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "For a model that aims to recommend a new product to the same customer, their recent browsing history and past purchases become much more important than the number of complaints. The decision of how to present the data to the algorithm is therefore a strategic choice.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Relevance of the information according to the problem"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Business and technical knowledge as a differential",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Business and technical knowledge as a differential"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is where business understanding and in-depth technical knowledge come together as a major differentiator. InModule 3 of Inteli's first year, students delve into the mathematical andstatisticaldetails that govern howalgorithmswork. They don't just learn to use a library, but to understand the assumptions and ideal scenarios for each technique.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Business and technical knowledge as a differential"
+    },
+    {
+      "type": "paragraph",
+      "text": "The choice of tool ceases to be a blind application, guided by hype, and becomes anengineering decision: strategic, defensible and aware of its implications.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Business and technical knowledge as a differential"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "From analytical basis to project practice",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "From analytical basis to project practice"
+    },
+    {
+      "type": "paragraph",
+      "text": "With this consolidated analytical basis, practical application in projects becomes the testing ground for well-structured reasoning. Every model built and every test carried out is the result of a clear hypothesis and careful analysis. The process of iterating, failing and refining solidifies the connection between theory and the tangible impact of the solution, preparing the student for the challenges of the real world.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "From analytical basis to project practice"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Training complete professionals",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals"
+    },
+    {
+      "type": "paragraph",
+      "text": "This method trains complete professionals who engage with technology rather than just applying it. They combine in-depth theoretical content with the business context to build solutions, knowing how to interpret their results responsibly. This is the development of a mental framework that establishes a more critical, efficient and truly innovative way of working.",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals"
+    },
+    {
+      "type": "list_block",
+      "text": "See also:\n\n- Graduation,Tech Market,Selection Process,Academic Team",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals",
+      "original_count": 1
+    },
+    {
+      "type": "paragraph",
+      "text": "The connected world starts here: real projects with the Internet of Things",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals"
+    },
+    {
+      "type": "list_block",
+      "text": "The connected world starts here: real projects with the Internet of Things\n\n- Bruna Mayer\n- 13/10/2025\n- Graduation,Selection Process,Academic Team",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "What is the difference between Computer Engineering and Software Engineering?",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals"
+    },
+    {
+      "type": "list_block",
+      "text": "What is the difference between Computer Engineering and Software Engineering?\n\n- Renato Penha\n- 30/09/2025\n- Tech Market",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals",
+      "original_count": 3
+    },
+    {
+      "type": "paragraph",
+      "text": "The start of the professional journey",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals"
+    },
+    {
+      "type": "list_block",
+      "text": "The start of the professional journey\n\n- Inteli Team\n- 08/02/2024",
+      "section": "Thinking Like an Algorithm: the Basics of AI in Practice",
+      "subsection": "Training complete professionals",
+      "original_count": 2
+    }
+  ],
+  "statistics": {
+    "total_blocks": 28,
+    "paragraphs": 16,
+    "headings": 7,
+    "list_items": 13,
+    "tables": 0
+  }
+}

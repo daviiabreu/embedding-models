@@ -1,0 +1,93 @@
+{
+  "source_file": "escritorio-de-projetos.html",
+  "metadata": {
+    "url": "escritorio-de-projetos",
+    "title": "Escritório de Projetos - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "section_title",
+      "level": 1,
+      "text": "Escritório de Projetos",
+      "section": "Escritório de Projetos",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "O Escritório de Projetos tem como missão trazer parceiros de mercado de ponta para o modelo acadêmico, garantindo para os alunos a vivência prática de desenvolvimento de projetos em diferentes indústrias e setores da economia.",
+      "section": "Escritório de Projetos",
+      "subsection": null
+    },
+    {
+      "type": "paragraph",
+      "text": "Nosso time engaja as empresas para conhecer o modelo Inteli, realiza a divulgação do portfólio de projetos disponíveis para o mercado e apoia os potenciais parceiros no mapeamento das iniciativas de projetos. As iniciativas mais aderentes e atrativas são selecionadas e terão protótipos de soluções construídos pelos alunos. 10 semanas Modelo Ágil Protótipos de Solução",
+      "section": "Escritório de Projetos",
+      "subsection": null,
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Como funciona o desenvolvimento de projetos:",
+      "section": "Escritório de Projetos",
+      "subsection": "Como funciona o desenvolvimento de projetos:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Os projetos seguem a metodologia ágil, sendo divididos em cinco sprints de duas semanas cada durante o período de 10 semanas. Ao longo dessas sprints, são agendados sete encontros com o parceiro de projetos, conforme detalhado abaixo: Onboarding Executivo: Início da 1ª Sprint",
+      "section": "Escritório de Projetos",
+      "subsection": "Como funciona o desenvolvimento de projetos:",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "Nesta etapa um executivo do parceiro, conduzirá uma palestra institucional abordando temas sobre a empresa e compartilhando sua trajetória profissional. Encontros de Sprint:",
+      "section": "Escritório de Projetos",
+      "subsection": "Como funciona o desenvolvimento de projetos:",
+      "original_count": 2
+    },
+    {
+      "type": "paragraph",
+      "text": "Kickoff: durante a 1° semanavalidações de Sprint: 4 encontros agendados a cada 15 dias;apresentação final: no último dia da 5° Sprint;entrega de protótipos: dentro de até 30 dias após a conclusão do módulo.",
+      "section": "Escritório de Projetos",
+      "subsection": "Como funciona o desenvolvimento de projetos:"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Imagine só:",
+      "section": "Escritório de Projetos",
+      "subsection": "Imagine só:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ter o seu desafio resolvidopor nossos alunos usando tecnologia Receber protótiposde solução ao final de 10 semanas Aproximar a sua marcadas futuras lideranças de tecnologia do mercado Aumentar sua rede de networkingcom os nossos demais parceiros",
+      "section": "Escritório de Projetos",
+      "subsection": "Imagine só:",
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Depoimentos de parceiros",
+      "section": "Escritório de Projetos",
+      "subsection": "Depoimentos de parceiros"
+    },
+    {
+      "type": "paragraph",
+      "text": "A experiência dos parceiros que participaram dos nossos projetos",
+      "section": "Escritório de Projetos",
+      "subsection": "Depoimentos de parceiros"
+    }
+  ],
+  "statistics": {
+    "total_blocks": 11,
+    "paragraphs": 15,
+    "headings": 4,
+    "list_items": 0,
+    "tables": 0
+  }
+}

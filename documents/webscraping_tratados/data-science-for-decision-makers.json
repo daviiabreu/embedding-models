@@ -1,0 +1,172 @@
+{
+  "source_file": "data-science-for-decision-makers.html",
+  "metadata": {
+    "url": "data-science-for-decision-makers",
+    "title": "Data Science for Decision Makers - Inteli - Instituto de Tecnologia e Liderança",
+    "description": "",
+    "keywords": [],
+    "page_type": "geral"
+  },
+  "content_blocks": [
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Data Science for Decision Makers",
+      "section": null,
+      "subsection": "Data Science for Decision Makers"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Transforme dados em decisões estratégicas e impulsione resultados no seu negócio",
+      "section": null,
+      "subsection": "Transforme dados em decisões estratégicas e impulsione resultados no seu negócio"
+    },
+    {
+      "type": "paragraph",
+      "text": "09/08/2025 4 encontros presenciais(09, 16, 23 e 30/08/2025)* Carga horária: 32 horas presenciais e dedicação de 10h de autoestudo assíncrono Público-alvo:",
+      "section": null,
+      "subsection": "Transforme dados em decisões estratégicas e impulsione resultados no seu negócio",
+      "original_count": 5
+    },
+    {
+      "type": "paragraph",
+      "text": "Gestores e tomadores de decisão que desejam ampliar seus conhecimentos analíticos sobre dados, desenvolvendo projetos baseados em dados capazes de auxiliar decisões estratégicas nos negócios. Investimento e forma de pagamento: R$13.900,00, à vista no PIX ou parcelado no cartão em até 12x sem juros *Data sujeita a alteração com aviso prévio",
+      "section": null,
+      "subsection": "Transforme dados em decisões estratégicas e impulsione resultados no seu negócio",
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Sobre o curso:",
+      "section": null,
+      "subsection": "Sobre o curso:"
+    },
+    {
+      "type": "paragraph",
+      "text": "O programa executivoData Science for Decision Makersfoi desenvolvido com o objetivo de apresentar técnicas de análise e investigação de dados para tomada de decisão, com aplicação para profissionais de mercado de diversos setores.",
+      "section": null,
+      "subsection": "Sobre o curso:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Neste programa, os alunos aprenderão sobre investigação de problemas e escolha dos melhores dados e modelos para iniciar um projeto, técnicas para análise descritivas de dados, modelos e frameworks para análise preditiva baseada em dados, além de testes de hipóteses e design de experimentos para obterinsightsimportantes para a tomada de decisão.",
+      "section": null,
+      "subsection": "Sobre o curso:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Os conteúdos são abordados utilizando cases de universidades internacionais renomadas, e mediados por professores com vasta experiência no mercado.",
+      "section": null,
+      "subsection": "Sobre o curso:"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Tópicos abordados no curso:",
+      "section": null,
+      "subsection": "Tópicos abordados no curso:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Módulo 1 – Diagnóstico: Definindo o Problema Módulo 2 – Análise Descritiva: Investigando o Passado Módulo 3 – Análise Preditiva: Inferindo o Futuro Módulo 4 – Experimentação: Testando Mudanças",
+      "section": null,
+      "subsection": "Tópicos abordados no curso:",
+      "original_count": 4
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Ao final do curso, você será capaz de:",
+      "section": null,
+      "subsection": "Ao final do curso, você será capaz de:"
+    },
+    {
+      "type": "list_block",
+      "text": "Ao final do curso, você será capaz de:\n\n- Aplicar heurísticas e tratar possíveis vieses de dados no processo de tomada de decisão\n- Resolver problemas com análise exploratória de dados\n- Estruturar observações de dados com técnicas de visualização\n- Aplicar modelos preditivos para realizar inferências sobre possíveis resultados futuros\n- Desenvolver experimentos para validar hipóteses",
+      "section": null,
+      "subsection": "Ao final do curso, você será capaz de:",
+      "original_count": 5
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Gabriela Fujiki Platinetty",
+      "section": null,
+      "subsection": "Gabriela Fujiki Platinetty"
+    },
+    {
+      "type": "paragraph",
+      "text": "Partner at IBMEx-Marketing Director, NetshoesEx-McKinsey & Company",
+      "section": null,
+      "subsection": "Gabriela Fujiki Platinetty"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Daniel Scalli",
+      "section": null,
+      "subsection": "Daniel Scalli"
+    },
+    {
+      "type": "paragraph",
+      "text": "Director of Data, AfyaEx-Director of Analytics & Data Science, LoftEx-Manager & Consultant, IBM",
+      "section": null,
+      "subsection": "Daniel Scalli"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Pedro Teberga",
+      "section": null,
+      "subsection": "Pedro Teberga"
+    },
+    {
+      "type": "paragraph",
+      "text": "Education manager e professor no Einstein, Inteli, ESPM, FGV e Belavista. Visiting professor na NOVA SBE. Parceiro na Polinize.",
+      "section": null,
+      "subsection": "Pedro Teberga"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Jordan Piva",
+      "section": null,
+      "subsection": "Jordan Piva"
+    },
+    {
+      "type": "paragraph",
+      "text": "Gerente de produtos, InteliProfessor de matemática (Silver Medal International Mathematics Competition)Ex-jogador de poker profissional",
+      "section": null,
+      "subsection": "Jordan Piva"
+    },
+    {
+      "type": "subsection_title",
+      "level": 2,
+      "text": "Wescley Trajano",
+      "section": null,
+      "subsection": "Wescley Trajano"
+    },
+    {
+      "type": "paragraph",
+      "text": "Senior Data & Analytics Manager na Ambev, Lean Six Sigma Black Belt, com mestrado em Engenharia de Produção pela UFABC e MBA em Data Science e Analytics pela USP.",
+      "section": null,
+      "subsection": "Wescley Trajano"
+    },
+    {
+      "type": "paragraph",
+      "text": "Inscreva-se abaixo e siga as instruções da plataforma. Você está a um passo de impulsionar sua carreira! Ficou com alguma dúvida? Fale com um dos nossos especialistas nowhatsapp Preencha o formulário",
+      "section": null,
+      "subsection": "Wescley Trajano",
+      "original_count": 3
+    }
+  ],
+  "statistics": {
+    "total_blocks": 23,
+    "paragraphs": 24,
+    "headings": 10,
+    "list_items": 5,
+    "tables": 0
+  }
+}

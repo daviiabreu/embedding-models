@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 
 import logging
@@ -6,7 +7,7 @@ import sys
 from collections.abc import Sequence
 from collections.abc import Sequence as SequenceABC
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional, Dict, List
 
 from dotenv import load_dotenv
 from google.adk.tools.tool_context import ToolContext
@@ -252,7 +253,7 @@ def retrieval_from_qdrant(
     query_embedding: list[float],
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
-    metadata_filter: dict[str, Any] | None = None,
+    metadata_filter: Optional[Dict[str, Any]] = None,
 ) -> list[dict[str, Any]]:
     """Search Qdrant vector database for relevant documents using embedding similarity. 
     
@@ -327,12 +328,39 @@ def retrieval_from_qdrant(
                 logger.debug(f"Skipping chunk with academic_year='{chunk_year}' (wanted '{strict_year_filter}')")
                 continue
             
-            # EXTRA FILTER FOR 4º ANO: Skip chunks mentioning numbered projects
+            # EXTRA FILTER FOR 4º ANO: Skip chunks mentioning numbered projects or generic course descriptions
             if strict_year_filter == "4º ano":
                 import re
-                # Check if content mentions "Projeto X" where X is a number
+                
+                # Skip chunks mentioning "Projeto X" where X is a number
                 if re.search(r'[Pp]rojeto\s+\d+', content):
                     logger.debug(f"Skipping 4º ano chunk that mentions numbered project (belongs to years 1-3)")
+                    continue
+                
+                # Skip ANY chunk mentioning technologies/topics from years 1-3
+                # These are generic course descriptions, NOT specific to 4º ano
+                forbidden_patterns = [
+                    r'blockchain',
+                    r'business\s+intelligence',
+                    r'\bBI\b',
+                    r'inteligência\s+artificial',
+                    r'\b[Ii]A\b',  # IA as standalone word
+                    r'IoT',
+                    r'internet\s+das\s+coisas',
+                    r'machine\s+learning',
+                    r'aprendizado\s+de\s+máquina',
+                    r'desenvolver\s+software',
+                    r'automatizar\s+processos',
+                    r'manipulação.*dados',
+                    r'processamento\s+de\s+dados',
+                    r'programação\s+e\s+desenvolvimento',
+                    r'você\s+vai\s+aprender\s+a',
+                    r'o\s+que\s+você\s+(vai|irá)\s+aprender'
+                ]
+                
+                # If ANY forbidden pattern matches, skip this chunk
+                if any(re.search(pattern, content, re.IGNORECASE) for pattern in forbidden_patterns):
+                    logger.debug(f"Skipping 4º ano chunk with generic course description (mentions technologies/skills from other years)")
                     continue
         
         raw_id = getattr(point, "id", None)
@@ -367,10 +395,11 @@ def retrieval_from_qdrant(
 
         retrieved_nodes.append(entry)
 
+    # Se não encontrou resultados, retorna lista vazia ao invés de crashar
+    # O agente vai responder educadamente que não tem informação
     if not retrieved_nodes:
-        raise RuntimeError(
-            "Nenhum contexto relevante foi retornado pela busca no Qdrant."
-        )
+        logger.warning("⚠️ Nenhum contexto relevante encontrado no Qdrant")
+        return []
 
     adjacency_data = _retrieve_adjacency_payloads(client, adjacency_requests)
     for entry in retrieved_nodes:
@@ -451,13 +480,14 @@ def build_graph_rag_payload(
     }
 
 
-def _extract_metadata_filters_from_query(query: str) -> dict[str, Any] | None:
+def _extract_metadata_filters_from_query(query: str) -> Optional[Dict[str, Any]]:
     """Extract metadata filters from natural language query.
     
     Detects patterns like:
     - "Projeto 7" / "projeto sete" -> {"project": "Projeto 7"}
     - "Módulo 5" / "modulo cinco" -> {"project": "Projeto 5"} (maps module to project)
     - "2º ano" / "segundo ano" -> {"academic_year": "2º ano"}
+    - "professor Bryan Kano" -> {"professor_name": "Bryan Kano"}
     
     Returns None if no filters detected.
     """
@@ -487,6 +517,37 @@ def _extract_metadata_filters_from_query(query: str) -> dict[str, Any] | None:
         filters["academic_year"] = f"{year_num}º ano"
         logger.info(f"Detected academic year filter: {year_num}º ano")
     
+    # Pattern: Professor names (look for capitalized names after "professor")
+    # Examples: "professor Bryan Kano", "a professora Ana Cristina"
+    # NOTE: Only apply filter if we have at least 2 words (first + last name)
+    # If only first name, let semantic search handle it without filter
+    professor_pattern = r'professor[a]?\s+([A-ZÁÉÍÓÚÂÊÔÃÕÇ][a-záéíóúâêôãõç]+(?:\s+(?:de|da|dos|das|do)\s+)?[A-ZÁÉÍÓÚÂÊÔÃÕÇ][a-záéíóúâêôãõç]+(?:\s+(?:de|da|dos|das|do)\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ][a-záéíóúâêôãõç]+)*)'
+    professor_match = re.search(professor_pattern, query, re.IGNORECASE)
+    if professor_match:
+        professor_name = professor_match.group(1).strip()
+        # Only apply filter if we have full name (at least 2 words)
+        if len(professor_name.split()) >= 2:
+            filters["professor_name"] = professor_name
+            logger.info(f"🎯 Detected professor filter: {professor_name}")
+        else:
+            # Just first name - let semantic search find it without filter
+            logger.info(f"⚠️ Only first name detected ({professor_name}), skipping filter - using semantic search")
+    
+    # Pattern: Course names (adm tech, ciência da computação, etc)
+    course_patterns = {
+        r'adm\s*tech|administra[çc][aã]o.*tecnologia': 'adm-tech',
+        r'ci[êe]ncia.*computa[çc][aã]o': 'ciencia-da-computacao',
+        r'engenharia.*software': 'engenharia-de-software',
+        r'engenharia.*computa[çc][aã]o': 'engenharia-de-computacao',
+        r'sistemas.*informa[çc][aã]o': 'sistemas-de-informacao',
+    }
+    
+    for pattern, course_slug in course_patterns.items():
+        if re.search(pattern, query_lower):
+            filters["course"] = course_slug
+            logger.info(f"Detected course filter: {course_slug}")
+            break
+    
     return filters if filters else None
 
 
@@ -495,7 +556,7 @@ def rag_inference_pipeline(
     query: str,
     top_k: int = DEFAULT_TOP_K,
     adjacency_limit: int = DEFAULT_ADJACENT_LIMIT,
-    metadata_filter: dict[str, Any] | None = None,
+    metadata_filter: Optional[Dict[str, Any]] = None,
 ) -> dict[str, Any]:
     """Complete RAG pipeline for knowledge retrieval. 
     
@@ -516,7 +577,7 @@ def rag_inference_pipeline(
     # When filtering by year, we want ONLY that year's content, not general content
     adjusted_top_k = top_k
     if metadata_filter and "academic_year" in metadata_filter:
-        adjusted_top_k = min(30, top_k)  # Use smaller top_k for year-specific queries
+        adjusted_top_k = min(5, top_k)  # Use smaller top_k for year-specific queries
         logger.info(f"Academic year filter detected, reducing top_k from {top_k} to {adjusted_top_k}")
     
     # Check cache first
@@ -533,6 +594,19 @@ def rag_inference_pipeline(
         adjacency_limit=adjacency_limit,
         metadata_filter=metadata_filter,
     )
+    
+    # Se não encontrou nada, retorna payload vazio indicando ausência de dados
+    if not retrieval:
+        logger.warning(f"⚠️ Nenhum resultado encontrado para: {query[:50]}...")
+        empty_payload = {
+            "query": query,
+            "retrieved_nodes": [],
+            "total_nodes": 0,
+            "no_results": True  # Flag para o agente saber que não há dados
+        }
+        cache_rag_result(cache_key, empty_payload, adjusted_top_k)
+        return empty_payload
+    
     payload = build_graph_rag_payload(
         query=query,
         query_embedding=query_vector,
