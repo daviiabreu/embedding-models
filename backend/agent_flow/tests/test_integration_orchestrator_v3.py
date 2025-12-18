@@ -2,11 +2,13 @@
 Integration tests for Orchestrator Agent V3.
 
 Tests the orchestrator workflow without personality agent:
-- Safety agent integration
-- Context agent integration
-- Knowledge agent integration
+- Tool integration (retrieve_inteli_knowledge, check_content_safety, etc.)
 - Error handling and recovery
 - Conversation history management
+
+V3.1 Changes:
+- Orchestrator now uses tools directly instead of sub_agents
+- Tests updated to verify tools are properly configured
 """
 
 from unittest.mock import Mock, patch
@@ -19,89 +21,52 @@ from agents.orchestrator_agent_v3 import OrchestratorAgent, create_orchestrator_
 class TestOrchestratorV3Creation:
     """Test orchestrator V3 creation and initialization."""
 
-    @pytest.fixture
-    def mock_agents(self):
-        """Mock all sub-agents."""
-        mock_safety = Mock()
-        mock_safety.name = "safety_agent"
-
-        mock_context = Mock()
-        mock_context.name = "context_agent"
-
-        mock_knowledge = Mock()
-        mock_knowledge.name = "knowledge_agent"
-
-        return {
-            "safety": mock_safety,
-            "context": mock_context,
-            "knowledge": mock_knowledge,
-        }
-
-    def test_create_with_provided_agents(self, mock_agents, mock_config):
-        """Should create orchestrator with provided agents."""
+    def test_create_with_model(self, mock_config):
+        """Should create orchestrator with specified model."""
         with (
             patch("config.config", mock_config),
             patch("agents.orchestrator_agent_v3.Agent") as mock_agent_class,
         ):
-            orchestrator = create_orchestrator_agent(
-                model="gemini-2.5-pro",
-                safety_agent=mock_agents["safety"],
-                context_agent=mock_agents["context"],
-                knowledge_agent=mock_agents["knowledge"],
-            )
+            orchestrator = create_orchestrator_agent(model="gemini-2.5-pro")
 
-            # Verify agent was created with correct sub-agents
+            # Verify agent was created with correct parameters
             mock_agent_class.assert_called_once()
             call_kwargs = mock_agent_class.call_args[1]
 
             assert call_kwargs["name"] == "orchestrator_agent_v3"
             assert call_kwargs["model"] == "gemini-2.5-pro"
-            assert len(call_kwargs["sub_agents"]) == 3  # Only 3 agents (no personality)
 
-    def test_create_without_agents(self, mock_config):
-        """Should create sub-agents if not provided."""
+    def test_create_with_tools(self, mock_config):
+        """Should create orchestrator with tools (not sub_agents)."""
         with (
             patch("config.config", mock_config),
             patch("agents.orchestrator_agent_v3.Agent") as mock_agent_class,
-            patch("agents.orchestrator_agent_v3.create_safety_agent") as mock_safety,
-            patch("agents.orchestrator_agent_v3.create_context_agent") as mock_context,
-            patch(
-                "agents.orchestrator_agent_v3.create_knowledge_agent"
-            ) as mock_knowledge,
         ):
-            # Setup mocks
-            mock_safety.return_value = Mock(name="safety")
-            mock_context.return_value = Mock(name="context")
-            mock_knowledge.return_value = Mock(name="knowledge")
-
             orchestrator = create_orchestrator_agent()
 
-            # Verify sub-agents were created
-            mock_safety.assert_called_once()
-            mock_context.assert_called_once()
-            mock_knowledge.assert_called_once()
+            # Verify agent was created with tools
+            mock_agent_class.assert_called_once()
+            call_kwargs = mock_agent_class.call_args[1]
 
-    def test_no_personality_agent_in_sub_agents(self, mock_agents, mock_config):
-        """Should NOT include personality agent in sub_agents."""
+            # Should have tools, not sub_agents
+            assert "tools" in call_kwargs
+            assert len(call_kwargs["tools"]) == 4  # 4 tools
+
+    def test_no_sub_agents(self, mock_config):
+        """Should NOT use sub_agents (uses tools instead)."""
         with (
             patch("config.config", mock_config),
             patch("agents.orchestrator_agent_v3.Agent") as mock_agent_class,
         ):
-            orchestrator = create_orchestrator_agent(
-                safety_agent=mock_agents["safety"],
-                context_agent=mock_agents["context"],
-                knowledge_agent=mock_agents["knowledge"],
-            )
+            orchestrator = create_orchestrator_agent()
 
-            # Get sub_agents from agent creation call
+            # Get call kwargs
             call_kwargs = mock_agent_class.call_args[1]
-            sub_agents = call_kwargs["sub_agents"]
 
-            # Should have exactly 3 agents
-            assert len(sub_agents) == 3
-
-            # Should be safety, context, knowledge
-            assert all(hasattr(agent, "name") for agent in sub_agents)
+            # Should NOT have sub_agents
+            assert (
+                "sub_agents" not in call_kwargs or call_kwargs.get("sub_agents") is None
+            )
 
 
 class TestOrchestratorV3Processing:
@@ -111,7 +76,7 @@ class TestOrchestratorV3Processing:
     def mock_agent(self):
         """Mock Google ADK Agent."""
         mock = Mock()
-        mock.run.return_value = "Olá! [latido] Como posso ajudar você?"
+        mock.run.return_value = "Olá! Como posso ajudar você?"
         mock.name = "orchestrator_agent_v3"
         return mock
 
@@ -140,7 +105,7 @@ class TestOrchestratorV3Processing:
 
     def test_process_question_about_inteli(self, orchestrator, mock_agent):
         """Should process questions about Inteli."""
-        mock_agent.run.return_value = "O Inteli oferece cursos de tecnologia. [latido]"
+        mock_agent.run.return_value = "O Inteli oferece cursos de tecnologia."
 
         message = "Quais são os cursos do Inteli?"
         response = orchestrator.process_message(message)
@@ -302,47 +267,20 @@ class TestOrchestratorV3Workflow:
 
 
 class TestOrchestratorV3Integration:
-    """Full integration tests with mocked sub-agents."""
+    """Full integration tests with tools."""
 
     @pytest.fixture
     def full_integration_setup(self, mock_config):
-        """Setup orchestrator with mocked sub-agents that simulate real behavior."""
-        # Mock sub-agents with realistic behavior
-        mock_safety = Mock()
-        mock_safety.name = "safety_agent"
-        mock_safety.run.return_value = '{"is_safe": true, "reason": "Content is safe"}'
-
-        mock_context = Mock()
-        mock_context.name = "context_agent"
-        mock_context.run.return_value = '{"history": [], "context": "No prior context"}'
-
-        mock_knowledge = Mock()
-        mock_knowledge.name = "knowledge_agent"
-        mock_knowledge.run.return_value = (
-            '{"results": [{"text": "Inteli info", "score": 0.95}]}'
-        )
-
+        """Setup orchestrator with mocked tools that simulate real behavior."""
         # Mock main agent
         mock_orchestrator_agent = Mock()
         mock_orchestrator_agent.run.return_value = (
-            "Olá! [latido] O Inteli oferece cursos de tecnologia."
+            "Ola! O Inteli oferece cursos de tecnologia."
         )
         mock_orchestrator_agent.name = "orchestrator_agent_v3"
 
         with (
             patch("config.config", mock_config),
-            patch(
-                "agents.orchestrator_agent_v3.create_safety_agent",
-                return_value=mock_safety,
-            ),
-            patch(
-                "agents.orchestrator_agent_v3.create_context_agent",
-                return_value=mock_context,
-            ),
-            patch(
-                "agents.orchestrator_agent_v3.create_knowledge_agent",
-                return_value=mock_knowledge,
-            ),
             patch(
                 "agents.orchestrator_agent_v3.Agent",
                 return_value=mock_orchestrator_agent,
@@ -353,9 +291,6 @@ class TestOrchestratorV3Integration:
 
             return {
                 "orchestrator": orch,
-                "safety": mock_safety,
-                "context": mock_context,
-                "knowledge": mock_knowledge,
                 "main_agent": mock_orchestrator_agent,
             }
 
@@ -366,7 +301,7 @@ class TestOrchestratorV3Integration:
         mock_agent = setup["main_agent"]
 
         # Process message
-        response = orchestrator.process_message("Quais são os cursos?")
+        response = orchestrator.process_message("Quais sao os cursos?")
 
         # Should get response
         assert isinstance(response, str)
@@ -380,15 +315,15 @@ class TestOrchestratorV3Integration:
         orchestrator = full_integration_setup["orchestrator"]
 
         # Turn 1
-        response1 = orchestrator.process_message("Olá!")
+        response1 = orchestrator.process_message("Ola!")
         assert len(response1) > 0
 
         # Turn 2
-        response2 = orchestrator.process_message("Quais cursos vocês oferecem?")
+        response2 = orchestrator.process_message("Quais cursos voces oferecem?")
         assert len(response2) > 0
 
         # Turn 3
-        response3 = orchestrator.process_message("Me conte mais sobre admissão")
+        response3 = orchestrator.process_message("Me conte mais sobre admissao")
         assert len(response3) > 0
 
         # Should have 6 messages in history (3 turns)

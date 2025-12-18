@@ -9,8 +9,8 @@ from threading import Thread
 
 import pytest
 
-from utils.errors import RateLimitError
-from utils.rate_limiter import RateLimiter
+from backend.agent_flow.utils.errors import RateLimitError
+from backend.agent_flow.utils.rate_limiter import RateLimiter
 
 
 class TestRateLimiterBasics:

@@ -9,7 +9,7 @@ import pytest
 def mock_llm_response():
     """Mock LLM response."""
     mock = Mock()
-    mock.text = "Olá! [latido] Como posso ajudar você hoje?"
+    mock.text = "Olá! Como posso ajudar você hoje?"
     mock.candidates = []
     return mock
 
@@ -31,11 +31,11 @@ def sample_conversation_history():
     """Sample conversation history."""
     return [
         {"role": "user", "content": "oi"},
-        {"role": "assistant", "content": "Olá! [latido] Como posso ajudar você hoje?"},
+        {"role": "assistant", "content": "Olá! Como posso ajudar você hoje?"},
         {"role": "user", "content": "Quais são os cursos do Inteli?"},
         {
             "role": "assistant",
-            "content": "O Inteli oferece cursos de Ciência da Computação, Engenharia de Software e Sistemas de Informação. [latido]",
+            "content": "O Inteli oferece cursos de Adm Tech, Engenharia da Computação, Ciência da Computação, Engenharia de Software e Sistemas de Informação.",
         },
     ]
 

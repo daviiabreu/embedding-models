@@ -13,7 +13,7 @@ Improvements over V2:
 
 import uuid
 
-from utils import (
+from backend.agent_flow.utils import (
     RateLimitError,
     SafetyCheckError,
     ValidationError,
@@ -114,8 +114,10 @@ class ChatService:
             raw_response = self.orchestrator.process_message(validated_prompt)
 
             # 5. Clean response for voice output (remove URLs, markdown, etc.)
+            logger.debug("raw_response_before_cleaning", raw=repr(raw_response))
             cleaning_result = clean_for_voice(raw_response)
             response = cleaning_result.text
+            logger.debug("response_after_cleaning", cleaned=repr(response))
 
             # Log if cleaning made changes
             if cleaning_result.changes_made:
@@ -191,7 +193,7 @@ class ChatService:
                 type="unexpected", agent="chat_service_v3"
             ).inc()
             metrics.requests_total.labels(agent="chat_service_v3", status="error").inc()
-            return "Desculpe [latido], tive um problema inesperado. Por favor, tente novamente."
+            return "Desculpe, tive um problema inesperado. Pode tentar novamente?"
 
     def get_usage(self, user_id: str) -> dict:
         """

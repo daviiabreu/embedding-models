@@ -2,7 +2,7 @@
 
 import pytest
 
-from utils.validation import ValidationError, validate_user_input
+from backend.agent_flow.utils.validation import ValidationError, validate_user_input
 
 
 class TestValidateUserInput:

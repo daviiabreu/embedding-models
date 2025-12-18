@@ -1,6 +1,6 @@
 """Tests for heuristic functions."""
 
-from utils.heuristics import (
+from backend.agent_flow.utils.heuristics import (
     detect_communication_style,
     detect_engagement_level,
     detect_formality,

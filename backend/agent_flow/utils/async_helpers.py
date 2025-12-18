@@ -13,8 +13,8 @@ from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from typing import Any, TypeVar
 
-from utils.constants import AGENT_TIMEOUT_SECONDS
-from utils.logging_config import get_logger
+from backend.agent_flow.utils.constants import AGENT_TIMEOUT_SECONDS
+from backend.agent_flow.utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 

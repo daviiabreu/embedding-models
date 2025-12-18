@@ -23,7 +23,7 @@ class TestChatServiceV3Integration:
     def mock_orchestrator(self):
         """Mock orchestrator for testing."""
         mock = Mock()
-        mock.process_message.return_value = "Olá! [latido] Como posso ajudar você?"
+        mock.process_message.return_value = "Olá! Como posso ajudar você?"
         return mock
 
     @pytest.fixture
@@ -233,7 +233,7 @@ class TestChatServiceV3WithRealOrchestrator:
     def mock_agent_class(self):
         """Mock Google ADK Agent class."""
         mock_agent = Mock()
-        mock_agent.run.return_value = "Olá! [latido] Como posso ajudar?"
+        mock_agent.run.return_value = "Olá! Como posso ajudar?"
         return mock_agent
 
     def test_full_workflow_with_orchestrator(
@@ -247,9 +247,7 @@ class TestChatServiceV3WithRealOrchestrator:
         ):
             # Setup mock
             mock_orchestrator = Mock()
-            mock_orchestrator.process_message.return_value = (
-                "Olá! [latido] Como posso ajudar?"
-            )
+            mock_orchestrator.process_message.return_value = "Olá! Como posso ajudar?"
             mock_orch_class.return_value = mock_orchestrator
 
             # Create service

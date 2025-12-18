@@ -2,15 +2,10 @@
 
 import os
 from dataclasses import dataclass
-from pathlib import Path
 
 from dotenv import load_dotenv
 
-# Load environment variables
-PROJECT_ROOT = Path(__file__).parent
-ENV_FILE = PROJECT_ROOT / ".env"
-if ENV_FILE.exists():
-    load_dotenv(ENV_FILE, override=False)
+load_dotenv()
 
 
 @dataclass(frozen=True)

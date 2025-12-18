@@ -76,11 +76,6 @@ desktop.ini
 *.bak
 *.swp
 
-# Audio/Media (if you don't want to track these)
-*.mp3
-*.wav
-*.mp4
-
 # Documentation Build
 docs/_build/
 site/
