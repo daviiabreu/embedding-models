@@ -105,22 +105,22 @@ if __name__ == "__main__":
         { "id": "23_qa_clubes", "emotion": "[helpful]", "text": "Bom, esse foi um pouquinho sobre os cursos e clubes daqui. Se vocês quiserem saber mais sobre algum clube, fiquem à vontade pra perguntar agora!" },
 
         # BLOCO 6: PBL E ROTINA 
-        { "id": "24_sem_materias", "emotion": "[shocked, dramatic]", "text": "E agora, preparem-se para um espanto: O Inteli não tem matérias!" },
+        { "id": "24_sem_materias", "emotion": "[shocked, dramatic]", "text": "E agora, preparem-se para um espanto: O Intéli não tem matérias!" },
         { "id": "25_explicacao_pbl", "emotion": "[explanatory, educational]", "text": "Os fundadores não queriam criar uma faculdade tradicional. Eles queriam também trazer a inovação por meio dela. E é daí que surge a ideia de implementar aqui no Brasil, um método de ensino famoso lá fora, mas pouco conhecido aqui dentro: o Ensino baseado em Projetos ou PBL para os íntimos." },
         { "id": "26_aprendendo_testando", "emotion": "[proud, reflective]", "text": "Nesse modelo, os alunos aprendem, tudo na prática. Então, em vez de cursar disciplinas isoladas, eles aprendem de um modo chamado de transdisciplinar. Isso quer dizer que no fim, eles acabam aprendendo os conteúdos de Cálculo I, mas isso acontece de forma dinâmica e não compete só ao professor de matemática, mas cruza com Negócios, Programação, Design, e principalmente, cruza com um projeto real." },
         { "id": "26_aprendendo_testando2", "emotion": "[proud, reflective]", "text": "Foi testando que eu aprendi a falar. E foi testando que eles aprenderam sobre LLMs, Redes Neurais e até sobre o mercado de robôs autônomos no Brasil. Entre teoria e prática, aqui escolhemos os dois." },
-        { "id": "27_momento_dev", "emotion": "[engaging, question]", "text": "No primeiro ano, os alunos aprendem matemática e programação enquanto criam um jogo real. Esse projeto é encomendado por grandes parceiros do Inteli, como Meta, Google e Vivo" },
-        { "id": "27_momento2_dev", "emotion": "[engaging, question]", "text": "Como o prazo é curto — apenas dez semanas — ninguém faz nada sozinho. O foco aqui é o trabalho em conjunto. Por isso eles têm acesso a esta 'casinha', onde colaboram durante o momento de DEV." },
-        { "id": "28_explicacao_dev", "emotion": "[informative]", "text": "O DEV é um dos três momentos que a gente tem aqui no Inteli para o aluno aprender. Essa é a hora de colocar a mão na massa. É o momento em que eles desenvolvem o projeto efetivamente. Para o primeiro ano, isso acontece todos os dias, das duas às quatro da tarde." },
-        { "id": "33_explicacao_autoestudo:", "emotion": "[warm, closing]", "text": "Mas eu disse pra vocês que existem três momentos, certo? Os outros dois são: o autoestudo e o encontro. O autoestudo começa pela manhã, onde os alunos acessam o material da aula e estudam sozinhos ou em grupo nas mesas que vimos ali atrás." },
-        { "id": "34_autoestudo:", "emotion": "[warm, closing]", "text": "Isso garante que todos cheguem preparados para o terceiro momento: o Encontro. Mas sobre ele, nós vamos falar na nossa próxima parada." },
-        { "id": "35_finalizacao", "emotion": "[warm, closing]", "text": "Vocês têm alguma pergunta sobre a metodologia de ensino ou a nossa rotina aqui na instituição?" }        
+        { "id": "27_momento_dev", "emotion": "[engaging, question]", "text": "No primeiro ano, os alunos aprendem matemática e programação enquanto criam um jogo real. Esse projeto é encomendado por grandes parceiros do Intéli, como Meta, Google e Vivo" },
+        { "id": "27_momento2_dev", "emotion": "[engaging, question]", "text": "Como o prazo é curto — apenas dez semanas — ninguém faz nada sozinho. O foco aqui é o trabalho em conjunto. Por isso eles têm acesso a esta 'casinha', onde colaboram durante o momento de desenvolvimento." },
+        { "id": "28_explicacao_dev", "emotion": "[informative]", "text": "O Desenvolvimento é um dos três momentos que a gente tem aqui no Inteli para o aluno aprender. Essa é a hora de colocar a mão na massa. É o momento em que eles desenvolvem o projeto efetivamente. Para o primeiro ano, isso acontece todos os dias, das duas às quatro da tarde." },
+        { "id": "29_explicacao_autoestudo:", "emotion": "[warm, closing]", "text": "Mas eu disse pra vocês que existem três momentos, certo? Os outros dois são: o autoestudo e a instrução. O autoestudo começa pela manhã, onde os alunos acessam o material da aula e estudam sozinhos ou em grupo nas mesas que vimos ali atrás." },
+        { "id": "30_autoestudo:", "emotion": "[warm, misterious]", "text": "Isso garante que todos cheguem preparados para o terceiro momento: a Instrução. Mas sobre ele, nós vamos falar na nossa próxima parada." },
+        { "id": "31_finalizacao", "emotion": "[warm, closing]", "text": "Vocês têm alguma pergunta sobre a metodologia de ensino ou a nossa rotina aqui na instituição?" }        
     ]
 
     # CONTROLE DE EXECUÇÃO
     
     # OPÇÃO 1: Gerar TODOS os áudios
-    SEGMENTS_TO_RUN = "14_intro_cursos"
+    SEGMENTS_TO_RUN = "29_explicacao_autoestudo"
 
     # OPÇÃO 2: Gerar apenas áudios específicos (Descomente abaixo para usar)
     # Copie o "id" exato que está na lista acima.
