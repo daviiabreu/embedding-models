@@ -356,6 +356,22 @@ def extract_file_elements(file_path_str: str, use_unstructured: bool = True) -> 
             logger.info(f"🌐 JSON estruturado detectado (html_cleaner)")
             metadata_base = data.get('metadata', {})
             
+            # EXTRAÇÃO DO CURSO DO NOME DO ARQUIVO
+            # Ex: "adm-tech_cleaned.json" -> "adm-tech"
+            # Ex: "ciencia-da-computacao_cleaned.json" -> "ciencia-da-computacao"
+            course_from_filename = None
+            filename_stem = file_path.stem  # Remove .json
+            if '_cleaned' in filename_stem:
+                course_from_filename = filename_stem.replace('_cleaned', '')
+            elif '_' in filename_stem:
+                # Caso não tenha _cleaned, pega até o primeiro underscore
+                course_from_filename = filename_stem.split('_')[0]
+            else:
+                # Se não tem underscore, usa o nome inteiro
+                course_from_filename = filename_stem
+            
+            logger.info(f"📚 Curso detectado do filename: '{course_from_filename}'")
+            
             for idx, block in enumerate(data['content_blocks']):
                 text = block.get('text', '')
                 if len(text) < 10:
@@ -395,7 +411,7 @@ def extract_file_elements(file_path_str: str, use_unstructured: bool = True) -> 
                         "academic_year": block.get('academic_year'),
                         # METADADOS PARA BUSCA DE PROFESSORES E CURSOS
                         "professor_name": block.get('professor_name'),
-                        "course": block.get('course')
+                        "course": course_from_filename  # 🔧 FIX: Extrai do nome do arquivo!
                     },
                     "element_id": f"web_{idx}"
                 })
@@ -521,7 +537,7 @@ def preprocess_elements(
         # Atualiza contexto (se não vier do JSON estruturado)
         if not element.get("section"):
             if meta["is_header"]:
-                section_name = extract_section_info(element)
+                section_name =sim,  extract_section_info(element)
                 if section_name != "general":
                     current_context["section"] = section_name
                 current_context["last_header"] = text
@@ -891,8 +907,18 @@ def process_directory(
     
     logger.info(f"📁 Encontrados {len(files)} arquivos para processar")
     
+    # Contadores para estatísticas
+    total_files = len(files)
+    processed_success = 0
+    processed_error = 0
+    
     # Processa primeiro arquivo com reset
     for i, file_path in enumerate(files):
+        current = i + 1
+        logger.info(f"\n{'='*60}")
+        logger.info(f"📄 Processando arquivo {current}/{total_files}: {file_path.name}")
+        logger.info(f"{'='*60}")
+        
         try:
             is_first = (i == 0)
             embedding_pipeline(
@@ -903,11 +929,21 @@ def process_directory(
                 skip_summary=skip_summary,
                 use_unstructured=use_unstructured
             )
+            processed_success += 1
+            logger.info(f"✅ Sucesso! Progresso: {processed_success}/{total_files} ({processed_success/total_files*100:.1f}%)")
         except Exception as e:
+            processed_error += 1
             logger.error(f"❌ Erro ao processar {file_path.name}: {e}")
+            logger.info(f"⚠️  Erros até agora: {processed_error}/{total_files}")
             continue
     
-    logger.info("🎉 Processamento em lote concluído!")
+    # Resumo final
+    logger.info("\n" + "="*60)
+    logger.info("🎉 PROCESSAMENTO EM LOTE CONCLUÍDO!")
+    logger.info("="*60)
+    logger.info(f"✅ Processados com sucesso: {processed_success}/{total_files}")
+    logger.info(f"❌ Erros: {processed_error}/{total_files}")
+    logger.info(f"📊 Taxa de sucesso: {processed_success/total_files*100:.1f}%")
 
 # ================= MAIN =================
 
