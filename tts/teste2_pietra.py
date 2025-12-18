@@ -150,6 +150,7 @@ if __name__ == "__main__":
         # BLOCO 10: Finalização apresentação
         { "id": "51_despedida_apresentacao1", "emotion": "[kind, grateful]", "text": "E é por isso que foi um prazer pra mim guiar vocês hoje e participar deste projeto do módulo 8 de Engenharia da Computação!" },
         { "id": "52_despedida_apresentacao2", "emotion": "[warm, friendly]", "text": "Espero ver todos aqui no Inteli no ano que vem! Let's Bora!" },
+        { "id": "53_inicio_apresentacao", "emotion": "[excited, friendly]", "text": "É claro que eu não poderia perder o desfecho desse projeto." },
   ]
 
 
@@ -162,7 +163,7 @@ if __name__ == "__main__":
     # CONTROLE DE EXECUÇÃO
     
     # OPÇÃO 1: Gerar TODOS os áudios
-    SEGMENTS_TO_RUN = ["52_despedida_apresentacao2"]  # Coloque "all" para gerar tudo
+    SEGMENTS_TO_RUN = ["53_inicio_apresentacao"]  # Coloque "all" para gerar tudo
 
     # OPÇÃO 2: Gerar apenas áudios específicos (Descomente abaixo para usar)
     # Copie o "id" exato que está na lista acima.
