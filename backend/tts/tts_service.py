@@ -77,14 +77,19 @@ class TTSService:
         text = text.replace("---", "")
 
         return text.strip()
+    
+    def prepare_text_for_audio(self, text:str) -> str:
+        text = text.replace('inteli', 'Intéli')
+        text = text.replace('Inteli', 'Intéli')
+
+        return text
+
 
     def sentence_to_speech(self, sentence):
         cleaned_sentence = self.clean_text_for_speech(sentence)
-        print(cleaned_sentence)
 
-        cleaned_sentence_wInteli = cleaned_sentence.replace('inteli', 'Intéli')
-        cleaned_sentence_wInteli = cleaned_sentence.replace('Inteli', 'Intéli')
-        print(cleaned_sentence_wInteli)
+        cleaned_sentence_wInteli = self.prepare_text_for_audio(cleaned_sentence)
+
         answer_in_mp3 = self.client.synthesize_speech(
             input=texttospeech.SynthesisInput(text=cleaned_sentence_wInteli),
             voice=self.voice,

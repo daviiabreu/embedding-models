@@ -44,7 +44,8 @@ async def teste_transcricao():
 @app.post("/chat")
 async def chat_w_bot(prompt: Prompt):
     if prompt:
-        response_llm = chat.give_response(prompt.message)
+        prompt = chat.gives_context_to_llm(prompt.message)
+        response_llm = chat.give_response(prompt)
         if response_llm:
             return {"status": 200, "response": str(response_llm)}
         return {
@@ -72,7 +73,7 @@ async def falar_texto(websocket: WebSocket):
 
 
 @app.websocket("/stt")
-async def falar_texto(websocket: WebSocket):
+async def transcrever(websocket: WebSocket):
     await websocket.accept()
     try:
         while True:

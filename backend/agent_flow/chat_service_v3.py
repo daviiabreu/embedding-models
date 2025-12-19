@@ -178,6 +178,14 @@ class ChatService:
             )
             return "Desculpe, tive um problema inesperado. Pode tentar novamente?"
 
+    def gives_context_to_llm(self, text: str) -> str:
+        text = text.replace('engcomp', 'Engenharia da Computação')
+        text = text.replace('engsoft', 'Engenharia de Software')
+        text = text.replace('si', 'Sistemas de Informação')
+        text = text.replace('cc', 'Ciência da Computação')
+
+        return text
+
     def get_usage(self, user_id: str) -> dict:
         """
         Get rate limit usage for a user.
