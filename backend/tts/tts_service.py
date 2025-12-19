@@ -80,9 +80,13 @@ class TTSService:
 
     def sentence_to_speech(self, sentence):
         cleaned_sentence = self.clean_text_for_speech(sentence)
+        print(cleaned_sentence)
 
+        cleaned_sentence_wInteli = cleaned_sentence.replace('inteli', 'Intéli')
+        cleaned_sentence_wInteli = cleaned_sentence.replace('Inteli', 'Intéli')
+        print(cleaned_sentence_wInteli)
         answer_in_mp3 = self.client.synthesize_speech(
-            input=texttospeech.SynthesisInput(text=cleaned_sentence),
+            input=texttospeech.SynthesisInput(text=cleaned_sentence_wInteli),
             voice=self.voice,
             audio_config=self.audio_config,
         )

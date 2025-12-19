@@ -75,6 +75,7 @@ desktop.ini
 *.temp
 *.bak
 *.swp
+output.mp3
 
 # Documentation Build
 docs/_build/

@@ -87,7 +87,6 @@ class ChatService:
 
         # Track request start
         logger.info("request_started", request_id=request_id, user_id=user_id)
-        metrics.requests_total.labels(agent="chat_service_v3", status="started").inc()
 
         try:
             # 1. Check rate limit FIRST
@@ -137,9 +136,6 @@ class ChatService:
                 response_length=len(response),
             )
 
-            metrics.requests_total.labels(
-                agent="chat_service_v3", status="success"
-            ).inc()
             return response
 
         except RateLimitError as e:
@@ -147,9 +143,6 @@ class ChatService:
             logger.warning(
                 "rate_limit_exceeded", request_id=request_id, user_id=user_id
             )
-            metrics.requests_total.labels(
-                agent="chat_service_v3", status="rate_limited"
-            ).inc()
             return e.user_message
 
         except ValidationError as e:
@@ -160,9 +153,6 @@ class ChatService:
                 user_id=user_id,
                 error=str(e),
             )
-            metrics.requests_total.labels(
-                agent="chat_service_v3", status="validation_error"
-            ).inc()
             return e.user_message
 
         except SafetyCheckError as e:
@@ -173,10 +163,7 @@ class ChatService:
                 user_id=user_id,
                 reason=getattr(e, "reason", "unknown"),
             )
-            metrics.safety_blocks_total.labels(reason=type(e).__name__).inc()
-            metrics.requests_total.labels(
-                agent="chat_service_v3", status="safety_block"
-            ).inc()
+
             return e.user_message
 
         except Exception as e:
@@ -189,10 +176,6 @@ class ChatService:
                 error=str(e),
                 exc_info=True,
             )
-            metrics.errors_total.labels(
-                type="unexpected", agent="chat_service_v3"
-            ).inc()
-            metrics.requests_total.labels(agent="chat_service_v3", status="error").inc()
             return "Desculpe, tive um problema inesperado. Pode tentar novamente?"
 
     def get_usage(self, user_id: str) -> dict:
